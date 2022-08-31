@@ -7,4 +7,6 @@ Clone o repositório para o seu computador e utilize este comando:
 python -m venv venv && venv\Scripts\activate && pip install flask && flask run
 ```
 
-Coloque os arquivos HTML na pasta templates e CSS na pasta static/css
+Coloque os arquivos HTML na pasta templates e CSS na pasta static/css.
+
+Acesse o localhost:5000 no navegador.
