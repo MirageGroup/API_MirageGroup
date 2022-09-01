@@ -1,0 +1,11 @@
+@import url("header.css");
+@import url("main.css");
+ 
+:root{
+    --vermelho_principal:#A3130D;
+    --fonte_principal: 'Inter', sans-serif;
+}
+
+body{
+    font-family: var(--fonte_principal);
+}
