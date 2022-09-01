@@ -1,0 +1,26 @@
+
+/* HEADER */
+.header_superior{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em 3em;
+    background-color: var(--vermelho_principal)
+}
+.header_inferior{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #D9D9D9;
+    height: 2.0em;
+    
+    
+}
+.header_inferior a {
+    margin: 0.5em 1em;
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+    
+    
+}

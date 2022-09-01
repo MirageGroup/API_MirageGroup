@@ -1,0 +1,42 @@
+.main_apresentação{
+   text-align: center;
+   padding: 0 8em;
+
+
+
+}
+.main_apresentação h1{
+    margin: 0.5em 0 1.0em 0; 
+    font-size: 24px;
+    font-weight: 800;
+    text-transform: uppercase;
+    
+}
+.apresentação_texto{
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.faixa_principal{
+    display: flex;
+    margin: 1.5em 0;
+    background-color:#C71C30;
+    color: white;
+    
+}
+.faixa_textos{
+    text-align: center;
+    padding: 20px 50px;
+    
+}
+.faixa_titulo{
+    font-size: 32px;
+    font-weight: 800;
+    margin: 0.5em 0;
+}
+.faixa_descrição{
+  font-size: 24px;
+
+    
+}
+
