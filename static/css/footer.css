@@ -1,0 +1,25 @@
+
+
+.footer_home{
+    text-align: center;
+    background-color: gray;
+    padding: 10em 0  0 ;
+}
+.footer_home h1{
+    font-size: 22px;
+
+}
+.github{
+    font-size: 18px;
+}
+
+
+
+.github::before{
+    content: "";
+    background: url("../img/icons8-github.svg");
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+}

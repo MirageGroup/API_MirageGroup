@@ -1,5 +1,6 @@
 @import url("header.css");
 @import url("main.css");
+@import url("footer.css");
  
 :root{
     --vermelho_principal:#A3130D;
@@ -8,4 +9,5 @@
 
 body{
     font-family: var(--fonte_principal);
+    background-image: linear-gradient(white 100%,gray 40%); 
 }

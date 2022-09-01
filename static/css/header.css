@@ -16,11 +16,21 @@
     
     
 }
-.header_inferior a {
+.header_links {
     margin: 0.5em 1em;
     text-decoration: none;
     color: black;
     text-transform: uppercase;
+    margin: 1em 2em; 
+    padding: 0 2em;
+       
+}
+.link_meio{
+    border-left: 1px solid;
+    border-right: 1px solid;
     
     
+}
+.header_links:hover{
+    color: var(--vermelho_principal);
 }
