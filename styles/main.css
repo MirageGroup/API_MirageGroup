@@ -39,4 +39,20 @@
 
     
 }
+.div_lab{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.main_links{
+    display: inline-block;
+    border-radius: 8px;
+    background-color: var(--vermelho_principal);
+    width: 30em;
+    height: 5em;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+
 
