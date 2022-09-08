@@ -99,7 +99,7 @@
 
 .tamanho_carousel{
     height: 400px;
-    object-fit: fill;
+    object-fit: cover;
 }
 #carouselExampleCaptions{
     margin: 3em 0;
