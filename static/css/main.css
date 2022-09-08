@@ -135,6 +135,15 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+.card_computador:hover{
+  transform: scale(1.1);
+  transition: 0.3s;
 }
 .container_texto{
     align-self: flex-end;
@@ -185,6 +194,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    margin-left: 19.8%;
 }
 .botões_explicação{
     display: flex;
