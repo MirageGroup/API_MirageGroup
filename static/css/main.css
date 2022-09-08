@@ -97,5 +97,11 @@
 
 }
 
-
+.tamanho_carousel{
+    height: 400px;
+    object-fit: fill;
+}
+#carouselExampleCaptions{
+    margin: 3em 0;
+}
 

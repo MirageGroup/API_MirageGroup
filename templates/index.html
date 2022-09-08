@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"> 
@@ -32,19 +33,44 @@
             <h1 class="apresentação_titulo">SOS laboratorios FATEC</h1>
             <p class="apresentação_texto">Bem vindo ao sistema SOS, onde você aluno ira reportar problemas ocorridos nos componentes eletronicos da instituição, ou você tecnico ira analisar e ajudar a solucionar tais problemas apresentados pelos alunos</p>
         </div>
-        <div class="faixa_principal">
-            <img class="faixa_imagem" alt="imagem de circuito" src="{{url_for('static', filename='img/foto figma 1.png')}}">
-            <div class="faixa_textos">
-                <h1 class="faixa_titulo">
-                    Uma nova forma de relatar problemas
-
-                </h1>
-                <p class="faixa_descrição">
-                    Muitas vezes ficamos perdidos em como resolver problemas na area de t.i, reportar erros e apresentar para tecnicos é o primeiro passo para resolver tal questão.Por isso este software irá ajudar você nesta questão, de uma forma intuitiva
-
-                </p>
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
-        </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="../static/img/foto figma 1.png" class="d-block w-100 tamanho_carousel" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>First slide label</h5>
+                  <p>Some representative placeholder content for the first slide.</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="../static/img/foto figma 1.png" class="d-block w-100 tamanho_carousel" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Second slide label</h5>
+                  <p>Some representative placeholder content for the second slide.</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="../static/img/foto figma 1.png" class="d-block w-100 tamanho_carousel" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Third slide label</h5>
+                  <p>Some representative placeholder content for the third slide.</p>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
         <div class="main_secundario">
             <div class="div_lab">
               <div class="div_sec_textos">
@@ -77,6 +103,6 @@
         </div>
         
     </footer>
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 </html>
