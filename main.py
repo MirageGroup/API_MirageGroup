@@ -10,6 +10,10 @@ app.config.update(
 def home():
   return render_template('index.html')
 
+@app.route('/lab')
+def lab():
+  return render_template('laboratorio.html')
+
 
 if __name__ == '__main__':
   app.run(debug=True)

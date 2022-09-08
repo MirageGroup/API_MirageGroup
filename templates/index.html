@@ -21,7 +21,7 @@
         </div>
         <div class="header_inferior">
             <a href="#" class="header_links">Home</a>
-            <a href="#" class="header_links link_meio">Laboratórios</a>
+            <a href="{{ url_for('lab') }}" class="header_links link_meio">Laboratórios</a>
             <a href="#" class="header_links">Reporte erros</a>
 
         </div>
@@ -33,6 +33,9 @@
             <h1 class="apresentação_titulo">SOS laboratorios FATEC</h1>
             <p class="apresentação_texto">Bem vindo ao sistema SOS, onde você aluno ira reportar problemas ocorridos nos componentes eletronicos da instituição, ou você tecnico ira analisar e ajudar a solucionar tais problemas apresentados pelos alunos</p>
         </div>
+
+        <!-- CAROUSEL -->
+
         <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -79,7 +82,7 @@
                   </p>
               </div>
               <div class="div_lab_ancoras">
-                  <a href="#" class="main_links">acessar laboratorio</a>
+                  <a href="{{ url_for('lab') }}" class="main_links">acessar laboratorio</a>
               </div>
            
           

@@ -105,3 +105,94 @@
     margin: 3em 0;
 }
 
+
+    /* PAGINA LAB */
+
+
+
+.lab_superior{
+    text-align: center;
+    margin: 2em 0;
+}
+.lab_superior h1{
+    font-size: 36px;
+    margin: 0.5em;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.card_computador{
+    width: 7em;
+    height: 8em;
+    border: 2px solid black;
+    border-radius:8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.container_texto{
+    align-self: flex-end;
+    border-top: 1px solid black;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+.texto_computador{
+
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+.status_verde{
+    background-color: green;
+    color: white;
+}
+.status_vermelho{
+    background-color: darkred;
+    color: white;
+}
+.imagem_monitor{
+    width: 47%;
+    height: auto;
+    margin-top:2em
+}
+.fileira_computadores{
+    display: flex;
+    gap: 10px;
+}
+.container_layout{
+    display: grid;
+    width: 70%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4,1fr);
+    grid-column-gap: 4em;
+    row-gap: 2em;
+    margin-left: 3em;
+}
+#fileira_2, #fileira_4 ,#fileira_6 , #fileira_8{
+    grid-column: 2;
+}
+.lab_inferior{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.botões_explicação{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 3em;
+    width: 31em;
+}
+.transição_degrade{
+    
+    background-image: linear-gradient(white,gray);
+    
+}
+.div_transição{
+    width: 100%;
+    height: 10em;
+}
