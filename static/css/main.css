@@ -39,6 +39,12 @@
 
     
 }
+.altura_titulo_carousel{
+    margin-bottom: 11em;
+}
+.titulo_principal{
+    text-transform: uppercase;
+}
 .main_secundario{
     display: flex;
     flex-direction: column;
