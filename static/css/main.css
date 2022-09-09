@@ -180,19 +180,19 @@
 }
 .container_layout{
     display: grid;
-    width: 70%;
+    width: 90%;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(4,1fr);
     grid-column-gap: 4em;
     row-gap: 2em;
-    margin-left: 3em;
+    
 }
 #fileira_2, #fileira_4 ,#fileira_6 , #fileira_8{
     grid-column: 2;
 }
 .lab_inferior{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-start;
     margin-left: 19.8%;
 }
