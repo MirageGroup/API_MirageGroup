@@ -389,53 +389,44 @@
 
       <!-- Conteudo do modal -->
       <div class="modal-body " >
+        <form action="/lab/submit" method="POST">
         <div class="mb-3">
-            <fieldset disabled>
+            
                 <label class="form-label fw-bold" for="#input_numero_pc">Numero do Computador</label>
-                <input class="form-control espaçamento_modal" type="text" id="input_numero_pc"></input>
-            </fieldset>
+                <input class="form-control espaçamento_modal" type="text" id="input_numero_pc" name="number"></input>
+            
             
             <label class="form-label fw-bold"for="modal_opções">Insira qual a categoria do problema</label>
-            <select class="form-select espaçamento_modal " id="modal_opções" aria-label="Default select example">
+            <select class="form-select espaçamento_modal " id="modal_opções" aria-label="Default select example" name="category">
                 <option selected>Categorias</option>
-                <option value="1">Hardware</option>
-                <option value="2">Software</option>
-                <option value="3">Rede</option>
-                <option value="4">Outro</option>
+                <option value="Hardware">Hardware</option>
+                <option value="Software">Software</option>
+                <option value="Rede">Rede</option>
+                <option value="Outro">Outro</option>
               </select>
             <label for="exampleFormControlTextarea1" class="form-label fw-bold">Descreva o problema</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"></textarea>
             
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary">Enviar</button>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
       </div>
     </div>
   </div>
 </div>
 
+<footer class="footer_home">
+    <h1>Todos os direitos Reservados</h1>
+    <div class="github">
+        <a class="link_github">https://github.com/MirageGroup</a>
+    </div>
+</footer>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+<script src="../static/js/modal.js"></script>
 
-
-
-
-
-
-
-    <footer class="footer_home">
-        <h1>Todos os direitos Reservados</h1>
-        <div class="github">
-            <a class="link_github">https://github.com/MirageGroup</a>
-        </div>
-        
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-    <script src="../static/js/modal.js"></script>
 </body>
-<script>
-    
-    
-</script>
 </html>
