@@ -7,10 +7,15 @@
 }
 .footer_home h1{
     font-size: 22px;
+    color: black;
 
 }
 .github{
     font-size: 18px;
+    
+}
+.github a {
+    color: black;
 }
 
 
