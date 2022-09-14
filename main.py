@@ -14,19 +14,5 @@ def home():
 def lab():
   return render_template('laboratorio.html')
 
-@app.route('/lab/submit', methods = ['POST', 'GET'])
-def lab_submit():
-  if request.method == 'POST':
-    number = request.form['number']
-    category = request.form['category']
-    description = request.form['description']
-
-    print(number)
-    print(category)
-    print(description)
-
-    return render_template('laboratorio.html')
-
-
 if __name__ == '__main__':
   app.run(debug=True)

@@ -1,0 +1,1 @@
+var btn_submit = document.getElementById('submit').addEventListener('click', console.log(alert("TESTE")));

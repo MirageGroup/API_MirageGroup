@@ -169,6 +169,10 @@
     background-color: darkred;
     color: white;
 }
+.status_branco{
+    background-color: #ffffff00;
+    color: black;
+}
 .imagem_monitor{
     width: 47%;
     height: auto;
