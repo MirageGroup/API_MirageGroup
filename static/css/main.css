@@ -233,11 +233,17 @@
 }
 .container_breaks{
     display: flex;
-justify-content: center;
-gap: 12em;
-margin-top: 2%;
+    justify-content: center;
+    gap: 12em;
+    margin-top: 2%;
+    height: 17em;
+
 
 }
 .collapse_descrição{
     margin-top: 0.5em;
+}
+.legenda_branco, .legenda_vermelho, .legenda_verde{
+    margin: 0.5em;
+
 }
