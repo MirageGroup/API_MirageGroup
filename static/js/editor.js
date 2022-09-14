@@ -5,7 +5,7 @@ var cards = document.querySelectorAll('.card')
 const dropzones = document.querySelectorAll('.dropzone')
 const dropzonesSec = document.querySelectorAll('.dropzone_secundaria')
 const dropzoneNone = document.querySelectorAll('#dropzone_none')
-const addComputerIDButton = document.getElementById('add_computer_id_btn');
+const addComputerIDForm = document.getElementById('new_pc_id_form');
 
 /** our cards */
 cards.forEach(card => {
@@ -99,7 +99,10 @@ function updateIdsInput(){
 
 // -*-*-*-*-*-*-*-*-*-*-*-*-*-*- ADICIONAR NOVO COMPUTADOR - JavaScript -*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 
-addComputerIDButton.addEventListener('click', () => {
+addComputerIDForm.addEventListener('submit', e => {
+
+    e.preventDefault()
+
     dropzones.forEach(dropzone => {
         if (!dropzone.firstElementChild){ 
           dropzone.classList.add('adicionar') 
@@ -121,6 +124,7 @@ function createNewComputerCard(){
   var newCard = document.createElement('card')
   newCard.className = "card_computador card"
   newCard.setAttribute("data-pc-id", newPcId)
+  newCard.setAttribute("data-exists", "no")
   newCard.setAttribute("data-bs-toggle", "modal")
   newCard.setAttribute("dragabble", "true")
   newCard.setAttribute("data-bs-target", "#modal-teste")
@@ -143,7 +147,6 @@ function createNewComputerCard(){
   // criando a div container_texto embaixo
   var newCardText = document.createElement('div')
   newCardText.className = "container_texto status_verde"
-  newCardText.innerHTML += '<p class="texto_computador">COMPUTADOR</p>'
   newCardText.innerHTML += '<p class="texto_computador">'+newPcId+'</p>'
   newCardContainerPopOver.appendChild(newCardText)
 

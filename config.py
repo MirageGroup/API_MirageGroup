@@ -9,3 +9,5 @@ MYSQL_DB = 'heroku_be80b7ca2ec9c96'
 
 SESSION_TYPE = 'filesystem'
 SESSION_PERMANENT = False
+
+SEND_FILE_MAX_AGE_DEFAULT = 0
