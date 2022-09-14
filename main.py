@@ -38,15 +38,16 @@ def lab(labnum):
   else:
     form = callForm()
     computadores = dbHandler.retrieveLab(labnum)
-    print(computadores)
     componentes = dbHandler.retrieveComponents(labnum)
     session['laboratorio'] = computadores
+    session['componentes'] = componentes
     return render_template('laboratorio.html', labnum=labnum, computadores=computadores,componentes = componentes , form=form, acessForm_=acessForm_)
 
 @app.route('/lab/<int:labnum>/edit')
 def lab_edit(labnum):
   computadores = session['laboratorio']
-  return render_template('laboratorio_editor.html', labnum=labnum, computadores=computadores)
+  componentes = session['componentes']
+  return render_template('laboratorio_editor.html', labnum=labnum, computadores=computadores, componentes=componentes)
 
 @app.route('/lab/<int:labnum>/edit/salvar', methods=['POST', 'GET'])
 def salvar(labnum):
