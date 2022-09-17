@@ -1,5 +1,21 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en" data-color-mode="auto" data-light-theme="light" data-dark-theme="dark" data-a11y-animated-images="system">
+  <head>
+<p align="center" dir="auto" name="topo"> 
+    <a href="#objetivos">Objetivos da Sprint</a> | 
+    <a href="#levantamento">Levantamento de Requisitos</a> |  
+    <a href="#prototipo">Protótipo</a> | 
+    <a href="#org-equipe">Organização da Equipe</a> | 
+    <a href="#org-repo">Organização do Repositório</a>
+</p>
+
 # API_MirageGroup
 Repositório do projeto de API do 1º semestre do MirageGroup, da 1º turma de ADS da Fatec SJC 2022.
+
+<p dir="auto">Sendo a primeira sprint, definimos e realizamos as tarefas mais importantes para o início do projeto, todas com características de planejamento e gerenciamento do produto e do processo, além de outras esferas como a organização da equipe e das ferramentas e tecnologias que seriam usadas ao decorrer das sprints.</p>
 
 # Iniciar
 Clone o repositório para o seu computador, abra o repositório com o VS Code, abra o terminal, troque para o cmd e use esse comando:
@@ -7,30 +23,68 @@ Clone o repositório para o seu computador, abra o repositório com o VS Code, a
 python -m venv venv && venv\Scripts\activate && pip install -r requirements.txt && python main.py
 ```
 
-# Progresso <br />
+  <h1 align="center" dir="auto"><a id="user-content--sprint-1-08032021-a-28032021-" class="anchor" aria-hidden="true" href="#-sprint-1-08032021-a-28032021-"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> Sprint 1: 23/08/2022 a 18/09/2022 </h1>
 
-## Sprint 1 <br />
 
-### Documentação <br />
+<span id="user-content-objetivos">
+<h2 dir="auto"><a id="user-content-dart-objetivos-da-sprint" class="anchor" aria-hidden="true" href="#dart-objetivos-da-sprint"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><g-emoji class="g-emoji" alias="dart" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f3af.png">🎯</g-emoji> Objetivos da Sprint</h2>
+<p dir="auto">Num olhar geral, é possível organizar as atividades realizadas em prol de 5 objetivos:</p>
+<ul dir="auto">
+<li>Levantamento de requisitos, para delimitação de escopo;</li>
+<li>Organização da equipe, para transparência e planejamento de processos;</li>
+<li>Confecção do wireframe, um rascunho do protótipo a fim de validação do cliente;</li>
+<li>Desenvolvimento do protótipo, com o intuito de exemplificar o produto final e suas funcionalidades;</li>
+<li>Organização do repósitório remoto, para trabalhar em equipe manipulando os mesmos arquivos de forma padronizada.</li>
+</ul>
+<p dir="auto">→ <a href="#topo">Voltar ao topo</a></p>
+<span id="user-content-levantamento">
+<h2 dir="auto"><a id="user-content-pencil-levantamento-de-requisitos" class="anchor" aria-hidden="true" href="#pencil-levantamento-de-requisitos"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><g-emoji class="g-emoji" alias="memo" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4dd.png">📝</g-emoji> Levantamento de Requisitos</h2>
+<p dir="auto">Antes de desenvolver o projeto, foi preciso denifir os desejos do cliente, organizando-os de acordo com suas prioridades e documentando com técnicas de Engenharia de Software. Para este levantamento de requisitos, o Scrum Master do grupo esteve em contato constante com o cliente, questionando suas vontades e necessidades a fim de esculpir um plano de ação que satisfazesse seus pedidos, na medida do possível. Dessa forma, foi criado um backlog do produto, contendo suas funcionalidades e características principais, além de sprint backlogs e user stories, que são itens complementares para auxiliar a organização da equipe em relação às tarefas a serem desenvolvidas.</p>
+<ul dir="auto">
+<li><g-emoji class="g-emoji" alias="pushpin" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png"></g-emoji> Para verificar os backlogs das sprints e do produto, <a href="https://docs.google.com/spreadsheets/d/1KEpwnI85trRT_4ub3DmxdunUp8wq5imWWMSLXApkoH4/edit#gid=0">clique aqui</a>.</li>
+</ul>
 
-- [Backlog do Projeto]()
+<p dir="auto">→ <a href="#topo">Voltar ao topo</a></p>
+<span id="user-content-prototipo">
+<h2 dir="auto"><a id="user-content-desktop_computer-protótipo" class="anchor" aria-hidden="true" href="#desktop_computer-protótipo"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><g-emoji class="g-emoji" alias="desktop_computer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f5a5.png">✏️</g-emoji> Protótipo</h2>
+<p dir="auto">Depois da definição do wireframe, iniciou-se o trabalho de codificação, passando os desenhos para arquivos HTML e CSS. O protótipo já conta com cores, tipografia e exemplos do resultado de uma busca, proporcionando a experiência esperada que o usuário terá ao manipular o produto final.</p>
+<ul dir="auto">
+<li>A primeira fase do protótipo dinâmico foi realizada também com a utilização do Figma, onde é possível acessar o protótipo por meio <a href="https://www.figma.com/file/udYrASpRvbCkks3O2nTWLZ/Untitled?node-id=0%3A1" rel="nofollow">deste link</a>.</li>
+</ul>
 
-- [Diagramas de Caso de Uso]()
+<span id="user-content-org-equipe">
+<h2 dir="auto"><a id="user-content-busts_in_silhouette-organização-da-equipe" class="anchor" aria-hidden="true" href="#busts_in_silhouette-organização-da-equipe"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><g-emoji class="g-emoji" alias="busts_in_silhouette" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f465.png">👥</g-emoji> Organização da Equipe</h2>
+<p dir="auto">Para melhor organização do projeto, foi levantado as habilidades técnicas da equipe assim que decididas as ferramentas e tecnologias que seriam usadas, dividindo provisoriamente os integrantes em dois times principais: time Frontend e time backend, cada um com responsabilidades distintas mas sempre em comunicação.</p>
+<ul dir="auto">
+<li>A documentação e acompanhamento de atividades ficou a cargo da Scrum Master da equipe, que também colaborava com os dois times de trabalho.
 
-- [Protótipo de Tela Interativo]() <br />
 
-# Autores
+</ul>
+</li>
+</ul>
 
-### [pedro11pucci](https://github.com/pedro11pucci) - Master <br />
+<h3>Equipe<h3>
 
-### [Hugohs98](https://github.com/Hugohs98) - PO <br />
+|    Função    | Nome                     |                     GitHub                     |                    Linkedin                    |
+| :----------: | :----------------------- | :--------------------------------------------: | :--------------------------------------------: |
+| Scrum Master | Pedro Henrique Pucci     |   [GitHub](https://github.com/pedro11pucci)    | [Linkedin](https://www.linkedin.com/in/pedro-p-122962234/)|
+|      PO      | Hugo Henrique da Silva   |    [GitHub](https://github.com/Hugohs98)       | [Linkedin](https://www.linkedin.com/in/hugo-silva-2bb757210/)|
+|   Dev Team   | Gustavo H. Pereira       |    [GitHub](https://github.com/gustavohpereira)| [Linkedin](https://www.linkedin.com/in/) |
+|   Dev Team   | Gustavo Alves dos Santos |    [GitHub](https://github.com/ogustavoalves)  | [Linkedin](https://www.linkedin.com/in/gustavo-alves-073640248/) |
+|   Dev Team   | Erik Zanetti Ferraz      |    [GitHub](https://github.com/ErikZFerraz)    | [Linkedin](https://www.linkedin.com/in/erik-zanetti-ferraz-09895a180/) |
+|   Dev Team   | Victor Guilherme Branco  |    [GitHub](https://github.com/VictorGuui)     | [Linkedin](https://www.linkedin.com/in/victor-branco-323386190/) |
+|   Dev Team   | Vinicius Henrique dos Santos Rodrigues |    [GitHub](https://github.com/vinicius123henrique321) | [Linkedin](https://www.linkedin.com/in/vinicius-henrique-1a016524a/)|
 
-### [ErikZFerraz](https://github.com/ErikZFerraz) - DEV Team <br />
 
-### [ogustavoalves](https://github.com/ogustavoalves) - DEV Team <br />
 
-### [gustavohpereira](https://github.com/gustavohpereira) - DEV Team <br />
+<p dir="auto">→ <a href="#topo">Voltar ao topo</a></p>
+<span id="user-content-org-repo">
+<h2 dir="auto"><a id="user-content-file_folder-organização-do-repositório" class="anchor" aria-hidden="true" href="#file_folder-organização-do-repositório"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><g-emoji class="g-emoji" alias="file_folder" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png">📁</g-emoji> Organização do Repositório</h2>
+<p dir="auto">Tendo em vista o trabalho remoto que a equipe teria que se encaixar, foram definidos alguns padrões para a configuração do ambiente de trabalho compartilhado sempre se manter organizado, garantindo transparência e fácil acesso ao que se deseja a qualquer um de interesse.</p>
+<p dir="auto">→ <a href="#topo">Voltar ao topo</a></p>
 
-### [VictorGuui](https://github.com/VictorGuui) - DEV Team <br />
 
-### [vinicius123henrique321](https://github.com/vinicius123henrique321) - DEV Team <br />
+
+  </body>
+</html>
+
