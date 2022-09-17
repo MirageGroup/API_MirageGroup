@@ -69,7 +69,7 @@ python -m venv venv && venv\Scripts\activate && pip install -r requirements.txt 
 | :----------: | :----------------------- | :--------------------------------------------: | :--------------------------------------------: |
 | Scrum Master | Pedro Henrique Pucci     |   [GitHub](https://github.com/pedro11pucci)    | [Linkedin](https://www.linkedin.com/in/pedro-p-122962234/)|
 |      PO      | Hugo Henrique da Silva   |    [GitHub](https://github.com/Hugohs98)       | [Linkedin](https://www.linkedin.com/in/hugo-silva-2bb757210/)|
-|   Dev Team   | Gustavo H. Pereira       |    [GitHub](https://github.com/gustavohpereira)| [Linkedin](https://www.linkedin.com/in/) |
+|   Dev Team   | Gustavo Henrique Pereira |    [GitHub](https://github.com/gustavohpereira)| [Linkedin](https://www.linkedin.com/in/gustavohpa/) |
 |   Dev Team   | Gustavo Alves dos Santos |    [GitHub](https://github.com/ogustavoalves)  | [Linkedin](https://www.linkedin.com/in/gustavo-alves-073640248/) |
 |   Dev Team   | Erik Zanetti Ferraz      |    [GitHub](https://github.com/ErikZFerraz)    | [Linkedin](https://www.linkedin.com/in/erik-zanetti-ferraz-09895a180/) |
 |   Dev Team   | Victor Guilherme Branco  |    [GitHub](https://github.com/VictorGuui)     | [Linkedin](https://www.linkedin.com/in/victor-branco-323386190/) |
