@@ -100,7 +100,7 @@
 }
 .main_links:hover{
     background-color: #C71C30;
-    transition: 1s;
+    transition: 0.6s;
     transform: scale(1.15);
 
 }
