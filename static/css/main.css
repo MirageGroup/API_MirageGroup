@@ -40,10 +40,12 @@
     
 }
 .altura_titulo_carousel{
-    margin-bottom: 11em;
+    margin-bottom: 8.5em;
 }
 .titulo_principal{
     text-transform: uppercase;
+    text-shadow: 2px 2px 2px #000000;
+
 }
 .main_secundario{
     display: flex;
