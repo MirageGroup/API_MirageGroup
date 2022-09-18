@@ -196,10 +196,39 @@
 #fileira_2, #fileira_4 ,#fileira_6 , #fileira_8{
     grid-column: 2;
 }
+#fileira_1{
+    grid-row: 2;
+    grid-column: 1;
+}
+#fileira_2{
+    grid-row: 2;
+}
+#fileira_3{
+    grid-row: 3;
+}
+#fileira_4{
+    grid-row: 3;
+}
+#fileira_5{
+    grid-row: 4;
+}
+#fileira_6{
+    grid-row: 4;
+}
+#fileira_7{
+    grid-row: 5;
+}
+#fileira_8{
+    grid-row: 5;
+}
+#prof{
+    grid-row: 1;
+}
 .lab_inferior{
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    margin-top: 2%;
     
 }
 .layout_legendas{
