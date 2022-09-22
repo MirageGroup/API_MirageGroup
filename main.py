@@ -14,5 +14,9 @@ def home():
 def lab():
   return render_template('laboratorio.html')
 
+@app.route('/lab_edit')
+def lab_edit():
+  return render_template('laboratorio_editor.html')
+
 if __name__ == '__main__':
   app.run(debug=True)

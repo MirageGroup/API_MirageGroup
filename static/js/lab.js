@@ -28,3 +28,8 @@ function changeContainerClass(number, situation, description) {
     textContainer.classList.add('status_verde');
   }
 }
+
+
+  // drag and drop
+
+  
