@@ -7,7 +7,7 @@ function log(message) {
 const cards = document.querySelectorAll('.card')
 const dropzones = document.querySelectorAll('.dropzone')
 const dropzonesSec = document.querySelectorAll('.dropzone_secundaria')
-
+const dropzoneNone = document.querySelectorAll('#dropzone_none')
 
 /** our cards */
 cards.forEach(card => {
@@ -20,7 +20,7 @@ function dragstart() {
     // log('CARD: Start dragging ')
     dropzones.forEach( dropzone => dropzone.classList.add('highlight'))
     dropzonesSec.forEach( dropzone => dropzone.classList.add('highlight_secundario'))
-
+    dropzoneNone.forEach( dropzone => dropzone.classList.remove('highlight'))
 
     // this = card
     this.classList.add('is-dragging')

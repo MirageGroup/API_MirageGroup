@@ -19,7 +19,7 @@
 
 .area_de_computadores{
     display: grid;
-    grid-template-columns: repeat(9,100px);
+    grid-template-columns: repeat(11,100px);
     grid-template-rows: repeat(8,100px);
     grid-column-gap: 1em;
     row-gap: 2.5px;
@@ -33,14 +33,14 @@
     width: 32%;
     border-left: 1px solid black;
 }
-.dropzone{
-   
-  scale: 0.7;
-  
 
+
+#dropzone_none{
+    margin-right: 20px;
 }
 
-.computador_editando{
+.dropzone{
+    scale: 0.7;
    
 }
 .highlight{
