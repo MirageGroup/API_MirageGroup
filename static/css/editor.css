@@ -1,46 +1,45 @@
 .titulos_edit{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin: 4em;
 }
 .titulos_editor{
-    width: 30%;
+    width: auto;
     text-align: center;
 }
 .titulos_editor h1{
     font-weight: 800;
     font-size: 26px;
+    margin: 1.2em;
+}
+.titulos_editor p{
+    font-size: 22px;
 }
 
 .layout_editores{
     display: flex;
+    justify-content: center;
 }
 
 
 .area_de_computadores{
     display: grid;
-    grid-template-columns: repeat(11,100px);
-    grid-template-rows: repeat(8,100px);
-    grid-column-gap: 1em;
-    row-gap: 2.5px;
-    width: 68%;
+    grid-template-columns: repeat(11,1fr);
+    grid-template-rows: repeat(8,1fr);
+    grid-column-gap: 0.5em;
+    row-gap: 2.0px;
+    width: 85%;
     
 }
-.area_computadores_reserva{
-    display: grid;
-    grid-template-columns: repeat(5,100px);
-    grid-template-rows: repeat(8, 100px);
-    width: 32%;
-    border-left: 1px solid black;
-}
 
 
-#dropzone_none{
-    margin-right: 20px;
+
+.dropzone_margin{
+    grid-column: 7;
 }
 
 .dropzone{
-    scale: 0.7;
+    scale: 0.8;
    
 }
 .highlight{
