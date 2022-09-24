@@ -40,13 +40,17 @@
 
 .dropzone{
     scale: 0.8;
+    max-height: 8em;
+    
    
 }
 .highlight{
     background-color: gray;
     opacity: 0.5;
+    
 }
 .highlight_secundario{
     background-color: red;
     opacity: 0.5;
 }
+
