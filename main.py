@@ -10,9 +10,9 @@ app.config.update(
 def home():
   return render_template('index.html')
 
-@app.route('/lab')
-def lab():
-  return render_template('laboratorio.html')
+@app.route('/lab/<int:labnum>')
+def lab(labnum):
+  return render_template('laboratorio.html', labnum=labnum)
 
 @app.route('/lab_3')
 def lab_3():
