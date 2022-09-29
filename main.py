@@ -14,6 +14,10 @@ def home():
 def lab():
   return render_template('laboratorio.html')
 
+@app.route('/lab_3')
+def lab_3():
+  return render_template('lab_3.html')
+
 @app.route('/lab_edit')
 def lab_edit():
   return render_template('laboratorio_editor.html')
