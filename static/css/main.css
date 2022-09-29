@@ -147,6 +147,16 @@
   transform: scale(1.1);
   transition: 0.3s;
 }
+.container_popover{
+    width: 6.8em;
+    height: 7.8em;
+    
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
 .container_texto{
     align-self: flex-end;
     border-top: 1px solid black;

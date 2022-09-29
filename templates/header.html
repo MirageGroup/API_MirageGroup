@@ -14,7 +14,8 @@
   <header class="cabecalho">
     <div class="header_superior">
         <img class="logo_fatec" src="{{url_for('static', filename='img/menu.png')}}" alt="logo da fatec">
-        <img class="logo_usuario" src="{{url_for('static', filename='img/cabeçalho.png')}}" alt="logo do usuario">
+        <img class="logo_usuario" src="{{url_for('static', filename='img/cabeçalho.png')}}" 
+        data-bs-toggle="modal" data-bs-target="#staticBackdrop" alt="logo do usuario">
     </div>
     <div class="header_inferior">
         <a href="{{ url_for('home') }}" class="header_links">Home</a>
