@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="{{ url_for('static',     filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',     filename='css/style.css') }}">
+
+    <title>Laboratorios</title>
+</head>
+<body>
+    
+    {% extends "header.html" %}
+    {% block content %}
+    
+    <main>
+        <div class="lab_superior">
+            <h1>Laboratorio X</h1>
+            <a href="{{ url_for('lab_edit') }}">Editar</a>
+
+        </div>
+        
+        <!-- computadores -->
+    <section class="layout_editores">
+        <div class="area_de_computadores">
+            
+                    <!-- Fileira 1 -->
+            <div class="dropzone " id="1 1" >
+                <card class="card_computador card computador_editando" draggable="false" data-bs-toggle="modal" data-bs-target="#modal-teste"   data-bs-whatever="professor" id="professor" >
+                    <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="Computador esta funcionando normalmente" data-bs-trigger="hover">
+
+                            <img src="../static/img/img_monitor.png" class="imagem_monitor">
+                            <div class="container_texto status_verde" >
+                            <p class="texto_computador  ">COMPUTADOR</p>
+                            <p class="texto_computador ">PROFESSOR</p>
+                        </div>
+                    </div>        
+                </card>
+            
+            </div>
+            <div class="dropzone " id="2 1" >
+            
+            </div>
+            <div class="dropzone" id="3 1" ></div>
+            <div class="dropzone" id="4 1" ></div>
+            <div class="dropzone " id="5 1" ></div>
+            <div class="dropzone dropzone_margin" id="6 x"></div>
+            <div class="dropzone" id="7 1" ></div>
+            <div class="dropzone" id="8 1" ></div>
+            <div class="dropzone" id="9 1" ></div>
+            <div class="dropzone" id="10 1" ></div>
+            
+                    <!-- Fileira 2 -->  
+
+            <div class="dropzone" id="1 2" ></div>
+            <div class="dropzone" id="2 2">
+                <card class="card_computador card" data-bs-toggle="modal" draggable="false"data-bs-target="#modal-teste"   data-bs-whatever="001" id="001" >
+                    <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="Computador esta funcionando normalmente" data-bs-trigger="hover">
+                            <img src="../static/img/img_monitor.png" class="imagem_monitor">
+                            <div class="container_texto status_verde">
+                            <p class="texto_computador ">COMPUTADOR</p>
+                            <p class="texto_computador ">001</p>
+                        </div>
+                    </div>    
+                </card>
+            </div>
+            <div class="dropzone" id="3 2">
+                <card class="card_computador card" data-bs-toggle="modal" draggable="false" data-bs-target="#modal-teste"  data-bs-whatever="002" id="002">
+                      <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="Computador esta funcionando normalmente" data-bs-trigger="hover">
+                        <img src="../static/img/img_monitor.png" class="imagem_monitor">
+                        <div class="container_texto  status_verde">
+                        <p class="texto_computador ">COMPUTADOR</p>
+                        <p class="texto_computador ">002</p>
+                        </div>
+                    </div>    
+                </card>
+            </div>
+            <div class="dropzone" id="4 2">
+                <card class="card_computador card" data-bs-toggle="modal" draggable="false" data-bs-target="#modal-teste"  data-bs-whatever="003" id="003">
+                      <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="Computador esta funcionando normalmente" data-bs-trigger="hover">
+                        <img src="../static/img/img_monitor.png" class="imagem_monitor">
+                        <div class="container_texto  status_verde">
+                        <p class="texto_computador ">COMPUTADOR</p>
+                        <p class="texto_computador ">003</p>
+                        </div>
+                    </div>    
+                </card>
+            </div>
+            <div class="dropzone" id="5 2">
+                <card class="card_computador card" data-bs-toggle="modal" draggable="false" data-bs-target="#modal-teste"  data-bs-whatever="004" id="004">
+                      <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="Computador esta funcionando normalmente" data-bs-trigger="hover">
+                        <img src="../static/img/img_monitor.png" class="imagem_monitor">
+                        <div class="container_texto status_verde">
+                        <p class="texto_computador ">COMPUTADOR</p>
+                        <p class="texto_computador ">004</p>
+                        </div>
+                    </div>    
+                </card>
+            </div>
+            
+            <div class="dropzone dropzone_margin" id="6 2">
+                    <card class="card_computador card" data-bs-toggle="modal" draggable="false" data-bs-target="#modal-teste"  data-bs-whatever="005" id="005">
+                          <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="Computador esta funcionando normalmente" data-bs-trigger="hover">
+                            <img src="../static/img/img_monitor.png" class="imagem_monitor">
+                            <div class="container_texto status_verde">
+                            <p class="texto_computador ">COMPUTADOR</p>
+                            <p class="texto_computador ">005</p>
+                            </div>
+                        </div>    
+                    </card>
+            
+            </div>
+            <div class="dropzone" id="7 2">
+                <card class="card_computador card" data-bs-toggle="modal" draggable="false" data-bs-target="#modal-teste"  data-bs-whatever="006" id="006">
+                      <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="Computador esta funcionando normalmente" data-bs-trigger="hover">
+                        <img src="../static/img/img_monitor.png" class="imagem_monitor">
+                        <div class="container_texto status_verde">
+                        <p class="texto_computador ">COMPUTADOR</p>
+                        <p class="texto_computador ">006</p>
+                        </div>
+                    </div>    
+                </card>
+            </div>
+            <div class="dropzone" id="8 2">
+                <card class="card_computador card" data-bs-toggle="modal" draggable="false" data-bs-target="#modal-teste"  data-bs-whatever="007" id="007">
+                      <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="Computador esta funcionando normalmente" data-bs-trigger="hover">
+                        <img src="../static/img/img_monitor.png" class="imagem_monitor">
+                        <div class="container_texto status_verde">
+                        <p class="texto_computador ">COMPUTADOR</p>
+                        <p class="texto_computador ">007</p>
+                        </div>
+                    </div>    
+                </card>
+            </div>
+            <div class="dropzone" id="9 2" >
+                <card class="card_computador card" data-bs-toggle="modal" draggable="false" data-bs-target="#modal-teste"  data-bs-whatever="008" id="008">
+                      <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="Computador esta funcionando normalmente" data-bs-trigger="hover">
+                        <img src="../static/img/img_monitor.png" class="imagem_monitor">
+                        <div class="container_texto status_verde">
+                        <p class="texto_computador ">COMPUTADOR</p>
+                        <p class="texto_computador ">008</p>
+                        </div>
+                    </div>    
+                </card>
+            </div>
+            <div class="dropzone" id="10 2" ></div>
+                    <!-- Fileira 3 -->  
+            <div class="dropzone" id="1 3"></div>
+            <div class="dropzone" id="2 3">
+                <card class="card_computador card" data-bs-toggle="modal" draggable="false" data-bs-target="#modal-teste"  data-bs-whatever="009" id="009">
+                      <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="Computador esta funcionando normalmente" data-bs-trigger="hover">
+                        <img src="../static/img/img_monitor.png" class="imagem_monitor">
+                        <div class="container_texto status_verde">
+                        <p class="texto_computador ">COMPUTADOR</p>
+                        <p class="texto_computador ">009</p>
+                        </div>
+                    </div>    
+                </card>
+            </div>
+            <div class="dropzone" id="3 3">
+                <card class="card_computador card" data-bs-toggle="modal" draggable="false" data-bs-target="#modal-teste"  data-bs-whatever="010" id="010">
+                      <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="Computador esta funcionando normalmente" data-bs-trigger="hover">
+                        <img src="../static/img/img_monitor.png" class="imagem_monitor">
+                        <div class="container_texto status_verde">
+                        <p class="texto_computador ">COMPUTADOR</p>
+                        <p class="texto_computador ">010</p>
+                        </div>
+                    </div>    
+                </card>
+            </div>
+            <div class="dropzone" id="4 3">
+                <card class="card_computador card" data-bs-toggle="modal" draggable="false" data-bs-target="#modal-teste"  data-bs-whatever="011" id="011">
+                      <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="Computador esta funcionando normalmente" data-bs-trigger="hover">
+                        <img src="../static/img/img_monitor.png" class="imagem_monitor">
+                        <div class="container_texto status_verde">
+                        <p class="texto_computador ">COMPUTADOR</p>
+                        <p class="texto_computador ">011</p>
+                        </div>
+                    </div>    
+                </card>
+            </div>
+            <div class="dropzone " id="5 3">
+                <card class="card_computador card" data-bs-toggle="modal" draggable="false" data-bs-target="#modal-teste"  data-bs-whatever="012" id="012">
+                      <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="Computador esta funcionando normalmente" data-bs-trigger="hover">
+                        <img src="../static/img/img_monitor.png" class="imagem_monitor">
+                        <div class="container_texto status_verde">
+                        <p class="texto_computador ">COMPUTADOR</p>
+                        <p class="texto_computador ">012</p>
+                        </div>
+                    </div>    
+                </card>
+            </div>
+            <div class="dropzone dropzone_margin" id="6 3">
+                <card class="card_computador card" data-bs-toggle="modal" draggable="false" data-bs-target="#modal-teste"  data-bs-whatever="013" id="013">
+                      <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="Computador esta funcionando normalmente" data-bs-trigger="hover">
+                        <img src="../static/img/img_monitor.png" class="imagem_monitor">
+                        <div class="container_texto status_verde">
+                        <p class="texto_computador ">COMPUTADOR</p>
+                        <p class="texto_computador ">013</p>
+                        </div>
+                    </div>    
+                </card>
+            </div>
+            <div class="dropzone" id="7 3">
+                <card class="card_computador card" data-bs-toggle="modal" draggable="false" data-bs-target="#modal-teste"  data-bs-whatever="014" id="014">
+                      <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="Computador esta funcionando normalmente" data-bs-trigger="hover">
+                        <img src="../static/img/img_monitor.png" class="imagem_monitor">
+                        <div class="container_texto status_verde">
+                        <p class="texto_computador ">COMPUTADOR</p>
+                        <p class="texto_computador ">014</p>
+                        </div>
+                    </div>    
+                </card>
+            </div>
+            <div class="dropzone" id="8 3">
+                <card class="card_computador card" data-bs-toggle="modal" draggable="false" data-bs-target="#modal-teste"  data-bs-whatever="015" id="015">
+                      <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="Computador esta funcionando normalmente" data-bs-trigger="hover">
+                        <img src="../static/img/img_monitor.png" class="imagem_monitor">
+                        <div class="container_texto status_verde">
+                        <p class="texto_computador ">COMPUTADOR</p>
+                        <p class="texto_computador ">015</p>
+                        </div>
+                    </div>    
+                </card>
+            </div>
+            <div class="dropzone" id="9 3" >
+                <card class="card_computador card" data-bs-toggle="modal" draggable="false" data-bs-target="#modal-teste"  data-bs-whatever="016" id="016">
+                      <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="Computador esta funcionando normalmente" data-bs-trigger="hover">
+                        <img src="../static/img/img_monitor.png" class="imagem_monitor">
+                        <div class="container_texto status_verde">
+                        <p class="texto_computador ">COMPUTADOR</p>
+                        <p class="texto_computador ">016</p>
+                        </div>
+                    </div>    
+                </card>
+            </div>
+            <div class="dropzone" id="10 3" ></div>
+                    <!-- Fileira 4 -->  
+            <div class="dropzone" id="1 4"></div>
+            <div class="dropzone" id="2 4">
+                <card class="card_computador card" data-bs-toggle="modal" draggable="false" data-bs-target="#modal-teste"  data-bs-whatever="017" id="017">
+                      <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="Computador esta funcionando normalmente" data-bs-trigger="hover">
+                        <img src="../static/img/img_monitor.png" class="imagem_monitor">
+                        <div class="container_texto  status_verde">
+                        <p class="texto_computador ">COMPUTADOR</p>
+                        <p class="texto_computador ">017</p>
+                        </div>
+                    </div>    
+                </card>
+            </div>
+            <div class="dropzone" id="2 4">
+                <card class="card_computador card" data-bs-toggle="modal" draggable="false" data-bs-target="#modal-teste"  data-bs-whatever="018" id="018">
+                      <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="Computador esta funcionando normalmente" data-bs-trigger="hover">
+                        <img src="../static/img/img_monitor.png" class="imagem_monitor">
+                        <div class="container_texto status_verde">
+                        <p class="texto_computador ">COMPUTADOR</p>
+                        <p class="texto_computador ">018</p>
+                        </div>
+                    </div>    
+                </card>
+            </div>
+            <div class="dropzone" id="3 4">
+                <card class="card_computador card" data-bs-toggle="modal" draggable="false" data-bs-target="#modal-teste"  data-bs-whatever="019" id="019">
+                      <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="Computador esta funcionando normalmente" data-bs-trigger="hover">
+                        <img src="../static/img/img_monitor.png" class="imagem_monitor">
+                        <div class="container_texto status_verde">
+                        <p class="texto_computador ">COMPUTADOR</p>
+                        <p class="texto_computador ">019</p>
+                        </div>
+                    </div>    
+                </card>
+            </div>
+            <div class="dropzone" id="4 4">
+                <card class="card_computador card" data-bs-toggle="modal" draggable="false" data-bs-target="#modal-teste"  data-bs-whatever="020" id="020">
+                      <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="Computador esta funcionando normalmente" data-bs-trigger="hover">
+                        <img src="../static/img/img_monitor.png" class="imagem_monitor">
+                        <div class="container_texto status_verde">
+                        <p class="texto_computador ">COMPUTADOR</p>
+                        <p class="texto_computador ">020</p>
+                        </div>
+                    </div>    
+                </card>
+            </div>
+        
+            <div class="dropzone dropzone_margin" id="6 4">
+                <card class="card_computador card" data-bs-toggle="modal" draggable="false" data-bs-target="#modal-teste"  data-bs-whatever="021" id="021">
+                      <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="Computador esta funcionando normalmente" data-bs-trigger="hover">
+                        <img src="../static/img/img_monitor.png" class="imagem_monitor">
+                        <div class="container_texto status_verde">
+                        <p class="texto_computador ">COMPUTADOR</p>
+                        <p class="texto_computador ">021</p>
+                        </div>
+                    </div>    
+                </card>
+            </div>
+            <div class="dropzone" id="7 4">
+                <card class="card_computador card" data-bs-toggle="modal" draggable="false" data-bs-target="#modal-teste"  data-bs-whatever="022" id="022">
+                      <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="Computador esta funcionando normalmente" data-bs-trigger="hover">
+                        <img src="../static/img/img_monitor.png" class="imagem_monitor">
+                        <div class="container_texto status_verde">
+                        <p class="texto_computador ">COMPUTADOR</p>
+                        <p class="texto_computador ">022</p>
+                        </div>
+                    </div>    
+                </card>
+            </div>
+            <div class="dropzone" id="8 4">
+                <card class="card_computador card" data-bs-toggle="modal" draggable="false" data-bs-target="#modal-teste"  data-bs-whatever="023" id="023">
+                      <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="Computador esta funcionando normalmente" data-bs-trigger="hover">
+                        <img src="../static/img/img_monitor.png" class="imagem_monitor">
+                        <div class="container_texto status_verde">
+                        <p class="texto_computador ">COMPUTADOR</p>
+                        <p class="texto_computador ">023</p>
+                        </div>
+                    </div>    
+                </card>
+            </div>
+            <div class="dropzone" id="9 4">
+                <card class="card_computador card" data-bs-toggle="modal" draggable="false" data-bs-target="#modal-teste"  data-bs-whatever="024" id="024">
+                      <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="Computador esta funcionando normalmente" data-bs-trigger="hover">
+                        <img src="../static/img/img_monitor.png" class="imagem_monitor">
+                        <div class="container_texto status_verde">
+                        <p class="texto_computador ">COMPUTADOR</p>
+                        <p class="texto_computador ">024</p>
+                        </div>
+                    </div>    
+                </card>
+            </div>
+            <div class="dropzone" id="10 4"></div>
+                    <!-- Fileira 5 -->
+            <div class="dropzone" id="1 5" ></div>
+            <div class="dropzone" id="2 5">
+                <card class="card_computador card" data-bs-toggle="modal" draggable="false" data-bs-target="#modal-teste"  data-bs-whatever="025" id="025">
+                      <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="Computador esta funcionando normalmente" data-bs-trigger="hover">
+                        <img src="../static/img/img_monitor.png" class="imagem_monitor">
+                        <div class="container_texto status_verde">
+                        <p class="texto_computador ">COMPUTADOR</p>
+                        <p class="texto_computador ">025</p>
+                        </div>
+                    </div>    
+                </card>
+            </div>
+            <div class="dropzone" id="3 5">
+                <card class="card_computador card" data-bs-toggle="modal" draggable="false" data-bs-target="#modal-teste"  data-bs-whatever="026" id="026">
+                      <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="Computador esta funcionando normalmente" data-bs-trigger="hover">
+                        <img src="../static/img/img_monitor.png" class="imagem_monitor">
+                        <div class="container_texto status_verde">
+                        <p class="texto_computador ">COMPUTADOR</p>
+                        <p class="texto_computador ">026</p>
+                        </div>
+                    </div>    
+                </card>
+            </div>
+            <div class="dropzone" id="4 5">
+                <card class="card_computador card" data-bs-toggle="modal" draggable="false" data-bs-target="#modal-teste"  data-bs-whatever="027" id="027">
+                      <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="Computador esta funcionando normalmente" data-bs-trigger="hover">
+                        <img src="../static/img/img_monitor.png" class="imagem_monitor">
+                        <div class="container_texto status_verde">
+                        <p class="texto_computador ">COMPUTADOR</p>
+                        <p class="texto_computador ">027</p>
+                        </div>
+                    </div>    
+                </card>
+            </div>
+            <div class="dropzone " id="5 5">
+                <card class="card_computador card" data-bs-toggle="modal" draggable="false" data-bs-target="#modal-teste"  data-bs-whatever="028" id="028">
+                      <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="Computador esta funcionando normalmente" data-bs-trigger="hover">
+                        <img src="../static/img/img_monitor.png" class="imagem_monitor">
+                        <div class="container_texto status_verde">
+                        <p class="texto_computador ">COMPUTADOR</p>
+                        <p class="texto_computador ">028</p>
+                        </div>
+                    </div>    
+                </card>
+            </div>
+            <div class="dropzone dropzone_margin" id="6 5">
+                <card class="card_computador card" data-bs-toggle="modal" draggable="false" data-bs-target="#modal-teste"  data-bs-whatever="029" id="029">
+                      <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="Computador esta funcionando normalmente" data-bs-trigger="hover">
+                        <img src="../static/img/img_monitor.png" class="imagem_monitor">
+                        <div class="container_texto status_verde">
+                        <p class="texto_computador ">COMPUTADOR</p>
+                        <p class="texto_computador ">029</p>
+                        </div>
+                    </div>    
+                </card>
+            </div>
+            <div class="dropzone" id="7 5">
+                <card class="card_computador card" data-bs-toggle="modal" draggable="false" data-bs-target="#modal-teste"  data-bs-whatever="030" id="030">
+                      <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="Computador esta funcionando normalmente" data-bs-trigger="hover">
+                        <img src="../static/img/img_monitor.png" class="imagem_monitor">
+                        <div class="container_texto status_verde">
+                        <p class="texto_computador ">COMPUTADOR</p>
+                        <p class="texto_computador ">030</p>
+                        </div>
+                    </div>    
+                </card>
+            </div>
+            <div class="dropzone" id="8 5">
+                <card class="card_computador card" data-bs-toggle="modal" draggable="false" data-bs-target="#modal-teste"  data-bs-whatever="031" id="031">
+                      <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="Computador esta funcionando normalmente" data-bs-trigger="hover">
+                        <img src="../static/img/img_monitor.png" class="imagem_monitor">
+                        <div class="container_texto status_verde">
+                        <p class="texto_computador ">COMPUTADOR</p>
+                        <p class="texto_computador ">031</p>
+                        </div>
+                    </div>    
+                </card>
+            </div>
+            <div class="dropzone" id="9 5" >
+                <card class="card_computador card" data-bs-toggle="modal" draggable="false" data-bs-target="#modal-teste"  data-bs-whatever="032" id="032">
+                    <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="Computador esta funcionando normalmente" data-bs-trigger="hover">
+                        <img src="../static/img/img_monitor.png" class="imagem_monitor">
+                        <div class="container_texto status_verde">
+                        <p class="texto_computador ">COMPUTADOR</p>
+                        <p class="texto_computador ">032</p>
+                        </div>
+                    </div>    
+                </card>
+            </div>
+            <div class="dropzone" id="10 5" ></div>
+                <!-- Fileira 6 -->
+            <div class="dropzone" id="1 6"></div>
+            <div class="dropzone" id="2 6"></div>
+            <div class="dropzone" id="3 6"></div>
+            <div class="dropzone" id="4 6"></div>
+            <div class="dropzone " id="5 6"></div>
+            <div class="dropzone dropzone_margin" id="6 6"></div>
+            <div class="dropzone" id="7 6"></div>
+            <div class="dropzone" id="8 6"></div>
+            <div class="dropzone" id="9 6" ></div>
+            <div class="dropzone" id="10 6" ></div>   
+            <!-- Fileira 7 -->  
+            <div class="dropzone" id="1 7"></div>
+            <div class="dropzone" id="2 7"></div>
+            <div class="dropzone" id="3 7"></div>
+            <div class="dropzone" id="4 7"></div>
+            <div class="dropzone " id="5 7"></div>
+            <div class="dropzone dropzone_margin" id="6 7"></div>
+            <div class="dropzone" id="7 7"></div>
+            <div class="dropzone" id="8 7"></div>
+            <div class="dropzone" id="9 7" ></div>
+            <div class="dropzone" id="10 7" ></div>
+                <!-- Fileira 8 -->
+            <div class="dropzone" id="1 8"></div>
+            <div class="dropzone" id="2 8"></div>
+            <div class="dropzone" id="3 8"></div>
+            <div class="dropzone" id="4 8"></div>
+            <div class="dropzone " id="5 8"></div>
+            <div class="dropzone dropzone_margin" id="6 8"></div>
+            <div class="dropzone" id="7 8"></div>
+            <div class="dropzone" id="8 8"></div>
+            <div class="dropzone" id="9 8" ></div>
+            <div class="dropzone" id="10 8" ></div>
+
+
+            
+
+
+
+
+
+    
+        </div>
+    </section>
+            
+            
+            
+        </section>
+        <section class="container_breaks">
+            <div class="container_especificações">
+                <p>
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_especificações" aria-expanded="false" aria-controls="collapse_especificações">
+                ESPECIFICAÇÕES
+                </button>
+            </p>
+                <div style="min-height: 120px;">
+                    <div class="collapse collapse_descrição" id="collapse_especificações">
+                        <div class="card card-body" style="width: 300px;">
+                           
+                                <b>CPU:</b> Intel Core I9 <br>
+                                <b>GPU:</b> Nvidia RTX 3090 <br>
+                                <b>MONITOR:</b> XXXXX
+                                XXXXXX
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>   
+
+          <div class="container_legendas">
+            <p>
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_legendas" aria-expanded="false" aria-controls="collapse_legendas">
+                LEGENDAS
+                </button>
+            </p>
+            <div style="min-height: 120px;">
+                <div class="collapse collapse_descrição" id="collapse_legendas">
+                    <div class="card card-body">
+                        <b class="legenda_branco">BRANCO:  a localização não está com um computador no momento </b><br>
+                        <b class="legenda_verde">VERDE:  o computador está com um bom funcionamento</b> <br>
+                        <b class="legenda_vermelho">VERMELHO:  o computador está com problemas
+                        </b>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        </section>
+        <div class="div_transição transição_degrade">
+            
+            
+        </div>
+    </main>
+
+
+    <!-- Modal -->
+<div class="modal fade" id="modal-teste" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+          <form id="formid">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold" id="exampleModalLabel ">Relatar Problemas</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <!-- Conteudo do modal -->
+            <div class="modal-body " >
+                <div class="mb-3">
+                    
+                    <label class="form-label fw-bold" for="#input_numero_pc">Numero do Computador</label>
+                    <input class="form-control espaçamento_modal" readonly type="text" id="input_numero_pc" name="number"></input>
+            
+                    
+                    <label class="form-label fw-bold"for="modal_opções">Selecione a situação do computador</label>
+                    <select class="form-select espaçamento_modal " id="modal_opções" aria-label="Default select example" name="category">
+                        <option disabled selected>Situação</option>
+                <option value="Faltando">Faltando</option>
+                <option value="Com Problemas">Com Problemas</option>
+                <option value="Sem Problemas">Sem Problemas</option>
+            </select>
+            <label for="exampleFormControlTextarea1" class="form-label fw-bold">Descreva o problema</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"></textarea>
+            
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-primary" id="btn_submit" data-bs-dismiss="modal">Enviar</button>
+    </div>
+  </form>
+</div>
+</div>
+</div>
+
+<footer class="footer_home">
+    <h1>Todos os direitos Reservados</h1>
+    <div class="github">
+        <a class="link_github">https://github.com/MirageGroup</a>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+
+<script src="../static/js/modal.js"></script>
+<script src="../static/js/lab.js"></script>
+{% endblock %}
+
+</body>
+</html>
