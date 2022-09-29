@@ -64,7 +64,7 @@ python -m venv venv && venv\Scripts\activate && pip install -r requirements.txt 
 </li>
 </ul>
 
-<h3>Equipe<h3>
+<h2>Equipe<h2>
 
 |    Função    | Nome                     |                     GitHub                     |                    Linkedin                    |
 | :----------: | :----------------------- | :--------------------------------------------: | :--------------------------------------------: |
