@@ -1,14 +1,28 @@
-from flask import Flask, render_template, request
+from django.shortcuts import render
+from flask import Flask
+from flask import render_template
+from flask import request
+from flask import redirect
+import models as dbHandler
 
-app = Flask(__name__)
+
+app = Flask('__name__')
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 app.config.update(
   TEMPLATES_AUTO_RELOAD = True
 )
 
-@app.route('/')
+@app.route('/', methods = ['POST', 'GET'])
 def home():
-  return render_template('index.html')
+  if request.method == 'POST':
+    cpf=request.form['cpf']
+    email=request.form['email']
+    senha=request.form['senha']
+    dbHandler.insertUser(cpf,email,senha)
+    return redirect('/')
+  else:
+    users = dbHandler.retrieveUsers()
+    return render_template('index.html', users=users)
 
 @app.route('/lab/<int:labnum>')
 def lab(labnum):
@@ -23,4 +37,4 @@ def lab_edit():
   return render_template('laboratorio_editor.html')
 
 if __name__ == '__main__':
-  app.run(debug=True)
+  app.run(debug=True)#pode ser mudado para 127.0.0.1
