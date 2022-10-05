@@ -41,9 +41,7 @@ def lab_edit(labnum):
 def lab_3():
   return render_template('lab_3.html')
 
-@app.route('/lab_edit')
-def lab_edit():
-  return render_template('laboratorio_editor.html')
+
 
 @app.route('/tecnico')
 def tecnico():
