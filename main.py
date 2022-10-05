@@ -1,5 +1,13 @@
+<<<<<<< Updated upstream
 from flask import Flask, render_template, request, redirect
 from flask_mysqldb import MySQL
+=======
+
+from flask import Flask
+from flask import render_template
+from flask import request
+from flask import redirect
+>>>>>>> Stashed changes
 import models as dbHandler
 
 app = Flask(__name__)
@@ -41,5 +49,16 @@ def lab_edit(labnum):
 def lab_3():
   return render_template('lab_3.html')
 
+<<<<<<< Updated upstream
+=======
+@app.route('/lab_edit')
+def lab_edit():
+  return render_template('laboratorio_editor.html')
+
+@app.route('/tecnico')
+def tecnico():
+  return render_template('tecnico.html')
+
+>>>>>>> Stashed changes
 if __name__ == '__main__':
   app.run(debug=True)#pode ser mudado para 127.0.0.1
