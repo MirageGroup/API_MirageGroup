@@ -26,26 +26,31 @@ SET time_zone = "+00:00";
 --
 -- Estrutura da tabela `laboratorio402`
 --
+DROP DATABASE IF EXISTS api;
 
-CREATE TABLE `laboratorio402` (
-  `pc_id` varchar(9) NOT NULL,
-  `pc_status` varchar(20) NOT NULL,
-  `pc_problema` varchar(20) DEFAULT NULL,
-  `pc_descricao` varchar(50) NOT NULL,
-  `posx` int(1) NOT NULL,
-  `posy` int(1) NOT NULL
+CREATE DATABASE api;
+
+USE api;
+
+CREATE TABLE laboratorio402 (
+  pc_id varchar(9) NOT NULL,
+  pc_status varchar(20) NOT NULL,
+  pc_problema varchar(20) DEFAULT NULL,
+  pc_descricao varchar(50) NOT NULL,
+  posx int(1) NOT NULL,
+  posy int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `laboratorio402`
 --
 
-INSERT INTO `laboratorio402` (`pc_id`, `pc_status`, `pc_problema`, `pc_descricao`, `posx`, `posy`) VALUES
+INSERT INTO laboratorio402 (pc_id, pc_status, pc_problema, pc_descricao, posx, posy) VALUES
 ('Professor', 'Funcionando', NULL, 'O computador está funcionando corretamente', 1, 1),
 ('001', 'Funcionando', NULL, 'O computador está funcionando corretamente', 2, 2),
 ('002', 'Funcionando', NULL, 'O computador está funcionando corretamente', 3, 2),
 ('003', 'Funcionando', NULL, 'O computador está funcionando corretamente', 4, 2),
-('004', 'Não Funcionando', NULL, 'O computador está funcionando corretamente', 5, 2),
+('004', 'Funcionando', NULL, 'O computador está funcionando corretamente', 5, 2),
 ('005', 'Funcionando', NULL, 'O computador está funcionando corretamente', 6, 2),
 ('006', 'Funcionando', NULL, 'O computador está funcionando corretamente', 7, 2),
 ('007', 'Funcionando', NULL, 'O computador está funcionando corretamente', 8, 2),
@@ -81,19 +86,19 @@ INSERT INTO `laboratorio402` (`pc_id`, `pc_status`, `pc_problema`, `pc_descricao
 -- Estrutura da tabela `_laboratorio402`
 --
 
-CREATE TABLE `_laboratorio402` (
-  `pos` int(2) NOT NULL,
-  `com_pc` tinyint(1) NOT NULL,
-  `pc_id` varchar(10) DEFAULT NULL,
-  `pc_problema` varchar(30) DEFAULT NULL,
-  `pc_descricao` varchar(40) DEFAULT NULL
+CREATE TABLE _laboratorio402 (
+  pos int(2) NOT NULL,
+  com_pc tinyint(1) NOT NULL,
+  pc_id varchar(10) DEFAULT NULL,
+  pc_problema varchar(30) DEFAULT NULL,
+  pc_descricao varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `_laboratorio402`
 --
 
-INSERT INTO `_laboratorio402` (`pos`, `com_pc`, `pc_id`, `pc_problema`, `pc_descricao`) VALUES
+INSERT INTO _laboratorio402 (pos, com_pc, pc_id, pc_problema, pc_descricao) VALUES
 (1, 1, 'Professor', NULL, 'O computador funciona corretamente'),
 (2, 0, NULL, NULL, NULL),
 (3, 0, NULL, NULL, NULL),
@@ -105,49 +110,49 @@ INSERT INTO `_laboratorio402` (`pos`, `com_pc`, `pc_id`, `pc_problema`, `pc_desc
 (9, 0, NULL, NULL, NULL),
 (10, 0, NULL, NULL, NULL),
 (11, 0, NULL, NULL, NULL),
-(12, 1, '01', NULL, 'O computador funciona corretamente'),
-(13, 1, '02', NULL, 'O computador funciona corretamente'),
-(14, 1, '03', NULL, 'O computador funciona corretamente'),
-(15, 1, '04', NULL, 'O computador funciona corretamente'),
-(16, 1, '05', NULL, 'O computador funciona corretamente'),
-(17, 1, '06', NULL, 'O computador funciona corretamente'),
-(18, 1, '07', NULL, 'O computador funciona corretamente'),
-(19, 1, '08', NULL, 'O computador funciona corretamente'),
-(20, 0, NULL, NULL, NULL),
-(31, 0, NULL, NULL, NULL),
-(22, 1, '09', NULL, 'O computador funciona corretamente'),
-(23, 1, '10', NULL, 'O computador funciona corretamente'),
-(24, 1, '11', NULL, 'O computador funciona corretamente'),
-(25, 1, '12', NULL, 'O computador funciona corretamente'),
-(26, 1, '13', NULL, 'O computador funciona corretamente'),
-(27, 1, '14', NULL, 'O computador funciona corretamente'),
-(28, 1, '15', NULL, 'O computador funciona corretamente'),
-(29, 1, '16', NULL, 'O computador funciona corretamente'),
-(30, 0, NULL, NULL, NULL),
-(31, 0, NULL, NULL, NULL),
-(32, 1, '17', NULL, 'O computador funciona corretamente'),
-(33, 1, '18', NULL, 'O computador funciona corretamente'),
-(34, 1, '19', NULL, 'O computador funciona corretamente'),
-(35, 1, '20', NULL, 'O computador funciona corretamente'),
-(36, 1, '21', NULL, 'O computador funciona corretamente'),
-(37, 1, '22', NULL, 'O computador funciona corretamente'),
-(38, 1, '23', NULL, 'O computador funciona corretamente'),
-(39, 1, '24', NULL, 'O computador funciona corretamente'),
-(40, 0, NULL, NULL, NULL),
-(41, 0, NULL, NULL, NULL),
-(42, 1, '25', NULL, 'O computador funciona corretamente'),
-(43, 1, '26', NULL, 'O computador funciona corretamente'),
-(44, 1, '27', NULL, 'O computador funciona corretamente'),
-(45, 1, '28', NULL, 'O computador funciona corretamente'),
-(46, 1, '29', NULL, 'O computador funciona corretamente'),
-(47, 1, '30', NULL, 'O computador funciona corretamente'),
-(48, 1, '31', NULL, 'O computador funciona corretamente'),
-(49, 1, '32', NULL, 'O computador funciona corretamente'),
+(12, 0, NULL, NULL, NULL),
+(13, 1, '01', NULL, 'O computador funciona corretamente'),
+(14, 1, '02', NULL, 'O computador funciona corretamente'),
+(15, 1, '03', NULL, 'O computador funciona corretamente'),
+(16, 1, '04', NULL, 'O computador funciona corretamente'),
+(17, 0, NULL, NULL, NULL),
+(18, 1, '05', NULL, 'O computador funciona corretamente'),
+(19, 1, '06', NULL, 'O computador funciona corretamente'),
+(20, 1, '07', NULL, 'O computador funciona corretamente'),
+(21, 1, '08', NULL, 'O computador funciona corretamente'),
+(22, 0, NULL, NULL, NULL),
+(23, 0, NULL, NULL, NULL),
+(24, 1, '09', NULL, 'O computador funciona corretamente'),
+(25, 1, '10', NULL, 'O computador funciona corretamente'),
+(26, 1, '11', NULL, 'O computador funciona corretamente'),
+(27, 1, '12', NULL, 'O computador funciona corretamente'),
+(28, 0, NULL, NULL, NULL),
+(29, 1, '13', NULL, 'O computador funciona corretamente'),
+(30, 1, '14', NULL, 'O computador funciona corretamente'),
+(31, 1, '15', NULL, 'O computador funciona corretamente'),
+(32, 1, '16', NULL, 'O computador funciona corretamente'),
+(33, 0, NULL, NULL, NULL),
+(34, 0, NULL, NULL, NULL),
+(35, 1, '17', NULL, 'O computador funciona corretamente'),
+(36, 1, '18', NULL, 'O computador funciona corretamente'),
+(37, 1, '19', NULL, 'O computador funciona corretamente'),
+(38, 1, '20', NULL, 'O computador funciona corretamente'),
+(39, 0, NULL, NULL, NULL),
+(40, 1, '21', NULL, 'O computador funciona corretamente'),
+(41, 1, '22', NULL, 'O computador funciona corretamente'),
+(42, 1, '23', NULL, 'O computador funciona corretamente'),
+(43, 1, '24', NULL, 'O computador funciona corretamente'),
+(44, 0, NULL, NULL, NULL),
+(45, 0, NULL, NULL, NULL),
+(46, 1, '25', NULL, 'O computador funciona corretamente'),
+(47, 1, '26', NULL, 'O computador funciona corretamente'),
+(48, 1, '27', NULL, 'O computador funciona corretamente'),
+(49, 1, '28', NULL, 'O computador funciona corretamente'),
 (50, 0, NULL, NULL, NULL),
-(51, 0, NULL, NULL, NULL),
-(52, 0, NULL, NULL, NULL),
-(53, 0, NULL, NULL, NULL),
-(54, 0, NULL, NULL, NULL),
+(51, 1, '29', NULL, 'O computador funciona corretamente'),
+(52, 1, '30', NULL, 'O computador funciona corretamente'),
+(53, 1, '31', NULL, 'O computador funciona corretamente'),
+(54, 1, '32', NULL, 'O computador funciona corretamente'),
 (55, 0, NULL, NULL, NULL),
 (56, 0, NULL, NULL, NULL),
 (57, 0, NULL, NULL, NULL),
@@ -173,9 +178,20 @@ INSERT INTO `_laboratorio402` (`pos`, `com_pc`, `pc_id`, `pc_problema`, `pc_desc
 (77, 0, NULL, NULL, NULL),
 (78, 0, NULL, NULL, NULL),
 (79, 0, NULL, NULL, NULL),
-(80, 0, NULL, NULL, NULL);
+(80, 0, NULL, NULL, NULL),
+(81, 0, NULL, NULL, NULL),
+(82, 0, NULL, NULL, NULL),
+(83, 0, NULL, NULL, NULL),
+(84, 0, NULL, NULL, NULL),
+(85, 0, NULL, NULL, NULL),
+(86, 0, NULL, NULL, NULL),
+(87, 0, NULL, NULL, NULL),
+(88, 0, NULL, NULL, NULL),
+(89, 0, NULL, NULL, NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+SELECT * FROM _laboratorio402;

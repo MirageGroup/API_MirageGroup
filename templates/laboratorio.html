@@ -27,22 +27,20 @@
         <!-- computadores -->
     <section class="layout_editores">
         <div class="area_de_computadores">
-          
           {% for computador in computadores %}
-            {% if computador[0] == 6 or computador[0] == 12 or computador[0] == 18 or computador[0] == 24 or computador[0] == 30 or computador[0] == 36 or computador[0] == 42 or computador[0] == 48 %}
-              <div class="dropzone dropzone_margin">  
-            {% else %}
+            {% if computador[1] == 1 %}
               <div class="dropzone">
+                <card class="card_computador card" data-bs-toggle="modal" draggable="true" data-bs-target="#modal-teste"  data-bs-whatever="{{computador[2]}}" id="{{computador[2]}}">
+                    <img src="../static/img/img_monitor.png" class="imagem_monitor">
+                    <div class="container_texto status_verde">
+                        <p class="texto_computador ">COMPUTADOR</p>
+                        <p class="texto_computador ">{{computador[2]}}</p>
+                    </div>    
+                </card>
+              </div>
+            {% else %}
+              <div class="dropzone"></div>
             {% endif %}
-            <card class="card_computador card computador_editando" draggable="true" data-bs-toggle="modal" data-bs-target="#modal-teste"   data-bs-whatever="professor" id="professor">
-                <img src="../static/img/img_monitor.png" class="imagem_monitor">
-                <div class="container_texto status_verde">
-                    <p class="texto_computador  ">COMPUTADOR</p>
-                    <p class="texto_computador ">{{computador[2]}}</p>
-                </div>    
-            </card>        
-          </div>              
-          <div class="dropzone"></div>                
           {% endfor %}
         
         </div>

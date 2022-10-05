@@ -25,7 +25,8 @@ def lab(labnum):
   cursor.execute(f'''SELECT * FROM _laboratorio{labnum} ORDER BY pos''')
   computadores = cursor.fetchall()
 
-  print(computadores[0])
+  for i in computadores:
+    print(i)
 
   return render_template('laboratorio.html', labnum=labnum, computadores=computadores)
 
