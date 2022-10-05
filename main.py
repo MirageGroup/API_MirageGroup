@@ -41,5 +41,13 @@ def lab_edit(labnum):
 def lab_3():
   return render_template('lab_3.html')
 
+@app.route('/lab_edit')
+def lab_edit():
+  return render_template('laboratorio_editor.html')
+
+@app.route('/tecnico')
+def tecnico():
+  return render_template('tecnico.html')
+
 if __name__ == '__main__':
   app.run(debug=True)#pode ser mudado para 127.0.0.1
