@@ -36,11 +36,12 @@
         <!-- computadores -->
         <section class="layout_editores">
             <div class="area_de_computadores">
+
               {% for computador in computadores %}
                 {% if computador[1] == 1 %}
                   <div class="dropzone" id="{{computador[0]}}">
                     <card class="card_computador card" data-bs-toggle="modal" draggable="true" data-bs-target="#modal-teste"  data-bs-whatever="{{computador[2]}}" id="{{computador[2]}}">
-                        <img src="{{url_for('static', filename='img/img_monitor')}}" class="imagem_monitor">
+                        <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
                         <div class="container_texto status_verde">
                             <p class="texto_computador ">COMPUTADOR</p>
                             <p class="texto_computador ">{{computador[2]}}</p>
@@ -67,7 +68,7 @@
 
 
 
-<script src="../static/js/editor.js"></script>
+<script src="{{ url_for('static',     filename='js/editor.js') }}"></script>
 {% endblock %}
 
 </body>

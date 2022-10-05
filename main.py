@@ -1,17 +1,13 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from flask_mysqldb import MySQL
-from jinja2 import Environment
-import json
+import models as dbHandler
 
 app = Flask(__name__)
 
-jinja_env = Environment(extensions=['jinja2.ext.i18n'])
-app.jinja_env.add_extension('jinja2.ext.loopcontrols')
-
-app.config['MYSQL_HOST'] = '127.0.0.1'
-app.config['MYSQL_USER'] = 'root'
-app.config['NYSQL_PASSWORD'] = '1234'
-app.config['MYSQL_DB'] = 'api'
+app.config['MYSQL_HOST'] = 'sql10.freemysqlhosting.net'
+app.config['MYSQL_USER'] = 'sql10524553'
+app.config['MYSQL_PASSWORD'] = 'XWDCjSPxS1'
+app.config['MYSQL_DB'] = 'sql10524553'
 
 mysql = MySQL(app)
 
