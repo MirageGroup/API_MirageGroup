@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="{{ url_for('static',     filename='css/reset.css') }}">
     <link rel="stylesheet" href="{{ url_for('static',     filename='css/style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static',     filename='css/main.css') }}">
+
     <title>Laboratório {{ labnum }}</title>
 </head>
 <body>
@@ -20,31 +20,106 @@
     
     <main>
         <div class="lab_superior">
-            <h1>Laboratório {{labnum}}</h1>
+            <h1>Laboratorio X</h1>
             <a href="{{ url_for('lab_edit') }}">Editar</a>
-        </div>
 
+        </div>
+        
         <!-- computadores -->
     <section class="layout_editores">
         <div class="area_de_computadores">
-          
-          {% for computador in computadores %}
-            {% if computador[0] == 6 or computador[0] == 12 or computador[0] == 18 or computador[0] == 24 or computador[0] == 30 or computador[0] == 36 or computador[0] == 42 or computador[0] == 48 %}
-              <div class="dropzone dropzone_margin">  
-            {% else %}
-              <div class="dropzone">
-            {% endif %}
-            <card class="card_computador card computador_editando" draggable="true" data-bs-toggle="modal" data-bs-target="#modal-teste"   data-bs-whatever="professor" id="professor">
-                <img src="../static/img/img_monitor.png" class="imagem_monitor">
-                <div class="container_texto status_verde">
-                    <p class="texto_computador  ">COMPUTADOR</p>
-                    <p class="texto_computador ">{{computador[2]}}</p>
-                </div>    
-            </card>        
-          </div>              
-          <div class="dropzone"></div>                
-          {% endfor %}
-        
+            
+                    <!-- Fileira 1 -->
+            <div class="dropzone " id="1 1" ></div>
+            <div class="dropzone " id="2 1" ></div>
+            <div class="dropzone" id="3 1" ></div>
+            <div class="dropzone" id="4 1" ></div>
+            <div class="dropzone " id="5 1" ></div>
+            <div class="dropzone dropzone_margin" id="6 x"></div>
+            <div class="dropzone" id="7 1" ></div>
+            <div class="dropzone" id="8 1" ></div>
+            <div class="dropzone" id="9 1" ></div>
+            <div class="dropzone" id="10 1" ></div>
+            
+                    <!-- Fileira 2 -->  
+            
+            <div class="dropzone" id="1 2" ></div>
+            <div class="dropzone" id="2 2"></div>
+            <div class="dropzone" id="3 2"></div>
+            <div class="dropzone" id="4 2"></div>
+            <div class="dropzone" id="5 2"></div>            
+            <div class="dropzone dropzone_margin" id="6 2"></div>
+            <div class="dropzone" id="7 2"></div>
+            <div class="dropzone" id="8 2"></div>
+            <div class="dropzone" id="9 2" ></div>
+            <div class="dropzone" id="10 2" ></div>
+                    <!-- Fileira 3 -->  
+            <div class="dropzone" id="1 3"></div>
+            <div class="dropzone" id="2 3"></div>
+            <div class="dropzone" id="3 3"></div>
+            <div class="dropzone" id="4 3"></div>
+            <div class="dropzone " id="5 3"></div>
+            <div class="dropzone dropzone_margin" id="6 3"></div>
+            <div class="dropzone" id="7 3"></div>
+            <div class="dropzone" id="8 3"></div>
+            <div class="dropzone" id="9 3" ></div>
+            <div class="dropzone" id="10 3" ></div>
+                    <!-- Fileira 4 -->  
+            <div class="dropzone" id="1 4"></div>
+            <div class="dropzone" id="2 4"></div>
+            <div class="dropzone" id="2 4"></div>
+            <div class="dropzone" id="3 4"></div>
+            <div class="dropzone" id="4 4"></div>        
+            <div class="dropzone dropzone_margin" id="6 4"></div>
+            <div class="dropzone" id="7 4"></div>
+            <div class="dropzone" id="8 4"></div>
+            <div class="dropzone" id="9 4"></div>
+            <div class="dropzone" id="10 4"></div>
+                    <!-- Fileira 5 -->
+            <div class="dropzone" id="1 5" ></div>
+            <div class="dropzone" id="2 5"></div>
+            <div class="dropzone" id="3 5"></div>
+            <div class="dropzone" id="4 5"></div>
+            <div class="dropzone " id="5 5"></div>
+            <div class="dropzone dropzone_margin" id="6 5"></div>
+            <div class="dropzone" id="7 5"></div>
+            <div class="dropzone" id="8 5"></div>
+            <div class="dropzone" id="9 5" ></div>
+            <div class="dropzone" id="10 5" ></div>
+                <!-- Fileira 6 -->
+            <div class="dropzone" id="1 6"></div>
+            <div class="dropzone" id="2 6"></div>
+            <div class="dropzone" id="3 6"></div>
+            <div class="dropzone" id="4 6"></div>
+            <div class="dropzone " id="5 6"></div>
+            <div class="dropzone dropzone_margin" id="6 6"></div>
+            <div class="dropzone" id="7 6"></div>
+            <div class="dropzone" id="8 6"></div>
+            <div class="dropzone" id="9 6" ></div>
+            <div class="dropzone" id="10 6" ></div>   
+            <!-- Fileira 7 -->  
+            <div class="dropzone" id="1 7"></div>
+            <div class="dropzone" id="2 7"></div>
+            <div class="dropzone" id="3 7"></div>
+            <div class="dropzone" id="4 7"></div>
+            <div class="dropzone " id="5 7"></div>
+            <div class="dropzone dropzone_margin" id="6 7"></div>
+            <div class="dropzone" id="7 7"></div>
+            <div class="dropzone" id="8 7"></div>
+            <div class="dropzone" id="9 7" ></div>
+            <div class="dropzone" id="10 7" ></div>
+                <!-- Fileira 8 -->
+            <div class="dropzone" id="1 8"></div>
+            <div class="dropzone" id="2 8"></div>
+            <div class="dropzone" id="3 8"></div>
+            <div class="dropzone" id="4 8"></div>
+            <div class="dropzone " id="5 8"></div>
+            <div class="dropzone dropzone_margin" id="6 8"></div>
+            <div class="dropzone" id="7 8"></div>
+            <div class="dropzone" id="8 8"></div>
+            <div class="dropzone" id="9 8" ></div>
+            <div class="dropzone" id="10 8" ></div>
+
         </div>
     </section>
 
