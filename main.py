@@ -15,9 +15,17 @@ app.config['MYSQL_DB'] = 'api'
 
 mysql = MySQL(app)
 
-@app.route('/')
+@app.route('/', methods = ['POST', 'GET'])
 def home():
-  return render_template('index.html')
+  if request.method == 'POST':
+    cpf=request.form['cpf']
+    email=request.form['email']
+    senha=request.form['senha']
+    dbHandler.insertUser(cpf,email,senha)
+    return redirect('/')
+  else:
+    users = dbHandler.retrieveUsers()
+    return render_template('index.html', users=users)
 
 @app.route('/lab/<int:labnum>')
 def lab(labnum):
@@ -38,4 +46,4 @@ def lab_3():
   return render_template('lab_3.html')
 
 if __name__ == '__main__':
-  app.run(debug=True)
+  app.run(debug=True)#pode ser mudado para 127.0.0.1

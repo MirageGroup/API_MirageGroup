@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="{{ url_for('static',     filename='css/reset.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static',     filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
     <title>Home</title>
     
 </head>
@@ -98,19 +98,19 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form>
+            <form action="/" method="POST">
               <div class="mb-3">
                 <label for="inputCPF" class="form-label">Digite seu CPF</label>
-                <input type="text" class="form-control" id="inputCPF" >
+                <input type="text" class="form-control" id="inputCPF" name="cpf" required/>
               </div>
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email Fatec</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="nome.email@fatec.sp.gov.br">
+                <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="nome.email@fatec.sp.gov.br"required/>
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
               </div>
               <div class="mb-3">
                 <label for="input_senha" class="form-label">Sua senha</label>
-                <input type="password" class="form-control" id="input_senha">
+                <input type="password" class="form-control" id="input_senha" name="senha">
               </div>
               <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -118,10 +118,21 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                <input type="submit" class="btn btn-primary">Enviar</input>
               </div>
+              {%if users%}
+              <div>
+                <table>
+                  {% for users in users %}
+                    <tr>
+                      <td>{{ users[0] }}</td>
+                    </tr>   
+                  {%endfor%}
+                </table>
+              </div>
+              {%endif%}
             </form>
-          </div>
+          </div>          
           
         </div>
       </div>
@@ -129,6 +140,7 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
     
     {% endblock %}
     
