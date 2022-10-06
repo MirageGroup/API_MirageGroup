@@ -26,9 +26,9 @@
     display: grid;
     grid-template-columns: repeat(11,1fr);
     grid-template-rows: repeat(8,1fr);
-    grid-column-gap: 0.5em;
+    grid-column-gap: 0.4em;
     row-gap: 2.0px;
-    width: 85%;
+    width: 94%;
     background-color: rgb(238, 238, 238);
     border-radius: 10px;
     padding: 0.7em;
@@ -44,6 +44,7 @@
 .dropzone{
     scale: 0.8;
     max-height: 8em;
+    
     
    
 }
