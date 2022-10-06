@@ -296,4 +296,12 @@
     
 
 }
-
+.seta_baixo{
+    background-image: url('../img/imagem_seta_baixo.svg');
+    background-repeat: no-repeat;
+    width: 20px;
+}
+.seta_cima{
+    background-image: url('../img/imagem_seta_alto.svg');
+    background-repeat: no-repeat;
+}
