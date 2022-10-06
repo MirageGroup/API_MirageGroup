@@ -6,14 +6,14 @@
 
 }
 .main_apresentação h1{
-    margin: 0.5em 0 1.0em 0; 
+    margin: 0.5em 0 0.7em 0; 
     font-size: 32px;
     font-weight: 800;
     text-transform: uppercase;
     
 }
 .apresentação_texto{
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 300;
 }
 
@@ -260,4 +260,27 @@
 }
     /* TELA DO TÉCNICO */
 
+.container_reports{
+ width: 100%;
+ display: flex;
+ justify-content: center;
+ background-color: rgb(241, 241, 241);
+ padding: 1em;
+ 
+}
+.reports_card{
+    display: flex;
+    width: 65%;
+    background-color:rgb(238, 238, 238) ;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    padding: 0.2em 1em;
+    justify-content: space-between;
+}
+.card_titulo{
+    font-size: 28px;
+}
+.card_subtitulo{
+    font-size: 16px;
+}
 
