@@ -270,17 +270,30 @@
 }
 .reports_card{
     display: flex;
+    flex-direction: column;
     width: 65%;
     background-color:rgb(238, 238, 238) ;
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 8px;
     padding: 0.2em 1em;
+    
+}
+.reports_superior{
+    display: flex;
     justify-content: space-between;
+}
+.reports_inferior{
+    margin-top: 1em;
 }
 .card_titulo{
     font-size: 28px;
 }
 .card_subtitulo{
     font-size: 16px;
+}
+.card_descrição strong{
+    font-weight: 800;
+    
+
 }
 
