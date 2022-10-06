@@ -61,7 +61,33 @@ INSERT INTO laboratorio301 (pos, com_pc, pc_id, pc_problema, pc_descricao) VALUE
 (18, 1, '03', NULL, 'O computador funciona corretamente'),
 (19, 1, '02', NULL, 'O computador funciona corretamente'),
 (20, 1, '01', NULL, 'O computador funciona corretamente'),
-(21, 0, NULL, NULL, NULL),
+(21, 0, NULL, NULL, NULL),￼
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+￼ 
+MirageGroup
+/
+API_MirageGroup
+Public
+Edit Pins 
+ Watch 0 Fork 1
+￼ Star 1
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+ b5c107478b 
+API_MirageGroup/templates/laboratorio.html
+Go to file
+￼
 (22, 0, NULL, NULL, NULL),
 (23, 0, NULL, NULL, NULL),
 (24, 0, NULL, NULL, NULL),
