@@ -30,13 +30,15 @@
           {% for computador in computadores %}
             {% if computador[1] == 1 %}
               <div class="dropzone">
-                <card class="card_computador card" data-bs-toggle="modal" draggable="true" data-bs-target="#modal-teste"  data-bs-whatever="{{computador[2]}}" id="{{computador[2]}}">
-                    <img src="../static/img/img_monitor.png" class="imagem_monitor">
-                    <div class="container_texto status_verde">
-                        <p class="texto_computador ">COMPUTADOR</p>
-                        <p class="texto_computador ">{{computador[2]}}</p>
+                  <card class="card_computador card" data-bs-toggle="modal" draggable="true" data-bs-target="#modal-teste"  data-bs-whatever="{{computador[2]}}" id="{{computador[2]}}">
+                    <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="{{computador[4]}}" data-bs-trigger="hover">  
+                    <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
+                      <div class="container_texto status_verde">
+                          <p class="texto_computador ">COMPUTADOR</p>
+                          <p class="texto_computador ">{{computador[2]}}</p>
+                      </div>
                     </div>    
-                </card>
+                  </card>
               </div>
             {% else %}
               <div class="dropzone"></div>
@@ -176,15 +178,15 @@
 <footer class="footer_home">
     <h1>Todos os direitos Reservados</h1>
     <div class="github">
-        <a class="link_github">https://github.com/MirageGroup</a>
+        <a class="link_github" href="https://github.com/MirageGroup">https://github.com/MirageGroup</a>
     </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 
 
-<script src="../static/js/modal.js"></script>
-<script src="../static/js/lab.js"></script>
+<script src="{{ url_for('static',     filename='js/modal.js') }}"></script>
+<script src="{{ url_for('static',     filename='js/lab_report.js') }}"></script>
 {% endblock %}
 
 </body>
