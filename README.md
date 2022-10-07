@@ -13,6 +13,12 @@
 </p>
 
 # API_MirageGroup <a href="" target="_blank"><img src="https://img.shields.io/badge/status-em%20desenvolvimento-yellow"></a>
+
+<div align="center"  dir="auto">
+<img id="logo" src="docs/mirage group0002.png" alt="logo-mirage-group" width=650px>
+</div>
+
+
 Repositório do projeto de API do 1º semestre do MirageGroup, da 1º turma de ADS da Fatec SJC 2022.
 
 <p dir="auto">Sendo a primeira sprint, definimos e realizamos as tarefas mais importantes para o início do projeto, todas com características de planejamento e gerenciamento do produto e do processo, além de outras esferas como a organização da equipe e das ferramentas e tecnologias que seriam usadas ao decorrer das sprints.</p>
