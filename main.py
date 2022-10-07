@@ -4,10 +4,10 @@ import models as dbHandler
 
 app = Flask(__name__)
 
-app.config['MYSQL_HOST'] = 'sql10.freemysqlhosting.net'
-app.config['MYSQL_USER'] = 'sql10524553'
-app.config['MYSQL_PASSWORD'] = 'XWDCjSPxS1'
-app.config['MYSQL_DB'] = 'sql10524553'
+app.config['MYSQL_HOST'] = 'us-cdbr-east-06.cleardb.net'
+app.config['MYSQL_USER'] = 'bbc6f0cc739a84'
+app.config['MYSQL_PASSWORD'] = '2c05d7ed'
+app.config['MYSQL_DB'] = 'heroku_be80b7ca2ec9c96'
 
 mysql = MySQL(app)
 
