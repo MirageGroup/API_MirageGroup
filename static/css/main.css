@@ -263,7 +263,9 @@
 .container_reports{
  width: 100%;
  display: flex;
- justify-content: center;
+ flex-direction: column;
+ align-items: center;
+ gap: 1em;
  background-color: rgb(241, 241, 241);
  padding: 1em;
  
@@ -273,20 +275,16 @@
     flex-direction: column;
     width: 65%;
     background-color:rgb(238, 238, 238) ;
-    border: 1px solid rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 0, 0, 1);
     border-radius: 8px;
-    padding: 0.2em 1em;
+    
     
 }
-.reports_superior{
-    display: flex;
-    justify-content: space-between;
-}
-.reports_inferior{
-    margin-top: 1em;
-}
+
+
 .card_titulo{
     font-size: 28px;
+    text-transform: uppercase ;
 }
 .card_subtitulo{
     font-size: 16px;
@@ -294,7 +292,11 @@
 .card_descrição strong{
     font-weight: 800;
     
+    
 
+}
+.card_descrição{
+    padding: 0.6em 0.5em;
 }
 .seta_baixo{
     background-image: url('../img/imagem_seta_baixo.svg');
@@ -304,4 +306,33 @@
 .seta_cima{
     background-image: url('../img/imagem_seta_alto.svg');
     background-repeat: no-repeat;
+}
+
+.card_tecnico_titulo{
+    text-transform: uppercase;
+
+}
+#titulo_barra{
+    border-right: 2px solid black;
+    padding-right: 0.6em;
+    
+}
+.card_superior_titulo{
+    display: flex;
+    gap: 0.6em;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    padding: 0.2em 0.5em;
+   
+}
+.card_subtitulo{
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0.7em 0;
+}
+.card_superior_subtitulo{
+    display: flex;
+    gap: 0.6em;
+    width: 100%;
+    padding: 0.2em 0.5em;
 }
