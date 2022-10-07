@@ -28,10 +28,6 @@ def lab(labnum):
   cursor = mysql.connection.cursor()
   cursor.execute(f'''SELECT * FROM laboratorio{labnum} ORDER BY pos''')
   computadores = cursor.fetchall()
-
-  for i in computadores:
-    print(i)
-
   return render_template('laboratorio.html', labnum=labnum, computadores=computadores)
 
 @app.route('/lab/<int:labnum>/edit')
@@ -40,12 +36,6 @@ def lab_edit(labnum):
   cursor.execute(f'''SELECT * FROM laboratorio{labnum} ORDER BY pos''')
   computadores = cursor.fetchall()
   return render_template('laboratorio_editor.html', labnum=labnum, computadores=computadores)
-
-@app.route('/lab_3')
-def lab_3():
-  return render_template('lab_3.html')
-
-
 
 @app.route('/tecnico')
 def tecnico():
