@@ -1,15 +1,7 @@
+var seta = document.querySelectorAll('.botão_seta')
 
-
-var seta = document.querySelector('.botão_seta')
-
-
-
-
-
-
-
-
-
-seta.addEventListener('click', event => {
-    seta.classList.toggle('seta_cima')
+seta.forEach(element => {
+  element.addEventListener('click', () => {
+    element.classList.toggle('seta_cima')
   })
+})
