@@ -1,6 +1,7 @@
 .main_apresentação{
    text-align: center;
    padding: 0 8em;
+   margin: 25px;
 
 
 
@@ -17,13 +18,7 @@
     font-weight: 300;
 }
 
-.faixa_principal{
-    display: flex;
-    margin: 1.5em 0;
-    background-color:#C71C30;
-    color: white;
-    
-}
+
 .faixa_textos{
     text-align: center;
     padding: 20px 50px;
@@ -98,12 +93,7 @@
     justify-content: space-around;
 
 }
-.main_links:hover{
-    background-color: #C71C30;
-    transition: 0.6s;
-    transform: scale(1.15);
 
-}
 
 .tamanho_carousel{
     height: 400px;
@@ -112,6 +102,23 @@
 #carouselExampleCaptions{
     margin: 3em 0;
 }
+
+    /* MAIN INFORMAÇÕES */
+
+.informações_sos{
+    display: flex;
+    margin: 2em 0;
+    }
+.informações_imagem{
+    width: 40%;
+    border-bottom-right-radius: 16px;
+    border-top-right-radius: 16px;
+    }
+.informações_texto{
+    text-align: center;
+    padding: 3em;
+    width: 60%;
+    }
 
 
     /* PAGINA LAB */
@@ -295,9 +302,7 @@
     
 
 }
-.card_descrição{
-    padding: 0.6em 0.5em;
-}
+
 .seta_baixo{
     background-image: url('../img/imagem_seta_baixo.svg');
     background-repeat: no-repeat;
@@ -321,7 +326,7 @@
     display: flex;
     gap: 0.6em;
     width: 100%;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid hsla(0, 0%, 0%, 0.5);
     padding: 0.2em 0.5em;
    
 }
@@ -329,10 +334,31 @@
     font-size: 18px;
     font-weight: 500;
     margin: 0.7em 0;
+    text-transform: uppercase;
 }
 .card_superior_subtitulo{
     display: flex;
     gap: 0.6em;
     width: 100%;
     padding: 0.2em 0.5em;
+    
+}
+.collapse_report{
+    margin: 8px;
+}
+.botão_report{
+    background-color:#c71c30ef ;
+    color: white;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 16px;
+    padding: 0.6em;
+    margin: 0.6em 0;
+   border-radius: 8px;
+    border: 1px solid  hsla(0, 0%, 0%, 0.5); ;
+}
+.botão_report:hover{
+    background-color: #c71c30b9 ;
+    transition: 0.5s;
+
 }
