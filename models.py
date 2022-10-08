@@ -1,16 +1,22 @@
-import sqlite3 as sql
+from flask_mysqldb import MySQL
+from main import mysql
 
 def insertUser(cpf,email,senha):
-    con = sql.connect("database.db")
-    cur = con.cursor()
-    cur.execute("INSERT INTO users (cpf,email,senha) VALUES (?,?,?)", (cpf,email,senha))
-    con.commit()
-    con.close()
+    cursor = mysql.connection.cursor()
+    cursor.execute('''INSERT INTO users (cpf,email,senha) VALUES (%s,%s,%s)''', (cpf,email,senha))
+    mysql.connection.commit()
+    cursor.close()
 
 def retrieveUsers():
-	con = sql.connect("database.db")
-	cur = con.cursor()
-	cur.execute("SELECT cpf, email FROM users")
-	users = cur.fetchall()
-	con.close()
-	return users
+    cursor = mysql.connection.cursor()
+    cursor.execute('''SELECT cpf, email FROM users''')
+    users = cursor.fetchall()
+    cursor.close()
+    return users
+
+def retriveLab(labnum):
+    cursor = mysql.connection.cursor()
+    cursor.execute(f'''SELECT * FROM laboratorio{labnum} ORDER BY pos''')
+    computadores = cursor.fetchall()
+    cursor.close()
+    return computadores
