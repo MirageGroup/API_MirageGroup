@@ -30,22 +30,23 @@ def lab(labnum):
   if request.method == 'POST':
     form = callForm()
     if form.validate_on_submit():
-      dbHandler.makeCall(form, labnum)
-    computadores = dbHandler.retriveLab(labnum)
+      dbHandler.createCall(form, labnum)
+    computadores = dbHandler.retrieveLab(labnum)
     return render_template('laboratorio.html', labnum=labnum, computadores=computadores, form=form)
   else:
     form = callForm()
-    computadores = dbHandler.retriveLab(labnum)
+    computadores = dbHandler.retrieveLab(labnum)
     return render_template('laboratorio.html', labnum=labnum, computadores=computadores, form=form)
 
 @app.route('/lab/<int:labnum>/edit')
 def lab_edit(labnum):
-  computadores = dbHandler.retriveLab(labnum)
+  computadores = dbHandler.retrieveLab(labnum)
   return render_template('laboratorio_editor.html', labnum=labnum, computadores=computadores)
 
 @app.route('/tecnico')
 def tecnico():
-  return render_template('tecnico.html')
+  chamados = dbHandler.retrieveCalls()
+  return render_template('tecnico.html', chamados=chamados)
 
 if __name__ == '__main__':
   app.run(debug=True)

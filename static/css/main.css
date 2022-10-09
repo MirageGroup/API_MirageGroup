@@ -346,7 +346,7 @@
 .collapse_report{
     margin: 8px;
 }
-.botão_report{
+.btn_closeCall{
     background-color:#c71c30ef ;
     color: white;
     font-weight: 800;
@@ -357,8 +357,27 @@
    border-radius: 8px;
     border: 1px solid  hsla(0, 0%, 0%, 0.5); ;
 }
-.botão_report:hover{
+
+.btn_closeCall:hover{
     background-color: #c71c30b9 ;
     transition: 0.5s;
+
+}
+
+.btn_deleteCall{
+  background-color:#918385ef ;
+  color: white;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 16px;
+  padding: 0.6em;
+  margin: 0.6em 0;
+ border-radius: 8px;
+  border: 1px solid  hsla(0, 0%, 0%, 0.5); ;
+}
+
+.btn_deleteCall:hover{
+  background-color: #a79fa0ef ;
+  transition: 0.5s;
 
 }

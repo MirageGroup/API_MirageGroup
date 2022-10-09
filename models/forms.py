@@ -19,4 +19,4 @@ choices = ['O computador não liga',
 class callForm(FlaskForm):
   input_numero_pc = StringField('input_numero_pc', validators=[DataRequired()])
   pc_problem = SelectField('pc_problem', validators=[DataRequired()], choices=choices)
-  problem_description = TextAreaField('problem_description', validators=[DataRequired(), Length(min=10, max=250)])
+  problem_description = TextAreaField('problem_description', validators=[DataRequired(), Length(min=10, max=350)])

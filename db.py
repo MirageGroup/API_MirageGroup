@@ -1,6 +1,5 @@
 from flask_mysqldb import MySQL
 from main import mysql
-import datetime
 
 def insertUser(cpf,email,senha):
     cursor = mysql.connection.cursor()
@@ -15,14 +14,21 @@ def retrieveUsers():
     cursor.close()
     return users
 
-def retriveLab(labnum):
+def retrieveLab(labnum):
     cursor = mysql.connection.cursor()
     cursor.execute(f'''SELECT * FROM laboratorio{labnum} ORDER BY pos''')
     computadores = cursor.fetchall()
     cursor.close()
     return computadores
 
-def makeCall(form, labnum):
+def retrieveCalls():
+    cursor = mysql.connection.cursor()
+    cursor.execute(f''' SELECT * FROM chamados ''')
+    chamados = cursor.fetchall()
+    cursor.close()
+    return chamados
+
+def createCall(form, labnum):
     pc_id = form.input_numero_pc.data
     pc_problem = form.pc_problem.data
     problem_description = form.problem_description.data

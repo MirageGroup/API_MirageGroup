@@ -18,76 +18,34 @@
     <main>
         <div class="main_apresentação">
             <h1 class="apresentação_titulo">Bem vindo ao local do técnico</h1>
-            <p class="apresentação_texto">aqui você pode verificar os reports dos computadores, assim como ferramentas para organiza-los</p>
+            <p class="apresentação_texto">aqui você pode verificar os chamados dos computadores, assim como ferramentas para organiza-los</p>
         </div>
         <section class="container_reports">
-            
+
+          {% for chamado in chamados %}
             <card class="reports_card"> 
-                <div class='card_superior_titulo'>
-                        <h1 class="card_titulo" id="titulo_barra">Laboratorio x </h1>
-                        <h1 class="card_titulo">computador x </h1>
-                        <p class=" botão_seta seta_baixo " id="" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_card_report" aria-expanded="false" aria-controls="collapseExample">
-                    
-                        </p>
-                        
-                </div>
-                    
-                    <div class='card_superior_subtitulo'>
-                        <h2 class="card_subtitulo">DATA: xx/xx/xxx</h2>
-                        <h2 class="card_subtitulo">Horario:XX:XX </h2>
-                        
-                </div>
-                <div class="reports_inferior">
-                    <div class="collapse collapse_report" id="collapse_card_report">
-                        <p class="card_descrição"><strong>DESCRIÇÃO</strong>: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti exercitationem, voluptatibus odio tempore dicta ducimus. Ipsa voluptate, odio maiores culpa, fugit provident vero suscipit minus nulla magnam praesentium! Dolore, nihil!</p>
-                        <button type="button" class="botão_report">Finalizar chamada</button>
-                    </div>
-                </div>       
-            </card> 
-            <card class="reports_card"> 
-                <div class='card_superior_titulo'>
-                        <h1 class="card_titulo" id="titulo_barra">Laboratorio x </h1>
-                        <h1 class="card_titulo">computador x </h1>
-                        <p class=" botão_seta seta_baixo " id="" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_card_report2" aria-expanded="false" aria-controls="collapseExample">
-                    
-                        </p>
-                        
-                </div>
-                    
-                    <div class='card_superior_subtitulo'>
-                        <h2 class="card_subtitulo">DATA: xx/xx/xxx</h2>
-                        <h2 class="card_subtitulo">Horario:XX:XX </h2>
-                        
-                </div>
-                <div class="reports_inferior">
-                    <div class="collapse collapse_report" id="collapse_card_report2">
-                        <p class="card_descrição"><strong>DESCRIÇÃO</strong>: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti exercitationem, voluptatibus odio tempore dicta ducimus. Ipsa voluptate, odio maiores culpa, fugit provident vero suscipit minus nulla magnam praesentium! Dolore, nihil!</p>
-                        <button type="button" class="botão_report">Finalizar chamada</button>
-                    </div>
-                </div>       
-            </card> 
-            <card class="reports_card"> 
-                <div class='card_superior_titulo'>
-                        <h1 class="card_titulo" id="titulo_barra">Laboratorio x </h1>
-                        <h1 class="card_titulo">computador x </h1>
-                        <p class=" botão_seta seta_baixo " id="" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_card_report3" aria-expanded="false" aria-controls="collapseExample">
-                    
-                        </p>
-                        
-                </div>
-                    
-                    <div class='card_superior_subtitulo'>
-                        <h2 class="card_subtitulo">DATA: xx/xx/xxx</h2>
-                        <h2 class="card_subtitulo">Horario:XX:XX </h2>
-                        
-                </div>
-                <div class="reports_inferior">
-                    <div class="collapse collapse_report" id="collapse_card_report3">
-                        <p class="card_descrição "><strong>DESCRIÇÃO</strong>: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti exercitationem, voluptatibus odio tempore dicta ducimus. Ipsa voluptate, odio maiores culpa, fugit provident vero suscipit minus nulla magnam praesentium! Dolore, nihil!</p>
-                        <button type="button" class="botão_report">Finalizar chamada</button>
-                    </div>
-                </div>       
-            </card> 
+              <div class='card_superior_titulo'>
+                      <h1 class="card_titulo" id="titulo_barra">Laboratório {{ chamado[1] }} </h1>
+                      <h1 class="card_titulo">Computador {{ chamado[2] }}  </h1>
+                      <p class=" botão_seta seta_baixo " id="" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_card_report3" aria-expanded="false" aria-controls="collapseExample">
+                      </p>  
+              </div>
+              <div class='card_superior_subtitulo'>
+                  <h2 class="card_subtitulo">DATA: {{ chamado[3] }}</h2>
+                  <h2 class="card_subtitulo">Horario: {{ chamado[4] }} </h2>
+              </div>
+              <div class="reports_inferior">
+                  <div class="collapse collapse_report" id="collapse_card_report3">
+                    <p class="card_descrição "><strong>PROBLEMA</strong>: {{ chamado[5] }} </p><br>
+                      <p class="card_descrição "><strong>DESCRIÇÃO</strong>: {{ chamado[6] }} </p>
+                      <button type="button" class="btn_closeCall">Finalizar chamado</button>
+                      <button type="button" class="btn_deleteCall">Excluir chamado</button>
+                  </div>
+              </div>
+          </card>
+
+          {% endfor %}
+
         </section>
     </main>
 
