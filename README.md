@@ -21,7 +21,18 @@
 
 Repositório do projeto de API do 1º semestre do MirageGroup, da 1º turma de ADS da Fatec SJC 2022.
 
-<p dir="auto">Sendo a primeira sprint, definimos e realizamos as tarefas mais importantes para o início do projeto, todas com características de planejamento e gerenciamento do produto e do processo, além de outras esferas como a organização da equipe e das ferramentas e tecnologias que seriam usadas ao decorrer das sprints.</p>
+### Entregas de Sprints
+
+Cada entrega foi realizada a partir da criação de uma **tag**. Observe a relação a seguir:
+| Sprint| Tag | Lançamento | Status | Histórico |
+|:-----:|:-------------:|:----------:|:---------:|:---------:|
+| 01 | [sprint-01](https://github.com/MirageGroup/API_MirageGroup/tree/entrega/sprint-1) | 18/09/2022 | Entregue | [ver relatório](https://github.com/MirageGroup/API_MirageGroup/blob/entrega/sprint-1/README.md) |
+| 02 | [sprint-02]() | 09/10/2022 | Em desenvolvimento | [ver relatório]() |
+| 03 | [sprint-03]() | 06/11/2022 | Não iniciada | [ver relatório]() |
+| 04 | [sprint-04]() | 27/11/2022 | Não iniciada | [ver relatório]() |
+
+→ [Voltar ao topo](#topo)
+
 
 # Iniciar
 Clone o repositório para o seu computador, abra o repositório com o VS Code, abra o terminal, troque para o cmd e use esse comando:
