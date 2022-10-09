@@ -31,7 +31,7 @@ def lab(labnum):
     form = callForm()
     if form.validate_on_submit():
       dbHandler.createCall(form, labnum)
-    computadores = dbHandler.retrieveLab(labnum)
+      computadores = dbHandler.retrieveLab(labnum)
     return render_template('laboratorio.html', labnum=labnum, computadores=computadores, form=form)
   else:
     form = callForm()
@@ -47,6 +47,11 @@ def lab_edit(labnum):
 def tecnico():
   chamados = dbHandler.retrieveCalls()
   return render_template('tecnico.html', chamados=chamados)
+
+@app.route('/tecnico/finishcall/<int:callnumber>')
+def finishCall(callnumber):
+  dbHandler.finishCall(callnumber)
+  return redirect('/tecnico')
 
 if __name__ == '__main__':
   app.run(debug=True)
