@@ -31,7 +31,7 @@
             {% if computador[1] == 1 %}
               <div class="dropzone">
                   <card class="card_computador card" data-bs-toggle="modal" draggable="true" data-bs-target="#modal-teste"  data-bs-whatever="{{computador[2]}}" id="{{computador[2]}}">
-                    <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="{{computador[4]}}" data-bs-trigger="hover">  
+                    <div class="grid_lab">  
                     <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
                     {% if computador[3] == None %}
                       <div class="container_texto status_verde">
@@ -41,7 +41,7 @@
                     {% else %}
                       <div class="container_texto status_vermelho">
                         <p class="texto_computador ">COMPUTADOR</p>
-                        <p class="texto_computador ">{{computador[2]}}</p>
+                        <p class="texto_computador ">{{computador[2]}}</p>                        
                     </div>
                     {% endif %}
                     </div>    
@@ -172,7 +172,7 @@
                         <option value="O computador não está dando imagem">O computador não está dando imagem</option>
                         <option value="O computador está sem som">O computador está sem som</option>
                         <option value="O computador está tendo a tela azul">O computador está tendo a tela azul</option>
-                        <option value="O computador está desligando sózinho">O computador está desligando sózinho</option>
+                        <option value="O computador está desligando sózinho">O computador está desligando sozinho</option>
                         <option value="O sistema operacional não está inicializando">O sistema operacional não está inicializando</option>
                         <option value="A tela está congelando">A tela está congelando</option>
                         <option value="O mouse não está funcionando">O mouse não está funcionando</option>
