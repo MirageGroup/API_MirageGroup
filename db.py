@@ -14,7 +14,7 @@ def retrieveUsers():
     cursor.close()
     return users
 
-def retrieveLab(labnum):
+def retrieveLab(labnum): 
     cursor = mysql.connection.cursor()
     cursor.execute(f'''SELECT * FROM laboratorio{labnum} ORDER BY pos''')
     computadores = cursor.fetchall()

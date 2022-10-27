@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect
 from flask_mysqldb import MySQL
 import db as dbHandler
-from models.forms import callForm
+from models.forms import callForm, accessForm
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'MirageGroup'
@@ -13,17 +13,10 @@ app.config['MYSQL_DB'] = 'heroku_be80b7ca2ec9c96'
 
 mysql = MySQL(app)
 
-@app.route('/', methods = ['POST', 'GET'])
+@app.route('/')
 def home():
-  if request.method == 'POST':
-    CPF = request.form['cpf']
-    email = request.form['email']
-    senha = request.form['senha']
-    dbHandler.insertUser(CPF,email,senha)
-    return redirect('/')
-  else:
-    users = dbHandler.retrieveUsers()
-    return render_template('index.html', users=users)
+  form = accessForm()
+  return render_template('index.html', form=form)
 
 @app.route('/lab/<int:labnum>', methods = ['POST', 'GET'])
 def lab(labnum):
@@ -32,21 +25,21 @@ def lab(labnum):
     if form.validate_on_submit():
       dbHandler.createCall(form, labnum)
       computadores = dbHandler.retrieveLab(labnum)
-    return render_template('laboratorio.html', labnum=labnum, computadores=computadores, form=form)
+    return redirect(f'/lab/{labnum}')
   else:
     form = callForm()
     computadores = dbHandler.retrieveLab(labnum)
     return render_template('laboratorio.html', labnum=labnum, computadores=computadores, form=form)
 
+@app.route('/tecnico', methods = ['POST', 'GET'])
+def tecnico():
+  chamados = dbHandler.retrieveCalls()
+  return render_template('tecnico.html', chamados=chamados)
+
 @app.route('/lab/<int:labnum>/edit')
 def lab_edit(labnum):
   computadores = dbHandler.retrieveLab(labnum)
   return render_template('laboratorio_editor.html', labnum=labnum, computadores=computadores)
-
-@app.route('/tecnico')
-def tecnico():
-  chamados = dbHandler.retrieveCalls()
-  return render_template('tecnico.html', chamados=chamados)
 
 @app.route('/tecnico/finishcall/<int:callnumber>')
 def finishCall(callnumber):

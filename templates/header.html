@@ -14,7 +14,7 @@
   <header class="cabecalho">
     <div class="header_superior">
         <img class="logo_fatec" src="{{url_for('static', filename='img/menu.png')}}" alt="logo da fatec">
-        <img class="logo_usuario" src="{{url_for('static', filename='img/cabeçalho.png')}}" 
+        <img class="logo_usuario" src="{{url_for('static', filename='img/icone_tecnico.png')}}" 
         data-bs-toggle="modal" data-bs-target="#modal_login" alt="logo do usuario">
     </div>
     <div class="header_inferior">  
@@ -54,12 +54,10 @@
             <li><a class="dropdown-item" href="/lab/412">Laborátorio 412</a></li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('tecnico') }}">TÉCNICO</a>
-        </li>
       </ul>
         
     </div>
+    
 
     {% block content %}
     {% endblock %}

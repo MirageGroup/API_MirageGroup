@@ -43,14 +43,12 @@
                 <img src="../static/img/fatec.jpg" class="d-block w-100 tamanho_carousel" alt="...">
                 <div class="carousel-caption d-none d-md-block altura_titulo_carousel">
                   <h1 class="display-6 fw-bolder titulo_principal">A FATEC</h1>
-                  
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="3000">
                 <img src="../static/img/lab_fatec.jpg" class="d-block w-100 tamanho_carousel" alt="...">
                 <div class="carousel-caption d-none d-md-block altura_titulo_carousel ">
                   <h1 class="display-6 fw-bolder  h-50 titulo_principal">Laboratórios</h1>
-                  
                 </div>
               </div>
             </div>
@@ -94,46 +92,19 @@
       <div class="modal-dialog  modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h5 class="modal-title" id="staticBackdropLabel">Acesso de Técnico</h5>
           </div>
           <div class="modal-body">
-            <form action="/" method="POST">
-              <div class="mb-3">
-                <label for="inputCPF" class="form-label">Digite seu CPF</label>
-                <input type="text" class="form-control" id="inputCPF" name="cpf" required/>
-              </div>
-              <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email Fatec</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="nome.email@fatec.sp.gov.br"required/>
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-              </div>
-              <div class="mb-3">
-                <label for="input_senha" class="form-label">Sua senha</label>
-                <input type="password" class="form-control" id="input_senha" name="senha">
-              </div>
-              <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Permanecer Logado</label>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <input type="submit" class="btn btn-primary"></input>
-              </div>
-              {%if users%}
-              <div>
-                <table>
-                  {% for users in users %}
-                    <tr>
-                      <td>{{ users[0] }}</td>
-                    </tr>   
-                  {%endfor%}
-                </table>
-              </div>
-              {%endif%}
+            <form action="/tecnico" method="POST">
+              <label class="form-label fw-bold" for="pc_problem">Insira o código de acesso de técnico</label>
+              <label class="form-label">Para acessar a Área do Técnico, você precisa inserir o código de acesso do Técnico</label><br>
+              {{ form.codigo(class="form-control espeçamento_modal") }}
             </form>
           </div>          
-          
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary" id="btn_submit">Enviar</button>
+          </div>
         </div>
       </div>
     </div>
