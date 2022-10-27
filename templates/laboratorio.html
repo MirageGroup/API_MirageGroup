@@ -27,6 +27,9 @@
         <!-- computadores -->
     <section class="layout_editores">
         <div class="area_de_computadores">
+          {% if computadores|length == 0 %}
+          <h1>Não existe computadores, estão todos na sua mente, acorde agora</h1>
+          {%endif%}
           {% for computador in computadores %}
             {% if computador[1] == 1 %}
               <div class="dropzone">
@@ -56,44 +59,36 @@
     </section>
 
         </section>
-        <section class="container_breaks">
-            <div class="container_especificações">
-                <p>
-                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_especificações" aria-expanded="false" aria-controls="collapse_especificações">
-                ESPECIFICAÇÕES
-                </button>
-            </p>
-                <div style="min-height: 120px;">
-                    <div class="collapse collapse_descrição" id="collapse_especificações">
-                        <div class="card card-body" style="width: 300px;">
-                           
-                                <b>CPU:</b> Intel Core I9 <br>
-                                <b>GPU:</b> Nvidia RTX 3090 <br>
-                                <b>MONITOR:</b> XXXXX
-                                XXXXXX
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>   
+        <section class="container_especificações">
+            <div class="container_especificações_titulo">
+              ESPECIFICAÇÕES
+              
+            </div> 
+            <section class="especificações">
+              <div class="especificação_item">
+                <h3>CPU</h3>
+                <img class="especificações_item_imagem" src="../static/img/processor.svg">
+                <p class="especificações_texto">INTEL I9</p>
+                <p class="especificações_texto_hover"> A CPU ou o processador é o “cérebro” de todo computador e celular do planeta: trata-se do componente responsável por executar todas as operações necessárias para o funcionamento do dispositivo.</p>
+              </div>
+              <div class="especificação_item">
+                <h3>GPU</h3>
+                <img class="especificações_item_imagem" src="../static/img/gpu.svg">
+                <p class="especificações_texto">RTX 4090</p>
+                <p class="especificações_texto_hover">GPU é um processadorque trabalha de maneira dedicada a atividades de vídeo dentro do computador. A sigla remete ao nome Unidade de Processamento Gráfico e sua função é processar as informações gráficas de uma máquina. Ela também diminui a sobrecarga da CPU e melhora a troca de dados entre as duas peças. </p>
+              </div>
+              <div class="especificação_item">
+                <h3>GPU</h3>
+                <img class="especificações_item_imagem" src="../static/img/monitor.svg">
+                <p class="especificações_texto">Exemplo monitor</p>
+                <p class="especificações_texto_hover"> dispositivo que funciona para transmitir o que está sendo realizado no computador, seja através do movimento dos olhos ou do seu corpo, para que assim você possa perceber todos os dados que estão sendo requisitados.</p>
+              </div>
+              
+              
 
-          <div class="container_legendas">
-            <p>
-                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_legendas" aria-expanded="false" aria-controls="collapse_legendas">
-                LEGENDAS
-                </button>
-            </p>
-            <div style="min-height: 120px;">
-                <div class="collapse collapse_descrição" id="collapse_legendas">
-                    <div class="card card-body">
-                        <b class="legenda_branco">BRANCO:  a localização não está com um computador no momento </b><br>
-                        <b class="legenda_verde">VERDE:  o computador está com um bom funcionamento</b> <br>
-                        <b class="legenda_vermelho">VERMELHO:  o computador está com problemas
-                        </b>
-                    </div>
-                </div>
-            </div>
-        </div> 
+            </section>  
+
+        
         </section>
         <div class="div_transição transição_degrade">
             
