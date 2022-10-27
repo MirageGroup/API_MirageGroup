@@ -278,6 +278,11 @@
     text-align: center;
     margin:2em 0;
 }
+.container_especificações_titulo{
+    font-size: 32px;
+    font-weight: 800;
+    
+}
 .especificações{
     display: flex;
     justify-content: center;
