@@ -25,33 +25,32 @@
         </div>
 
         <!-- computadores -->
-    <section class="layout_editores">
-        <div class="area_de_computadores">
-          {% for computador in computadores %}
-            {% if computador[1] == 1 %}
-              <div class="dropzone">
-                  <card class="card_computador card" data-bs-toggle="modal" draggable="true" data-bs-target="#modal-teste"  data-bs-whatever="{{computador[2]}}" id="{{computador[2]}}">
-                    <div class="grid_lab">  
-                    <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
-                    {% if computador[3] == None %}
-                      <div class="container_texto status_verde">
+        <section class="layout_editores">
+          <div class="area_de_computadores">
+            {% for computador in computadores %}
+              {% if computador[1] == 1 %}
+                <div class="dropzone">
+                    <card class="card_computador card" data-bs-toggle="modal" draggable="true" data-bs-target="#modal-teste"  data-bs-whatever="{{computador[2]}}" id="{{computador[2]}}">
+                      <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="{{computador[4]}}" data-bs-trigger="hover">  
+                      <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
+                      {% if computador[3] == None %}
+                        <div class="container_texto status_verde">
+                            <p class="texto_computador ">COMPUTADOR</p>
+                            <p class="texto_computador ">{{computador[2]}}</p>
+                        </div>
+                      {% else %}
+                        <div class="container_texto status_vermelho">
                           <p class="texto_computador ">COMPUTADOR</p>
                           <p class="texto_computador ">{{computador[2]}}</p>
                       </div>
-                    {% else %}
-                      <div class="container_texto status_vermelho">
-                        <p class="texto_computador ">COMPUTADOR</p>
-                        <p class="texto_computador ">{{computador[2]}}</p>
-                      </div>                         
-                    </div>
-                    {% endif %}
-                    </div>    
-                  </card>
-              </div>
-            {% else %}
-              <div class="dropzone"></div>
-            {% endif %}
-          {% endfor %}
+                      {% endif %}
+                      </div>    
+                    </card>
+                </div>
+              {% else %}
+                <div class="dropzone"></div>
+              {% endif %}
+            {% endfor %}
         
         </div>
     </section>
