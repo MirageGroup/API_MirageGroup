@@ -25,35 +25,32 @@
         </div>
 
         <!-- computadores -->
-    <section class="layout_editores">
-        <div class="area_de_computadores">
-          {% if computadores|length == 0 %}
-          <h1>Não existe computadores, estão todos na sua mente, acorde agora</h1>
-          {%endif%}
-          {% for computador in computadores %}
-            {% if computador[1] == 1 %}
-              <div class="dropzone">
-                  <card class="card_computador card" data-bs-toggle="modal" draggable="true" data-bs-target="#modal-teste"  data-bs-whatever="{{computador[2]}}" id="{{computador[2]}}">
-                    <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="{{computador[4]}}" data-bs-trigger="hover">  
-                    <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
-                    {% if computador[3] == None %}
-                      <div class="container_texto status_verde">
+        <section class="layout_editores">
+          <div class="area_de_computadores">
+            {% for computador in computadores %}
+              {% if computador[1] == 1 %}
+                <div class="dropzone">
+                    <card class="card_computador card" data-bs-toggle="modal" draggable="true" data-bs-target="#modal-teste"  data-bs-whatever="{{computador[2]}}" id="{{computador[2]}}">
+                      <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="{{computador[4]}}" data-bs-trigger="hover">  
+                      <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
+                      {% if computador[3] == None %}
+                        <div class="container_texto status_verde">
+                            <p class="texto_computador ">COMPUTADOR</p>
+                            <p class="texto_computador ">{{computador[2]}}</p>
+                        </div>
+                      {% else %}
+                        <div class="container_texto status_vermelho">
                           <p class="texto_computador ">COMPUTADOR</p>
                           <p class="texto_computador ">{{computador[2]}}</p>
                       </div>
-                    {% else %}
-                      <div class="container_texto status_vermelho">
-                        <p class="texto_computador ">COMPUTADOR</p>
-                        <p class="texto_computador ">{{computador[2]}}</p>
-                    </div>
-                    {% endif %}
-                    </div>    
-                  </card>
-              </div>
-            {% else %}
-              <div class="dropzone"></div>
-            {% endif %}
-          {% endfor %}
+                      {% endif %}
+                      </div>    
+                    </card>
+                </div>
+              {% else %}
+                <div class="dropzone"></div>
+              {% endif %}
+            {% endfor %}
         
         </div>
     </section>
@@ -167,7 +164,7 @@
                         <option value="O computador não está dando imagem">O computador não está dando imagem</option>
                         <option value="O computador está sem som">O computador está sem som</option>
                         <option value="O computador está tendo a tela azul">O computador está tendo a tela azul</option>
-                        <option value="O computador está desligando sózinho">O computador está desligando sózinho</option>
+                        <option value="O computador está desligando sózinho">O computador está desligando sozinho</option>
                         <option value="O sistema operacional não está inicializando">O sistema operacional não está inicializando</option>
                         <option value="A tela está congelando">A tela está congelando</option>
                         <option value="O mouse não está funcionando">O mouse não está funcionando</option>
@@ -197,10 +194,16 @@
     </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-
 <script src="{{ url_for('static',     filename='js/modal.js') }}"></script>
 <!-- <script src="{{ url_for('static',     filename='js/lab_report.js') }}"></script> -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+<script>
+  const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+  const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+</script>
+
 {% endblock %}
 
 </body>
