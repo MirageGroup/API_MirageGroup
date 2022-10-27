@@ -17,6 +17,13 @@
     font-size: 22px;
     font-weight: 300;
 }
+.apresentação_semChamado{
+    font-size: 32px;
+    font-weight: 600;
+}
+.error_img{
+    width: 3%;
+}
 
 
 .faixa_textos{
@@ -46,10 +53,24 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     padding: 1em 3em;
     background-image: linear-gradient(white,gray); 
 }
+
+.main_secundario h1 {
+    font-weight: bolder;
+    font-size: larger;
+}
+
+.accordion h2 {
+    font-weight: bolder;
+    color: rgb(30, 127, 253);
+}
+
+.accordion {
+    min-width: 100%;
+}
+
 .div_lab{
     display: flex;
     align-items: center;
@@ -243,12 +264,7 @@
 .espaçamento_modal{
     margin: 0 0 2em 0;
 }
-.container_legendas,.container_especificações{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 20%;
-}
+
 .container_breaks{
     display: flex;
     justify-content: center;
@@ -258,13 +274,60 @@
 
 
 }
-.collapse_descrição{
-    margin-top: 0.5em;
+.container_especificações{
+    text-align: center;
+    margin:2em 0;
 }
-.legenda_branco, .legenda_vermelho, .legenda_verde{
-    margin: 0.5em;
+.especificações{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 50vh;
+    
+}
+.especificação_item{
+    border: 1px solid black;
+    border-radius: 8px;
+    width: 15%;
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    
+}
+.especificações_item_imagem{
+    width: 25%;
+}
+.especificação_item h3{
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0.1em 0 ;
 
 }
+.especificações_texto{
+    margin: 1em 0 ;
+    font-weight: 600;
+}
+.especificação_item:hover{
+    border: 2px solid var(--vermelho_principal);
+}
+.especificações_texto_hover{
+   
+    display: none;
+    margin: 1em 0 ;
+}
+.especificação_item:hover > .especificações_texto_hover {
+    display: block;
+    border-top: 1px solid black;
+    padding: 0.5em;
+    
+}
+
+
+
+
+
     /* TELA DO TÉCNICO */
 
 .container_reports{

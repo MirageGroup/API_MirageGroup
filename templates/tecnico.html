@@ -20,7 +20,15 @@
             <h1 class="apresentação_titulo">Bem vindo ao local do técnico</h1>
             <p class="apresentação_texto">aqui você pode verificar os chamados dos computadores, assim como ferramentas para organiza-los</p>
         </div>
+        <hr style="width:100%">
         <section class="container_reports">
+
+            {% if chamados|length == 0 %}
+            <h1 class="apresentação_semChamado">Nenhum chamado encontrado</h1>
+            <img class="error_img" src="../static/img/error.svg">
+            <h3 class="apresentação_texto">recarregue a pagina ou espere alguem fazer um chamado</h3>
+
+            {%endif%}
 
           {% for chamado in chamados %}
             <card class="reports_card"> 
@@ -39,15 +47,19 @@
                     <p class="card_descrição "><strong>PROBLEMA</strong>: {{ chamado[5] }} </p><br>
                       <p class="card_descrição "><strong>DESCRIÇÃO</strong>: {{ chamado[6] }} </p>
                       <a href="/tecnico/finishcall/{{chamado[0]}}"><button type="button" class="btn_closeCall">Finalizar chamado</button></a>
-                      <button type="button" class="btn_deleteCall">Excluir chamado</button>
+                      
                   </div>
               </div>
           </card>
+          
 
           {% endfor %}
+          
 
         </section>
+        
     </main>
+   
 
 
 
@@ -56,6 +68,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     <script src="{{ url_for('static',filename='js/técnico.js') }}" ></script>
     {% endblock %}
+    
     
 </body>
 </html>

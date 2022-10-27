@@ -62,15 +62,182 @@
             </button>
           </div>
         <div class="main_secundario">
-            <div class="div_lab">
-              <div class="div_sec_textos">
-                  <h1 class="secundario_titulo">ACESSAR LABORATÓRIO</h1>
-                  <p class="secundario_descrição">Visualize cada laboratório, junto da localização de suas maquinas, especificações e status
-                  </p>
+          <h1>Possíveis soluções para problemas frequentes</h1><br>
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  O computador não liga
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>Dê uma olhada na fonte de alimentação. Veja também se o computador está bem conectado à tomada.</strong> 
+                </div>
               </div>
-              <div class="div_lab_ancoras">
-                  <a href="/lab" class="main_links">acessar laboratório</a>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  O computador está sem internet
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>Uma das causas mais frequentes para a falta de Internet é um problema com o cabo. É comum o cabo Ethernet desconectar ou ficar frouxo conforme o usuário mexe no gabinete. Quando isso acontecer, o ícone de rede mostrará um “X” vermelho, indicando suspensão da conexão. Para resolver, basta encaixar o plugue novamente e aguardar alguns minutos para a conexão ser restabelecida.</strong>
+                </div>
               </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  O computador está muito lento
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>Seu PC está lento porque algo está usando seus recursos. Ou, um aplicativo pode estar sofrendo um erro de memória e usando uma grande quantidade dela, fazendo com que o seu PC troque para o disco. Como alternativa, um aplicativo pode estar usando muito o disco, fazendo com que outros aplicativos diminuam a velocidade quando precisam carregar dados ou salvá-los.<br>
+                  <br>
+                  Para descobrir, abra o Gerenciador de Tarefas. Você pode clicar com o botão direito do mouse na sua barra de tarefas e selecionar a opção “Gerenciador de Tarefas” ou pressione Ctrl + Shift + Esc para abri-lo.<br>
+                  <br>
+                  Se algum aplicativo estiver usando muitos recursos, convém fechá-lo normalmente. Se não for possível, selecione-o aqui e clique em “Finalizar tarefa” para forçar o fechamento.
+                  </strong> 
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                  O computador não está dando imagem
+                </button>
+              </h2>
+              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>Verifique o monitor<br>
+                    <br>
+                    Ao ligar o computador e perceber que o monitor não está exibindo nenhuma imagem, é preciso verificar se o aparelho está ligado. Caso afirmativo, veja se há alguma mensagem como: “Cabo Desconectado”. Nesse caso, pode ser que o problema seja apenas um mau contato no cabo VGA/DVI ou HDMI.</strong>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFive">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                  O computador está sem som
+                </button>
+              </h2>
+              <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>Verifique se o dispositivo está ativo<br>
+                  <br>
+                  Caso seu ícone de "Som" esteja inativo com um "x" vermelho, pode ser que seu dispositivo de áudio esteja desabilitado. Isso pode acontecer quando um driver foi desativado, ou quando tornamos um dispositivo móvel (fones de ouvido, caixinhas de som) como nosso dispositivo padrão.
+                  Nesse caso, acesse a categoria "Hardware e som" no seu "Painel de controle" para visualizar mais opções. Feito isso, clique em "Alterar os sons do sistema" e depois clique em "Reprodução". Nessa página, você pode clicar com o botão direito sobre dispositivos para testar, ativar e desativar eles como desejar.
+                  </strong>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingSix">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                  O computador está tendo a tela azul
+                </button>
+              </h2>
+              <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>Verifique os Drivers<br>
+                    <br>
+                    Se você instalou um dispositivo de hardware recentemente, é necessário verificar se esse driver é o mais atualizado. Para isso, basta ir até o site do fabricante para localizar o arquivo referente ao novo equipamento. Dessa forma, como a maioria dos drivers se instalam sozinhos, é preciso apenas baixar o arquivo e a instalação começa.<br>
+                    <br>
+                    
+                    HD e memória<br>
+                    <br>
+                    Verificar o disco rígido e a memória do computador é imprescindível. Pois, existem alguns erros que podem causar através destes dispositivos. Se você quer verificar a situação da memória precisa acessar “Ferramenta de Diagnóstico”. Ou seja, é só clicar em Iniciar, ir até o painel de controle, digitar memória na caixa de pesquisa e clicar em “Diagnosticar problemas de memória do computador”.<br>
+                    <br>
+                    
+                    Monitorar temperatura<br>
+                    <br>
+                    Pode parecer besteira, mas quando uma máquina é mal refrigerada ela pode se tornar o principal motivo para uma tela azul. Sendo assim, a solução é verificar se as entradas de ar de seu computador estão desimpedidas. E se há acumulo de resíduos capturados pelos ventiladores ao longo do tempo.</strong>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingSeven">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                  O computador está desligando sozinho
+                </button>
+              </h2>
+              <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>O computador desligar sozinho pode significar diferentes tipos de problemas. Desde descuidos, como usar a fonte errada ou um carregador de notebook com especificações abaixo do mínimo exigido, até situações mais graves na hora de instalar hardware. Além disso, a condição dos próprios componentes pode ser uma das causas.</strong>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingEight">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                  O sistema operacional não está inicializando
+                </button>
+              </h2>
+              <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>Modo de Segurança<br>
+                    <br>
+                    Em muitos casos, algum item novo de hardware ou atualização errada em drivers do seu computador podem estar impedindo o Windows de inicializar corretamente. Dessa forma, a melhor maneira de testar se esse é o problema é iniciando o sistema no Modo de Segurança.
+                    
+                    Geralmente, quando o Windows apresenta problemas ao iniciar, a opção do Modo de Segurança aparece automaticamente na próxima tentativa de inicialização. Caso ele não apareça, clique em alguma das teclas “F” do seu teclado, em geral a F8 ativa essa opção.
+                    No Modo de Segurança, é possível diagnosticar melhor o problema e até reverter as alterações que possam ser a causa dele, além de realizar uma Restauração do Sistema para tentar retornar o Windows a uma data em que tudo funcionava corretamente.
+                  </strong>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingNine">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                  A tela está congelando
+                </button>
+              </h2>
+              <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>1. Verifique as atualizações do Windows.<br>
+                    2. Limpe os seus arquivos temporários.<br>
+                    3. Rode um diagnóstico de memória.<br>
+                    4. Ajuste a sua memória virtual.<br>
+                    5. Realize uma verificação de disco.</strong>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTen">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                  O mouse não está funcionando
+                </button>
+              </h2>
+              <div id="collapseTen" class="accordion-collapse collapse" aria-labelledby="headingTen" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>Verificar se o mouse está conectado<br>
+                    <br>
+                    Se você tem um mouse com um cabo, certifique-se de que ele está firmemente conectado a seu computador.
+                    
+                    Se ele é um mouse USB (com um conector retangular), tente conectá-lo a uma porta USB diferente. Se for um mouse PS/2 (com um conector redondo e pequeno, com seis pinos), certifique-se de que ele está plugado à porta de mouse, verde, ao invés da porta do teclado, roxa. Você pode ter que reiniciar o computador, se ele não estava conectado antes.</strong>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingEleven">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+                  O teclado não está funcionando
+                </button>
+              </h2>
+              <div id="collapseEleven" class="accordion-collapse collapse" aria-labelledby="headingEleven" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>Verificar se o teclado está conectado<br>
+                    <br>
+                    Se você tem um teclado com um cabo, certifique-se de que ele está firmemente conectado a seu computador.
+                    
+                    Se ele é um mouse USB (com um conector retangular), tente conectá-lo a uma porta USB diferente. Se for um mouse PS/2 (com um conector redondo e pequeno, com seis pinos), certifique-se de que ele está plugado à porta de mouse, roxa, ao invés da porta do mouse, verde. Você pode ter que reiniciar o computador, se ele não estava conectado antes</strong>
+                </div>
+              </div>
+            </div>
+          </div>
            
           
             </div>
