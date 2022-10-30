@@ -261,16 +261,17 @@
           <div class="modal-header">
             <h5 class="modal-title" id="staticBackdropLabel">Acesso de Técnico</h5>
           </div>
-          <div class="modal-body">
-            <form action="/tecnico" method="POST">
+          <form action="/" method="GET">
+            {{ form.csrf_token }}
+            <div class="modal-body">
               <label class="form-label fw-bold" for="pc_problem">Insira o código de acesso de técnico</label>
               <label class="form-label">Para acessar a Área do Técnico, você precisa inserir o código de acesso do Técnico</label><br>
               {{ form.codigo(class="form-control espeçamento_modal") }}
+            </div>          
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-primary" id="btn_submit">Enviar</button>
             </form>
-          </div>          
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-            <button type="submit" class="btn btn-primary" id="btn_submit">Enviar</button>
           </div>
         </div>
       </div>

@@ -86,10 +86,8 @@
 
             </section>  
 
-        
         </section>
         <div class="div_transição transição_degrade">
-            
             
         </div>
     </main>
@@ -98,44 +96,23 @@
 <div class="modal fade" id="modal-teste" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-
-
           <form id="formid" action="/lab/{{labnum}}" method="POST">
             {{ form.csrf_token }}
             <div class="modal-header">
                 <h5 class="modal-title fw-bold" id="exampleModalLabel ">Abrir chamado</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-
-            <!-- Conteudo do modal -->
             <div class="modal-body " >
                 <div class="mb-3">
                     <label class="form-label fw-bold" for="#input_numero_pc">Número do Computador</label>
                     {{ form.input_numero_pc(readonly=True, class="form-control espeçamento_modal") }}
                     <br>
-                    <!-- <input class="form-control espaçamento_modal" readonly type="text" id="input_numero_pc" name="number"></input> -->
                     <label class="form-label fw-bold" for="pc_problem">Selecione o tipo de problema que o computador apresenta</label>
                     <label class="form-label">Se o problema que o computador apresenta não corresponder a nenhuma opção, selecione Outro</label>
                     {{ form.pc_problem(class="form-select espaçamento_modal") }}
-                    <!-- <select class="form-select espaçamento_modal " id="pc_problem" aria-label="Default select example" name="category">
-                        <option value="O computador não liga">O computador não liga</option>
-                        <option value="O computador está sem internet">O computador está sem internet</option>
-                        <option value="O computador está muito lento">O computador está muito lento</option>
-                        <option value="O computador não está dando imagem">O computador não está dando imagem</option>
-                        <option value="O computador está sem som">O computador está sem som</option>
-                        <option value="O computador está tendo a tela azul">O computador está tendo a tela azul</option>
-                        <option value="O computador está desligando sózinho">O computador está desligando sozinho</option>
-                        <option value="O sistema operacional não está inicializando">O sistema operacional não está inicializando</option>
-                        <option value="A tela está congelando">A tela está congelando</option>
-                        <option value="O mouse não está funcionando">O mouse não está funcionando</option>
-                        <option value="O teclado não está funcionando">O teclado não está funcionando</option>
-                        <option value="Outro">Outro</option>
-                      </select> -->
-
-                      <label for="exampleFormControlTextarea1" class="form-label fw-bold">Descreva o problema</label>
-                      <label class="form-label">Seja bem específico na descrição do problema. Não deixe nenhum detalhe de fora, mesmo que seja algo que você acredita que não ajudará na resolução</label>
-                      {{ form.problem_description(rows=4, class="form-control") }}
-                      <!-- <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"></textarea> -->
+                    <label for="exampleFormControlTextarea1" class="form-label fw-bold">Descreva o problema</label>
+                    <label class="form-label">Seja bem específico na descrição do problema. Não deixe nenhum detalhe de fora, mesmo que seja algo que você acredita que não ajudará na resolução</label>
+                    {{ form.problem_description(rows=4, class="form-control") }}
                 </div>
             </div>
             <div class="modal-footer">

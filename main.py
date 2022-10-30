@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, flash
 from flask_mysqldb import MySQL
 import db as dbHandler
 from models.forms import callForm, accessForm
@@ -13,9 +13,18 @@ app.config['MYSQL_DB'] = 'heroku_be80b7ca2ec9c96'
 
 mysql = MySQL(app)
 
-@app.route('/')
+@app.route('/', methods = ['GET'])
 def home():
   form = accessForm()
+  if form.validate_on_submit():
+    acesso = dbHandler.retrieveAccessCode()
+    print(form.codigo)
+    print(acesso[0][0])
+    if form.codigo != acesso[0][0]:
+      flash('Código de acesso inválido')
+      return redirect('/')
+    else:
+      return redirect('/tecnico')
   return render_template('index.html', form=form)
 
 @app.route('/lab/<int:labnum>', methods = ['POST', 'GET'])
@@ -24,7 +33,6 @@ def lab(labnum):
     form = callForm()
     if form.validate_on_submit():
       dbHandler.createCall(form, labnum)
-      computadores = dbHandler.retrieveLab(labnum)
     return redirect(f'/lab/{labnum}')
   else:
     form = callForm()

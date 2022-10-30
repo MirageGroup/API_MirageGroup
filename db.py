@@ -55,3 +55,9 @@ def updatePcStatus(labnum, pc_id, pc_problem, problem_description):
     cursor.execute(f''' UPDATE laboratorio{labnum} SET pc_problema = %s, pc_descricao = %s WHERE pc_id = %s''', (pc_problem, problem_description, pc_id))
     mysql.connection.commit()
     cursor.close()
+
+def retrieveAccessCode():
+    cursor = mysql.connection.cursor()
+    cursor.execute(''' SELECT acesso FROM acesso_tecnico ''')
+    acesso = cursor.fetchall()
+    return acesso
