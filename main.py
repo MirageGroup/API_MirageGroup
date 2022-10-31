@@ -5,20 +5,10 @@ import db as dbHandler
 from models.forms import callForm, accessForm
 
 app = Flask(__name__)
+app.config.from_object('config')
 
-app.config['SECRET_KEY'] = 'MirageGroup'
-
-app.config['SESSION_TYPE'] = 'filesystem'
-app.config['SESSION_PERMANENT'] = False
-
-app.config['MYSQL_HOST'] = 'us-cdbr-east-06.cleardb.net'
-app.config['MYSQL_USER'] = 'bbc6f0cc739a84'
-app.config['MYSQL_PASSWORD'] = '2c05d7ed'
-app.config['MYSQL_DB'] = 'heroku_be80b7ca2ec9c96'
 mysql = MySQL(app)
 Session(app)
-
-
 
 @app.route('/', methods = ['POST', 'GET'])
 def home():
