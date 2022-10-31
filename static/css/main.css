@@ -316,7 +316,8 @@
     font-weight: 600;
 }
 .especificação_item:hover{
-    border: 2px solid var(--vermelho_principal);
+    border: 1px solid var(--vermelho_principal);
+    transition: 0.5s;
 }
 .especificações_texto_hover{
    
@@ -327,6 +328,8 @@
     display: block;
     border-top: 1px solid black;
     padding: 0.5em;
+    border-top: 1px solid var(--vermelho_principal);
+    transition: 0.5s;
     
 }
 
