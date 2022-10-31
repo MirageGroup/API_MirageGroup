@@ -42,6 +42,11 @@ def tecnico():
   chamados = dbHandler.retrieveCalls()
   return render_template('tecnico.html', chamados=chamados)
 
+@app.route('/tecnico/sair')
+def tecnico_sair():
+  session.pop('key', None)
+  return redirect('/')
+
 @app.route('/lab/<int:labnum>/edit')
 def lab_edit(labnum):
   computadores = dbHandler.retrieveLab(labnum)

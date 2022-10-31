@@ -14,20 +14,16 @@
   <header class="cabecalho">
     <div class="header_superior">
         <img class="logo_fatec" src="{{url_for('static', filename='img/menu.png')}}" alt="logo da fatec">
-        <img class="logo_usuario" src="{{url_for('static', filename='img/icone_tecnico.png')}}" 
-        data-bs-toggle="modal" data-bs-target="#modal_login" alt="logo do usuario">
+        {% if not session.get('key') %}
+        <img class="logo_usuario" src="{{url_for('static', filename='img/icone_tecnico.png')}}" data-bs-toggle="modal" data-bs-target="#modal_login" alt="logo do usuario">
+        {% else %}
+        <a href="/tecnico/sair"><img class="logo_usuario" src="{{url_for('static', filename='img/icone_sair.png')}}"></a>
+        {% endif %}
     </div>
     <div class="header_inferior">  
       <ul class="nav nav-pills">
         <li class="nav-item">
           <a class="nav-link" href="{{ url_for('home') }}">Home</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">Salas e Biblioteca</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Biblioteca</a></li>
-            <li><a class="dropdown-item" href="#">Sala 304</a></li>
-          </ul>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">Laboratórios 3º Andar</a>
