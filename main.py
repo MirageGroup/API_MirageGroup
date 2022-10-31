@@ -1,29 +1,35 @@
-from flask import Flask, render_template, request, redirect, flash
+from flask import Flask, render_template, request, redirect, flash, session
 from flask_mysqldb import MySQL
+from flask_session import Session
 import db as dbHandler
 from models.forms import callForm, accessForm
 
 app = Flask(__name__)
+
 app.config['SECRET_KEY'] = 'MirageGroup'
+
+app.config['SESSION_TYPE'] = 'filesystem'
+app.config['SESSION_PERMANENT'] = False
 
 app.config['MYSQL_HOST'] = 'us-cdbr-east-06.cleardb.net'
 app.config['MYSQL_USER'] = 'bbc6f0cc739a84'
 app.config['MYSQL_PASSWORD'] = '2c05d7ed'
 app.config['MYSQL_DB'] = 'heroku_be80b7ca2ec9c96'
-
 mysql = MySQL(app)
+Session(app)
 
-@app.route('/', methods = ['GET'])
+
+
+@app.route('/', methods = ['POST', 'GET'])
 def home():
   form = accessForm()
   if form.validate_on_submit():
     acesso = dbHandler.retrieveAccessCode()
-    print(form.codigo)
-    print(acesso[0][0])
-    if form.codigo != acesso[0][0]:
+    if form.codigo.data != acesso[0][0]:
       flash('Código de acesso inválido')
-      return redirect('/')
+      return render_template('index.html', form=form)
     else:
+      session['key'] = 'tecnico'
       return redirect('/tecnico')
   return render_template('index.html', form=form)
 
@@ -41,6 +47,8 @@ def lab(labnum):
 
 @app.route('/tecnico', methods = ['POST', 'GET'])
 def tecnico():
+  if not session.get('key'):
+    return redirect('/')
   chamados = dbHandler.retrieveCalls()
   return render_template('tecnico.html', chamados=chamados)
 
