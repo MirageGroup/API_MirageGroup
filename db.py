@@ -55,3 +55,11 @@ def updatePcStatus(labnum, pc_id, pc_problem, problem_description):
     cursor.execute(f''' UPDATE laboratorio{labnum} SET pc_problema = %s, pc_descricao = %s WHERE pc_id = %s''', (pc_problem, problem_description, pc_id))
     mysql.connection.commit()
     cursor.close()
+
+
+def retrieveComponents(labNum):
+     cursor = mysql.connection.cursor()
+     cursor.execute(f''' SELECT * FROM componentes WHERE laboratorio = {labNum} ''')
+     componentes = cursor.fetchall()
+     cursor.close()
+     return componentes

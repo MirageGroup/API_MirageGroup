@@ -32,11 +32,13 @@ def lab(labnum):
     if form.validate_on_submit():
       dbHandler.createCall(form, labnum)
       computadores = dbHandler.retrieveLab(labnum)
-    return render_template('laboratorio.html', labnum=labnum, computadores=computadores, form=form)
+    return redirect (f'/lab/{labnum}')
   else:
     form = callForm()
     computadores = dbHandler.retrieveLab(labnum)
-    return render_template('laboratorio.html', labnum=labnum, computadores=computadores, form=form)
+    componentes = dbHandler.retrieveComponents(labnum)
+
+    return render_template('laboratorio.html', labnum=labnum, computadores=computadores,componentes = componentes , form=form)
 
 @app.route('/lab/<int:labnum>/edit')
 def lab_edit(labnum):

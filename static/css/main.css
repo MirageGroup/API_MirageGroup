@@ -297,7 +297,7 @@
     margin: 1em;
     display: flex;
     flex-direction: column;
-    
+    width: 20%;
     align-items: center;
     
 }
@@ -305,9 +305,10 @@
     width: 25%;
 }
 .especificação_item h3{
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 700;
     margin: 0.1em 0 ;
+   
 
 }
 .especificações_texto{
