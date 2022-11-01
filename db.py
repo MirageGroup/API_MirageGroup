@@ -14,7 +14,7 @@ def retrieveUsers():
     cursor.close()
     return users
 
-def retrieveLab(labnum):
+def retrieveLab(labnum): 
     cursor = mysql.connection.cursor()
     cursor.execute(f'''SELECT * FROM laboratorio{labnum} ORDER BY pos''')
     computadores = cursor.fetchall()
@@ -56,6 +56,11 @@ def updatePcStatus(labnum, pc_id, pc_problem, problem_description):
     mysql.connection.commit()
     cursor.close()
 
+def retrieveAccessCode():
+    cursor = mysql.connection.cursor()
+    cursor.execute(''' SELECT acesso FROM acesso_tecnico ''')
+    acesso = cursor.fetchall()
+    return acesso
 
 def retrieveComponents(labNum):
      cursor = mysql.connection.cursor()

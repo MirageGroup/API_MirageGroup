@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SelectField, TextAreaField
+from wtforms import StringField, SelectField, TextAreaField, PasswordField
 from wtforms.validators import DataRequired, Length
 
 choices = ['O computador não liga',
@@ -20,3 +20,6 @@ class callForm(FlaskForm):
   input_numero_pc = StringField('input_numero_pc', validators=[DataRequired()])
   pc_problem = SelectField('pc_problem', validators=[DataRequired()], choices=choices)
   problem_description = TextAreaField('problem_description', validators=[DataRequired(), Length(min=10, max=350)])
+
+class accessForm(FlaskForm):
+  codigo = PasswordField('codigo', validators=[DataRequired()])

@@ -25,33 +25,34 @@
         </div>
 
         <!-- computadores -->
-        <section class="layout_editores">
-          <div class="area_de_computadores">
-            {% for computador in computadores %}
-              {% if computador[1] == 1 %}
-                <div class="dropzone">
-                    <card class="card_computador card" data-bs-toggle="modal" draggable="true" data-bs-target="#modal-teste"  data-bs-whatever="{{computador[2]}}" id="{{computador[2]}}">
-                      <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="{{computador[4]}}" data-bs-trigger="hover">  
-                      <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
-                      {% if computador[3] == None %}
-                        <div class="container_texto status_verde">
-                            <p class="texto_computador ">COMPUTADOR</p>
-                            <p class="texto_computador ">{{computador[2]}}</p>
-                        </div>
-                      {% else %}
-                        <div class="container_texto status_vermelho">
+    <section class="layout_editores">
+        <div class="area_de_computadores">
+
+          {% for computador in computadores %}
+            {% if computador[1] == 1 %}
+              <div class="dropzone">
+                  <card class="card_computador card" data-bs-toggle="modal" draggable="true" data-bs-target="#modal-teste"  data-bs-whatever="{{computador[2]}}" id="{{computador[2]}}">
+                    <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="{{computador[4]}}" data-bs-trigger="hover">  
+                    <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
+                    {% if computador[3] == None %}
+                      <div class="container_texto status_verde">
                           <p class="texto_computador ">COMPUTADOR</p>
                           <p class="texto_computador ">{{computador[2]}}</p>
                       </div>
-                      {% endif %}
-                      </div>    
-                    </card>
-                </div>
-              {% else %}
-                <div class="dropzone"></div>
-              {% endif %}
-            {% endfor %}
-        
+                    {% else %}
+                      <div class="container_texto status_vermelho">
+                        <p class="texto_computador ">COMPUTADOR</p>
+                        <p class="texto_computador ">{{computador[2]}}</p>
+                    </div>
+                    {% endif %}
+                    </div>    
+                  </card>
+              </div>
+            {% else %}
+              <div class="dropzone"></div>
+            {% endif %}
+          {% endfor %}
+
         </div>
     </section>
 
@@ -92,97 +93,33 @@
 
             </section>  
 
-        
         </section>
         <div class="div_transição transição_degrade">
             
-            
         </div>
     </main>
-
-    <!-- MODAL LOGIN -->
-
-
-    <div class="modal fade" id="modal_login" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog  modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title fw-bold" id="staticBackdropLabel">Login</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="mb-3">
-                  <label for="inputCPF" class="form-label fw-bold">Digite seu CPF</label>
-                  <input type="text" class="form-control" id="inputCPF" >
-                </div>
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label fw-bold">Email Fatec</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="nome.email@fatec.sp.gov.br">
-                  
-                </div>
-                <div class="mb-3">
-                  <label for="input_senha" class="form-label fw-bold">Sua senha</label>
-                  <input type="password" class="form-control" id="input_senha">
-                </div>
-                <div class="mb-3 form-check">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  <label class="form-check-label" for="exampleCheck1">Permanecer Logado</label>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="submit" class="btn btn-primary" data-bs-target="#modal-teste" data-bs-toggle="modal">Enviar</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
 
     <!-- Modal REPORT-->
 <div class="modal fade" id="modal-teste" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-
-
           <form id="formid" action="/lab/{{labnum}}" method="POST">
             {{ form.csrf_token }}
             <div class="modal-header">
                 <h5 class="modal-title fw-bold" id="exampleModalLabel ">Abrir chamado</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-
-            <!-- Conteudo do modal -->
             <div class="modal-body " >
                 <div class="mb-3">
                     <label class="form-label fw-bold" for="#input_numero_pc">Número do Computador</label>
                     {{ form.input_numero_pc(readonly=True, class="form-control espeçamento_modal") }}
                     <br>
-                    <!-- <input class="form-control espaçamento_modal" readonly type="text" id="input_numero_pc" name="number"></input> -->
                     <label class="form-label fw-bold" for="pc_problem">Selecione o tipo de problema que o computador apresenta</label>
                     <label class="form-label">Se o problema que o computador apresenta não corresponder a nenhuma opção, selecione Outro</label>
                     {{ form.pc_problem(class="form-select espaçamento_modal") }}
-                    <!-- <select class="form-select espaçamento_modal " id="pc_problem" aria-label="Default select example" name="category">
-                        <option value="O computador não liga">O computador não liga</option>
-                        <option value="O computador está sem internet">O computador está sem internet</option>
-                        <option value="O computador está muito lento">O computador está muito lento</option>
-                        <option value="O computador não está dando imagem">O computador não está dando imagem</option>
-                        <option value="O computador está sem som">O computador está sem som</option>
-                        <option value="O computador está tendo a tela azul">O computador está tendo a tela azul</option>
-                        <option value="O computador está desligando sózinho">O computador está desligando sozinho</option>
-                        <option value="O sistema operacional não está inicializando">O sistema operacional não está inicializando</option>
-                        <option value="A tela está congelando">A tela está congelando</option>
-                        <option value="O mouse não está funcionando">O mouse não está funcionando</option>
-                        <option value="O teclado não está funcionando">O teclado não está funcionando</option>
-                        <option value="Outro">Outro</option>
-                      </select> -->
-
-                      <label for="exampleFormControlTextarea1" class="form-label fw-bold">Descreva o problema</label>
-                      <label class="form-label">Seja bem específico na descrição do problema. Não deixe nenhum detalhe de fora, mesmo que seja algo que você acredita que não ajudará na resolução</label>
-                      {{ form.problem_description(rows=4, class="form-control") }}
-                      <!-- <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"></textarea> -->
+                    <label for="exampleFormControlTextarea1" class="form-label fw-bold">Descreva o problema</label>
+                    <label class="form-label">Seja bem específico na descrição do problema. Não deixe nenhum detalhe de fora, mesmo que seja algo que você acredita que não ajudará na resolução</label>
+                    {{ form.problem_description(rows=4, class="form-control") }}
                 </div>
             </div>
             <div class="modal-footer">
@@ -202,6 +139,7 @@
 </footer>
 
 <script src="{{ url_for('static',     filename='js/modal.js') }}"></script>
+
 <!-- <script src="{{ url_for('static',     filename='js/lab_report.js') }}"></script> -->
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
