@@ -61,3 +61,10 @@ def retrieveAccessCode():
     cursor.execute(''' SELECT acesso FROM acesso_tecnico ''')
     acesso = cursor.fetchall()
     return acesso
+
+def retrieveComponents(labNum):
+     cursor = mysql.connection.cursor()
+     cursor.execute(f''' SELECT * FROM componentes WHERE laboratorio = {labNum} ''')
+     componentes = cursor.fetchall()
+     cursor.close()
+     return componentes

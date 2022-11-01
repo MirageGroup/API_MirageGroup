@@ -278,6 +278,11 @@
     text-align: center;
     margin:2em 0;
 }
+.container_especificações_titulo{
+    font-size: 32px;
+    font-weight: 800;
+    
+}
 .especificações{
     display: flex;
     justify-content: center;
@@ -292,7 +297,7 @@
     margin: 1em;
     display: flex;
     flex-direction: column;
-    
+    width: 20%;
     align-items: center;
     
 }
@@ -300,9 +305,10 @@
     width: 25%;
 }
 .especificação_item h3{
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 700;
     margin: 0.1em 0 ;
+   
 
 }
 .especificações_texto{
@@ -310,7 +316,8 @@
     font-weight: 600;
 }
 .especificação_item:hover{
-    border: 2px solid var(--vermelho_principal);
+    border: 1px solid var(--vermelho_principal);
+    transition: 0.5s;
 }
 .especificações_texto_hover{
    
@@ -321,6 +328,8 @@
     display: block;
     border-top: 1px solid black;
     padding: 0.5em;
+    border-top: 1px solid var(--vermelho_principal);
+    transition: 0.5s;
     
 }
 
