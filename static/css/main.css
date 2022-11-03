@@ -453,3 +453,7 @@
   transition: 0.5s;
 
 }
+
+.card_descrição{
+    overflow-wrap: break-word; 
+}
