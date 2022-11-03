@@ -59,7 +59,11 @@ function dragover() {
     const cardBeingDragged = document.querySelector('.is-dragging')
 
     // this = dropzone
-    this.appendChild(cardBeingDragged)
+    if(this.childElementCount == 0){
+        this.appendChild(cardBeingDragged)
+    }
+        
+  
 }
 
 function dragleave() {
