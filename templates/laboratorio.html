@@ -114,6 +114,11 @@
                     <label class="form-label fw-bold" for="#input_numero_pc">Número do Computador</label>
                     {{ form.input_numero_pc(readonly=True, class="form-control espeçamento_modal") }}
                     <br>
+                    <label class="form-label fw-bold" for="#email">Insira o seu email institucional</label>
+                    <div class="input-group mb-3">
+                      {{ form.email(class="form-control espeçamento_modal", placeholder="email.institucional") }}
+                      <span class="input-group-text" id="basic-addon2">@fatec.sp.gov.br</span>
+                    </div>
                     <label class="form-label fw-bold" for="pc_problem">Selecione o tipo de problema que o computador apresenta</label>
                     <label class="form-label">Se o problema que o computador apresenta não corresponder a nenhuma opção, selecione Outro</label>
                     {{ form.pc_problem(class="form-select espaçamento_modal") }}
