@@ -5,20 +5,27 @@
     background-color: gray;
     padding: 10em 0  0 ;
 }
+
 .footer_home h1{
     font-size: 22px;
     color: black;
-
+    margin-bottom: 0.1em;
+}
+.logo-cps {
+    margin-bottom: 0.5rem;
 }
 .github{
     font-size: 18px;
-    
+    padding: 20px;
 }
 .github a {
     color: black;
 }
 
-
+.github img{
+    width: 100px;
+    height: 100px;
+}
 
 .github::before{
     content: "";
