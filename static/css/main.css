@@ -299,6 +299,8 @@
     flex-direction: column;
     width: 20%;
     align-items: center;
+    justify-content: space-around;
+    height: 65%;
     
 }
 .especificações_item_imagem{
@@ -314,10 +316,12 @@
 .especificações_texto{
     margin: 1em 0 ;
     font-weight: 600;
+   
 }
 .especificação_item:hover{
     border: 1px solid var(--vermelho_principal);
     transition: 0.5s;
+    height: auto;
 }
 .especificações_texto_hover{
    

@@ -14,3 +14,11 @@ const exampleModal = document.getElementById('modal-teste')
     
     modalBodyInput.value = recipient
     })
+
+    var email = document.querySelector('#email')
+    email.addEventListener('keydown', (e)=> {
+        if (e == '50'){
+
+        }
+
+    )};
