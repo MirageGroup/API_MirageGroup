@@ -53,7 +53,7 @@
             {% endif %}
           {% endfor %}
 
-        </div>
+        </div> 
     </section>
 
         </section>
@@ -65,7 +65,16 @@
             <hr style="width:100%">
             <section class="especificações">
               <div class="especificação_item">
-                <h3>Processador</h3>
+                <form onsubmit="submit();return true">
+                  <h3><var>Processador</var></h3>
+                </form>
+                {% if session.get('key') %}
+                <form action="{{ labnum }}" method="get" onsubmit="submit();return false;"> 
+                  <input type="text" class="form-control" name="Processador" />
+                  <input type="hidden" value="Alterar Processador" placeholder="Alterar"/>
+                  <button type="submit">Alterar</button>
+                </form>
+                {% endif %}
                 <img class="especificações_item_imagem" src="../static/img/processor.svg">
                 <p class="especificações_texto">{{componentes[0][1]}}</p>
                 <p class="especificações_texto_hover"> A CPU ou o processador é o “cérebro” de todo computador e celular do planeta: trata-se do componente responsável por executar todas as operações necessárias para o funcionamento do dispositivo.</p>

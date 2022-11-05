@@ -68,3 +68,11 @@ def retrieveComponents(labNum):
      componentes = cursor.fetchall()
      cursor.close()
      return componentes
+
+#def getCPU():
+    #cursor = mysql.connection.cursor()
+    #cursor.execute(f''' SELECT CPU FROM componentes''')
+    #processador= cursor.fetchall()
+    #cursor.close()
+    #return processador
+
