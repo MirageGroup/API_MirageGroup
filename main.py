@@ -34,16 +34,14 @@ def lab(labnum):
     form = callForm()
     computadores = dbHandler.retrieveLab(labnum)
     componentes = dbHandler.retrieveComponents(labnum)
-
     return render_template('laboratorio.html', labnum=labnum, computadores=computadores,componentes = componentes , form=form)
 
-
-# @app.route('/lab', method = ['GET', 'POST'])
-#def config(labnum):
-  #if request.method =='POST':
-    #Processador=request.form['processador']
-    #dbHandler.getCPU(Processador)
-    #return redirect(f'/lab/{labnum}')
+@app.route('/lab/<int:labnum>/<string:config>', methods = ['GET', 'POST'])
+def alterar_componente(labnum, config):
+  if request.method == 'POST':
+    componente = request.form['componente']
+    dbHandler.updateComponent(componente, labnum, config)
+    return redirect(f'/lab/{labnum}')
 
 @app.route('/tecnico', methods = ['POST', 'GET'])
 def tecnico():

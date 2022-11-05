@@ -69,10 +69,8 @@ def retrieveComponents(labNum):
      cursor.close()
      return componentes
 
-#def getCPU():
-    #cursor = mysql.connection.cursor()
-    #cursor.execute(f''' SELECT CPU FROM componentes''')
-    #processador= cursor.fetchall()
-    #cursor.close()
-    #return processador
-
+def updateComponent(componente, labnum, config):
+  cursor = mysql.connection.cursor()
+  cursor.execute(f''' UPDATE componentes SET {config} = %s WHERE laboratorio = %s ''', (componente, labnum))
+  mysql.connection.commit()
+  cursor.close()
