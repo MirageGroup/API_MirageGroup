@@ -34,7 +34,6 @@ def lab(labnum):
     form = callForm()
     computadores = dbHandler.retrieveLab(labnum)
     componentes = dbHandler.retrieveComponents(labnum)
-
     return render_template('laboratorio.html', labnum=labnum, computadores=computadores,componentes = componentes , form=form)
 
 @app.route('/tecnico', methods = ['POST', 'GET'])

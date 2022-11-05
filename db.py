@@ -31,11 +31,13 @@ def retrieveCalls():
 def createCall(form, labnum):
     cursor = mysql.connection.cursor()
     pc_id = form.input_numero_pc.data
+    email = form.email.data
     pc_problem = form.pc_problem.data
     problem_description = form.problem_description.data
     labnum = str(labnum)
+    email = email + "@fatec.sp.gov.br"
     updatePcStatus(labnum, pc_id, pc_problem, problem_description)
-    cursor.execute(f''' INSERT INTO chamados (laboratorio_num, pc_id, data_chamado, hora_chamado, problema_tipo, problema_desc) VALUES (%s, %s, CURDATE(), CURRENT_TIME(), %s, %s) ''', (labnum, pc_id, pc_problem, problem_description))
+    cursor.execute(f''' INSERT INTO chamados (laboratorio_num, pc_id, data_chamado, hora_chamado, autor, problema_tipo, problema_desc) VALUES (%s, %s, CURDATE(), CURRENT_TIME(), %s, %s, %s) ''', (labnum, pc_id, email, pc_problem, problem_description))
     mysql.connection.commit()
     cursor.close()
 
