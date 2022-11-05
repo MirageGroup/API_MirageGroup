@@ -68,3 +68,9 @@ def retrieveComponents(labNum):
      componentes = cursor.fetchall()
      cursor.close()
      return componentes
+
+def updateComponent(componente, labnum, config):
+  cursor = mysql.connection.cursor()
+  cursor.execute(f''' UPDATE componentes SET {config} = %s WHERE laboratorio = %s ''', (componente, labnum))
+  mysql.connection.commit()
+  cursor.close()
