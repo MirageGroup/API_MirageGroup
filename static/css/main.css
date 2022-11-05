@@ -117,11 +117,21 @@
 
 
 .tamanho_carousel{
-    height: 400px;
+    height: 600px;
     object-fit: cover;
 }
 #carouselExampleCaptions{
     margin: 3em 0;
+}
+
+.carousel-item h1 {
+    color: white;
+    text-shadow: #000000 1em;
+    margin-top: -9%;
+}
+
+.carousel-item img {
+    filter: brightness(80%)
 }
 
     /* MAIN INFORMAÇÕES */
