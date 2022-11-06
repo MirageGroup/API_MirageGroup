@@ -14,3 +14,15 @@ const exampleModal = document.getElementById('modal-teste')
     
     modalBodyInput.value = recipient
     })
+
+
+
+    const email = document.querySelector('#email')
+    email.addEventListener('keypress' , function(event) {
+
+        if (event.shiftKey && event.key === '@'){
+            console.log('funcionou')
+            return false
+        }
+
+    })
