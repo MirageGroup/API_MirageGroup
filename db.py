@@ -48,7 +48,9 @@ def finishCall(callnumber):
     chamado = cursor.fetchall()
     cursor.execute(f''' DELETE FROM chamados WHERE id = {callnumber} ''')
     mysql.connection.commit()
-    cursor.execute(f''' UPDATE laboratorio{chamado[0][1]} SET pc_problema = NULL, pc_descricao = "O computador está funcionando corretamente"''')
+    pc_description = "O computador está funcionando corretamente"
+    pc_id = chamado[0][2]
+    cursor.execute(f''' UPDATE laboratorio{chamado[0][1]} SET pc_problema = NULL, pc_descricao = %s WHERE pc_id = %s ''', (pc_description, pc_id))
     mysql.connection.commit()
     cursor.close()
 
@@ -72,7 +74,7 @@ def retrieveComponents(labNum):
      return componentes
 
 def updateComponent(componente, labnum, config):
-  cursor = mysql.connection.cursor()
-  cursor.execute(f''' UPDATE componentes SET {config} = %s WHERE laboratorio = %s ''', (componente, labnum))
-  mysql.connection.commit()
-  cursor.close()
+    cursor = mysql.connection.cursor()
+    cursor.execute(f''' UPDATE componentes SET {config} = %s WHERE laboratorio = %s ''', (componente, labnum))
+    mysql.connection.commit()
+    cursor.close()
