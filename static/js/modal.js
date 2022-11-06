@@ -17,12 +17,17 @@ const exampleModal = document.getElementById('modal-teste')
 
 
 
-    const email = document.querySelector('#email')
+    const email = document.querySelector('#email');
     email.addEventListener('keypress' , function(event) {
 
         if (event.shiftKey && event.key === '@'){
-            console.log('funcionou')
-            return false
+            console.log('não pode ter @');
+            event.preventDefault();
         }
 
-    })
+    });
+    email.onpaste = e => {
+      console.log("NÂO PODE COLAR")
+      e.preventDefault()
+      return false;
+    }
