@@ -23,11 +23,22 @@
             <h1>Laboratório {{labnum}}</h1>
             <!--  <a href="/lab/{{labnum}}/edit">Editar</a> -->
         </div>
+        <hr>
+        {% if componentes == null%}
+        {% else %}
+        <div class="container_lab_vazio">
+          <h1>não há computadores aqui</h1>
+          <p>no momento, esta sala esta sem dispositivos disponiveis</p>
+          <img src="../static/img/error.svg">
+        </div>
+        
+        {% endif %}
 
         <!-- computadores -->
     <section class="layout_editores">
+     
         <div class="area_de_computadores">
-
+          
           {% for computador in computadores %}
             {% if computador[1] == 1 %}
               {% if computador[3] == None %}
@@ -65,6 +76,7 @@
     </section>
 
         </section>
+        {% if componentes == null%}
         <section class="container_especificações">
             <div class="container_especificações_titulo">
               ESPECIFICAÇÕES
@@ -122,9 +134,11 @@
                 <p class="especificações_texto_hover"> dispositivo que funciona para transmitir o que está sendo realizado no computador, seja através do movimento dos olhos ou do seu corpo, para que assim você possa perceber todos os dados que estão sendo requisitados.</p>
               </div>
 
-            </section>  
+            </section>
+         
 
         </section>
+        {%endif%}
         <div class="div_transição transição_degrade">
 
         </div>

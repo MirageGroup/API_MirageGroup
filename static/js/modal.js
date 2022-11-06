@@ -33,9 +33,11 @@ modalRed.addEventListener('show.bs.modal', event => {
 
     const modalInputProblem = modalRed.querySelector('#problema')
     const modalInputDescription = modalRed.querySelector('#descricao')
+    
 
     modalInputProblem.value = pc_problem
     modalInputDescription.value = pc_description
+    
 })
 
 

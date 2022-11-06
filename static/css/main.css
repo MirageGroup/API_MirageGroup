@@ -160,7 +160,18 @@
     text-align: center;
     margin: 2em 0;
 }
-.lab_superior h1{
+.container_lab_vazio{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+.container_lab_vazio img{
+    width: 10%;
+    margin: 1em;
+}
+.lab_superior h1, .container_lab_vazio h1{
     font-size: 36px;
     margin: 0.5em;
     text-transform: uppercase;
