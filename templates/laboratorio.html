@@ -92,7 +92,7 @@
                 <p class="especificações_texto">{{componentes[0][1]}}</p>
                 {% if session.get('key') %}
                 <form action="/lab/{{ labnum }}/CPU" method="POST" onsubmit="submit();return false;"> 
-                  <input type="text" class="form-control" name="componente" />
+                  <input type="text" class="form-control" name="componente" autocomplete="off"/>
                   <button type="submit" class="btn btn-light mt-2">Alterar</button>
                 </form>
                 {% endif %}
@@ -105,7 +105,7 @@
                 <p class="especificações_texto">{{componentes[0][2]}}</p>
                 {% if session.get('key') %}
                 <form action="/lab/{{ labnum }}/GPU" method="POST" onsubmit="submit();return false;"> 
-                  <input type="text" class="form-control" name="componente" />
+                  <input type="text" class="form-control" name="componente" autocomplete="off" />
                   <input type="hidden" value="Alterar Placa de Vídeo" placeholder="Alterar"/>
                   <button type="submit" class="btn btn-light mt-2">Alterar</button>
                 </form>
@@ -119,7 +119,7 @@
                 <p class="especificações_texto">{{componentes[0][3]}}</p>
                 {% if session.get('key') %}
                 <form action="/lab/{{ labnum }}/MemoriaRAM" method="POST" onsubmit="submit();return false;"> 
-                  <input type="text" class="form-control" name="componente" />
+                  <input type="text" class="form-control" name="componente" autocomplete="off" />
                   <button type="submit" class="btn btn-light mt-2">Alterar</button>
                 </form>
                 {% endif %}
@@ -132,7 +132,7 @@
                 <p class="especificações_texto">{{componentes[0][4]}}</p>
                 {% if session.get('key') %}
                 <form action="/lab/{{ labnum }}/OS" method="POST" onsubmit="submit();return false;"> 
-                  <input type="text" class="form-control" name="componente" />
+                  <input type="text" class="form-control" name="componente" autocomplete="off" />
                   <button type="submit"   class="btn btn-light mt-2">Alterar</button>
                 </form>
                 {% endif %}
