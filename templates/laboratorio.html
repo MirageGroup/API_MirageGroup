@@ -24,8 +24,8 @@
             <!--  <a href="/lab/{{labnum}}/edit">Editar</a> -->
         </div>
         <hr>
-        {% if componentes == null%}
-        {% else %}
+        {% if componentes[0][1] == None%}
+
         <div class="container_lab_vazio">
           <h1>não há computadores aqui</h1>
           <p>no momento, esta sala esta sem dispositivos disponiveis</p>
@@ -76,7 +76,8 @@
     </section>
 
         </section>
-        {% if componentes == null%}
+        {% if componentes[0][1] == None%}
+        {% else%}
         <section class="container_especificações">
             <div class="container_especificações_titulo">
               ESPECIFICAÇÕES
@@ -86,52 +87,56 @@
             <section class="especificações">
               <div class="especificação_item">
                 <h3>Processador</h3>
+              
+                <img class="especificações_item_imagem" src="../static/img/processor.svg">
+                <p class="especificações_texto">{{componentes[0][1]}}</p>
                 {% if session.get('key') %}
                 <form action="/lab/{{ labnum }}/CPU" method="POST" onsubmit="submit();return false;"> 
                   <input type="text" class="form-control" name="componente" />
-                  <button type="submit">Alterar</button>
+                  <button type="submit" class="btn btn-light mt-2">Alterar</button>
                 </form>
                 {% endif %}
-                <img class="especificações_item_imagem" src="../static/img/processor.svg">
-                <p class="especificações_texto">{{componentes[0][1]}}</p>
                 <p class="especificações_texto_hover"> A CPU ou o processador é o “cérebro” de todo computador e celular do planeta: trata-se do componente responsável por executar todas as operações necessárias para o funcionamento do dispositivo.</p>
               </div>
               <div class="especificação_item">
                 <h3>Placa de Vídeo</h3>
+                
+                <img class="especificações_item_imagem" src="../static/img/gpu.svg">
+                <p class="especificações_texto">{{componentes[0][2]}}</p>
                 {% if session.get('key') %}
                 <form action="/lab/{{ labnum }}/GPU" method="POST" onsubmit="submit();return false;"> 
                   <input type="text" class="form-control" name="componente" />
                   <input type="hidden" value="Alterar Placa de Vídeo" placeholder="Alterar"/>
-                  <button type="submit">Alterar</button>
+                  <button type="submit" class="btn btn-light mt-2">Alterar</button>
                 </form>
                 {% endif %}
-                <img class="especificações_item_imagem" src="../static/img/gpu.svg">
-                <p class="especificações_texto">{{componentes[0][2]}}</p>
                 <p class="especificações_texto_hover">GPU é um processadorque trabalha de maneira dedicada a atividades de vídeo dentro do computador. A sigla remete ao nome Unidade de Processamento Gráfico e sua função é processar as informações gráficas de uma máquina. Ela também diminui a sobrecarga da CPU e melhora a troca de dados entre as duas peças. </p>
               </div>
               <div class="especificação_item">
                 <h3>Memória RAM</h3>
+              
+                <img class="especificações_item_imagem" src="../static/img/memoria.svg">
+                <p class="especificações_texto">{{componentes[0][3]}}</p>
                 {% if session.get('key') %}
                 <form action="/lab/{{ labnum }}/MemoriaRAM" method="POST" onsubmit="submit();return false;"> 
                   <input type="text" class="form-control" name="componente" />
-                  <button type="submit">Alterar</button>
+                  <button type="submit" class="btn btn-light mt-2">Alterar</button>
                 </form>
                 {% endif %}
-                <img class="especificações_item_imagem" src="../static/img/memoria.svg">
-                <p class="especificações_texto">{{componentes[0][3]}}</p>
                 <p class="especificações_texto_hover"> dispositivo que funciona para transmitir o que está sendo realizado no computador, seja através do movimento dos olhos ou do seu corpo, para que assim você possa perceber todos os dados que estão sendo requisitados.</p>
               </div>
               <div class="especificação_item">
                 <h3>Sistema Operacional</h3>
+                
+                <img class="especificações_item_imagem" src="../static/img/sistema.svg">
+                <p class="especificações_texto">{{componentes[0][4]}}</p>
                 {% if session.get('key') %}
                 <form action="/lab/{{ labnum }}/OS" method="POST" onsubmit="submit();return false;"> 
                   <input type="text" class="form-control" name="componente" />
-                  <button type="submit">Alterar</button>
+                  <button type="submit"   class="btn btn-light mt-2">Alterar</button>
                 </form>
                 {% endif %}
-                <img class="especificações_item_imagem" src="../static/img/sistema.svg">
-                <p class="especificações_texto">{{componentes[0][4]}}</p>
-                <p class="especificações_texto_hover"> dispositivo que funciona para transmitir o que está sendo realizado no computador, seja através do movimento dos olhos ou do seu corpo, para que assim você possa perceber todos os dados que estão sendo requisitados.</p>
+                <p class="especificações_texto_hover "> dispositivo que funciona para transmitir o que está sendo realizado no computador, seja através do movimento dos olhos ou do seu corpo, para que assim você possa perceber todos os dados que estão sendo requisitados.</p>
               </div>
 
             </section>
@@ -139,6 +144,7 @@
 
         </section>
         {%endif%}
+        
         <div class="div_transição transição_degrade">
 
         </div>
@@ -174,7 +180,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn btn-primary" id="btn_submit">Enviar</button>
+                <button type="submit" class="btn btn-light" class="btn btn-primary" id="btn_submit">Enviar</button>
             </div>
           </form>
         </div>
@@ -211,12 +217,18 @@
       </div>
   </div>
 
-<footer class="footer_home">
-    <h1>Todos os direitos Reservados</h1>
-    <div class="github">
-        <a class="link_github" href="https://github.com/MirageGroup">https://github.com/MirageGroup</a>
-    </div>
-</footer>
+  <footer class="footer_home">
+    <img class="img-footer" src="../static/img/cps_brasao_sp_320x84.png" alt="fatec-logo">
+     <div class="github" >
+       <h1>Todos os direitos Reservados</h1>
+     </div>
+     <div class="link_github">
+      <p>Link para nossso repositório:</p>
+       <a href="https://github.com/MirageGroup" target="_blank">
+         <img class="media-object" src="../static/img/GitHub-Mark-removebg-preview.png" alt="logo-git">
+       </a>
+      </div> 
+  </footer>
 
 <script src="{{ url_for('static',     filename='js/modal.js') }}"></script>
 
