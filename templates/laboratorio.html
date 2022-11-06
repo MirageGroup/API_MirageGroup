@@ -17,7 +17,7 @@
 
     {% extends "header.html" %}
     {% block content %}
-    
+
     <main>
         <div class="lab_superior">
             <h1>Laboratório {{labnum}}</h1>
@@ -54,7 +54,7 @@
                   </div> 
                 </card>
               </div>
-                     
+
                 {% endif %}
             {% else %}
               <div class="dropzone"></div>
@@ -121,14 +121,12 @@
                 <p class="especificações_texto">{{componentes[0][4]}}</p>
                 <p class="especificações_texto_hover"> dispositivo que funciona para transmitir o que está sendo realizado no computador, seja através do movimento dos olhos ou do seu corpo, para que assim você possa perceber todos os dados que estão sendo requisitados.</p>
               </div>
-              
-              
 
             </section>  
 
         </section>
         <div class="div_transição transição_degrade">
-            
+
         </div>
     </main>
 
@@ -149,7 +147,7 @@
                     <br>
                     <label class="form-label fw-bold" for="#email">Insira o seu email institucional</label>
                     <div class="input-group mb-3">
-                      {{ form.email(class="form-control espeçamento_modal", placeholder="email.institucional") }}
+                      {{ form.email(class="form-control espeçamento_modal", placeholder="email.institucional", autocomplete="off") }}
                       <span class="input-group-text" id="basic-addon2">@fatec.sp.gov.br</span>
                     </div>
                     <label class="form-label fw-bold" for="pc_problem">Selecione o tipo de problema que o computador apresenta</label>
@@ -169,7 +167,6 @@
     </div>
 </div>
 
-
     <!-- MODAL VERMELHO-->
 
     <div class="modal fade" id="modal-red" tabindex="-1" aria-labelledby="exampleModalLabelred" aria-hidden="true">
@@ -180,17 +177,22 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body " >
-              
               <div class="modal_red_title">
-                <h1 class="fw-bold text-center fs-3">Este computador ja foi reportado</h1>
-                <p class="fs-6 text-center m-3">nossa equipe de técnicos ja estão trabalhando com a manutenção do equipamento</p>
+                <h1 class="fw-bold text-center fs-3">Este computador já foi reportado</h1>
+                <p class="fs-6 text-center m-3">Nossa equipe de técnicos já está trabalhando com a manutenção do equipamento</p>
                 <img class="text-center" src="{{url_for('static', filename='img/icone_tecnico.png')}}">
               </div>
               <div  class='modal_red_description'>
-                <input type="text" id="problema" readonly="true">
-                <input type="text" id="descricao" readonly="true">
+                <br>
+                <p class="fs-5 m-3 fw_semibold"><strong>Problemas relatados neste computador:</strong></p>
+                <input type="text" class="form-control espeçamento_modal" id="problema" readonly="true">
+                <br>
+                <textarea id="descricao" class="form-control espeçamento_modal" readonly="true"></textarea>
               </div>
             </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          </div>
           </div>
       </div>
   </div>

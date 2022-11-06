@@ -23,7 +23,7 @@ def retrieveLab(labnum):
 
 def retrieveCalls():
     cursor = mysql.connection.cursor()
-    cursor.execute(f''' SELECT * FROM chamados ''')
+    cursor.execute(f''' SELECT * FROM chamados ORDER BY data_chamado DESC, hora_chamado DESC ''')
     chamados = cursor.fetchall()
     cursor.close()
     return chamados
