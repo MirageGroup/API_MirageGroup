@@ -30,24 +30,34 @@
 
           {% for computador in computadores %}
             {% if computador[1] == 1 %}
+              {% if computador[3] == None %}
               <div class="dropzone">
                   <card class="card_computador card" data-bs-toggle="modal" draggable="true" data-bs-target="#modal-teste"  data-bs-whatever="{{computador[2]}}" id="{{computador[2]}}">
                     <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="{{computador[4]}}" data-bs-trigger="hover">  
-                    <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
-                    {% if computador[3] == None %}
+                      <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
                       <div class="container_texto status_verde">
-                          <p class="texto_computador ">COMPUTADOR</p>
-                          <p class="texto_computador ">{{computador[2]}}</p>
-                      </div>
-                    {% else %}
-                      <div class="container_texto status_vermelho">
                         <p class="texto_computador ">COMPUTADOR</p>
                         <p class="texto_computador ">{{computador[2]}}</p>
-                    </div>
-                    {% endif %}
-                    </div>    
+                      </div>
+                    </div> 
                   </card>
               </div>
+              {% else %}
+              <div class="dropzone">
+                <card class="card_computador card" data-bs-toggle="modal" draggable="true" data-bs-target="#modal-red"  data-bs-whatever="{{computador[2]}}" id="{{computador[2]}}">
+                  <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="{{computador[4]}}" data-bs-trigger="hover">  
+                    <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
+                    <div class="container_texto status_vermelho">
+                      <p class="texto_computador ">COMPUTADOR</p>
+                      <p class="texto_computador ">{{computador[2]}}</p>
+                    </div>
+                  </div> 
+                </card>
+              </div>
+                     
+                {% endif %}
+                   
+              
             {% else %}
               <div class="dropzone"></div>
             {% endif %}
@@ -136,7 +146,7 @@
             </div>
             <div class="modal-body " >
                 <div class="mb-3">
-                    <label class="form-label fw-bold" for="#input_numero_pc">Número do Computador</label>
+                    <label class="form-label " for="#input_numero_pc">Número do Computador</label>
                     {{ form.input_numero_pc(readonly=True, class="form-control espeçamento_modal") }}
                     <br>
                     <label class="form-label fw-bold" for="#email">Insira o seu email institucional</label>
@@ -160,6 +170,32 @@
         </div>
     </div>
 </div>
+
+
+    <!-- MODAL VERMELHO-->
+
+    <div class="modal fade" id="modal-red" tabindex="-1" aria-labelledby="exampleModalLabelred" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered text-center">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title fw-bold" id="exampleModalLabel ">Computador com defeito</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body " >
+              
+              <div class="modal_red_title">
+                <h1 class="fw-bold text-center fs-3">Este computador ja foi reportado</h1>
+                <p class="fs-6 text-center m-3">nossa equipe de técnicos ja estão trabalhando com a manutenção do equipamento</p>
+                <img class="text-center" src="{{url_for('static', filename='img/icone_tecnico.png')}}">
+              </div>
+              <div  class='modal_red_description'>
+                <h1 class="fw-bold text-center fs-3">Descrição do problema</h1>
+                <p class="fs-5 text-center m-3">{{computadores[5]}}</p>
+              </div>
+            </div>
+          </div>
+      </div>
+  </div>
 
 <footer class="footer_home">
     <h1>Todos os direitos Reservados</h1>
