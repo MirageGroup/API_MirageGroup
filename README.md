@@ -14,7 +14,7 @@
     <a href="#org-repo">Organização do Repositório</a>
 </p>
 
-# API_MirageGroup <a href="" target="_blank"><img src="https://img.shields.io/badge/status-em%20desenvolvimento-yellow"></a>
+# API_MirageGroup
 
 <div align="center"  dir="auto">
 <img id="logo" src="docs/miragegroup-logo.png" alt="logo-mirage-group" width=400px>
