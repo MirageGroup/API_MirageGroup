@@ -78,3 +78,14 @@ function drop() {
     this.classList.remove('over')
 }
 
+    // SAVE LAB EDIT
+
+const dataPosicao = dropzones
+const posicoes = []
+for(let i = 0; i < dataPosicao.length; i++){
+    console.log(dataPosicao[i].getAttribute('data-posicao');
+    
+    
+    
+    )
+}

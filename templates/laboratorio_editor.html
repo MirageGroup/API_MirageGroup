@@ -27,6 +27,7 @@
                 <div class="titulos_editor">
                     <h1>LAYOUT DA SALA</h1>
                     <p>arraste e solte os computadores para customizar o layout</p>
+                    <button class="btn btn-danger mt-4" id="save_edit_button">SALVAR</button>
 
                 </div>
                
@@ -35,25 +36,42 @@
         
         <!-- computadores -->
         <section class="layout_editores">
-            <div class="area_de_computadores">
-
-              {% for computador in computadores %}
-                {% if computador[1] == 1 %}
-                  <div class="dropzone" id="{{computador[0]}}">
+          <div class="area_de_computadores">
+          
+            {% for computador in computadores %}
+              {% if computador[1] == 1 %}
+                {% if computador[3] == None %}
+                <div class="dropzone" data-posicao = "{{computador[0]}}">
                     <card class="card_computador card" data-bs-toggle="modal" draggable="true" data-bs-target="#modal-teste"  data-bs-whatever="{{computador[2]}}" id="{{computador[2]}}">
+                      <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="{{computador[4]}}" data-bs-trigger="hover">  
                         <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
                         <div class="container_texto status_verde">
-                            <p class="texto_computador ">COMPUTADOR</p>
-                            <p class="texto_computador ">{{computador[2]}}</p>
-                        </div>    
+                          <p class="texto_computador ">COMPUTADOR</p>
+                          <p class="texto_computador ">{{computador[2]}}</p>
+                        </div>
+                      </div> 
                     </card>
-                  </div>
+                </div>
                 {% else %}
-                  <div class="dropzone" id="{{computador[0]}}"></div>
-                {% endif %}
-              {% endfor %}
-            
-            </div>
+                <div class="dropzone" data-posicao = "{{computador[0]}}">
+                  <card class="card_computador card" data-bs-toggle="modal" draggable="true" data-bs-target="#modal-red"  data-bs-problema='{"pc_problema":"{{computador[3]}}", "pc_descricao":"{{computador[4]}}"}' id="problem">
+                    <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="{{computador[4]}}" data-bs-trigger="hover">  
+                      <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
+                      <div class="container_texto status_vermelho">
+                        <p class="texto_computador ">COMPUTADOR</p>
+                        <p class="texto_computador ">{{computador[2]}}</p>
+                      </div>
+                    </div> 
+                  </card>
+                </div>
+  
+                  {% endif %}
+              {% else %}
+                <div class="dropzone" data-posicao = "{{computador[0]}}"></div>
+              {% endif %}
+            {% endfor %}
+  
+          </div> 
         </section>
 
 <footer class="footer_home">
