@@ -75,22 +75,54 @@ def addcoment(callnumber):
 
 @app.route('/estatisticas')
 def estatistics():
-  # lista de problemas
-    ProblemLigar = dbHandler.numberOfProblems('O computador não liga')
-    ProblemNoInternet = dbHandler.numberOfProblems('O computador está sem internet')
-    ProblemLento = dbHandler.numberOfProblems('O computador está muito lento')
-    ProblemNoImage = dbHandler.numberOfProblems('O computador não está dando imagem')
-    ProblemNoSound = dbHandler.numberOfProblems('O computador está sem som')
-    ProblemBlueScreen = dbHandler.numberOfProblems('O computador está tendo a tela azul')
-    ProblemTurnOff = dbHandler.numberOfProblems('O computador está desligando sozinho')
-    ProblemInitialization = dbHandler.numberOfProblems('O sistema operacional não está inicializando')
-    ProblemFreezingScreen = dbHandler.numberOfProblems('A tela está congelando')
-    ProblemMouse = dbHandler.numberOfProblems('O mouse não está funcionando')
-    ProblemBoard = dbHandler.numberOfProblems('O teclado não está funcionando')
-    ProblemOther = dbHandler.numberOfProblems('Outro')
-    print(ProblemLigar)
 
-    return render_template('estatisticas.html')
+  # TOTAIS DE CHAMADOS
+  totalChamados = dbHandler.retrieveNumbersofCalls()
+  print(totalChamados)
+
+  # TOTAIS DE CHAMADOS ABERTOS OU FECHADOS
+  chamadosAbertos = dbHandler.retrieveNumbersOpenOrClose("aberto")
+  chamadosFechados = dbHandler.retrieveNumbersOpenOrClose("fechado")
+  print(chamadosAbertos,chamadosFechados)
+
+  # lista de problemas
+  ProblemLigar = dbHandler.numberOfProblems('O computador não liga')
+  ProblemNoInternet = dbHandler.numberOfProblems('O computador está sem internet')
+  ProblemLento = dbHandler.numberOfProblems('O computador está muito lento')
+  ProblemNoImage = dbHandler.numberOfProblems('O computador não está dando imagem')
+  ProblemNoSound = dbHandler.numberOfProblems('O computador está sem som')
+  ProblemBlueScreen = dbHandler.numberOfProblems('O computador está tendo a tela azul')
+  ProblemTurnOff = dbHandler.numberOfProblems('O computador está desligando sozinho')
+  ProblemInitialization = dbHandler.numberOfProblems('O sistema operacional não está inicializando')
+  ProblemFreezingScreen = dbHandler.numberOfProblems('A tela está congelando')
+  ProblemMouse = dbHandler.numberOfProblems('O mouse não está funcionando')
+  ProblemBoard = dbHandler.numberOfProblems('O teclado não está funcionando')
+  ProblemOther = dbHandler.numberOfProblems('Outro')
+
+    
+
+  return render_template('estatisticas.html',
+    ProblemLigar = ProblemLigar,
+    ProblemNoInternet = ProblemNoInternet,
+    ProblemLento = ProblemLento,
+    ProblemNoImage = ProblemNoImage,
+    ProblemNoSound = ProblemNoSound,
+    ProblemBlueScreen = ProblemBlueScreen,
+    ProblemTurnOff = ProblemTurnOff,
+    ProblemInitialization = ProblemInitialization,
+    ProblemFreezingScreen = ProblemFreezingScreen,
+    ProblemMouse = ProblemMouse,
+    ProblemBoard = ProblemBoard,
+    ProblemOther =  ProblemOther,
+
+
+
+
+
+    
+    
+    
+    )
 
 
 
