@@ -22,7 +22,35 @@ def retrieveLab(labnum):
     return computadores
 
 def retrieveCalls(estado):
+    # ESTATISTICAS
+
+    # NUMERO DE CHAMADOS
     cursor = mysql.connection.cursor()
+    cursor.execute(f''' SELECT id FROM chamados''')
+    numberOfCalls = cursor.fetchall()
+    numberOfCalls = len(numberOfCalls)
+    
+
+    # NUMERO DE CHAMADOS ABERTOS
+    cursor = mysql.connection.cursor()
+    cursor.execute(f''' SELECT id FROM chamados WHERE estado = 'aberto' ''')
+    numberOfOpenCalls = cursor.fetchall()
+    numberOfOpenCalls = len(numberOfOpenCalls)
+    
+
+    # NUMERO DE CHAMADOS FECHADOS
+    cursor = mysql.connection.cursor()
+    cursor.execute(f''' SELECT id FROM chamados WHERE estado = 'fechado' ''')
+    numberOfCloseCalls = cursor.fetchall()
+    numberOfCloseCalls = len(numberOfCloseCalls)
+    
+   
+   
+
+    
+
+
+
     cursor.execute(f''' SELECT * FROM chamados where estado = '{estado}' ORDER BY data_chamado DESC, hora_chamado DESC ''')
     chamados = cursor.fetchall()
     cursor.close()
@@ -44,6 +72,7 @@ def createCall(form, labnum):
 def finishCall(callnumber):
     cursor = mysql.connection.cursor()
     callnumber = str(callnumber)
+    
     cursor.execute(f''' SELECT * FROM chamados WHERE id = {callnumber} ''')
     chamado = cursor.fetchall()
     cursor.execute(f''' UPDATE chamados SET estado = 'fechado' WHERE id = {callnumber} ''')
