@@ -22,64 +22,45 @@ def retrieveLab(labnum):
     return computadores
 
 def retrieveCalls(estado):
-    # ESTATISTICAS
+    
+    cursor.execute(f''' SELECT * FROM chamados where estado = '{estado}' ORDER BY data_chamado DESC, hora_chamado DESC ''')
+    chamados = cursor.fetchall()
+    cursor.close()
+    return chamados
+
+
+def retrieveNumbersofCalls():
 
     # NUMERO DE CHAMADOS
     cursor = mysql.connection.cursor()
     cursor.execute(f''' SELECT id FROM chamados''')
     numberOfCalls = cursor.fetchall()
     numberOfCalls = len(numberOfCalls)
+    return numberOfCalls
+    
+def retrieveNumbersOpenOrClose(state):
+    # NUMERO DE CHAMADOS ABERTOS E FECHADOS
+    cursor = mysql.connection.cursor()
+    cursor.execute(f''' SELECT id FROM chamados WHERE estado = '{state}' ''')
+    numberOfCalls = cursor.fetchall()
+    numberOfCalls = len(numberOfCalls)
+    return numberOfCalls
     
 
-    # NUMERO DE CHAMADOS ABERTOS
-    cursor = mysql.connection.cursor()
-    cursor.execute(f''' SELECT id FROM chamados WHERE estado = 'aberto' ''')
-    numberOfOpenCalls = cursor.fetchall()
-    numberOfOpenCalls = len(numberOfOpenCalls)
-    
-
-    # NUMERO DE CHAMADOS FECHADOS
-    cursor = mysql.connection.cursor()
-    cursor.execute(f''' SELECT id FROM chamados WHERE estado = 'fechado' ''')
-    numberOfCloseCalls = cursor.fetchall()
-    numberOfCloseCalls = len(numberOfCloseCalls)
-
-    def numberOfProblems(problem):
+#    NUMERO DE PROBLEMAS ESPECIFICOS
+def numberOfProblems(problem):
         cursor = mysql.connection.cursor()
         cursor.execute(f''' SELECT id FROM chamados WHERE problema_tipo = '{problem}' ''')
         numberOfProblems = cursor.fetchall()
         numberOfProblems = len(numberOfProblems)
         return numberOfProblems
 
-    # NUMERO DE CASOS SEM VIDEO
-    ProblemLigar = numberOfProblems('O computador não liga')
-    ProblemNoInternet = numberOfProblems('O computador está sem internet')
-    ProblemLento = numberOfProblems('O computador está muito lento')
-    ProblemNoImage = numberOfProblems('O computador não está dando imagem')
-    ProblemNoSound = numberOfProblems('O computador está sem som')
-    ProblemBlueScreen = numberOfProblems('O computador está tendo a tela azul')
-    ProblemTurnOff = numberOfProblems('O computador está desligando sozinho')
-    ProblemInitialization = numberOfProblems('O sistema operacional não está inicializando')
-    ProblemFreezingScreen = numberOfProblems('A tela está congelando')
-    ProblemMouse = numberOfProblems('O mouse não está funcionando')
-    ProblemBoard = numberOfProblems('O teclado não está funcionando')
-    ProblemOther = numberOfProblems('Outro')
-
-    
-    
-
-    
-   
-   
-
-    
 
 
 
-    cursor.execute(f''' SELECT * FROM chamados where estado = '{estado}' ORDER BY data_chamado DESC, hora_chamado DESC ''')
-    chamados = cursor.fetchall()
-    cursor.close()
-    return chamados
+
+
+
 
 def createCall(form, labnum):
     cursor = mysql.connection.cursor()
