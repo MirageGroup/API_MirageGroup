@@ -73,6 +73,9 @@ def addcoment(callnumber):
   dbHandler.addComentario(comentario, callnumber)
   return redirect('/tecnico')
 
+@app.route('/estatisticas')
+def estatistics():
+  return render_template('estatisticas.html')
 
 
 
