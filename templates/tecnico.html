@@ -34,7 +34,7 @@
             {%endif%}
 
           {% for chamado in chamadosAbertos %}
-            <card class="reports_card"> 
+            <card class="reports_cardaberto"> 
               <div class='card_superior_titulo'>
                       <h1 class="card_titulo" id="titulo_barra">Laboratório {{ chamado[1] }} </h1>
                       <h1 class="card_titulo">Computador {{ chamado[2] }}  </h1>
@@ -62,8 +62,9 @@
           {% endfor %}
           <hr>
           <h1 class="apresentação_semChamado">Chamados Finalizados</h1>
+          
           {% for chamado in chamadosFechados %}
-            <card class="reports_card"> 
+            <card class="reports_cardfechado"> 
               <div class='card_superior_titulo'>
                       <h1 class="card_titulo" id="titulo_barra">Laboratório {{ chamado[1] }} </h1>
                       <h1 class="card_titulo">Computador {{ chamado[2] }}  </h1>
@@ -79,7 +80,7 @@
                     <p class="card_descrição "><strong>CHAMADO ABERTO POR</strong>: {{ chamado[5] }} </p><br>
                     <p class="card_descrição "><strong>PROBLEMA</strong>: {{ chamado[6] }} </p><br>
                     <p class="card_descrição "><strong>DESCRIÇÃO</strong>: {{ chamado[7] }} </p>
-                
+                    
                       
                   </div>
               </div>

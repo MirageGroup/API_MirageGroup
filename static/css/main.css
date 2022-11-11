@@ -374,12 +374,22 @@
  padding: 1em;
  
 }
-.reports_card{
+.reports_cardaberto{
     display: flex;
     flex-direction: column;
     width: 65%;
     background-color:rgb(238, 238, 238) ;
-    border: 1px solid rgba(0, 0, 0, 1);
+    border: 2px solid rgb(0, 255, 115);
+    border-radius: 8px;
+    
+    
+}
+.reports_cardfechado{
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    background-color:rgb(238, 238, 238) ;
+    border: 2px solid rgb(255, 0, 0);
     border-radius: 8px;
     
     
