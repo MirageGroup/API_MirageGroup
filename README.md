@@ -31,7 +31,7 @@ Cada entrega foi realizada a partir da criação de uma **tag**. Observe a rela�
 |:-----:|:-------------:|:----------:|:---------:|:---------:|
 | 01 | [sprint-01](https://github.com/MirageGroup/API_MirageGroup/tree/entrega/sprint-1) | 18/09/2022 | Entregue | [ver relatório](https://github.com/MirageGroup/API_MirageGroup/blob/entrega/sprint-1/README.md) |
 | 02 | [sprint-02](https://github.com/MirageGroup/API_MirageGroup/tree/entrega/sprint-2) | 09/10/2022 | Entregue | [ver relatório](https://github.com/MirageGroup/API_MirageGroup/tree/entrega/sprint-2#readme) |
-| 03 | [sprint-03]() | 06/11/2022 | Entregue | [ver relatório](https://github.com/MirageGroup/API_MirageGroup/blob/entrega/sprint-3/README.md) |
+| 03 | [sprint-03](https://github.com/MirageGroup/API_MirageGroup/blob/entrega/sprint-3/README.md) | 06/11/2022 | Entregue | [ver relatório](https://github.com/MirageGroup/API_MirageGroup/blob/entrega/sprint-3/README.md) |
 | 04 | [sprint-04]() | 27/11/2022 | Não iniciada | [ver relatório]() |
 
 → [Voltar ao topo](#topo)
