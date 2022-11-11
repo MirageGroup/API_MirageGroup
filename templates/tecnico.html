@@ -23,10 +23,13 @@
         <hr style="width:100%">
         <section class="container_reports">
 
-            {% if chamados|length == 0 %}
-            <h1 class="apresentação_semChamado">Nenhum chamado encontrado</h1>
+            {% if chamadosAbertos|length == 0 %}
+            <h1 class="apresentação_semChamado">Nenhum chamado aberto encontrado</h1>
             <img class="error_img" src="../static/img/error.svg">
             <h3 class="apresentação_texto">Recarregue a página ou espere alguém fazer um chamado</h3>
+
+            {% else %}
+            <h1 class="apresentação_semChamado">Chamados abertos</h1>
 
             {%endif%}
 
@@ -57,7 +60,8 @@
           
 
           {% endfor %}
-
+          <hr>
+          <h1 class="apresentação_semChamado">Chamados Finalizados</h1>
           {% for chamado in chamadosFechados %}
             <card class="reports_card"> 
               <div class='card_superior_titulo'>
