@@ -50,14 +50,19 @@
                     <p class="card_descrição "><strong>CHAMADO ABERTO POR</strong>: {{ chamado[5] }} </p><br>
                     <p class="card_descrição "><strong>PROBLEMA</strong>: {{ chamado[6] }} </p><br>
                     <p class="card_descrição "><strong>DESCRIÇÃO</strong>: {{ chamado[7] }} </p>
+                    <hr>
+                    <form action="/tecnico" method="POST" onsubmit="submit();return false;"> 
+                      <input type="text" class="form-control" name="componente" autocomplete="off"/>
+                      <button type="submit" class="btn btn-light mt-2">Inserir Comentário</button>
+                      <hr>
                     <a href="/tecnico/finishcall/{{chamado[0]}}"><button type="button" class="btn_closeCall">Finalizar chamado</button></a>
                       
                   </div>
               </div>
-          </card>
+            </card>
 
           
-          
+
 
           {% endfor %}
           <hr>
@@ -103,7 +108,7 @@
          </div>
          <div class="link_github">
           <p>Link para nossso repositório:</p>
-           <a href="https://github.com/MirageGroup" target="_blank">
+           <a href="https://github.com/MirageGroup/API_MirageGroup" target="_blank">
              <img class="media-object" src="../static/img/GitHub-Mark-removebg-preview.png" alt="logo-git">
            </a>
           </div> 

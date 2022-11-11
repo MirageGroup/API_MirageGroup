@@ -386,7 +386,7 @@ hr{
     flex-direction: column;
     width: 65%;
     background-color:rgb(238, 238, 238) ;
-    border: 2px solid rgb(0, 255, 115);
+    border: 2px solid var(--vermelho_principal);
     border-radius: 8px;
     
     
@@ -397,7 +397,7 @@ hr{
     flex-direction: column;
     width: 65%;
     background-color:rgb(238, 238, 238) ;
-    border: 2px solid var(--vermelho_principal);
+    border: 2px solid rgb(0, 255, 115);
     border-radius: 8px;
     
     
@@ -443,7 +443,8 @@ hr{
     width: 100%;
     border-bottom: 1px solid hsla(0, 0%, 0%, 0.5);
     padding: 0.2em 0.5em;
-    background-color:rgb(0, 255, 115,0.6) ;
+    background-color: rgb(255, 0, 0, 0.6) ;
+    
 
 }
 .card_superior_titulo_fechado{
@@ -452,7 +453,7 @@ hr{
     width: 100%;
     border-bottom: 1px solid hsla(0, 0%, 0%, 0.5);
     padding: 0.2em 0.5em;
-    background-color:rgb(255, 0, 0,0.6) ;
+    background-color: rgb(0, 255, 115) ;
    
 }
 .card_subtitulo{
