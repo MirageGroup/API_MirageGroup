@@ -21,9 +21,9 @@ def retrieveLab(labnum):
     cursor.close()
     return computadores
 
-def retrieveCalls():
+def retrieveCalls(estado):
     cursor = mysql.connection.cursor()
-    cursor.execute(f''' SELECT * FROM chamados ORDER BY data_chamado DESC, hora_chamado DESC ''')
+    cursor.execute(f''' SELECT * FROM chamados where estado = '{estado}' ORDER BY data_chamado DESC, hora_chamado DESC ''')
     chamados = cursor.fetchall()
     cursor.close()
     return chamados
@@ -37,7 +37,7 @@ def createCall(form, labnum):
     labnum = str(labnum)
     email = email + "@fatec.sp.gov.br"
     updatePcStatus(labnum, pc_id, pc_problem, problem_description)
-    cursor.execute(f''' INSERT INTO chamados (laboratorio_num, pc_id, data_chamado, hora_chamado, autor, problema_tipo, problema_desc) VALUES (%s, %s, CURDATE(), CURRENT_TIME(), %s, %s, %s) ''', (labnum, pc_id, email, pc_problem, problem_description))
+    cursor.execute(f''' INSERT INTO chamados (laboratorio_num, pc_id, data_chamado, hora_chamado, autor, problema_tipo, problema_desc, estado) VALUES (%s, %s, CURDATE(), CURRENT_TIME(), %s, %s, %s, %s) ''', (labnum, pc_id, email, pc_problem, problem_description, 'aberto'))
     mysql.connection.commit()
     cursor.close()
 
@@ -46,7 +46,7 @@ def finishCall(callnumber):
     callnumber = str(callnumber)
     cursor.execute(f''' SELECT * FROM chamados WHERE id = {callnumber} ''')
     chamado = cursor.fetchall()
-    cursor.execute(f''' DELETE FROM chamados WHERE id = {callnumber} ''')
+    cursor.execute(f''' UPDATE chamados SET estado = 'fechado' WHERE id = {callnumber} ''')
     mysql.connection.commit()
     pc_description = "O computador está funcionando corretamente"
     pc_id = chamado[0][2]

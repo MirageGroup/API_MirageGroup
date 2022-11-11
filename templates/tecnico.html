@@ -30,7 +30,7 @@
 
             {%endif%}
 
-          {% for chamado in chamados %}
+          {% for chamado in chamadosAbertos %}
             <card class="reports_card"> 
               <div class='card_superior_titulo'>
                       <h1 class="card_titulo" id="titulo_barra">Laboratório {{ chamado[1] }} </h1>
@@ -52,9 +52,40 @@
                   </div>
               </div>
           </card>
+
+          
           
 
           {% endfor %}
+
+          {% for chamado in chamadosFechados %}
+            <card class="reports_card"> 
+              <div class='card_superior_titulo'>
+                      <h1 class="card_titulo" id="titulo_barra">Laboratório {{ chamado[1] }} </h1>
+                      <h1 class="card_titulo">Computador {{ chamado[2] }}  </h1>
+                      <p class=" botão_seta seta_baixo " id="" type="button" data-bs-toggle="collapse" data-bs-target="#chamado{{chamado[0]}}" aria-expanded="false" aria-controls="collapseExample">
+                      </p>
+              </div>
+              <div class='card_superior_subtitulo'>
+                  <h2 class="card_subtitulo">DATA: {{ chamado[3] }}</h2>
+                  <h2 class="card_subtitulo">Horario: {{ chamado[4] }} </h2>
+              </div>
+              <div class="reports_inferior">
+                  <div class="collapse collapse_report" id="chamado{{chamado[0]}}">
+                    <p class="card_descrição "><strong>CHAMADO ABERTO POR</strong>: {{ chamado[5] }} </p><br>
+                    <p class="card_descrição "><strong>PROBLEMA</strong>: {{ chamado[6] }} </p><br>
+                    <p class="card_descrição "><strong>DESCRIÇÃO</strong>: {{ chamado[7] }} </p>
+                
+                      
+                  </div>
+              </div>
+          </card>
+
+          
+          
+
+          {% endfor %}
+
           
 
         </section>

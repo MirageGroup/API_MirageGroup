@@ -48,8 +48,9 @@ def alterar_componente(labnum, config):
 def tecnico():
   if not session.get('key'):
     return redirect('/')
-  chamados = dbHandler.retrieveCalls()
-  return render_template('tecnico.html', chamados=chamados)
+  chamadosAbertos = dbHandler.retrieveCalls('aberto')
+  chamadosFechados = dbHandler.retrieveCalls('fechado')
+  return render_template('tecnico.html', chamadosAbertos=chamadosAbertos, chamadosFechados=chamadosFechados)
 
 @app.route('/tecnico/sair')
 def tecnico_sair():
