@@ -511,3 +511,19 @@ hr{
 .card_descrição{
     overflow-wrap: break-word; 
 }
+
+
+    /* ESTATISTICAS */
+.area_de_estatisticas{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(238, 238, 238);
+    border-radius: 10px;
+    padding: 0.7em;
+    width: 100%;
+}
+.estatisticas_tables{
+   width: 25%;
+
+}
