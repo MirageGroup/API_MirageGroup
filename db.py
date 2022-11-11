@@ -132,3 +132,9 @@ def updateComponent(componente, labnum, config):
     cursor.execute(f''' UPDATE componentes SET {config} = %s WHERE laboratorio = %s ''', (componente, labnum))
     mysql.connection.commit()
     cursor.close()
+
+def addComentario(comentario, callnumber):
+    cursor = mysql.connection.cursor()
+    cursor.execute(f''' UPDATE chamados SET comentarios = '{comentario}' WHERE id = '{callnumber}' ''')
+    mysql.connection.commit()
+    cursor.close()

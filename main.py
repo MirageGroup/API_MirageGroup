@@ -67,6 +67,12 @@ def finishCall(callnumber):
   dbHandler.finishCall(callnumber)
   return redirect('/tecnico')
 
+@app.route('/tecnico/addcoment/<int:callnumber>', methods = ['POST', 'GET'])
+def addcoment(callnumber):
+  comentario = request.form['coment']
+  dbHandler.addComentario(comentario, callnumber)
+  return redirect('/tecnico')
+
 @app.route('/estatisticas')
 def estatistics():
   return render_template('estatisticas.html')

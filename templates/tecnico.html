@@ -49,11 +49,13 @@
                   <div class="collapse collapse_report" id="chamado{{chamado[0]}}">
                     <p class="card_descrição "><strong>CHAMADO ABERTO POR</strong>: {{ chamado[5] }} </p><br>
                     <p class="card_descrição "><strong>PROBLEMA</strong>: {{ chamado[6] }} </p><br>
-                    <p class="card_descrição "><strong>DESCRIÇÃO</strong>: {{ chamado[7] }} </p>
+                    <p class="card_descrição "><strong>DESCRIÇÃO</strong>: {{ chamado[7] }} </p><br>
+                    <p class="card_descrição "><strong>COMENTÁRIO</strong>: {{ chamado[9] }}</p>
                     <hr>
-                    <form action="/tecnico" method="POST" onsubmit="submit();return false;"> 
-                      <input type="text" class="form-control" name="componente" autocomplete="off"/>
+                    <form action="/tecnico/addcoment/{{chamado[0]}}" method="POST" onsubmit="submit();return false;"> 
+                      <input type="text" class="form-control" name="coment" autocomplete="off" required/>
                       <button type="submit" class="btn btn-light mt-2">Inserir Comentário</button>
+                    </form>
                       <hr>
                     <a href="/tecnico/finishcall/{{chamado[0]}}"><button type="button" class="btn_closeCall">Finalizar chamado</button></a>
                       
@@ -84,7 +86,8 @@
                   <div class="collapse collapse_report" id="chamado{{chamado[0]}}">
                     <p class="card_descrição "><strong>CHAMADO ABERTO POR</strong>: {{ chamado[5] }} </p><br>
                     <p class="card_descrição "><strong>PROBLEMA</strong>: {{ chamado[6] }} </p><br>
-                    <p class="card_descrição "><strong>DESCRIÇÃO</strong>: {{ chamado[7] }} </p>
+                    <p class="card_descrição "><strong>DESCRIÇÃO</strong>: {{ chamado[7] }} </p><br>
+                    <p class="card_descrição "><strong>COMENTÁRIO</strong>: {{ chamado[9] }}</p>
                     
                       
                   </div>
