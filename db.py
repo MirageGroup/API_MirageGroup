@@ -107,3 +107,20 @@ def updateComponent(componente, labnum, config):
     cursor.execute(f''' UPDATE componentes SET {config} = %s WHERE laboratorio = %s ''', (componente, labnum))
     mysql.connection.commit()
     cursor.close()
+
+def saveLayoutPositions(posicoes_layout, labnum):
+  cursor = mysql.connection.cursor()
+  cursor.execute(f''' SELECT pos, pc_id FROM laboratorio{labnum} ''')
+  laboratorio = cursor.fetchall()
+  lista_posicoes = []
+  for i in range(1, 89):
+      lista_posicoes.append(i)
+  cont = 0
+  for computador in laboratorio:
+    if computador[0] == lista_posicoes[cont] and computador[1] == posicoes_layout[cont]:
+      cont += 1
+    else:
+      cursor.execute(f''' UPDATE laboratorio{labnum} SET pos = %s WHERE pc_id = %s ''', (lista_posicoes[cont], posicoes_layout[cont]))
+      mysql.connection.commit()
+      cont += 1
+  cursor.close()

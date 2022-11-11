@@ -37,7 +37,6 @@ function dragend() {
 
     // this = card
     this.classList.remove('is-dragging')
-    updatePositionsInput()
     updateIdsInput()
 }
 
@@ -90,20 +89,7 @@ function drop() {
 
 
 
-// FILL HIDDEN INPUTS
-
-    // POSITIONS INPUT
-function updatePositionsInput(){
-    const inputPosicoes = document.getElementById('posicoes')
-    inputPosicoes.value = ''
-    posicoes = '1,'
-    const dataPosicao = dropzones
-    for(let i = 2; i <= 88; i++){
-        posicoes = posicoes + i + ','
-        console.log(inputPosicoes.value)
-    }
-    inputPosicoes.value = posicoes
-}
+// FILL HIDDEN INPUT
 
     // IDS INPUT
 function updateIdsInput(){
@@ -120,4 +106,5 @@ function updateIdsInput(){
         }
     }
     inputIds.value = ids
+    console.log(inputIds.value)
 }

@@ -62,6 +62,13 @@ def lab_edit(labnum):
   computadores = dbHandler.retrieveLab(labnum)
   return render_template('laboratorio_editor.html', labnum=labnum, computadores=computadores)
 
+@app.route('/lab/<int:labnum>/edit/salvar', methods=['POST', 'GET'])
+def salvar(labnum):
+  if request.method == 'POST':
+    posicoes_layout = request.form['ids'].split(',')
+    dbHandler.saveLayoutPositions(posicoes_layout, labnum)
+    return redirect(f'/lab/{labnum}/edit')
+
 @app.route('/tecnico/finishcall/<int:callnumber>')
 def finishCall(callnumber):
   dbHandler.finishCall(callnumber)

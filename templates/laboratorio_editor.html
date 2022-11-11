@@ -10,31 +10,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="{{ url_for('static',     filename='css/reset.css') }}">
     <link rel="stylesheet" href="{{ url_for('static',     filename='css/style.css') }}">
-
+    
     <title>Laboratório Editar</title>
-</head>
-<body>
+  </head>
+  <body>
     
     {% extends "header.html" %}+841
     {% block content %}
     
     <main>
-            <div class="lab_superior">
+      <div class="lab_superior">
                 <h1>Editor de laboratório</h1>
-
-            </div>
-            <div class="titulos_edit">
+                
+              </div>
+              <div class="titulos_edit">
                 <div class="titulos_editor">
-                    <h1>LAYOUT DA SALA</h1>
-                    <p>arraste e solte os computadores para customizar o layout</p>
-                    <a class="btn btn-danger mt-4" id="save_edit_button" href="lab{{labnum}}/edit/savelayout">SALVAR</a>
+                  <h1>LAYOUT DA SALA</h1>
+                  <p>arraste e solte os computadores para customizar o layout</p>
+                  <form action="/lab/{{labnum}}/edit/salvar" method="POST">
+                    <input type="text" id="ids" name="ids" style="display: none;">
+                    <button type="input" class="btn btn-danger mt-4" id="save_edit_button">SALVAR</button>
+                  </form>
 
                 </div>
-               
-            </div>
-        
-        
-        <!-- computadores -->
+                
+              </div>
+              
+              
+              <!-- computadores -->
         <section class="layout_editores">
           <div class="area_de_computadores">
           
@@ -74,8 +77,6 @@
           </div> 
         </section>
 
-        <input type="text" id="posicoes">
-        <input type="text" id="ids">
 
 <footer class="footer_home">
     <h1>Todos os direitos Reservados</h1>
