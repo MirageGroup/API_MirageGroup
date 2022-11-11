@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="{{ url_for('static',     filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',     filename='css/style.css') }}">
+
+    <title>Estatisticas</title>
+</head>
+{% extends "header.html" %}
+{% block content %}
+
+<body>
+    <main>
+
+            <div class="titulos_edit">
+                <div class="titulos_editor">
+                    <h1>ESTATISTICAS DOS CHAMADOS</h1>
+                    <p>aqui você pode consultar os principais dados dos laboratórios</p>
+                   
+
+                </div>
+               
+            </div>
+        
+        <section class="layout_editores">
+          <div class="area_de_computadores">
+            <div>
+                <canvas id="myChart"></canvas>
+            </div>
+              
+               
+              
+               
+        
+  
+          </div> 
+        </section>
+    </main>
+
+    <footer class="footer_home">
+        <h1>Todos os direitos Reservados</h1>
+        <div class="github">
+            <a class="link_github">https://github.com/MirageGroup</a>
+        </div>
+    </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='js/Estatisticas.js') }}"></script>
+
+{% endblock %}
+</body>
+</html>

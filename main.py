@@ -67,6 +67,10 @@ def finishCall(callnumber):
   dbHandler.finishCall(callnumber)
   return redirect('/tecnico')
 
+@app.route('/estatisticas')
+def estatistics():
+  return render_template('estatisticas.html')
+
 
 
 if __name__ == '__main__':
