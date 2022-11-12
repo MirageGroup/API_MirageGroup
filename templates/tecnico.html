@@ -24,8 +24,8 @@
         <hr style="width:100%">
         <div class="menu_reports">
           <ul class="menu_reports-itens">
-            <li><button data-botao="aberto" class="aba-ativa">CHAMADOS ABERTOS</button></li>
-            <li><button data-botao="fechado">CHAMADOS FINALIZADOS</button></li>
+            <li><button data-botao="aberto" class="aba-ativa"><h2>CHAMADOS ABERTOS</h2></button></li>
+            <li><button data-botao="fechado"><h2>CHAMADOS FINALIZADOS</h2></button></li>
           </ul>
         </div>
         <section class="container_reports">
@@ -74,7 +74,7 @@
 
 
           {% endfor %}
-          <hr>
+          <!-- <hr data-conteudo="aberto"> -->
           <h1 class="apresentação_semChamado" data-conteudo="fechado">Chamados Finalizados</h1>
           
           {% for chamado in chamadosFechados %}

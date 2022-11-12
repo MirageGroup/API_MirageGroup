@@ -28,8 +28,6 @@
 .link_meio{
   
     
-    
-    
 }
 .header_links:hover{
     color: var(--vermelho_principal);
@@ -41,11 +39,11 @@
     align-items: center;
     justify-content: center;
     background-color: #D9D9D9;
-    height: 2.5em;
-    
+    height: 4.5em;
     
 }
 
+/* botões do menu de chamados */
 .menu_reports-itens {
     display: flex;
     flex-wrap: wrap;
@@ -53,10 +51,18 @@
     padding-left: 0;
     margin-bottom: 0;
     list-style: none;
-    color: #0D6EFD;
+    color: var(--bs-body-color);
 }
 
-.menu_reports-itens a {
+.menu_reports-itens li {
     padding: 1rem;
-
+}
+.menu_reports-itens button {
+    border: none;
+    border-radius: 0.375rem;
+    padding: 0.75rem;
+    color: rgb(30, 127, 253)
+}
+.menu_reports-itens button:hover {
+    box-shadow: 2px 2px rgba(0,0,0,0.19);
 }
