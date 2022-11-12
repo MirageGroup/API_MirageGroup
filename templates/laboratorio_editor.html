@@ -15,7 +15,7 @@
 </head>
 <body>
     
-    {% extends "header.html" %}
+    {% extends "header.html" %}+841
     {% block content %}
     
     <main>
@@ -41,8 +41,8 @@
             {% for computador in computadores %}
               {% if computador[1] == 1 %}
                 {% if computador[3] == None %}
-                <div class="dropzone" data-posicao = "{{computador[0]}}">
-                    <card class="card_computador card" data-bs-toggle="modal" draggable="true" data-bs-target="#modal-teste"  data-bs-whatever="{{computador[2]}}" id="{{computador[2]}}">
+                <div class="dropzone" data-posicao="{{computador[0]}}" id="{{computador[0]}}">
+                    <card class="card_computador card" data-id="{{computador[2]}}" data-bs-toggle="modal" draggable="true" data-bs-target="#modal-teste"  data-bs-whatever="{{computador[2]}}" id="{{computador[2]}}">
                       <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="{{computador[4]}}" data-bs-trigger="hover">  
                         <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
                         <div class="container_texto status_verde">
@@ -53,8 +53,8 @@
                     </card>
                 </div>
                 {% else %}
-                <div class="dropzone" data-posicao = "{{computador[0]}}">
-                  <card class="card_computador card" data-bs-toggle="modal" draggable="true" data-bs-target="#modal-red"  data-bs-problema='{"pc_problema":"{{computador[3]}}", "pc_descricao":"{{computador[4]}}"}' id="problem">
+                <div class="dropzone" data-posicao="{{computador[0]}}" id="{{computador[0]}}">
+                  <card class="card_computador card" data-id="{{computador[2]}}" data-bs-toggle="modal" draggable="true" data-bs-target="#modal-red"  data-bs-problema='{"pc_problema":"{{computador[3]}}", "pc_descricao":"{{computador[4]}}"}' id="problem">
                     <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="{{computador[4]}}" data-bs-trigger="hover">  
                       <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
                       <div class="container_texto status_vermelho">
@@ -73,6 +73,9 @@
   
           </div> 
         </section>
+
+        <input type="text" id="posicoes">
+        <input type="text" id="ids">
 
 <footer class="footer_home">
     <h1>Todos os direitos Reservados</h1>

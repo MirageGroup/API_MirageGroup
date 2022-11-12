@@ -37,6 +37,8 @@ function dragend() {
 
     // this = card
     this.classList.remove('is-dragging')
+    updatePositionsInput()
+    updateIdsInput()
 }
 
 /** place where we will drop cards */
@@ -80,8 +82,42 @@ function drop() {
 
     // SAVE LAB EDIT
 
-const dataPosicao = dropzones
-const posicoes = []
-for(let i = 0; i < dataPosicao.length; i++){
-    console.log(dataPosicao[i].getAttribute('data-posicao'));
+
+
+
+
+
+
+
+
+// FILL HIDDEN INPUTS
+
+    // POSITIONS INPUT
+function updatePositionsInput(){
+    const inputPosicoes = document.getElementById('posicoes')
+    inputPosicoes.value = ''
+    posicoes = '1,'
+    const dataPosicao = dropzones
+    for(let i = 2; i <= 88; i++){
+        posicoes = posicoes + i + ','
+        console.log(inputPosicoes.value)
+    }
+    inputPosicoes.value = posicoes
+}
+
+    // IDS INPUT
+function updateIdsInput(){
+    const inputIds = document.getElementById('ids')
+    inputIds.value = ''
+    let dropzones_ = document.querySelectorAll('.dropzone')
+    let ids = []
+    for(i=0;i<dropzones_.length;i++){
+        if(!dropzones_[i].firstElementChild){
+            ids = ids + null + ','
+        }else{
+            pc_id = dropzones_[i].firstElementChild.getAttribute('data-id')
+            ids = ids + pc_id + ','
+        }
+    }
+    inputIds.value = ids
 }
