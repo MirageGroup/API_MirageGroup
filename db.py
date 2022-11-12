@@ -28,24 +28,38 @@ def retrieveCalls(estado):
     cursor.close()
     return chamados
 
-
+    # NUMERO DE CHAMADOS
 def retrieveNumbersofCalls():
 
-    # NUMERO DE CHAMADOS
+   
     cursor = mysql.connection.cursor()
     cursor.execute(f''' SELECT id FROM chamados''')
     numberOfCalls = cursor.fetchall()
     numberOfCalls = len(numberOfCalls)
     return numberOfCalls
-    
-def retrieveNumbersOpenOrClose(state):
+
+
     # NUMERO DE CHAMADOS ABERTOS E FECHADOS
+def retrieveNumbersOpenOrClose(state):
+    
     cursor = mysql.connection.cursor()
     cursor.execute(f''' SELECT id FROM chamados WHERE estado = '{state}' ''')
     numberOfCalls = cursor.fetchall()
     numberOfCalls = len(numberOfCalls)
     return numberOfCalls
     
+
+        # NUMERO DE CHAMADOS POR SALA
+def retrieveNumberInLabs(number):
+    cursor = mysql.connection.cursor()
+    cursor.execute(f''' SELECT id FROM chamados WHERE laboratorio_num = '{number}' ''')
+    numberOfCalls = cursor.fetchall()
+    numberOfCalls = len(numberOfCalls)
+    return numberOfCalls
+    
+
+
+
 
 #    NUMERO DE PROBLEMAS ESPECIFICOS
 def numberOfProblems(problem):

@@ -85,3 +85,5 @@ const posicoes = []
 for(let i = 0; i < dataPosicao.length; i++){
     console.log(dataPosicao[i].getAttribute('data-posicao'));
 }
+
+

@@ -99,6 +99,23 @@ def estatistics():
   ProblemBoard = dbHandler.numberOfProblems('O teclado não está funcionando')
   ProblemOther = dbHandler.numberOfProblems('Outro')
 
+  #  lista de chamados por sala
+  Problem301 = dbHandler.retrieveNumberInLabs('301')
+  Problem302 = dbHandler.retrieveNumberInLabs('302')
+  Problem303 = dbHandler.retrieveNumberInLabs('303')
+  Problem401 = dbHandler.retrieveNumberInLabs('401')
+  Problem402 = dbHandler.retrieveNumberInLabs('402')
+  Problem403 = dbHandler.retrieveNumberInLabs('403')
+  Problem404 = dbHandler.retrieveNumberInLabs('404')
+  Problem405 = dbHandler.retrieveNumberInLabs('405')
+  Problem406 = dbHandler.retrieveNumberInLabs('406')
+  Problem407 = dbHandler.retrieveNumberInLabs('407')
+  Problem408 = dbHandler.retrieveNumberInLabs('408')
+  Problem409 = dbHandler.retrieveNumberInLabs('409')
+  Problem410 = dbHandler.retrieveNumberInLabs('410')
+  Problem411 = dbHandler.retrieveNumberInLabs('411')
+  Problem412 = dbHandler.retrieveNumberInLabs('412')
+
     
 
   return render_template('estatisticas.html',
@@ -120,6 +137,23 @@ def estatistics():
     ProblemMouse = ProblemMouse,
     ProblemBoard = ProblemBoard,
     ProblemOther =  ProblemOther,
+
+
+  Problem301 = Problem301,
+  Problem302 = Problem302,
+  Problem303 = Problem303,
+  Problem401 = Problem401,
+  Problem402 = Problem402,
+  Problem403 = Problem403,
+  Problem404 = Problem404,
+  Problem405 = Problem405,
+  Problem406 = Problem406,
+  Problem407 = Problem407,
+  Problem408 = Problem408,
+  Problem409 = Problem409,
+  Problem410 = Problem410,
+  Problem411 = Problem411,
+  Problem412 = Problem412,
 
 
 

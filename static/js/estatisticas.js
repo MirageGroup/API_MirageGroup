@@ -1,5 +1,5 @@
 
-   console.log(ProblemLigar)
+   
    
 
 
@@ -28,7 +28,9 @@ const labels = [
       label: 'Problemas reportados',
       backgroundColor: 'rgb(255, 99, 132)',
       borderColor: 'rgb(255, 99, 132)',
-      data: [ProblemLigar,ProblemNoInternet,
+      data: [
+        ProblemLigar,
+        ProblemNoInternet,
         ProblemLento,
         ProblemNoImage,
         ProblemNoSound,
@@ -93,3 +95,110 @@ const labels = [
         document.getElementById('myChartReports'),
         configReports
       );
+
+        // CHAMADOS EM CADA LABORATORIO
+
+      const labelsLab = [
+        'Laboratorio 301',
+        'laboratorio 302',
+        'laboratorio 303',
+        'laboratorio 401',
+        'laboratorio 402',
+        'laboratorio 403',
+        'laboratorio 404',
+        'laboratorio 405',
+        'laboratorio 406',
+        'laboratorio 407',
+        'laboratorio 408',
+        'laboratorio 409',
+        'laboratorio 410',
+        'laboratorio 411',
+        'laboratorio 412',
+        ];
+      
+        const dataLab = {
+          labels: labelsLab,
+          datasets: [{
+            label: 'numero de reports em laboratorios',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [
+        Problem301,
+        Problem302,
+        Problem303,
+        Problem401,
+        Problem402,
+        Problem403,
+        Problem404,
+        Problem405,
+        Problem406,
+        Problem407,
+        Problem408,
+        Problem409,
+        Problem410,
+        Problem411,
+        Problem412,
+
+
+
+
+
+
+
+
+            ],
+              
+          }]
+        };
+      
+        const configLab = {
+          type: 'bar',
+          data: dataLab,
+          options: {
+            scales:{
+              y:{
+                suggestedMin: 0,
+                suggestedMax: 10,
+              }
+      
+            }
+          }
+      };
+      
+          const myChartLab = new Chart(
+              document.getElementById('myChartLab'),
+              configLab
+            );
+
+
+     // ALTERNANDO VISIBILIDADE DE GRAFICOS
+
+
+     const abas = document.querySelectorAll('[data-botao]'); 
+
+     esconderConteudos = () => {
+       const conteudos = document.querySelectorAll('[data-grafico]')
+   
+       conteudos.forEach(conteudo => conteudo.classList.add('none'))
+     }
+     inativarAbas = () => {
+       abas.forEach(aba => aba.classList.remove('aba-ativa-estatisticas'))
+     }
+     ativarConteudo = (valor) => {
+       const conteudo = document.querySelectorAll(`[data-grafico="${valor}"]`)
+   
+       conteudo.forEach(conteudo=> conteudo.classList.remove('none'))
+     }
+     ativarAba = (aba) => {
+       aba.classList.add('aba-ativa-estatisticas')
+       
+     }
+     abas.forEach(aba => aba.addEventListener('click', () => {
+         const valor = aba.dataset.botao
+         console.log(valor)
+   
+         esconderConteudos()
+         inativarAbas()
+         ativarConteudo(valor)
+         ativarAba(aba)
+   })) 

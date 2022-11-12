@@ -26,22 +26,38 @@
                    
 
                 </div>
+                
                
             </div>
+            
         
         <section class="layout_editores">
           <div class="area_de_estatisticas">
-            <div class="estatisticas_tables">
+            <ul class="menu_estatisticas_itens">
+                <li><button data-botao="chamados" class="botão_estatisticas aba-ativa-estatisticas">CHAMADOS ABERTOS E FECHADOS</button></li>
+                <li><button data-botao="problemas" class="botão_estatisticas">PROBLEMAS COMPUTADORES</button></li>
+                <li><button data-botao="lab" class="botão_estatisticas">CHAMADOS EM CADA LABORATORIO</button></li>
+            </ul>
+
+            <div class="estatisticas_tables_circle " data-grafico="chamados">
+                <canvas id="myChartReports"></canvas>
+            </div>
+              
+            <div class="estatisticas_tables none" data-grafico="problemas" >
                 
                 <div >
                     <canvas id="myChart"></canvas>
                 </div>
                 
             </div>
-            <div class="estatisticas_tables_circle">
-                <canvas id="myChartReports"></canvas>
+            <div class="estatisticas_tables none" data-grafico="lab" >
+                
+                <div >
+                    <canvas id="myChartLab"></canvas>
+                </div>
+                
             </div>
-              
+           
                
               
                
@@ -87,6 +103,22 @@
     var ProblemMouse = {{ProblemMouse}};
     var ProblemBoard = {{ProblemBoard}};
     var ProblemOther =  {{ProblemOther}};
+
+    var Problem301 = {{Problem301}};
+    var Problem302 = {{Problem302}};
+    var Problem303 = {{Problem303}};
+    var Problem401 = {{Problem401}};
+    var Problem402 = {{Problem402}};
+    var Problem403 = {{Problem403}};
+    var Problem404 = {{Problem404}};
+    var Problem405 = {{Problem405}};
+    var Problem406 = {{Problem406}};
+    var Problem407 = {{Problem407}};
+    var Problem408 = {{Problem408}};
+    var Problem409 = {{Problem409}};
+    var Problem410 = {{Problem410}};
+    var Problem411 = {{Problem411}};
+    var Problem412 = {{Problem412}};
 
 
 </script>
