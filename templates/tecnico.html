@@ -34,8 +34,8 @@
             {%endif%}
 
           {% for chamado in chamadosAbertos %}
-            <card class="reports_card"> 
-              <div class='card_superior_titulo'>
+            <card class="reports_cardaberto"> 
+              <div class='card_superior_titulo_aberto'>
                       <h1 class="card_titulo" id="titulo_barra">Laboratório {{ chamado[1] }} </h1>
                       <h1 class="card_titulo">Computador {{ chamado[2] }}  </h1>
                       <p class=" botão_seta seta_baixo " id="" type="button" data-bs-toggle="collapse" data-bs-target="#chamado{{chamado[0]}}" aria-expanded="false" aria-controls="collapseExample">
@@ -50,21 +50,27 @@
                     <p class="card_descrição "><strong>CHAMADO ABERTO POR</strong>: {{ chamado[5] }} </p><br>
                     <p class="card_descrição "><strong>PROBLEMA</strong>: {{ chamado[6] }} </p><br>
                     <p class="card_descrição "><strong>DESCRIÇÃO</strong>: {{ chamado[7] }} </p>
+                    <hr>
+                    <form action="/tecnico" method="POST" onsubmit="submit();return false;"> 
+                      <input type="text" class="form-control" name="componente" autocomplete="off"/>
+                      <button type="submit" class="btn btn-light mt-2">Inserir Comentário</button>
+                      <hr>
                     <a href="/tecnico/finishcall/{{chamado[0]}}"><button type="button" class="btn_closeCall">Finalizar chamado</button></a>
                       
                   </div>
               </div>
-          </card>
+            </card>
 
           
-          
+
 
           {% endfor %}
           <hr>
           <h1 class="apresentação_semChamado">Chamados Finalizados</h1>
+          
           {% for chamado in chamadosFechados %}
-            <card class="reports_card"> 
-              <div class='card_superior_titulo'>
+            <card class="reports_cardfechado"> 
+              <div class='card_superior_titulo_fechado'>
                       <h1 class="card_titulo" id="titulo_barra">Laboratório {{ chamado[1] }} </h1>
                       <h1 class="card_titulo">Computador {{ chamado[2] }}  </h1>
                       <p class=" botão_seta seta_baixo " id="" type="button" data-bs-toggle="collapse" data-bs-target="#chamado{{chamado[0]}}" aria-expanded="false" aria-controls="collapseExample">
@@ -79,7 +85,7 @@
                     <p class="card_descrição "><strong>CHAMADO ABERTO POR</strong>: {{ chamado[5] }} </p><br>
                     <p class="card_descrição "><strong>PROBLEMA</strong>: {{ chamado[6] }} </p><br>
                     <p class="card_descrição "><strong>DESCRIÇÃO</strong>: {{ chamado[7] }} </p>
-                
+                    
                       
                   </div>
               </div>
@@ -102,7 +108,7 @@
          </div>
          <div class="link_github">
           <p>Link para nossso repositório:</p>
-           <a href="https://github.com/MirageGroup" target="_blank">
+           <a href="https://github.com/MirageGroup/API_MirageGroup" target="_blank">
              <img class="media-object" src="../static/img/GitHub-Mark-removebg-preview.png" alt="logo-git">
            </a>
           </div> 

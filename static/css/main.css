@@ -1,3 +1,10 @@
+
+hr{
+    width: 100%;
+    border-top: 2px solid;
+}
+
+
 .main_apresentação{
    text-align: center;
    padding: 0 8em;
@@ -374,12 +381,23 @@
  padding: 1em;
  
 }
-.reports_card{
+.reports_cardaberto{
     display: flex;
     flex-direction: column;
     width: 65%;
     background-color:rgb(238, 238, 238) ;
-    border: 1px solid rgba(0, 0, 0, 1);
+    border: 2px solid var(--vermelho_principal);
+    border-radius: 8px;
+    
+    
+}
+
+.reports_cardfechado{
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    background-color:rgb(238, 238, 238) ;
+    border: 2px solid rgb(0, 255, 115);
     border-radius: 8px;
     
     
@@ -419,12 +437,23 @@
     padding-right: 0.6em;
     
 }
-.card_superior_titulo{
+.card_superior_titulo_aberto{
     display: flex;
     gap: 0.6em;
     width: 100%;
     border-bottom: 1px solid hsla(0, 0%, 0%, 0.5);
     padding: 0.2em 0.5em;
+    background-color: rgb(255, 0, 0, 0.6) ;
+    
+
+}
+.card_superior_titulo_fechado{
+    display: flex;
+    gap: 0.6em;
+    width: 100%;
+    border-bottom: 1px solid hsla(0, 0%, 0%, 0.5);
+    padding: 0.2em 0.5em;
+    background-color: rgb(0, 255, 115) ;
    
 }
 .card_subtitulo{
