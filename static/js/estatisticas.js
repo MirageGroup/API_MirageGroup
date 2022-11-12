@@ -39,13 +39,22 @@ const labels = [
         ProblemMouse,
         ProblemBoard,
         ProblemOther],
+        
     }]
   };
 
   const config = {
     type: 'bar',
     data: data,
-    options: {}
+    options: {
+      scales:{
+        y:{
+          suggestedMin: 0,
+          suggestedMax: 10,
+        }
+
+      }
+    }
 };
 
     const myChart = new Chart(
