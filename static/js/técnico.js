@@ -20,9 +20,9 @@ seta.forEach(element => {
     abas.forEach(aba => aba.classList.remove('aba-ativa'))
   }
   ativarConteudo = (valor) => {
-    const conteudo = document.querySelector(`[data-conteudo="${valor}"]`)
-    console.log(conteudo)
-    conteudo.classList.remove('none')
+    const conteudo = document.querySelectorAll(`[data-conteudo="${valor}"]`)
+
+    conteudo.forEach(conteudo=> conteudo.classList.remove('none'))
   }
   ativarAba = (aba) => {
     aba.classList.add('aba-ativa')

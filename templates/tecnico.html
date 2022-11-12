@@ -36,7 +36,7 @@
             <h3 class="apresentação_texto">Recarregue a página ou espere alguém fazer um chamado</h3>
 
             {% else %}
-            <h1 class="apresentação_semChamado">Chamados Abertos</h1>
+            <h1 class="apresentação_semChamado" data-conteudo="aberto">Chamados Abertos</h1>
 
             {%endif%}
 
@@ -75,7 +75,7 @@
 
           {% endfor %}
           <hr>
-          <h1 class="apresentação_semChamado">Chamados Finalizados</h1>
+          <h1 class="apresentação_semChamado" data-conteudo="fechado">Chamados Finalizados</h1>
           
           {% for chamado in chamadosFechados %}
             <card class="reports_cardfechado" data-conteudo="fechado"> 
