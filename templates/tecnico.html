@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="{{ url_for('static',filename='css/reset.css') }}">
     <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/header.css') }}">
     <title>Técnico</title>
 </head>
 <body>
@@ -21,6 +22,12 @@
             <p class="apresentação_texto">Aqui você pode verificar os chamados abertos pelos usuários, assim como ferramentas para organizá-los</p>
         </div>
         <hr style="width:100%">
+        <div class="menu_reports">
+          <ul class="menu_reports-itens">
+            <li><a>CHAMADOS ABERTOS</a></li>
+            <li><a>CHAMADOS FINALIZADOS</a></li>
+          </ul>
+        </div>
         <section class="container_reports">
 
             {% if chamadosAbertos|length == 0 %}
@@ -29,7 +36,7 @@
             <h3 class="apresentação_texto">Recarregue a página ou espere alguém fazer um chamado</h3>
 
             {% else %}
-            <h1 class="apresentação_semChamado">Chamados abertos</h1>
+            <h1 class="apresentação_semChamado">Chamados Abertos</h1>
 
             {%endif%}
 

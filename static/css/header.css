@@ -34,3 +34,29 @@
 .header_links:hover{
     color: var(--vermelho_principal);
 }
+
+/* HEADER DE MENU DOS CHAMADOS - TELA DO TÉCNICO*/
+.menu_reports{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #D9D9D9;
+    height: 2.5em;
+    
+    
+}
+
+.menu_reports-itens {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    color: #0D6EFD;
+}
+
+.menu_reports-itens a {
+    padding: 1rem;
+
+}
