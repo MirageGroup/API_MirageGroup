@@ -102,6 +102,12 @@ def estatistics():
     
 
   return render_template('estatisticas.html',
+
+    totalChamados = totalChamados,
+
+    chamadosAbertos = chamadosAbertos,
+    chamadosFechados = chamadosFechados,
+
     ProblemLigar = ProblemLigar,
     ProblemNoInternet = ProblemNoInternet,
     ProblemLento = ProblemLento,
