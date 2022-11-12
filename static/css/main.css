@@ -403,6 +403,13 @@ hr{
     
 }
 
+.none {
+    display: none;
+}
+
+.aba-ativa {
+    background-color: red;
+}
 
 .card_titulo{
     font-size: 28px;

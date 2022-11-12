@@ -24,8 +24,8 @@
         <hr style="width:100%">
         <div class="menu_reports">
           <ul class="menu_reports-itens">
-            <li><a>CHAMADOS ABERTOS</a></li>
-            <li><a>CHAMADOS FINALIZADOS</a></li>
+            <li><button data-botao="aberto" class="aba-ativa">CHAMADOS ABERTOS</button></li>
+            <li><button data-botao="fechado">CHAMADOS FINALIZADOS</button></li>
           </ul>
         </div>
         <section class="container_reports">
@@ -41,8 +41,8 @@
             {%endif%}
 
           {% for chamado in chamadosAbertos %}
-            <card class="reports_cardaberto"> 
-              <div class='card_superior_titulo_aberto'>
+            <card class="reports_cardaberto" data-conteudo="aberto"> 
+              <div class='card_superior_titulo_aberto' >
                       <h1 class="card_titulo" id="titulo_barra">Laboratório {{ chamado[1] }} </h1>
                       <h1 class="card_titulo">Computador {{ chamado[2] }}  </h1>
                       <p class=" botão_seta seta_baixo " id="" type="button" data-bs-toggle="collapse" data-bs-target="#chamado{{chamado[0]}}" aria-expanded="false" aria-controls="collapseExample">
@@ -78,7 +78,7 @@
           <h1 class="apresentação_semChamado">Chamados Finalizados</h1>
           
           {% for chamado in chamadosFechados %}
-            <card class="reports_cardfechado"> 
+            <card class="reports_cardfechado" data-conteudo="fechado"> 
               <div class='card_superior_titulo_fechado'>
                       <h1 class="card_titulo" id="titulo_barra">Laboratório {{ chamado[1] }} </h1>
                       <h1 class="card_titulo">Computador {{ chamado[2] }}  </h1>
