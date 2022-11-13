@@ -22,11 +22,15 @@
             <p class="apresentação_texto">Aqui você pode verificar os chamados abertos pelos usuários, assim como ferramentas para organizá-los</p>
         </div>
         <hr style="width:100%">
-        <div class="menu_reports">
-          <ul class="menu_reports-itens">
-            <li><button data-botao="aberto" class="aba-ativa">CHAMADOS ABERTOS</button></li>
-            <li><button data-botao="fechado">CHAMADOS FINALIZADOS</button></li>
-          </ul>
+        <div class="container_menu_reports">
+          <h2 class="title_menu_reports">MENU DE CHAMADOS</h2>
+          <p class="text_menu_reports">Clique nos botões abaixo para exibir o tipo correspondente de chamados</p>
+          <div class="menu_reports">
+            <ul class="menu_reports-itens">
+              <li><button data-botao="aberto" class="aba-ativa"><h2>CHAMADOS ABERTOS</h2></button></li>
+              <li><button data-botao="fechado"><h2>CHAMADOS FINALIZADOS</h2></button></li>
+            </ul>
+          </div>
         </div>
         <section class="container_reports">
 
@@ -74,7 +78,7 @@
 
 
           {% endfor %}
-          <hr>
+          <!-- <hr data-conteudo="aberto"> -->
           <h1 class="apresentação_semChamado" data-conteudo="fechado">Chamados Finalizados</h1>
           
           {% for chamado in chamadosFechados %}

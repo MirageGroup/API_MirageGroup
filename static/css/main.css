@@ -379,8 +379,8 @@ hr{
  gap: 1em;
  background-color: rgb(241, 241, 241);
  padding: 1em;
- 
-}
+} 
+
 .reports_cardaberto{
     display: flex;
     flex-direction: column;
@@ -388,8 +388,6 @@ hr{
     background-color:rgb(238, 238, 238) ;
     border: 2px solid var(--vermelho_principal);
     border-radius: 8px;
-    
-    
 }
 
 .reports_cardfechado{
@@ -399,8 +397,6 @@ hr{
     background-color:rgb(238, 238, 238) ;
     border: 2px solid rgb(0, 255, 115);
     border-radius: 8px;
-    
-    
 }
 
 .none {
@@ -408,7 +404,8 @@ hr{
 }
 
 .aba-ativa {
-    background-color: red;
+    color: #d9d9d9;
+
 }
 
 .card_titulo{
