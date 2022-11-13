@@ -404,8 +404,7 @@ hr{
 }
 
 .aba-ativa {
-    color: #d9d9d9;
-
+    border-bottom: 2.5px solid red;
 }
 
 .card_titulo{
@@ -418,8 +417,6 @@ hr{
 .card_descrição strong{
     font-weight: 800;
     
-    
-
 }
 
 .seta_baixo{
