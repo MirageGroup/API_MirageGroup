@@ -403,9 +403,10 @@ hr{
     display: none;
 }
 
-/* .aba-ativa {
-    background-color: rgba(0, 255, 217, 0.317);
-} */
+.aba-ativa {
+    color: #d9d9d9;
+
+}
 
 .card_titulo{
     font-size: 28px;
