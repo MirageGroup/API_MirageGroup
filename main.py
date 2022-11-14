@@ -10,21 +10,30 @@ app.config.from_object('config')
 mysql = MySQL(app)
 Session(app)
 
-@app.route('/', methods = ['POST', 'GET'])
+@app.route('/')
 def home():
-  form = accessForm()
-  if form.validate_on_submit():
+  acessForm_ = accessForm()
+  return render_template('index.html',acessForm_=acessForm_)
+
+@app.route('/verificacao' , methods = ["POST", "GET"])
+def TecVerificacao():
+  acessForm_ = accessForm()
+  if acessForm_.validate_on_submit():
     acesso = dbHandler.retrieveAccessCode()
-    if form.codigo.data != acesso[0][0]:
-      flash('Código de acesso inválido')
-      return render_template('index.html', form=form)
+    if acessForm_ .codigo.data != acesso[0][0]:
+       flash('Código de acesso inválido')
+       return redirect('/')
     else:
       session['key'] = 'tecnico'
       return redirect('/tecnico')
-  return render_template('index.html', form=form)
+  return render_template('index.html')
+  
+
+
 
 @app.route('/lab/<int:labnum>', methods = ['POST', 'GET'])
 def lab(labnum):
+  acessForm_ = accessForm()
   if request.method == 'POST':
     form = callForm()
     if form.validate_on_submit():
@@ -35,7 +44,7 @@ def lab(labnum):
     computadores = dbHandler.retrieveLab(labnum)
     componentes = dbHandler.retrieveComponents(labnum)
     print(componentes)
-    return render_template('laboratorio.html', labnum=labnum, computadores=computadores,componentes = componentes , form=form)
+    return render_template('laboratorio.html', labnum=labnum, computadores=computadores,componentes = componentes , form=form, acessForm_=acessForm_)
 
 @app.route('/lab/<int:labnum>/<string:config>', methods = ['GET', 'POST'])
 def alterar_componente(labnum, config):
@@ -47,7 +56,7 @@ def alterar_componente(labnum, config):
 @app.route('/tecnico', methods = ['POST', 'GET'])
 def tecnico():
   if not session.get('key'):
-    return redirect('/')
+    return redirect('/modal')
   chamadosAbertos = dbHandler.retrieveCalls('aberto')
   chamadosFechados = dbHandler.retrieveCalls('fechado')
   return render_template('tecnico.html', chamadosAbertos=chamadosAbertos, chamadosFechados=chamadosFechados)

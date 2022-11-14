@@ -78,7 +78,7 @@ def numberOfProblems(problem):
 
 def createCall(form, labnum):
     cursor = mysql.connection.cursor()
-    pc_id = form.input_numero_pc.data
+    pc_id = form.input_numero_pc.data 
     email = form.email.data
     pc_problem = form.pc_problem.data
     problem_description = form.problem_description.data
