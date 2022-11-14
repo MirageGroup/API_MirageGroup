@@ -1,5 +1,6 @@
 from flask_mysqldb import MySQL
 from main import mysql
+from main import Session
 
 def insertUser(cpf,email,senha):
     cursor = mysql.connection.cursor()
@@ -108,16 +109,15 @@ def updateComponent(componente, labnum, config):
     mysql.connection.commit()
     cursor.close()
 
-def saveLayoutPositions(posicoes_layout, labnum):
+def saveLayoutPositions(posicoes_layout, laboratorio_, labnum):
     cursor = mysql.connection.cursor()
-    cursor.execute(f''' SELECT pos, pc_id FROM laboratorio{labnum} ''')
-    laboratorio = cursor.fetchall()
+    laboratorio = laboratorio_
     lista_posicoes = []
     for i in range(1, 89):
         lista_posicoes.append(i)
     cont = 0
     for computador in laboratorio:
-      if computador[0] == lista_posicoes[cont] and computador[1] == posicoes_layout[cont]:
+      if computador[0] == lista_posicoes[cont] and computador[2] == posicoes_layout[cont]:
         cont += 1
       else:
         cursor.execute(f''' UPDATE laboratorio{labnum} SET pos = %s WHERE pc_id = %s ''', (lista_posicoes[cont], posicoes_layout[cont]))

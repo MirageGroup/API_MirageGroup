@@ -33,8 +33,8 @@ def lab(labnum):
   else:
     form = callForm()
     computadores = dbHandler.retrieveLab(labnum)
+    session['laboratorio'] = computadores
     componentes = dbHandler.retrieveComponents(labnum)
-    print(componentes)
     return render_template('laboratorio.html', labnum=labnum, computadores=computadores,componentes = componentes , form=form)
 
 @app.route('/lab/<int:labnum>/<string:config>', methods = ['GET', 'POST'])
@@ -59,14 +59,15 @@ def tecnico_sair():
 
 @app.route('/lab/<int:labnum>/edit')
 def lab_edit(labnum):
-  computadores = dbHandler.retrieveLab(labnum)
+  computadores = session['laboratorio']
   return render_template('laboratorio_editor.html', labnum=labnum, computadores=computadores)
 
 @app.route('/lab/<int:labnum>/edit/salvar', methods=['POST', 'GET'])
 def salvar(labnum):
   if request.method == 'POST':
     posicoes_layout = request.form['ids'].split(',')
-    dbHandler.saveLayoutPositions(posicoes_layout, labnum)
+    laboratorio = session['laboratorio']
+    dbHandler.saveLayoutPositions(posicoes_layout, laboratorio ,labnum)
     return redirect(f'/lab/{labnum}/edit')
 
 @app.route('/tecnico/finishcall/<int:callnumber>')
