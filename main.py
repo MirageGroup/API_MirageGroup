@@ -37,6 +37,19 @@ def lab(labnum):
     componentes = dbHandler.retrieveComponents(labnum)
     return render_template('laboratorio.html', labnum=labnum, computadores=computadores,componentes = componentes , form=form)
 
+@app.route('/lab/<int:labnum>/edit')
+def lab_edit(labnum):
+  computadores = session['laboratorio']
+  return render_template('laboratorio_editor.html', labnum=labnum, computadores=computadores)
+
+@app.route('/lab/<int:labnum>/edit/salvar', methods=['POST', 'GET'])
+def salvar(labnum):
+  if request.method == 'POST':
+    posicoes_layout = request.form['ids'].split(',')
+    laboratorio = session['laboratorio']
+    dbHandler.saveLayoutPositions(posicoes_layout, laboratorio ,labnum)
+    return redirect(f'/lab/{labnum}/edit')
+
 @app.route('/lab/<int:labnum>/<string:config>', methods = ['GET', 'POST'])
 def alterar_componente(labnum, config):
   if request.method == 'POST':
@@ -52,28 +65,17 @@ def tecnico():
   chamadosFechados = dbHandler.retrieveCalls('fechado')
   return render_template('tecnico.html', chamadosAbertos=chamadosAbertos, chamadosFechados=chamadosFechados)
 
+@app.route('/tecnico/finishcall/<int:callnumber>')
+def finishCall(callnumber):
+  dbHandler.finishCall(callnumber)
+  return redirect('/tecnico')
+  
 @app.route('/tecnico/sair')
 def tecnico_sair():
   session.pop('key', None)
   return redirect('/')
 
-@app.route('/lab/<int:labnum>/edit')
-def lab_edit(labnum):
-  computadores = session['laboratorio']
-  return render_template('laboratorio_editor.html', labnum=labnum, computadores=computadores)
 
-@app.route('/lab/<int:labnum>/edit/salvar', methods=['POST', 'GET'])
-def salvar(labnum):
-  if request.method == 'POST':
-    posicoes_layout = request.form['ids'].split(',')
-    laboratorio = session['laboratorio']
-    dbHandler.saveLayoutPositions(posicoes_layout, laboratorio ,labnum)
-    return redirect(f'/lab/{labnum}/edit')
-
-@app.route('/tecnico/finishcall/<int:callnumber>')
-def finishCall(callnumber):
-  dbHandler.finishCall(callnumber)
-  return redirect('/tecnico')
 
 
 
