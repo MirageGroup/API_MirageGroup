@@ -105,6 +105,6 @@ function updateIdsInput(){
             ids = ids + pc_id + ','
         }
     }
+    ids = ids.slice(0, -1)
     inputIds.value = ids
-    console.log(inputIds.value)
 }
