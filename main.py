@@ -26,7 +26,6 @@ def TecVerificacao():
     else:
       session['key'] = 'tecnico'
       return redirect('/tecnico')
-  return render_template('index.html')
   
 @app.route('/lab/<int:labnum>', methods = ['POST', 'GET'])
 def lab(labnum):
