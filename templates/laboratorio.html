@@ -25,6 +25,10 @@
         <div class="lab_superior">
             <h1>Laboratório {{labnum}}</h1>
             <!--  <a href="/lab/{{labnum}}/edit">Editar</a> -->
+        <!-- Editar Lab -->
+        {% if session.get('key') %}
+          <a class="btn btn-danger mt-4" id="save_edit_button" href="{{labnum}}/edit">Editar Laboratório</a>
+        {% endif %}
         </div>
         <hr>
         {% if componentes[0][1] == None%}

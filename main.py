@@ -64,8 +64,9 @@ def tecnico_sair():
 
 @app.route('/lab/<int:labnum>/edit')
 def lab_edit(labnum):
+  acessForm_ = accessForm()
   computadores = dbHandler.retrieveLab(labnum)
-  return render_template('laboratorio_editor.html', labnum=labnum, computadores=computadores)
+  return render_template('laboratorio_editor.html', labnum=labnum, computadores=computadores, acessForm_=acessForm_)
 
 @app.route('/tecnico/finishcall/<int:callnumber>')
 def finishCall(callnumber):
