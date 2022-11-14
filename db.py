@@ -30,14 +30,11 @@ def retrieveCalls(estado):
 
     # NUMERO DE CHAMADOS
 def retrieveNumbersofCalls():
-
-   
     cursor = mysql.connection.cursor()
     cursor.execute(f''' SELECT id FROM chamados''')
     numberOfCalls = cursor.fetchall()
     numberOfCalls = len(numberOfCalls)
     return numberOfCalls
-
 
     # NUMERO DE CHAMADOS ABERTOS E FECHADOS
 def retrieveNumbersOpenOrClose(state):
@@ -48,8 +45,7 @@ def retrieveNumbersOpenOrClose(state):
     numberOfCalls = len(numberOfCalls)
     return numberOfCalls
     
-
-        # NUMERO DE CHAMADOS POR SALA
+    # NUMERO DE CHAMADOS POR SALA
 def retrieveNumberInLabs(number):
     cursor = mysql.connection.cursor()
     cursor.execute(f''' SELECT id FROM chamados WHERE laboratorio_num = '{number}' ''')
@@ -57,10 +53,6 @@ def retrieveNumberInLabs(number):
     numberOfCalls = len(numberOfCalls)
     return numberOfCalls
     
-
-
-
-
 #    NUMERO DE PROBLEMAS ESPECIFICOS
 def numberOfProblems(problem):
         cursor = mysql.connection.cursor()
@@ -68,13 +60,6 @@ def numberOfProblems(problem):
         numberOfProblems = cursor.fetchall()
         numberOfProblems = len(numberOfProblems)
         return numberOfProblems
-
-
-
-
-
-
-
 
 def createCall(form, labnum):
     cursor = mysql.connection.cursor()

@@ -16,8 +16,6 @@
 <body>
   <header class="cabecalho">
 
-  
-    
     <div class="header_superior">
       <img class="logo_fatec" src="{{url_for('static', filename='img/menu.png')}}" alt="logo da fatec">
       {% if not session.get('key') %}
@@ -26,10 +24,6 @@
       <a href="/tecnico/sair"><img class="logo_usuario" src="{{url_for('static', filename='img/icone_sair.png')}}"></a>
       {% endif %}
     </div>
-
-    <!-- MODAL LOGIN-->
-          
-    <!-- {% block modal %}{% endblock %} -->
 
     <div class="header_inferior">  
       <ul class="nav nav-pills">
@@ -80,7 +74,4 @@
 
 </header>
 </body>
-
-<!-- {% block script %}{% endblock %} -->
-
 </html>

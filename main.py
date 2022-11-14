@@ -28,9 +28,6 @@ def TecVerificacao():
       return redirect('/tecnico')
   return render_template('index.html')
   
-
-
-
 @app.route('/lab/<int:labnum>', methods = ['POST', 'GET'])
 def lab(labnum):
   acessForm_ = accessForm()
@@ -163,17 +160,8 @@ def estatistics():
   Problem410 = Problem410,
   Problem411 = Problem411,
   Problem412 = Problem412,
-
-
-
-
-
-    
-    
-    
+     
     )
-
-
 
 if __name__ == '__main__':
   app.run(debug=True)
