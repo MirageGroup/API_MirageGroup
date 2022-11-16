@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, flash, session
 from flask_mysqldb import MySQL
 from flask_session import Session
 import db as dbHandler
-from models.forms import callForm, accessForm
+from models.forms import callForm, accessForm , addComputer
 
 app = Flask(__name__)
 app.config.from_object('config')
@@ -37,10 +37,21 @@ def lab(labnum):
     componentes = dbHandler.retrieveComponents(labnum)
     return render_template('laboratorio.html', labnum=labnum, computadores=computadores,componentes = componentes , form=form)
 
-@app.route('/lab/<int:labnum>/edit')
+@app.route('/lab/<int:labnum>/edit', methods = ['POST', 'GET'])
 def lab_edit(labnum):
-  computadores = session['laboratorio']
-  return render_template('laboratorio_editor.html', labnum=labnum, computadores=computadores)
+  if request.method == 'POST':
+    addForm = addComputer()
+    if addForm.validate_on_submit():
+
+      return
+
+  else:
+    
+    
+    computadores = session['laboratorio']
+
+      
+    return render_template('laboratorio_editor.html', labnum=labnum, computadores=computadores, addForm = addForm )
 
 @app.route('/lab/<int:labnum>/edit/salvar', methods=['POST', 'GET'])
 def salvar(labnum):

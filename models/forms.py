@@ -22,5 +22,11 @@ class callForm(FlaskForm):
   pc_problem = SelectField('pc_problem', validators=[DataRequired()], choices=choices)
   problem_description = TextAreaField('problem_description', validators=[DataRequired(), Length(min=10, max=350)])
 
+
+class addComputer(FlaskForm):
+  input_new_pc = StringField('input_new_pc' , validators=[DataRequired()])
+  
+
+
 class accessForm(FlaskForm):
   codigo = PasswordField('codigo', validators=[DataRequired()])

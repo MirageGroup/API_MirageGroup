@@ -44,13 +44,6 @@ def retrieveCalls(estado):
     cursor.execute(f''' SELECT id FROM chamados WHERE estado = 'fechado' ''')
     numberOfCloseCalls = cursor.fetchall()
     numberOfCloseCalls = len(numberOfCloseCalls)
-    
-   
-   
-
-    
-
-
 
     cursor.execute(f''' SELECT * FROM chamados where estado = '{estado}' ORDER BY data_chamado DESC, hora_chamado DESC ''')
     chamados = cursor.fetchall()
@@ -69,6 +62,15 @@ def createCall(form, labnum):
     cursor.execute(f''' INSERT INTO chamados (laboratorio_num, pc_id, data_chamado, hora_chamado, autor, problema_tipo, problema_desc, estado) VALUES (%s, %s, CURDATE(), CURRENT_TIME(), %s, %s, %s, %s) ''', (labnum, pc_id, email, pc_problem, problem_description, 'aberto'))
     mysql.connection.commit()
     cursor.close()
+
+
+def createComputer(addForm,labnum):
+     cursor = mysql.connection.cursor()
+     pc_name = addForm.input_new_pc
+     
+
+
+
 
 def finishCall(callnumber):
     cursor = mysql.connection.cursor()
