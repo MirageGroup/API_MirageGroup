@@ -1,7 +1,7 @@
 // -*-*-*-*-*-*-*-*-*-*-*-*-*-*- DRAG & DROP -*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 
 /** app */
-const cards = document.querySelectorAll('.card')
+var cards = document.querySelectorAll('.card')
 const dropzones = document.querySelectorAll('.dropzone')
 const dropzonesSec = document.querySelectorAll('.dropzone_secundaria')
 const dropzoneNone = document.querySelectorAll('#dropzone_none')
@@ -113,19 +113,6 @@ addComputerIDButton.addEventListener('click', () => {
     })
 })
 
-
-function returnEventListeners(){
-  dropzones.forEach(dropzone => {
-    dropzone.classList.remove('adicionar')
-    dropzone.removeEventListener('click', createNewComputerCard)
-  })
-  cards.forEach(card => {
-      card.addEventListener('dragstart', dragstart)
-      card.addEventListener('drag', drag)
-      card.addEventListener('dragend', dragend)
-  })
-}
-
 function createNewComputerCard(){
   // Função de criar o novo Card
   newPcId = document.getElementById('new_pc_id').value
@@ -134,22 +121,49 @@ function createNewComputerCard(){
   var newCard = document.createElement('card')
   newCard.className = "card_computador card"
   newCard.setAttribute("data-id", newPcId)
+  newCard.setAttribute("data-bs-toggle", "modal")
+  newCard.setAttribute("dragabble", "true")
+  newCard.setAttribute("data-bs-target", "#modal-teste")
+  newCard.setAttribute("data-bs-whathever", newPcId)
+  newCard.setAttribute("id", newPcId)
+
+  var newCardContainerPopOver = document.createElement('div')
+  newCardContainerPopOver.className = "container_popover"
+  newCardContainerPopOver.setAttribute("data-bs-toggle", "popover")
+  newCardContainerPopOver.setAttribute("data-bs-title", "Status do computador")
+  newCardContainerPopOver.setAttribute("data-bs-content", "O computador está funcionando corretamente")
+  newCardContainerPopOver.setAttribute("data-bs-trigger", "hover")
 
   // criando o elemento img dentro do card e atribuindo a imagem
   var newCardImg = document.createElement('img')
-  newCardImg.className = "imagem_monitor"
   newCardImg.setAttribute("src", "/static/img/img_monitor.png")
-  newCard.appendChild(newCardImg)
+  newCardImg.className = "imagem_monitor"
+  newCardContainerPopOver.appendChild(newCardImg)
 
   // criando a div container_texto embaixo
   var newCardText = document.createElement('div')
   newCardText.className = "container_texto status_verde"
   newCardText.innerHTML += '<p class="texto_computador">COMPUTADOR</p>'
   newCardText.innerHTML += '<p class="texto_computador">'+newPcId+'</p>'
-  newCard.appendChild(newCardText)
+  newCardContainerPopOver.appendChild(newCardText)
+
+  newCard.appendChild(newCardContainerPopOver)
 
   this.appendChild(newCard)
 
   returnEventListeners()
 
+}
+
+function returnEventListeners(){
+  dropzones.forEach(dropzone => {
+    dropzone.classList.remove('adicionar')
+    dropzone.removeEventListener('click', createNewComputerCard)
+  })
+  cards = document.querySelectorAll('.card')
+  cards.forEach(card => {
+      card.addEventListener('dragstart', dragstart)
+      card.addEventListener('drag', drag)
+      card.addEventListener('dragend', dragend)
+  })
 }
