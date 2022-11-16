@@ -97,8 +97,9 @@
                 {% if session.get('key') %}
                 <form action="/lab/{{ labnum }}/CPU" method="POST" onsubmit="submit();return false;"> 
                   <input type="text" class="form-control" name="componente" autocomplete="off"/>
-                  <button type="submit" class="btn btn-light mt-2">Alterar</button>
+                  <button type="submit" class="btn btn-danger mt-4">Alterar</button>
                 </form>
+                <!-- <a class="btn btn-danger mt-4" id="save_edit_button" href="{{labnum}}/edit">Editar Laboratório</a> -->
                 {% endif %}
                 <p class="especificações_texto_hover"> A CPU ou o processador é o “cérebro” de todo computador e celular do planeta: trata-se do componente responsável por executar todas as operações necessárias para o funcionamento do dispositivo.</p>
               </div>
@@ -111,7 +112,7 @@
                 <form action="/lab/{{ labnum }}/GPU" method="POST" onsubmit="submit();return false;"> 
                   <input type="text" class="form-control" name="componente" autocomplete="off" />
                   <input type="hidden" value="Alterar Placa de Vídeo" placeholder="Alterar"/>
-                  <button type="submit" class="btn btn-light mt-2">Alterar</button>
+                  <button type="submit" class="btn btn-danger mt-4">Alterar</button>
                 </form>
                 {% endif %}
                 <p class="especificações_texto_hover">GPU é um processadorque trabalha de maneira dedicada a atividades de vídeo dentro do computador. A sigla remete ao nome Unidade de Processamento Gráfico e sua função é processar as informações gráficas de uma máquina. Ela também diminui a sobrecarga da CPU e melhora a troca de dados entre as duas peças. </p>
@@ -124,7 +125,7 @@
                 {% if session.get('key') %}
                 <form action="/lab/{{ labnum }}/MemoriaRAM" method="POST" onsubmit="submit();return false;"> 
                   <input type="text" class="form-control" name="componente" autocomplete="off" />
-                  <button type="submit" class="btn btn-light mt-2">Alterar</button>
+                  <button type="submit" class="btn btn-danger mt-4">Alterar</button>
                 </form>
                 {% endif %}
                 <p class="especificações_texto_hover"> A memória RAM, também chamado de memória volátil de leitura e escrita, é uma memória temporária computacional de acesso rápido; ou seja, é um local de armazenamento temporário de informações digitais usada pelo processador para armazenar informações temporariamente e que possui um acesso feito de forma aleatória</p>
@@ -137,7 +138,7 @@
                 {% if session.get('key') %}
                 <form action="/lab/{{ labnum }}/OS" method="POST" onsubmit="submit();return false;"> 
                   <input type="text" class="form-control" name="componente" autocomplete="off" />
-                  <button type="submit"   class="btn btn-light mt-2">Alterar</button>
+                  <button type="submit" class="btn btn-danger mt-4">Alterar</button>
                 </form>
                 {% endif %}
                 <p class="especificações_texto_hover "> O sistema operacional é um software, ou conjunto de softwares, cuja função é administrar e gerenciar os recursos de um sistema, desde componentes de hardware e sistemas de arquivos a programas de terceiros, estabelecendo a interface entre o computador e o usuário.</p>
