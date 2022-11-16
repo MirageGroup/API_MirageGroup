@@ -14,18 +14,16 @@
     <title>Laboratório {{ labnum }}</title>
 </head>
 <body>
-    <!-- MODAL LOGIN-->
           
-    <!-- {% block modal %}{% endblock %} -->
-
     {% extends "header.html" %}
     {% block content %}
 
     <main>
         <div class="lab_superior">
             <h1>Laboratório {{labnum}}</h1>
-            <!--  <a href="/lab/{{labnum}}/edit">Editar</a> -->
+
         <!-- Editar Lab -->
+
         {% if session.get('key') %}
           <a class="btn btn-danger mt-4" id="save_edit_button" href="{{labnum}}/edit">Editar Laboratório</a>
         {% endif %}
@@ -88,13 +86,12 @@
         <section class="container_especificações">
             <div class="container_especificações_titulo">
               ESPECIFICAÇÕES
-
             </div> 
             <hr style="width:100%">
             <section class="especificações">
               <div class="especificação_item">
                 <h3>Processador</h3>
-              
+            
                 <img class="especificações_item_imagem" src="../static/img/processor.svg">
                 <p class="especificações_texto">{{componentes[0][1]}}</p>
                 {% if session.get('key') %}
@@ -148,16 +145,14 @@
 
             </section>
          
-
         </section>
         {%endif%}
         
         <div class="div_transição transição_degrade">
-
         </div>
     </main>
 
-    <!-- Modal REPORT-->
+    <!-- MODAL REPORT-->
 <div class="modal fade" id="modal-teste" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -224,7 +219,9 @@
       </div>
   </div>
 
-  {% include 'modal.html' %}
+        <!-- MODAL LOGIN -->
+
+        {% include 'modal.html' %}
 
   <footer class="footer_home">
     <img class="img-footer" src="../static/img/cps_brasao_sp_320x84.png" alt="fatec-logo">
@@ -237,9 +234,7 @@
          <img class="media-object" src="../static/img/GitHub-Mark-removebg-preview.png" alt="logo-git">
        </a>
       </div> 
-  </footer>
-
-  
+  </footer> 
 
 <script src="{{ url_for('static',     filename='js/modal.js') }}"></script>
 
