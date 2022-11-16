@@ -37,21 +37,10 @@ def lab(labnum):
     componentes = dbHandler.retrieveComponents(labnum)
     return render_template('laboratorio.html', labnum=labnum, computadores=computadores,componentes = componentes , form=form)
 
-@app.route('/lab/<int:labnum>/edit', methods = ['POST', 'GET'])
+@app.route('/lab/<int:labnum>/edit')
 def lab_edit(labnum):
-  if request.method == 'POST':
-    addForm = addComputer()
-    if addForm.validate_on_submit():
-
-      return
-
-  else:
-    
-    
-    computadores = session['laboratorio']
-
-      
-    return render_template('laboratorio_editor.html', labnum=labnum, computadores=computadores, addForm = addForm )
+  computadores = session['laboratorio']
+  return render_template('laboratorio_editor.html', labnum=labnum, computadores=computadores)
 
 @app.route('/lab/<int:labnum>/edit/salvar', methods=['POST', 'GET'])
 def salvar(labnum):

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{ url_for('static',     filename='css/reset.css') }}">
     <link rel="stylesheet" href="{{ url_for('static',     filename='css/style.css') }}">
     
-    <title>Laboratório Editar</title>
+    <title>Laboratório {{labnum}} Editar</title>
   </head>
   <body>
     
@@ -25,16 +25,21 @@
               </div>
               <div class="titulos_edit">
                 <div class="titulos_editor">
-                    <h1>LAYOUT DA SALA</h1>
-                    <p>arraste e solte os computadores para customizar o layout</p>
-                    <a class="btn btn-danger mt-4" id="save_edit_button" href="lab{{labnum}}/edit/savelayout">SALVAR</a>
-                    <button data-bs-toggle="modal" data-bs-target="#modal-adicionar">ADICIONAR COMPUTADOR</button>
-
+                  <h1>LAYOUT DA SALA</h1>
+                  <p>arraste e solte os computadores para customizar o layout</p>
+                  <form action="/lab/{{labnum}}/edit/salvar" method="POST">
+                    <input type="text" id="ids" name="ids" style="display: none;">
+                    <button type="input" class="btn btn-danger mt-4" id="save_edit_button">SALVAR</button>
+                  </form>
                 </div>
-               
-            </div>
+              </div>
+              <div class="action_buttons_container">
+                <button class="btn btn-warning action_buttons" id="add_computer_btn" data-bs-toggle="modal" data-bs-target="#modal_add_computer">Adicionar computador</button>
+                <button class="btn btn-warning action_buttons">Remover computador</button>
+                <button class="btn btn-warning action_buttons">Renomear computador</button>
+              </div>
             
-        
+        <br><br>
         
         <!-- computadores -->
         <section class="layout_editores">
@@ -44,26 +49,22 @@
               {% if computador[1] == 1 %}
                 {% if computador[3] == None %}
                 <div class="dropzone" data-posicao="{{computador[0]}}" id="{{computador[0]}}">
-                    <card class="card_computador card" data-id="{{computador[2]}}" data-bs-toggle="modal" draggable="true" data-bs-target="#modal-teste"  data-bs-whatever="{{computador[2]}}" id="{{computador[2]}}">
-                      <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="{{computador[4]}}" data-bs-trigger="hover">  
+                    <card class="card_computador card" data-id="{{computador[2]}}">
                         <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
                         <div class="container_texto status_verde">
                           <p class="texto_computador ">COMPUTADOR</p>
                           <p class="texto_computador ">{{computador[2]}}</p>
                         </div>
-                      </div> 
                     </card>
                 </div>
                 {% else %}
                 <div class="dropzone" data-posicao="{{computador[0]}}" id="{{computador[0]}}">
-                  <card class="card_computador card" data-id="{{computador[2]}}" data-bs-toggle="modal" draggable="true" data-bs-target="#modal-red"  data-bs-problema='{"pc_problema":"{{computador[3]}}", "pc_descricao":"{{computador[4]}}"}' id="problem">
-                    <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="{{computador[4]}}" data-bs-trigger="hover">  
+                  <card class="card_computador card" data-id="{{computador[2]}}">
                       <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
                       <div class="container_texto status_vermelho">
                         <p class="texto_computador ">COMPUTADOR</p>
                         <p class="texto_computador ">{{computador[2]}}</p>
                       </div>
-                    </div> 
                   </card>
                 </div>
   
@@ -84,39 +85,28 @@
     </div>
 </footer>
 
-   <!-- Modal REPORT-->
-   <div class="modal fade" id="modal-adicionar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <form id="formid" action="/lab/{{labnum}}" method="POST">
-            {{ addForm.csrf_token }}
-            
-            <div class="modal-header">
-                <h5 class="modal-title fw-bold" id="exampleModalLabel ">Abrir chamado</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body " >
-                <div class="mb-3">
-                    <label class="form-label " for="#input_numero_pc_adicionar">Digite o numero do computador</label>
-                    {{ addForm.input_new_pc (class="form-control espeçamento_modal") }}
-                   
-                    
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn btn-light" class="btn btn-primary" id="btn_submit">Enviar</button>
-            </div>
-          </form>
+<!-- MODAIS -->
+
+<div class="modal fade" id="modal_add_computer" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Adicionar computador</h5>
+      </div>
+        <div class="modal-body">
+          <label class="form-label fw-bold" for="pc_problem">Insira o ID do novo computador</label>
+          <br>
         </div>
+        <input type="text" class="form-control espeçamento_modal" id="new_pc_id" style="width: 95%; margin-left: auto; margin-right: auto;"><br>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="add_computer_id_btn">Continuar</button>
+      </div>
     </div>
+  </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-
-
-
-
 <script src="{{ url_for('static',     filename='js/editor.js') }}"></script>
 {% endblock %}
 
