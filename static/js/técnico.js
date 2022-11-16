@@ -26,16 +26,36 @@ seta.forEach(element => {
   }
   ativarAba = (aba) => {
     aba.classList.add('aba-ativa')
-    console.log(aba)
+    
   }
   abas.forEach(aba => aba.addEventListener('click', () => {
       const valor = aba.dataset.botao
-      console.log(valor)
+      
 
       esconderConteudos()
       inativarAbas()
       ativarConteudo(valor)
       ativarAba(aba)
 })) 
+
+var abaTodas = document.querySelector(`[data-botao="todos"`)
+console.log(abaTodas)
+abaTodas.addEventListener('click',() => {
+
+  const conteudoFechado = document.querySelectorAll(`[data-conteudo="fechado"]`)
+
+  const conteudoAberto = document.querySelectorAll(`[data-conteudo="aberto"]`)
+  console.log(conteudoAberto) 
+
+  conteudoAberto.forEach(conteudo => conteudo.classList.remove('none'))
+  conteudoFechado.forEach(conteudo => conteudo.classList.remove('none'))
+
+
+  
+
+
+
+
+})
 
 
