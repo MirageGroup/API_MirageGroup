@@ -1,5 +1,6 @@
 from flask_mysqldb import MySQL
 from main import mysql
+import win32com.client as win32
 
 def insertUser(cpf,email,senha):
     cursor = mysql.connection.cursor()
@@ -130,5 +131,6 @@ def enviarEmail(Email):
     <p>Seu chamado realizado no SOS FATEC foi finalizado!</p>
 
     <p>confira se o problema foi resolvido! Caso não tenha sido, volte e reporte novamente.</p>
+    
     '''
     email.Send()
