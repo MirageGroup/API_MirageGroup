@@ -86,6 +86,7 @@ def finishCall(callnumber):
     pc_id = chamado[0][2]
     cursor.execute(f''' UPDATE laboratorio{chamado[0][1]} SET pc_problema = NULL, pc_descricao = %s WHERE pc_id = %s ''', (pc_description, pc_id))
     mysql.connection.commit()
+    enviarEmail(chamado[0][5])
     cursor.close()
 
 def updatePcStatus(labnum, pc_id, pc_problem, problem_description):
@@ -118,3 +119,16 @@ def addComentario(comentario, callnumber):
     cursor.execute(f''' UPDATE chamados SET comentarios = '{comentario}' WHERE id = '{callnumber}' ''')
     mysql.connection.commit()
     cursor.close()
+
+def enviarEmail(Email):
+    outlook = win32.Dispatch("outlook.application")
+    email = outlook.CreateItem(0)
+    email.To = f"{Email}"
+    email.Subject = "Chamado Finalizado"
+    email.HTMLBody = f'''
+    <p>Olá</p>
+    <p>Seu chamado realizado no SOS FATEC foi finalizado!</p>
+
+    <p>confira se o problema foi resolvido! Caso não tenha sido, volte e reporte novamente.</p>
+    '''
+    email.Send()
