@@ -46,10 +46,35 @@
             {% set vars.valor = 0 %}
           {% endif %}
             {% if computadores[vars.valor][0] == i %}
-              <div class="dropzone com_pc">{{computadores[vars.valor]}}</div>
+              {% if computadores[vars.valor][3] == None %}
+                <div class="dropzone">
+                  <card class="card_computador card" data-bs-toggle="modal" draggable="true" data-bs-target="#modal-teste"  data-bs-whatever="{{computadores[vars.valor][2]}}" id="{{computadores[vars.valor][2]}}">
+                    <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="{{computadores[vars.valor][4]}}" data-bs-trigger="hover">  
+                      <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
+                      <div class="container_texto status_verde">
+                        <p class="texto_computador ">COMPUTADOR</p>
+                        <p class="texto_computador ">{{computadores[vars.valor][2]}}</p>
+                      </div>
+                    </div> 
+                  </card>
+              </div>
               {% set vars.valor = vars.valor + 1 %}
+              {% else %}
+                <div class="dropzone">
+                  <card class="card_computador card" data-bs-toggle="modal" draggable="true" data-bs-target="#modal-red"  data-bs-problema='{"pc_problema":"{{computadores[vars.valor][3]}}", "pc_descricao":"{{computadores[vars.valor][4]}}"}' id="problem">
+                    <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="{{computadores[vars.valor][4]}}" data-bs-trigger="hover">  
+                      <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
+                      <div class="container_texto status_vermelho">
+                        <p class="texto_computador ">COMPUTADOR</p>
+                        <p class="texto_computador ">{{computadores[vars.valor][2]}}</p>
+                      </div>
+                    </div> 
+                  </card>
+                </div>
+                {% set vars.valor = vars.valor + 1 %}
+              {% endif %}
             {% else %}
-              <div class="dropzone sem_pc"></div>
+              <div class="dropzone"></div>
             {% endif %}
           {% endfor %}
 
