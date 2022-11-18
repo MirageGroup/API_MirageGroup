@@ -89,12 +89,13 @@ function updateIdsInput(){
         if(!dropzones_[i].firstElementChild){
             ids = ids + null + ','
         }else{
-            pc_id = dropzones_[i].firstElementChild.getAttribute('data-id')
+            pc_id = dropzones_[i].firstElementChild.getAttribute('data-pc-id')
             ids = ids + pc_id + ','
         }
     }
     ids = ids.slice(0, -1)
     inputIds.value = ids
+    console.log(ids)
 }
 
 // -*-*-*-*-*-*-*-*-*-*-*-*-*-*- ADICIONAR NOVO COMPUTADOR - JavaScript -*-*-*-*-*-*-*-*-*-*-*-*-*-*-
