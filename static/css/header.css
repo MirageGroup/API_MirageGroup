@@ -1,5 +1,5 @@
 
-/* HEADER */
+    /* HEADER */
 .header_superior{
     display: flex;
     align-items: center;
@@ -28,9 +28,64 @@
 .link_meio{
   
     
-    
-    
 }
 .header_links:hover{
     color: var(--vermelho_principal);
 }
+
+    /* HEADER DE MENU DOS CHAMADOS - TELA DO TÉCNICO*/
+.container_menu_reports {
+    margin-top: -8px;
+
+}
+.title_menu_reports  {
+    margin: 0.5em 0 0.7em 0; 
+    font-size: 24px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 0 4em;
+    margin: 1px;
+}
+.text_menu_reports {
+    font-size: 17px;
+    font-weight: 350;
+    text-align: center;
+    padding: 0 4em;
+    margin: 5px 10px 12px 10px;
+}
+.menu_reports{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #D9D9D9;
+    height: 3em;   
+}
+
+    /* botões do menu de chamados */
+.menu_reports-itens {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+
+}
+.menu_reports-itens li {
+    padding: 1.5rem;
+    margin: 1em 1.5em;
+}
+.menu_reports-button {
+    border: none ;
+    background-color: transparent;
+    padding: 14px;
+    color: black;
+    background-color: #d9d9d9;
+    font-weight: 450;
+}
+
+/* .menu_reports-itens button:hover {
+    box-shadow: 2px 2px rgba(0,0,0,0.19);
+    color: rgb(30, 127, 253);
+}  */

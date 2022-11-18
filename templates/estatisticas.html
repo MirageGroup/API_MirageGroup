@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="{{ url_for('static',     filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',     filename='css/style.css') }}">
+
+    <title>Estatisticas</title>
+</head>
+{% extends "header.html" %}
+{% block content %}
+
+<body>
+    <main>
+
+            <div class="titulos_edit">
+                <div class="titulos_editor">
+                    <h1>ESTATISTICAS DOS CHAMADOS</h1>
+                    <p>aqui você pode consultar os principais dados dos laboratórios</p>
+                   
+
+                </div>
+                
+               
+            </div>
+            
+        
+        <section class="layout_editores">
+          <div class="area_de_estatisticas">
+            <ul class="menu_estatisticas_itens">
+                <li><button data-botao="chamados" class="botão_estatisticas aba-ativa-estatisticas">CHAMADOS ABERTOS E FECHADOS</button></li>
+                <li><button data-botao="problemas" class="botão_estatisticas">PROBLEMAS COMPUTADORES</button></li>
+                <li><button data-botao="lab" class="botão_estatisticas">CHAMADOS EM CADA LABORATORIO</button></li>
+            </ul>
+
+            <div class="estatisticas_tables_circle " data-grafico="chamados">
+                <canvas id="myChartReports"></canvas>
+            </div>
+              
+            <div class="estatisticas_tables none" data-grafico="problemas" >
+                
+                <div >
+                    <canvas id="myChart"></canvas>
+                </div>
+                
+            </div>
+            <div class="estatisticas_tables none" data-grafico="lab" >
+                
+                <div >
+                    <canvas id="myChartLab"></canvas>
+                </div>
+                
+            </div>
+           
+               
+              
+               
+        
+  
+          </div> 
+        </section>
+    </main>
+
+    <footer class="footer_home">
+        <img class="img-footer" src="../static/img/cps_brasao_sp_320x84.png" alt="fatec-logo">
+         <div class="github" >
+           <h1>Todos os direitos Reservados</h1>
+         </div>
+         <div class="link_github">
+          <p>Link para nossso repositório:</p>
+           <a href="https://github.com/MirageGroup/API_MirageGroup" target="_blank">
+             <img class="media-object" src="../static/img/GitHub-Mark-removebg-preview.png" alt="logo-git">
+           </a>
+          </div> 
+      </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+    var totalChamados = {{totalChamados}} ;
+
+    var chamadosAbertos = {{chamadosAbertos}};
+    var chamadosFechados = {{chamadosFechados}};
+
+    var ProblemLigar = {{ProblemLigar}};
+    var ProblemNoInternet = {{ProblemNoInternet}};
+    var ProblemLento = {{ProblemLento}};
+    var ProblemNoImage = {{ProblemNoImage}};
+    var ProblemNoSound = {{ProblemNoSound}};
+    var ProblemBlueScreen = {{ProblemBlueScreen}};
+    var ProblemTurnOff = {{ProblemTurnOff}};
+    var ProblemInitialization = {{ProblemInitialization}};
+    var ProblemFreezingScreen = {{ProblemFreezingScreen}};
+    var ProblemMouse = {{ProblemMouse}};
+    var ProblemBoard = {{ProblemBoard}};
+    var ProblemOther =  {{ProblemOther}};
+
+    var Problem301 = {{Problem301}};
+    var Problem302 = {{Problem302}};
+    var Problem303 = {{Problem303}};
+    var Problem401 = {{Problem401}};
+    var Problem402 = {{Problem402}};
+    var Problem403 = {{Problem403}};
+    var Problem404 = {{Problem404}};
+    var Problem405 = {{Problem405}};
+    var Problem406 = {{Problem406}};
+    var Problem407 = {{Problem407}};
+    var Problem408 = {{Problem408}};
+    var Problem409 = {{Problem409}};
+    var Problem410 = {{Problem410}};
+    var Problem411 = {{Problem411}};
+    var Problem412 = {{Problem412}};
+
+
+</script>
+<script src="{{ url_for('static', filename='js/Estatisticas.js') }}">
+    
+
+
+</script>
+
+{% endblock %}
+</body>
+</html>

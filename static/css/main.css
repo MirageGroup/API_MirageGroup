@@ -379,8 +379,8 @@ hr{
  gap: 1em;
  background-color: rgb(241, 241, 241);
  padding: 1em;
- 
-}
+} 
+
 .reports_cardaberto{
     display: flex;
     flex-direction: column;
@@ -388,8 +388,6 @@ hr{
     background-color:rgb(238, 238, 238) ;
     border: 2px solid var(--vermelho_principal);
     border-radius: 8px;
-    
-    
 }
 
 .reports_cardfechado{
@@ -399,10 +397,15 @@ hr{
     background-color:rgb(238, 238, 238) ;
     border: 2px solid rgb(0, 255, 115);
     border-radius: 8px;
-    
-    
 }
 
+.none {
+    display: none;
+}
+
+.aba-ativa {
+    border-bottom: 2.5px solid red;
+}
 
 .card_titulo{
     font-size: 28px;
@@ -414,8 +417,6 @@ hr{
 .card_descrição strong{
     font-weight: 800;
     
-    
-
 }
 
 .seta_baixo{
@@ -510,4 +511,49 @@ hr{
 
 .card_descrição{
     overflow-wrap: break-word; 
+}
+
+
+    /* ESTATISTICAS */
+.area_de_estatisticas{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(238, 238, 238);
+    border-radius: 10px;
+    padding: 0.7em;
+    gap: 50px;
+    width: 100%;
+}
+.estatisticas_tables{
+   width: 65%;
+   margin-bottom: 2em;
+
+}
+.estatisticas_tables_circle{
+    width: 30%;
+    margin-bottom: 2em;
+}
+.menu_estatisticas_itens{
+display: flex;
+flex-wrap: wrap;
+
+justify-content: center;
+padding-left: 0;
+margin-bottom: 0;
+list-style: none;
+
+}
+.botão_estatisticas{
+    background-color: transparent;
+    border: 0px ;
+    padding: 10px;
+}
+.aba-ativa-estatisticas{
+   
+    border-bottom: 2px solid red;
+}
+.menu_estatisticas_itens button{
+    margin: 1em 1.5em;
 }

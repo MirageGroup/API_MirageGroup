@@ -1,6 +1,7 @@
 from flask_mysqldb import MySQL
 from main import mysql
 from main import Session
+import win32com.client as win32
 
 def insertUser(cpf,email,senha):
     cursor = mysql.connection.cursor()
@@ -23,23 +24,23 @@ def retrieveLab(labnum):
     return computadores
 
 def retrieveCalls(estado):
-    # ESTATISTICAS
+    cursor = mysql.connection.cursor()
+    cursor.execute(f''' SELECT * FROM chamados where estado = '{estado}' ORDER BY data_chamado DESC, hora_chamado DESC ''')
+    chamados = cursor.fetchall()
+    cursor.close()
+    return chamados
 
     # NUMERO DE CHAMADOS
+def retrieveNumbersofCalls():
     cursor = mysql.connection.cursor()
     cursor.execute(f''' SELECT id FROM chamados''')
     numberOfCalls = cursor.fetchall()
     numberOfCalls = len(numberOfCalls)
-    
+    return numberOfCalls
 
-    # NUMERO DE CHAMADOS ABERTOS
-    cursor = mysql.connection.cursor()
-    cursor.execute(f''' SELECT id FROM chamados WHERE estado = 'aberto' ''')
-    numberOfOpenCalls = cursor.fetchall()
-    numberOfOpenCalls = len(numberOfOpenCalls)
+    # NUMERO DE CHAMADOS ABERTOS E FECHADOS
+def retrieveNumbersOpenOrClose(state):
     
-
-    # NUMERO DE CHAMADOS FECHADOS
     cursor = mysql.connection.cursor()
     cursor.execute(f''' SELECT id FROM chamados WHERE estado = 'fechado' ''')
     numberOfCloseCalls = cursor.fetchall()
@@ -49,10 +50,31 @@ def retrieveCalls(estado):
     chamados = cursor.fetchall()
     cursor.close()
     return chamados
+=======
+    cursor.execute(f''' SELECT id FROM chamados WHERE estado = '{state}' ''')
+    numberOfCalls = cursor.fetchall()
+    numberOfCalls = len(numberOfCalls)
+    return numberOfCalls
+    
+    # NUMERO DE CHAMADOS POR SALA
+def retrieveNumberInLabs(number):
+    cursor = mysql.connection.cursor()
+    cursor.execute(f''' SELECT id FROM chamados WHERE laboratorio_num = '{number}' ''')
+    numberOfCalls = cursor.fetchall()
+    numberOfCalls = len(numberOfCalls)
+    return numberOfCalls
+    
+#    NUMERO DE PROBLEMAS ESPECIFICOS
+def numberOfProblems(problem):
+        cursor = mysql.connection.cursor()
+        cursor.execute(f''' SELECT id FROM chamados WHERE problema_tipo = '{problem}' ''')
+        numberOfProblems = cursor.fetchall()
+        numberOfProblems = len(numberOfProblems)
+        return numberOfProblems
 
 def createCall(form, labnum):
     cursor = mysql.connection.cursor()
-    pc_id = form.input_numero_pc.data
+    pc_id = form.input_numero_pc.data 
     email = form.email.data
     pc_problem = form.pc_problem.data
     problem_description = form.problem_description.data
@@ -84,6 +106,7 @@ def finishCall(callnumber):
     pc_id = chamado[0][2]
     cursor.execute(f''' UPDATE laboratorio{chamado[0][1]} SET pc_problema = NULL, pc_descricao = %s WHERE pc_id = %s ''', (pc_description, pc_id))
     mysql.connection.commit()
+    enviarEmail(chamado[0][5])
     cursor.close()
 
 def updatePcStatus(labnum, pc_id, pc_problem, problem_description):
@@ -123,3 +146,23 @@ def saveLayoutPositions(layout_novo, layout_antigo, labnum):
         mysql.connection.commit()
         cont += 1
     cursor.close()
+    
+def addComentario(comentario, callnumber):
+    cursor = mysql.connection.cursor()
+    cursor.execute(f''' UPDATE chamados SET comentarios = '{comentario}' WHERE id = '{callnumber}' ''')
+    mysql.connection.commit()
+    cursor.close()
+
+def enviarEmail(Email):
+    outlook = win32.Dispatch("outlook.application")
+    email = outlook.CreateItem(0)
+    email.To = f"{Email}"
+    email.Subject = "Chamado Finalizado"
+    email.HTMLBody = f'''
+    <p>Olá</p>
+    <p>Seu chamado realizado no SOS FATEC foi finalizado!</p>
+
+    <p>confira se o problema foi resolvido! Caso não tenha sido, volte e reporte novamente.</p>
+    
+    '''
+    email.Send()

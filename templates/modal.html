@@ -1,0 +1,36 @@
+
+      <!-- MODAL LOGIN -->
+
+<div class="modal" id="modal_login" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Acesso de Técnico</h5>
+        </div>
+        <form action="/verificacao" method="POST">
+          {{ acessForm_.csrf_token }}
+          <div class="modal-body">
+            <label class="form-label fw-bold" for="pc_problem">Insira o código de acesso de técnico</label>
+            <label class="form-label">Para acessar a Área do Técnico, você precisa inserir o código de acesso do Técnico</label><br>
+            {{ acessForm_.codigo(class="form-control espeçamento_modal") }}
+            <br>
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+              <div class="alert alert-warning">
+                <ul class="flashes">
+                  {% for message in messages %}
+                    <li>{{ message }}</li> 
+                  {% endfor %}
+                </ul>
+              </div>
+              {% endif %}
+            {% endwith %}
+          </div>   
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary" id="btn_submit">Enviar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>

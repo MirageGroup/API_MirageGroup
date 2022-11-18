@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="{{ url_for('static',filename='css/reset.css') }}">
     <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/header.css') }}">
     <title>Técnico</title>
 </head>
 <body>
@@ -21,7 +22,19 @@
             <p class="apresentação_texto">Aqui você pode verificar os chamados abertos pelos usuários, assim como ferramentas para organizá-los</p>
         </div>
         <hr style="width:100%">
+        <div class="container_menu_reports">
+          <h2 class="title_menu_reports">MENU DE CHAMADOS</h2>
+          <p class="text_menu_reports">Clique nos botões abaixo para exibir o tipo correspondente de chamados</p>
+          <div class="menu_reports">
+            <ul class="menu_reports-itens">
+              <li><button data-botao="todos" class="menu_reports-button aba-ativa" ><h2>TODOS</h2></button></li>
+              <li><button data-botao="aberto" class="menu_reports-button" ><h2>CHAMADOS ABERTOS</h2></button></li>
+              <li><button data-botao="fechado" class="menu_reports-button"><h2>CHAMADOS FINALIZADOS</h2></button></li>
+            </ul>
+          </div>
+        </div>
         <section class="container_reports">
+          
 
             {% if chamadosAbertos|length == 0 %}
             <h1 class="apresentação_semChamado">Nenhum chamado aberto encontrado</h1>
@@ -29,13 +42,13 @@
             <h3 class="apresentação_texto">Recarregue a página ou espere alguém fazer um chamado</h3>
 
             {% else %}
-            <h1 class="apresentação_semChamado">Chamados abertos</h1>
+            <h1 class="apresentação_semChamado" data-conteudo="aberto">Chamados Abertos</h1>
 
             {%endif%}
 
           {% for chamado in chamadosAbertos %}
-            <card class="reports_cardaberto"> 
-              <div class='card_superior_titulo_aberto'>
+            <card class="reports_cardaberto" data-conteudo="aberto"> 
+              <div class='card_superior_titulo_aberto' >
                       <h1 class="card_titulo" id="titulo_barra">Laboratório {{ chamado[1] }} </h1>
                       <h1 class="card_titulo">Computador {{ chamado[2] }}  </h1>
                       <p class=" botão_seta seta_baixo " id="" type="button" data-bs-toggle="collapse" data-bs-target="#chamado{{chamado[0]}}" aria-expanded="false" aria-controls="collapseExample">
@@ -49,11 +62,13 @@
                   <div class="collapse collapse_report" id="chamado{{chamado[0]}}">
                     <p class="card_descrição "><strong>CHAMADO ABERTO POR</strong>: {{ chamado[5] }} </p><br>
                     <p class="card_descrição "><strong>PROBLEMA</strong>: {{ chamado[6] }} </p><br>
-                    <p class="card_descrição "><strong>DESCRIÇÃO</strong>: {{ chamado[7] }} </p>
+                    <p class="card_descrição "><strong>DESCRIÇÃO</strong>: {{ chamado[7] }} </p><br>
+                    <p class="card_descrição "><strong>COMENTÁRIO</strong>: {{ chamado[9] }}</p>
                     <hr>
-                    <form action="/tecnico" method="POST" onsubmit="submit();return false;"> 
-                      <input type="text" class="form-control" name="componente" autocomplete="off"/>
+                    <form action="/tecnico/addcoment/{{chamado[0]}}" method="POST" onsubmit="submit();return false;"> 
+                      <input type="text" class="form-control" name="coment" autocomplete="off" required/>
                       <button type="submit" class="btn btn-light mt-2">Inserir Comentário</button>
+                    </form>
                       <hr>
                     <a href="/tecnico/finishcall/{{chamado[0]}}"><button type="button" class="btn_closeCall">Finalizar chamado</button></a>
                       
@@ -65,11 +80,11 @@
 
 
           {% endfor %}
-          <hr>
-          <h1 class="apresentação_semChamado">Chamados Finalizados</h1>
+          <!-- <hr data-conteudo="aberto"> -->
+          <h1 class="apresentação_semChamado" data-conteudo="fechado">Chamados Finalizados</h1>
           
           {% for chamado in chamadosFechados %}
-            <card class="reports_cardfechado"> 
+            <card class="reports_cardfechado" data-conteudo="fechado"> 
               <div class='card_superior_titulo_fechado'>
                       <h1 class="card_titulo" id="titulo_barra">Laboratório {{ chamado[1] }} </h1>
                       <h1 class="card_titulo">Computador {{ chamado[2] }}  </h1>
@@ -84,7 +99,8 @@
                   <div class="collapse collapse_report" id="chamado{{chamado[0]}}">
                     <p class="card_descrição "><strong>CHAMADO ABERTO POR</strong>: {{ chamado[5] }} </p><br>
                     <p class="card_descrição "><strong>PROBLEMA</strong>: {{ chamado[6] }} </p><br>
-                    <p class="card_descrição "><strong>DESCRIÇÃO</strong>: {{ chamado[7] }} </p>
+                    <p class="card_descrição "><strong>DESCRIÇÃO</strong>: {{ chamado[7] }} </p><br>
+                    <p class="card_descrição "><strong>COMENTÁRIO</strong>: {{ chamado[9] }}</p>
                     
                       
                   </div>

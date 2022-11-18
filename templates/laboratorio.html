@@ -14,14 +14,19 @@
     <title>Laboratório {{ labnum }}</title>
 </head>
 <body>
-
+          
     {% extends "header.html" %}
     {% block content %}
 
     <main>
         <div class="lab_superior">
             <h1>Laboratório {{labnum}}</h1>
-            <!--  <a href="/lab/{{labnum}}/edit">Editar</a> -->
+
+        <!-- Editar Lab -->
+
+        {% if session.get('key') %}
+          <a class="btn btn-danger mt-4" id="save_edit_button" href="{{labnum}}/edit">Editar Laboratório</a>
+        {% endif %}
         </div>
         <hr>
         {% if componentes[0][1] == None%}
@@ -90,20 +95,20 @@
         <section class="container_especificações">
             <div class="container_especificações_titulo">
               ESPECIFICAÇÕES
-
             </div> 
             <hr style="width:100%">
             <section class="especificações">
               <div class="especificação_item">
                 <h3>Processador</h3>
-              
+            
                 <img class="especificações_item_imagem" src="../static/img/processor.svg">
                 <p class="especificações_texto">{{componentes[0][1]}}</p>
                 {% if session.get('key') %}
                 <form action="/lab/{{ labnum }}/CPU" method="POST" onsubmit="submit();return false;"> 
                   <input type="text" class="form-control" name="componente" autocomplete="off"/>
-                  <button type="submit" class="btn btn-light mt-2">Alterar</button>
+                  <button type="submit" class="btn btn-danger mt-4">Alterar</button>
                 </form>
+                <!-- <a class="btn btn-danger mt-4" id="save_edit_button" href="{{labnum}}/edit">Editar Laboratório</a> -->
                 {% endif %}
                 <p class="especificações_texto_hover"> A CPU ou o processador é o “cérebro” de todo computador e celular do planeta: trata-se do componente responsável por executar todas as operações necessárias para o funcionamento do dispositivo.</p>
               </div>
@@ -116,7 +121,7 @@
                 <form action="/lab/{{ labnum }}/GPU" method="POST" onsubmit="submit();return false;"> 
                   <input type="text" class="form-control" name="componente" autocomplete="off" />
                   <input type="hidden" value="Alterar Placa de Vídeo" placeholder="Alterar"/>
-                  <button type="submit" class="btn btn-light mt-2">Alterar</button>
+                  <button type="submit" class="btn btn-danger mt-4">Alterar</button>
                 </form>
                 {% endif %}
                 <p class="especificações_texto_hover">GPU é um processadorque trabalha de maneira dedicada a atividades de vídeo dentro do computador. A sigla remete ao nome Unidade de Processamento Gráfico e sua função é processar as informações gráficas de uma máquina. Ela também diminui a sobrecarga da CPU e melhora a troca de dados entre as duas peças. </p>
@@ -129,7 +134,7 @@
                 {% if session.get('key') %}
                 <form action="/lab/{{ labnum }}/MemoriaRAM" method="POST" onsubmit="submit();return false;"> 
                   <input type="text" class="form-control" name="componente" autocomplete="off" />
-                  <button type="submit" class="btn btn-light mt-2">Alterar</button>
+                  <button type="submit" class="btn btn-danger mt-4">Alterar</button>
                 </form>
                 {% endif %}
                 <p class="especificações_texto_hover"> A memória RAM, também chamado de memória volátil de leitura e escrita, é uma memória temporária computacional de acesso rápido; ou seja, é um local de armazenamento temporário de informações digitais usada pelo processador para armazenar informações temporariamente e que possui um acesso feito de forma aleatória</p>
@@ -142,7 +147,7 @@
                 {% if session.get('key') %}
                 <form action="/lab/{{ labnum }}/OS" method="POST" onsubmit="submit();return false;"> 
                   <input type="text" class="form-control" name="componente" autocomplete="off" />
-                  <button type="submit"   class="btn btn-light mt-2">Alterar</button>
+                  <button type="submit" class="btn btn-danger mt-4">Alterar</button>
                 </form>
                 {% endif %}
                 <p class="especificações_texto_hover "> O sistema operacional é um software, ou conjunto de softwares, cuja função é administrar e gerenciar os recursos de um sistema, desde componentes de hardware e sistemas de arquivos a programas de terceiros, estabelecendo a interface entre o computador e o usuário.</p>
@@ -150,16 +155,14 @@
 
             </section>
          
-
         </section>
         {%endif%}
         
         <div class="div_transição transição_degrade">
-
         </div>
     </main>
 
-    <!-- Modal REPORT-->
+    <!-- MODAL REPORT-->
 <div class="modal fade" id="modal-teste" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -226,6 +229,10 @@
       </div>
   </div>
 
+        <!-- MODAL LOGIN -->
+
+        {% include 'modal.html' %}
+
   <footer class="footer_home">
     <img class="img-footer" src="../static/img/cps_brasao_sp_320x84.png" alt="fatec-logo">
      <div class="github" >
@@ -237,7 +244,7 @@
          <img class="media-object" src="../static/img/GitHub-Mark-removebg-preview.png" alt="logo-git">
        </a>
       </div> 
-  </footer>
+  </footer> 
 
 <script src="{{ url_for('static',     filename='js/modal.js') }}"></script>
 
