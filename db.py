@@ -1,5 +1,6 @@
 from flask_mysqldb import MySQL
 from main import mysql
+from main import Session
 import win32com.client as win32
 
 def insertUser(cpf,email,senha):
@@ -41,6 +42,15 @@ def retrieveNumbersofCalls():
 def retrieveNumbersOpenOrClose(state):
     
     cursor = mysql.connection.cursor()
+    cursor.execute(f''' SELECT id FROM chamados WHERE estado = 'fechado' ''')
+    numberOfCloseCalls = cursor.fetchall()
+    numberOfCloseCalls = len(numberOfCloseCalls)
+
+    cursor.execute(f''' SELECT * FROM chamados where estado = '{estado}' ORDER BY data_chamado DESC, hora_chamado DESC ''')
+    chamados = cursor.fetchall()
+    cursor.close()
+    return chamados
+=======
     cursor.execute(f''' SELECT id FROM chamados WHERE estado = '{state}' ''')
     numberOfCalls = cursor.fetchall()
     numberOfCalls = len(numberOfCalls)
@@ -74,6 +84,15 @@ def createCall(form, labnum):
     cursor.execute(f''' INSERT INTO chamados (laboratorio_num, pc_id, data_chamado, hora_chamado, autor, problema_tipo, problema_desc, estado) VALUES (%s, %s, CURDATE(), CURRENT_TIME(), %s, %s, %s, %s) ''', (labnum, pc_id, email, pc_problem, problem_description, 'aberto'))
     mysql.connection.commit()
     cursor.close()
+
+
+def createComputer(addForm,labnum):
+     cursor = mysql.connection.cursor()
+     pc_name = addForm.input_new_pc
+     
+
+
+
 
 def finishCall(callnumber):
     cursor = mysql.connection.cursor()
@@ -115,6 +134,19 @@ def updateComponent(componente, labnum, config):
     mysql.connection.commit()
     cursor.close()
 
+def saveLayoutPositions(layout_novo, layout_antigo, labnum):
+    cursor = mysql.connection.cursor()
+    print(layout_novo)
+    lista_posicoes = []
+    for i in range(1, 89):
+      lista_posicoes.append(i)
+    cont = 0
+    for i in lista_posicoes:
+        cursor.execute(f''' UPDATE laboratorio{labnum} SET pos = %s WHERE pc_id = %s ''', (i, layout_novo[cont]))
+        mysql.connection.commit()
+        cont += 1
+    cursor.close()
+    
 def addComentario(comentario, callnumber):
     cursor = mysql.connection.cursor()
     cursor.execute(f''' UPDATE chamados SET comentarios = '{comentario}' WHERE id = '{callnumber}' ''')

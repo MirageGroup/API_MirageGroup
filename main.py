@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, flash, session
 from flask_mysqldb import MySQL
 from flask_session import Session
 import db as dbHandler
-from models.forms import callForm, accessForm
+from models.forms import callForm, accessForm , addComputer
 
 app = Flask(__name__)
 app.config.from_object('config')
@@ -38,8 +38,26 @@ def lab(labnum):
   else:
     form = callForm()
     computadores = dbHandler.retrieveLab(labnum)
+    session['laboratorio'] = computadores
     componentes = dbHandler.retrieveComponents(labnum)
     print(componentes)
+    lista = []
+    for i in range(1, 89):
+      lista.append(i)
+    return render_template('laboratorio.html', labnum=labnum, computadores=computadores,componentes=componentes, lista=lista ,form=form)
+
+@app.route('/lab/<int:labnum>/edit')
+def lab_edit(labnum):
+  computadores = session['laboratorio']
+  return render_template('laboratorio_editor.html', labnum=labnum, computadores=computadores)
+
+@app.route('/lab/<int:labnum>/edit/salvar', methods=['POST', 'GET'])
+def salvar(labnum):
+  if request.method == 'POST':
+    layout_novo = request.form['ids'].split(',')
+    layout_antigo = session['laboratorio']
+    dbHandler.saveLayoutPositions(layout_novo, layout_antigo, labnum)
+    return redirect(f'/lab/{labnum}')
     return render_template('laboratorio.html', labnum=labnum, computadores=computadores,componentes = componentes , form=form, acessForm_=acessForm_)
 
 @app.route('/lab/<int:labnum>/<string:config>', methods = ['GET', 'POST'])
@@ -57,21 +75,15 @@ def tecnico():
   chamadosFechados = dbHandler.retrieveCalls('fechado')
   return render_template('tecnico.html', chamadosAbertos=chamadosAbertos, chamadosFechados=chamadosFechados)
 
-@app.route('/tecnico/sair')
-def tecnico_sair():
-  session.pop('key', None)
-  return redirect('/')
-
-@app.route('/lab/<int:labnum>/edit')
-def lab_edit(labnum):
-  acessForm_ = accessForm()
-  computadores = dbHandler.retrieveLab(labnum)
-  return render_template('laboratorio_editor.html', labnum=labnum, computadores=computadores, acessForm_=acessForm_)
-
 @app.route('/tecnico/finishcall/<int:callnumber>')
 def finishCall(callnumber):
   dbHandler.finishCall(callnumber)
   return redirect('/tecnico')
+  
+@app.route('/tecnico/sair')
+def tecnico_sair():
+  session.pop('key', None)
+  return redirect('/')
 
 @app.route('/tecnico/addcoment/<int:callnumber>', methods = ['POST', 'GET'])
 def addcoment(callnumber):

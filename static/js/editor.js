@@ -1,13 +1,11 @@
-/** help */
-function log(message) {
-    console.log('> ' + message)
-}
+// -*-*-*-*-*-*-*-*-*-*-*-*-*-*- DRAG & DROP -*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 
 /** app */
-const cards = document.querySelectorAll('.card')
+var cards = document.querySelectorAll('.card')
 const dropzones = document.querySelectorAll('.dropzone')
 const dropzonesSec = document.querySelectorAll('.dropzone_secundaria')
 const dropzoneNone = document.querySelectorAll('#dropzone_none')
+const addComputerIDButton = document.getElementById('add_computer_id_btn');
 
 /** our cards */
 cards.forEach(card => {
@@ -37,6 +35,7 @@ function dragend() {
 
     // this = card
     this.classList.remove('is-dragging')
+    updateIdsInput()
 }
 
 /** place where we will drop cards */
@@ -78,12 +77,105 @@ function drop() {
     this.classList.remove('over')
 }
 
-    // SAVE LAB EDIT
+// -*-*-*-*-*-*-*-*-*-*-*-*-*-*- SALVAR LAYOUT EDITADO - JavaScript -*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 
-const dataPosicao = dropzones
-const posicoes = []
-for(let i = 0; i < dataPosicao.length; i++){
-    console.log(dataPosicao[i].getAttribute('data-posicao'));
+function updateIdsInput(){
+    // fill hidden input
+    const inputIds = document.getElementById('ids')
+    inputIds.value = ''
+    let dropzones_ = document.querySelectorAll('.dropzone')
+    let ids = []
+    for(i=0;i<dropzones_.length;i++){
+        if(!dropzones_[i].firstElementChild){
+            ids = ids + null + ','
+        }else{
+            pc_id = dropzones_[i].firstElementChild.getAttribute('data-pc-id')
+            ids = ids + pc_id + ','
+        }
+    }
+    ids = ids.slice(0, -1)
+    inputIds.value = ids
+    console.log(ids)
 }
 
+// -*-*-*-*-*-*-*-*-*-*-*-*-*-*- ADICIONAR NOVO COMPUTADOR - JavaScript -*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 
+addComputerIDButton.addEventListener('click', () => {
+    dropzones.forEach(dropzone => {
+        if (!dropzone.firstElementChild){ 
+          dropzone.classList.add('adicionar') 
+          dropzone.addEventListener('click', createNewComputerCard)
+        }
+    })
+    cards.forEach(card => {
+        card.removeEventListener('dragstart', dragstart)
+        card.removeEventListener('drag', drag)
+        card.removeEventListener('dragend', dragend)
+    })
+})
+
+function createNewComputerCard(){
+  // Função de criar o novo Card
+  newPcId = document.getElementById('new_pc_id').value
+
+  // criando o card e adicionando os atributos de classe e data-id
+  var newCard = document.createElement('card')
+  newCard.className = "card_computador card"
+  newCard.setAttribute("data-pc-id", newPcId)
+  newCard.setAttribute("data-bs-toggle", "modal")
+  newCard.setAttribute("dragabble", "true")
+  newCard.setAttribute("data-bs-target", "#modal-teste")
+  newCard.setAttribute("data-bs-whathever", newPcId)
+  newCard.setAttribute("id", newPcId)
+
+  var newCardContainerPopOver = document.createElement('div')
+  newCardContainerPopOver.className = "container_popover"
+  newCardContainerPopOver.setAttribute("data-bs-toggle", "popover")
+  newCardContainerPopOver.setAttribute("data-bs-title", "Status do computador")
+  newCardContainerPopOver.setAttribute("data-bs-content", "O computador está funcionando corretamente")
+  newCardContainerPopOver.setAttribute("data-bs-trigger", "hover")
+
+  // criando o elemento img dentro do card e atribuindo a imagem
+  var newCardImg = document.createElement('img')
+  newCardImg.setAttribute("src", "/static/img/img_monitor.png")
+  newCardImg.className = "imagem_monitor"
+  newCardContainerPopOver.appendChild(newCardImg)
+
+  // criando a div container_texto embaixo
+  var newCardText = document.createElement('div')
+  newCardText.className = "container_texto status_verde"
+  newCardText.innerHTML += '<p class="texto_computador">COMPUTADOR</p>'
+  newCardText.innerHTML += '<p class="texto_computador">'+newPcId+'</p>'
+  newCardContainerPopOver.appendChild(newCardText)
+
+  newCard.appendChild(newCardContainerPopOver)
+
+  this.appendChild(newCard)
+
+  returnEventListeners()
+  updateNewPcInput(newPcId)
+}
+
+function returnEventListeners(){
+  dropzones.forEach(dropzone => {
+    dropzone.classList.remove('adicionar')
+    dropzone.removeEventListener('click', createNewComputerCard)
+  })
+  cards = document.querySelectorAll('.card')
+  cards.forEach(card => {
+      card.addEventListener('dragstart', dragstart)
+      card.addEventListener('drag', drag)
+      card.addEventListener('dragend', dragend)
+  })
+}
+
+// Salvando o novo computador
+// Colocar pc novo no input
+var newPcIds = ''
+    function updateNewPcInput(newPcId){
+        newPcInput = document.getElementById('new_pcs')
+        newPcIds = newPcIds + newPcId + ','
+        newPcIds = newPcIds.slice(0, -1)
+        newPcInput.value = newPcInput.value + newPcIds
+        updateIdsInput()   
+    }
