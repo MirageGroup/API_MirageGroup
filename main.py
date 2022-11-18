@@ -35,7 +35,11 @@ def lab(labnum):
     computadores = dbHandler.retrieveLab(labnum)
     session['laboratorio'] = computadores
     componentes = dbHandler.retrieveComponents(labnum)
-    return render_template('laboratorio.html', labnum=labnum, computadores=computadores,componentes = componentes , form=form)
+    print(componentes)
+    lista = []
+    for i in range(1, 89):
+      lista.append(i)
+    return render_template('laboratorio.html', labnum=labnum, computadores=computadores,componentes=componentes, lista=lista ,form=form)
 
 @app.route('/lab/<int:labnum>/edit')
 def lab_edit(labnum):

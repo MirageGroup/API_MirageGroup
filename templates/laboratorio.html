@@ -39,38 +39,22 @@
      
         <div class="area_de_computadores">
           
-          {% for computador in computadores %}
-            {% if computador[1] == 1 %}
-              {% if computador[3] == None %}
-              <div class="dropzone">
-                  <card class="card_computador card" data-bs-toggle="modal" draggable="true" data-bs-target="#modal-teste"  data-bs-whatever="{{computador[2]}}" id="{{computador[2]}}">
-                    <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="{{computador[4]}}" data-bs-trigger="hover">  
-                      <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
-                      <div class="container_texto status_verde">
-                        <p class="texto_computador ">COMPUTADOR</p>
-                        <p class="texto_computador ">{{computador[2]}}</p>
-                      </div>
-                    </div> 
-                  </card>
-              </div>
-              {% else %}
-              <div class="dropzone">
-                <card class="card_computador card" data-bs-toggle="modal" draggable="true" data-bs-target="#modal-red"  data-bs-problema='{"pc_problema":"{{computador[3]}}", "pc_descricao":"{{computador[4]}}"}' id="problem">
-                  <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="{{computador[4]}}" data-bs-trigger="hover">  
-                    <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
-                    <div class="container_texto status_vermelho">
-                      <p class="texto_computador ">COMPUTADOR</p>
-                      <p class="texto_computador ">{{computador[2]}}</p>
-                    </div>
-                  </div> 
-                </card>
-              </div>
 
-                {% endif %}
+          {% set vars = namespace(valor=0) %}
+          {% for i in range(1, 89) %}
+          {% if vars.valor == computadores|length %}
+            {% set vars.valor = 0 %}
+          {% endif %}
+            {% if computadores[vars.valor][0] == i %}
+              <div class="dropzone com_pc">{{computadores[vars.valor]}}</div>
+              {% set vars.valor = vars.valor + 1 %}
             {% else %}
-              <div class="dropzone"></div>
+              <div class="dropzone sem_pc"></div>
             {% endif %}
           {% endfor %}
+
+
+
 
         </div> 
     </section>
