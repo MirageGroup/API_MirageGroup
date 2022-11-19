@@ -50,7 +50,6 @@ def lab_edit(labnum):
 def salvar(labnum):
   if request.method == 'POST':
     layout_novo = request.form['ids'].split(',')
-    print(len(layout_novo))
     layout_antigo = session['laboratorio']
     dbHandler.saveLayoutPositions(layout_novo, layout_antigo, labnum)
     return redirect(f'/lab/{labnum}')

@@ -121,7 +121,7 @@ function createNewComputerCard(){
   // criando o card e adicionando os atributos de classe e data-id
   var newCard = document.createElement('card')
   newCard.className = "card_computador card"
-  newCard.setAttribute("data-id", newPcId)
+  newCard.setAttribute("data-pc-id", newPcId)
   newCard.setAttribute("data-bs-toggle", "modal")
   newCard.setAttribute("dragabble", "true")
   newCard.setAttribute("data-bs-target", "#modal-teste")
@@ -153,7 +153,7 @@ function createNewComputerCard(){
   this.appendChild(newCard)
 
   returnEventListeners()
-
+  updateNewPcInput(newPcId)
 }
 
 function returnEventListeners(){
@@ -168,3 +168,14 @@ function returnEventListeners(){
       card.addEventListener('dragend', dragend)
   })
 }
+
+// Salvando o novo computador
+// Colocar pc novo no input
+var newPcIds = ''
+    function updateNewPcInput(newPcId){
+        newPcInput = document.getElementById('new_pcs')
+        newPcIds = newPcIds + newPcId + ','
+        newPcIds = newPcIds.slice(0, -1)
+        newPcInput.value = newPcInput.value + newPcIds
+        updateIdsInput()   
+    }

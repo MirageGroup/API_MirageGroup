@@ -28,7 +28,10 @@
                   <h1>LAYOUT DA SALA</h1>
                   <p>arraste e solte os computadores para customizar o layout</p>
                   <form action="/lab/{{labnum}}/edit/salvar" method="POST">
-                    <input type="text" id="ids" name="ids" >
+                    <label>Pc novo</label>
+                    <input type="text" id="new_pcs" name="new_pcs"><br>
+                    <label>Layout novo</label>
+                    <input type="text" id="ids" name="ids" ><br>
                     <button type="input" class="btn btn-danger mt-4" id="save_edit_button">SALVAR</button>
                   </form>
                 </div>
