@@ -52,9 +52,18 @@ def lab_edit(labnum):
 @app.route('/lab/<int:labnum>/edit/salvar', methods=['POST', 'GET'])
 def salvar(labnum):
   if request.method == 'POST':
-    layout_novo = request.form['ids'].split(',')
-    layout_antigo = session['laboratorio']
-    dbHandler.saveLayoutPositions(layout_novo, layout_antigo, labnum)
+    layout_novo = request.form['layout']
+    pc_novos_id = request.form['new_pcs']
+    pc_novos_pos = request.form['new_pos']
+    if layout_novo:
+      layout_novo = layout_novo.split(',')
+      dbHandler.saveLayoutPositions(layout_novo, labnum)
+    if pc_novos_id:
+      pc_novos_id = pc_novos_id.split(',')
+      pc_novos_pos = pc_novos_pos.split(',')
+      print(pc_novos_id)
+      print(pc_novos_pos)
+      dbHandler.addNewPcs(pc_novos_id, pc_novos_pos, labnum)
     return redirect(f'/lab/{labnum}')
 
 @app.route('/lab/<int:labnum>/<string:config>', methods = ['GET', 'POST'])

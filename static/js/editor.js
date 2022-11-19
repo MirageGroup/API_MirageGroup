@@ -81,7 +81,7 @@ function drop() {
 
 function updateIdsInput(){
     // fill hidden input
-    const inputIds = document.getElementById('ids')
+    const inputIds = document.getElementById('layout')
     inputIds.value = ''
     let dropzones_ = document.querySelectorAll('.dropzone')
     let ids = []
@@ -95,7 +95,6 @@ function updateIdsInput(){
     }
     ids = ids.slice(0, -1)
     inputIds.value = ids
-    console.log(ids)
 }
 
 // -*-*-*-*-*-*-*-*-*-*-*-*-*-*- ADICIONAR NOVO COMPUTADOR - JavaScript -*-*-*-*-*-*-*-*-*-*-*-*-*-*-
@@ -116,7 +115,7 @@ addComputerIDButton.addEventListener('click', () => {
 
 function createNewComputerCard(){
   // Função de criar o novo Card
-  newPcId = document.getElementById('new_pc_id').value
+  let newPcId = document.getElementById('new_pc_id').value
 
   // criando o card e adicionando os atributos de classe e data-id
   var newCard = document.createElement('card')
@@ -151,9 +150,10 @@ function createNewComputerCard(){
   newCard.appendChild(newCardContainerPopOver)
 
   this.appendChild(newCard)
+  let newPos = this.getAttribute('data-pos')
 
   returnEventListeners()
-  updateNewPcInput(newPcId)
+  updateNewPcInput(newPcId, newPos)
 }
 
 function returnEventListeners(){
@@ -172,10 +172,17 @@ function returnEventListeners(){
 // Salvando o novo computador
 // Colocar pc novo no input
 var newPcIds = ''
-    function updateNewPcInput(newPcId){
-        newPcInput = document.getElementById('new_pcs')
-        newPcIds = newPcIds + newPcId + ','
-        newPcIds = newPcIds.slice(0, -1)
-        newPcInput.value = newPcInput.value + newPcIds
-        updateIdsInput()   
+var newPcPos = ''
+    function updateNewPcInput(newPcId, newPos){
+        newPcIDInput = document.getElementById('new_pcs')
+        newPcIds = newPcIds + ',' + newPcId
+
+        newPcPosInput = document.getElementById('new_pos')
+        newPcPos = newPcPos + ',' + newPos
+
+        let newPcIds_ = newPcIds.slice(1) 
+        let newPcPos_ = newPcPos.slice(1)
+
+        newPcIDInput.value = newPcIds_
+        newPcPosInput.value = newPcPos_
     }

@@ -115,9 +115,15 @@ def updateComponent(componente, labnum, config):
     mysql.connection.commit()
     cursor.close()
 
-def saveLayoutPositions(layout_novo, layout_antigo, labnum):
+def addNewPcs(pc_novos_id, pc_novos_pos, labnum):
     cursor = mysql.connection.cursor()
-    print(layout_novo)
+    for i in range(len(pc_novos_id)):
+        cursor.execute(f''' INSERT INTO laboratorio{labnum} (pos, pc_id) VALUES (%s, %s) ''', (int(pc_novos_pos[i]), pc_novos_id[i]))
+        mysql.connection.commit()
+    cursor.close()
+
+def saveLayoutPositions(layout_novo, labnum):
+    cursor = mysql.connection.cursor()
     lista_posicoes = []
     for i in range(1, 89):
       lista_posicoes.append(i)
