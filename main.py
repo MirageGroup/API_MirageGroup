@@ -38,13 +38,9 @@ def lab(labnum):
   else:
     form = callForm()
     computadores = dbHandler.retrieveLab(labnum)
-    session['laboratorio'] = computadores
     componentes = dbHandler.retrieveComponents(labnum)
-    print(componentes)
-    lista = []
-    for i in range(1, 89):
-      lista.append(i)
-    return render_template('laboratorio.html', labnum=labnum, computadores=computadores,componentes=componentes, lista=lista ,form=form)
+    session['laboratorio'] = computadores
+    return render_template('laboratorio.html', labnum=labnum, computadores=computadores,componentes = componentes , form=form, acessForm_=acessForm_)
 
 @app.route('/lab/<int:labnum>/edit')
 def lab_edit(labnum):
@@ -58,7 +54,6 @@ def salvar(labnum):
     layout_antigo = session['laboratorio']
     dbHandler.saveLayoutPositions(layout_novo, layout_antigo, labnum)
     return redirect(f'/lab/{labnum}')
-    return render_template('laboratorio.html', labnum=labnum, computadores=computadores,componentes = componentes , form=form, acessForm_=acessForm_)
 
 @app.route('/lab/<int:labnum>/<string:config>', methods = ['GET', 'POST'])
 def alterar_componente(labnum, config):

@@ -1,7 +1,7 @@
 from flask_mysqldb import MySQL
 from main import mysql
 from main import Session
-import win32com.client as win32
+#import win32com.client as win32
 
 def insertUser(cpf,email,senha):
     cursor = mysql.connection.cursor()
@@ -42,15 +42,6 @@ def retrieveNumbersofCalls():
 def retrieveNumbersOpenOrClose(state):
     
     cursor = mysql.connection.cursor()
-    cursor.execute(f''' SELECT id FROM chamados WHERE estado = 'fechado' ''')
-    numberOfCloseCalls = cursor.fetchall()
-    numberOfCloseCalls = len(numberOfCloseCalls)
-
-    cursor.execute(f''' SELECT * FROM chamados where estado = '{estado}' ORDER BY data_chamado DESC, hora_chamado DESC ''')
-    chamados = cursor.fetchall()
-    cursor.close()
-    return chamados
-=======
     cursor.execute(f''' SELECT id FROM chamados WHERE estado = '{state}' ''')
     numberOfCalls = cursor.fetchall()
     numberOfCalls = len(numberOfCalls)
@@ -85,19 +76,9 @@ def createCall(form, labnum):
     mysql.connection.commit()
     cursor.close()
 
-
-def createComputer(addForm,labnum):
-     cursor = mysql.connection.cursor()
-     pc_name = addForm.input_new_pc
-     
-
-
-
-
 def finishCall(callnumber):
     cursor = mysql.connection.cursor()
     callnumber = str(callnumber)
-    
     cursor.execute(f''' SELECT * FROM chamados WHERE id = {callnumber} ''')
     chamado = cursor.fetchall()
     cursor.execute(f''' UPDATE chamados SET estado = 'fechado' WHERE id = {callnumber} ''')
@@ -106,8 +87,8 @@ def finishCall(callnumber):
     pc_id = chamado[0][2]
     cursor.execute(f''' UPDATE laboratorio{chamado[0][1]} SET pc_problema = NULL, pc_descricao = %s WHERE pc_id = %s ''', (pc_description, pc_id))
     mysql.connection.commit()
-    enviarEmail(chamado[0][5])
     cursor.close()
+    #enviarEmail(chamado[0][5])
 
 def updatePcStatus(labnum, pc_id, pc_problem, problem_description):
     cursor = mysql.connection.cursor()
@@ -153,16 +134,16 @@ def addComentario(comentario, callnumber):
     mysql.connection.commit()
     cursor.close()
 
-def enviarEmail(Email):
-    outlook = win32.Dispatch("outlook.application")
-    email = outlook.CreateItem(0)
-    email.To = f"{Email}"
-    email.Subject = "Chamado Finalizado"
-    email.HTMLBody = f'''
-    <p>Olá</p>
-    <p>Seu chamado realizado no SOS FATEC foi finalizado!</p>
+#def enviarEmail(Email):
+    #outlook = win32.Dispatch("outlook.application")
+    #email = outlook.CreateItem(0)
+    #email.To = f"{Email}"
+    #email.Subject = "Chamado Finalizado"
+    #email.HTMLBody = f'''
+    #<p>Olá</p>
+    #<p>Seu chamado realizado no SOS FATEC foi finalizado!</p>
 
-    <p>confira se o problema foi resolvido! Caso não tenha sido, volte e reporte novamente.</p>
+    #<p>confira se o problema foi resolvido! Caso não tenha sido, volte e reporte novamente.</p>
     
-    '''
-    email.Send()
+    #'''
+    #email.Send()
