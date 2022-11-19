@@ -28,10 +28,8 @@
                   <h1>LAYOUT DA SALA</h1>
                   <p>arraste e solte os computadores para customizar o layout</p>
                   <form action="/lab/{{labnum}}/edit/salvar" method="POST">
-                    <label>Pc novo</label>
-                    <input type="text" id="new_pcs" name="new_pcs"><br>
-                    <label>Layout novo</label>
-                    <input type="text" id="ids" name="ids" ><br>
+                    <input type="text" id="new_pcs" name="new_pcs" style="display: none;"><br>
+                    <input type="text" id="ids" name="ids" style="display: none;" ><br>
                     <button type="input" class="btn btn-danger mt-4" id="save_edit_button">SALVAR</button>
                   </form>
                 </div>
@@ -45,9 +43,18 @@
         <br><br>
         
         <!-- computadores -->
+
+              {% if not computadores %}
+                <section class="layout_editores">
+                  <div class="area_de_computadores">
+                    {% for i in range(1, 89) %}
+                      <div class="dropzone"></div>
+                    {% endfor %}
+                  </div>
+                </section>
+              {% else %}
         <section class="layout_editores">
           <div class="area_de_computadores">
-          
             {% set vars = namespace(valor=0) %}
           {% for i in range(1, 89) %}
           {% if vars.valor == computadores|length %}
@@ -85,10 +92,9 @@
               <div class="dropzone"></div>
             {% endif %}
           {% endfor %}
-  
           </div> 
         </section>
-
+      {% endif %}
 
 <footer class="footer_home">
     <h1>Todos os direitos Reservados</h1>

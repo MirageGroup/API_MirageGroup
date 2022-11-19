@@ -38,6 +38,7 @@ def lab(labnum):
   else:
     form = callForm()
     computadores = dbHandler.retrieveLab(labnum)
+    print(computadores)
     componentes = dbHandler.retrieveComponents(labnum)
     session['laboratorio'] = computadores
     return render_template('laboratorio.html', labnum=labnum, computadores=computadores,componentes = componentes , form=form, acessForm_=acessForm_)

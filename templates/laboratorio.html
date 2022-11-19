@@ -29,22 +29,19 @@
         {% endif %}
         </div>
         <hr>
-        {% if componentes[0][1] == None%}
 
+        <!-- computadores -->
+
+        {% if not computadores %}
         <div class="container_lab_vazio">
           <h1>não há computadores aqui</h1>
           <p>no momento, esta sala esta sem dispositivos disponiveis</p>
           <img src="../static/img/error.svg">
         </div>
+        {% else %}
         
-        {% endif %}
-
-        <!-- computadores -->
     <section class="layout_editores">
-     
         <div class="area_de_computadores">
-          
-
           {% set vars = namespace(valor=0) %}
           {% for i in range(1, 89) %}
           {% if vars.valor == computadores|length %}
@@ -54,7 +51,7 @@
               {% if computadores[vars.valor][3] == None %}
                 <div class="dropzone">
                   <card class="card_computador card" data-bs-toggle="modal" draggable="true" data-bs-target="#modal-teste"  data-bs-whatever="{{computadores[vars.valor][2]}}" id="{{computadores[vars.valor][2]}}">
-                    <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="{{computadores[vars.valor][4]}}" data-bs-trigger="hover">  
+                    <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="O computador está funcionando" data-bs-trigger="hover">  
                       <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
                       <div class="container_texto status_verde">
                         <p class="texto_computador ">COMPUTADOR</p>
@@ -82,10 +79,7 @@
               <div class="dropzone"></div>
             {% endif %}
           {% endfor %}
-
-
-
-
+        {% endif %}
         </div> 
     </section>
 
