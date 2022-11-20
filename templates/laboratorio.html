@@ -54,7 +54,6 @@
                     <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="O computador está funcionando corretamente" data-bs-trigger="hover">  
                       <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
                       <div class="container_texto status_verde">
-                        <p class="texto_computador ">COMPUTADOR</p>
                         <p class="texto_computador ">{{computadores[vars.valor][1]}}</p>
                       </div>
                     </div> 
@@ -67,7 +66,6 @@
                     <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="{{computadores[vars.valor][3]}}" data-bs-trigger="hover">  
                       <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
                       <div class="container_texto status_vermelho">
-                        <p class="texto_computador ">COMPUTADOR</p>
                         <p class="texto_computador ">{{computadores[vars.valor][1]}}</p>
                       </div>
                     </div> 

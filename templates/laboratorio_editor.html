@@ -29,7 +29,8 @@
                   <p>arraste e solte os computadores para customizar o layout</p>
                   <form action="/lab/{{labnum}}/edit/salvar" method="POST">
                     <input type="text" id="new_pcs" name="new_pcs"><br>
-                    <input type="text" id="ids" name="ids"><br>
+                    <input type="text" id="new_pos" name="new_pos"><br>
+                    <input type="text" id="layout" name="layout"><br>
                     <button type="input" class="btn btn-danger mt-4" id="save_edit_button">SALVAR</button>
                   </form>
                 </div>
@@ -62,12 +63,11 @@
           {% endif %}
             {% if computadores[vars.valor][0] == i %}
               {% if computadores[vars.valor][2] == None %}
-                <div class="dropzone">
+                <div class="dropzone" data-pos="{{i}}">
                   <card class="card_computador card" data-pc-id="{{computadores[vars.valor][1]}}" data-bs-toggle="modal" draggable="true" data-bs-target="#modal-teste"  data-bs-whatever="{{computadores[vars.valor][2]}}" id="{{computadores[vars.valor][2]}}">
                     <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="{{computadores[vars.valor][3]}}" data-bs-trigger="hover">  
                       <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
                       <div class="container_texto status_verde">
-                        <p class="texto_computador ">COMPUTADOR</p>
                         <p class="texto_computador ">{{computadores[vars.valor][1]}}</p>
                       </div>
                     </div> 
@@ -75,12 +75,11 @@
               </div>
               {% set vars.valor = vars.valor + 1 %}
               {% else %}
-                <div class="dropzone">
+                <div class="dropzone" data-pos="{{i}}">
                   <card class="card_computador card" data-pc-id="{{computadores[vars.valor][1]}}" data-bs-toggle="modal" draggable="true" data-bs-target="#modal-red"  data-bs-problema='{"pc_problema":"{{computadores[vars.valor][2]}}", "pc_descricao":"{{computadores[vars.valor][3]}}"}' id="problem">
                     <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="{{computadores[vars.valor][3]}}" data-bs-trigger="hover">  
                       <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
                       <div class="container_texto status_vermelho">
-                        <p class="texto_computador ">COMPUTADOR</p>
                         <p class="texto_computador ">{{computadores[vars.valor][1]}}</p>
                       </div>
                     </div> 
@@ -89,7 +88,7 @@
                 {% set vars.valor = vars.valor + 1 %}
               {% endif %}
             {% else %}
-              <div class="dropzone"></div>
+              <div class="dropzone" data-pos="{{i}}"></div>
             {% endif %}
           {% endfor %}
           </div> 
