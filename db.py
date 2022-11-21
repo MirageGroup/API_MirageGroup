@@ -63,6 +63,32 @@ def numberOfProblems(problem):
         numberOfProblems = len(numberOfProblems)
         return numberOfProblems
 
+def numberOfProblemsInLab(number):
+     cursor = mysql.connection.cursor()
+     problemList = ['O computador não liga',
+           'O computador está sem internet',
+           'O computador está muito lento',
+           'O computador não está dando imagem',
+           'O computador está sem som',
+           'O computador está tendo a tela azul',
+           'O computador está desligando sozinho',
+           'O sistema operacional não está inicializando',
+           'A tela está congelando',
+           'O mouse não está funcionando',
+           'O teclado não está funcionando',
+           'Outro'
+          ]
+     varList = []
+     for i in problemList:
+        cursor.execute(f''' SELECT id FROM chamados WHERE problema_tipo = '{i}' AND laboratorio_num = '{number}'  ''')
+        numberOfProblemsInLab = cursor.fetchall()
+        varList.append(len(numberOfProblemsInLab))
+        
+
+     return varList
+
+
+
 def createCall(form, labnum):
     cursor = mysql.connection.cursor()
     pc_id = form.input_numero_pc.data 

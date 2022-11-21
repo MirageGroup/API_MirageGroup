@@ -106,7 +106,6 @@ def addcoment(callnumber):
 
 @app.route('/estatisticas')
 def estatistics():
-
   # TOTAIS DE CHAMADOS
   totalChamados = dbHandler.retrieveNumbersofCalls()
   print(totalChamados)
@@ -116,6 +115,16 @@ def estatistics():
   chamadosFechados = dbHandler.retrieveNumbersOpenOrClose("fechado")
   print(chamadosAbertos,chamadosFechados)
 
+  return render_template('estatisticas.html',
+  totalChamados = totalChamados,
+  chamadosAbertos = chamadosAbertos,
+  chamadosFechados = chamadosFechados,
+  rota = "estatisticas1"
+    
+    )
+
+@app.route('/estatisticas/compproblems')
+def estatisticsCompProblems():
   # lista de problemas
   ProblemLigar = dbHandler.numberOfProblems('O computador não liga')
   ProblemNoInternet = dbHandler.numberOfProblems('O computador está sem internet')
@@ -129,8 +138,30 @@ def estatistics():
   ProblemMouse = dbHandler.numberOfProblems('O mouse não está funcionando')
   ProblemBoard = dbHandler.numberOfProblems('O teclado não está funcionando')
   ProblemOther = dbHandler.numberOfProblems('Outro')
+  
 
-  #  lista de chamados por sala
+
+  return render_template('estatisticas.html',
+  rota = 'estatisticas2',
+  ProblemLigar = ProblemLigar,
+  ProblemNoInternet = ProblemNoInternet,
+  ProblemLento = ProblemLento,
+  ProblemNoImage = ProblemNoImage,
+  ProblemNoSound = ProblemNoSound,
+  ProblemBlueScreen = ProblemBlueScreen,
+  ProblemTurnOff = ProblemTurnOff,
+  ProblemInitialization = ProblemInitialization,
+  ProblemFreezingScreen = ProblemFreezingScreen,
+  ProblemMouse = ProblemMouse,
+  ProblemBoard = ProblemBoard,
+  ProblemOther =  ProblemOther,
+    
+
+  )
+
+@app.route('/estatisticas/labproblems')
+def estatisticsLabProblems():
+    #  lista de chamados por sala
   Problem301 = dbHandler.retrieveNumberInLabs('301')
   Problem302 = dbHandler.retrieveNumberInLabs('302')
   Problem303 = dbHandler.retrieveNumberInLabs('303')
@@ -147,46 +178,32 @@ def estatistics():
   Problem411 = dbHandler.retrieveNumberInLabs('411')
   Problem412 = dbHandler.retrieveNumberInLabs('412')
 
-    
-
   return render_template('estatisticas.html',
+    rota = 'estatisticas3',
+    Problem301 = Problem301,
+    Problem302 = Problem302,
+    Problem303 = Problem303,
+    Problem401 = Problem401,
+    Problem402 = Problem402,
+    Problem403 = Problem403,
+    Problem404 = Problem404,
+    Problem405 = Problem405,
+    Problem406 = Problem406,
+    Problem407 = Problem407,
+    Problem408 = Problem408,
+    Problem409 = Problem409,
+    Problem410 = Problem410,
+    Problem411 = Problem411,
+    Problem412 = Problem412,
+  
+  
+  
+  )
 
-    totalChamados = totalChamados,
-
-    chamadosAbertos = chamadosAbertos,
-    chamadosFechados = chamadosFechados,
-
-    ProblemLigar = ProblemLigar,
-    ProblemNoInternet = ProblemNoInternet,
-    ProblemLento = ProblemLento,
-    ProblemNoImage = ProblemNoImage,
-    ProblemNoSound = ProblemNoSound,
-    ProblemBlueScreen = ProblemBlueScreen,
-    ProblemTurnOff = ProblemTurnOff,
-    ProblemInitialization = ProblemInitialization,
-    ProblemFreezingScreen = ProblemFreezingScreen,
-    ProblemMouse = ProblemMouse,
-    ProblemBoard = ProblemBoard,
-    ProblemOther =  ProblemOther,
 
 
-  Problem301 = Problem301,
-  Problem302 = Problem302,
-  Problem303 = Problem303,
-  Problem401 = Problem401,
-  Problem402 = Problem402,
-  Problem403 = Problem403,
-  Problem404 = Problem404,
-  Problem405 = Problem405,
-  Problem406 = Problem406,
-  Problem407 = Problem407,
-  Problem408 = Problem408,
-  Problem409 = Problem409,
-  Problem410 = Problem410,
-  Problem411 = Problem411,
-  Problem412 = Problem412,
-     
-    )
+
+
 
 if __name__ == '__main__':
   app.run(debug=True)
