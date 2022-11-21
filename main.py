@@ -55,15 +55,17 @@ def salvar(labnum):
     layout_novo = request.form['layout']
     pc_novos_id = request.form['new_pcs']
     pc_novos_pos = request.form['new_pos']
-    if layout_novo:
-      layout_novo = layout_novo.split(',')
-      dbHandler.saveLayoutPositions(layout_novo, labnum)
+    remover_pcs_ids = request.form['remove_pcs']
+    if remover_pcs_ids:
+      remover_pcs_ids = remover_pcs_ids.split(',')
+      dbHandler.removePcs(remover_pcs_ids, labnum)
     if pc_novos_id:
       pc_novos_id = pc_novos_id.split(',')
       pc_novos_pos = pc_novos_pos.split(',')
-      print(pc_novos_id)
-      print(pc_novos_pos)
       dbHandler.addNewPcs(pc_novos_id, pc_novos_pos, labnum)
+    if layout_novo:
+      layout_novo = layout_novo.split(',')
+      dbHandler.saveLayoutPositions(layout_novo, labnum)
     return redirect(f'/lab/{labnum}')
 
 @app.route('/lab/<int:labnum>/<string:config>', methods = ['GET', 'POST'])

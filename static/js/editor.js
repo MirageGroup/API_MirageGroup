@@ -77,7 +77,7 @@ function drop() {
     this.classList.remove('over')
 }
 
-// -*-*-*-*-*-*-*-*-*-*-*-*-*-*- SALVAR LAYOUT EDITADO - JavaScript -*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+// -*-*-*-*-*-*-*-*-*-*-*-*-*-*- SALVAR LAYOUT EDITADO -*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 
 function updateIdsInput(){
     // fill hidden input
@@ -97,7 +97,7 @@ function updateIdsInput(){
     inputIds.value = ids
 }
 
-// -*-*-*-*-*-*-*-*-*-*-*-*-*-*- ADICIONAR NOVO COMPUTADOR - JavaScript -*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+// -*-*-*-*-*-*-*-*-*-*-*-*-*-*- ADICIONAR NOVO COMPUTADOR -*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 
 addComputerIDForm.addEventListener('submit', e => {
 
@@ -155,6 +155,8 @@ function createNewComputerCard(){
   this.appendChild(newCard)
   let newPos = this.getAttribute('data-pos')
 
+  document.getElementById('new_pc_id').value = ''
+
   returnEventListeners()
   updateNewPcInput(newPcId, newPos)
 }
@@ -189,3 +191,66 @@ var newPcPos = ''
         newPcIDInput.value = newPcIds_
         newPcPosInput.value = newPcPos_
     }
+
+// -*-*-*-*-*-*-*-*-*-*-*-*-*-*- REMOVER COMPUTADOR -*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+const RemoveComputerBTN = document.getElementById('remove_computer_btn')
+
+RemoveComputerBTN.addEventListener('click', removeComputerSelect)
+
+function removeComputerSelect() {
+
+
+  RemoveComputerBTN.removeEventListener('click', removeComputerSelect)
+  RemoveComputerBTN.addEventListener('click', removeComputerCancel)
+
+  cards.forEach(card => {
+    card.removeEventListener('dragstart', dragstart)
+    card.removeEventListener('drag', drag)
+    card.removeEventListener('dragend', dragend)
+    card.classList.remove('card_computador')
+    card.classList.add('card_computador_remover')
+    card.addEventListener('click', removeComputer)
+  })
+}
+
+var removeComputerInput = ''
+function removeComputer() {
+  this.parentElement.innerHTML = ""
+
+  var removePcInput = document.getElementById('remove_pcs')
+
+  if(this.getAttribute('data-exists') == "yes" ){
+    removeComputerInput = removeComputerInput + ',' + this.getAttribute('data-pc-id')
+    let removeComputerInput_ = removeComputerInput.slice(1)
+    removePcInput.value = removeComputerInput_
+  }else if (this.getAttribute('data-exists') == "no"){
+    cards = document.querySelectorAll('.card')
+    var newPcIdInput = document.getElementById('new_pcs')
+    var newPcPosInput = document.getElementById('new_pos')
+    var newPcIdInput_ = ''
+    var newPcPosInput_ = ''
+    cards.forEach(card => {
+      if (card.getAttribute('data-exists') == "no"){
+        newPcIdInput_ = newPcIdInput_+ ',' + card.getAttribute('data-pc-id')
+        newPcPosInput_ = newPcPosInput_ + ',' + card.parentElement.getAttribute('data-pos')
+      }
+    })
+    newPcIdInput_ = newPcIdInput_.slice(1)
+    newPcPosInput_ = newPcPosInput_.slice(1)
+    newPcIdInput.value = newPcIdInput_
+    newPcPosInput.value = newPcPosInput_
+  }
+
+}
+
+function removeComputerCancel() {
+  cards.forEach(card => {
+    card.addEventListener('dragstart', dragstart)
+    card.addEventListener('drag', drag)
+    card.addEventListener('dragend', dragend)
+    card.classList.remove('card_computador_remover')
+    card.classList.add('card_computador')
+  })
+  RemoveComputerBTN.removeEventListener('click', removeComputerCancel)
+  RemoveComputerBTN.addEventListener('click', removeComputerSelect)
+}

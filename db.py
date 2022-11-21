@@ -124,12 +124,6 @@ def updateComponent(componente, labnum, config):
     mysql.connection.commit()
     cursor.close()
 
-def addNewPcs(pc_novos_id, pc_novos_pos, labnum):
-    cursor = mysql.connection.cursor()
-    for i in range(len(pc_novos_id)):
-        cursor.execute(f''' INSERT INTO laboratorio{labnum} (pos, pc_id) VALUES (%s, %s) ''', (int(pc_novos_pos[i]), pc_novos_id[i]))
-        mysql.connection.commit()
-    cursor.close()
 
 def saveLayoutPositions(layout_novo, labnum):
     cursor = mysql.connection.cursor()
@@ -143,6 +137,20 @@ def saveLayoutPositions(layout_novo, labnum):
         cont += 1
     cursor.close()
     
+def addNewPcs(pc_novos_id, pc_novos_pos, labnum):
+    cursor = mysql.connection.cursor()
+    for i in range(len(pc_novos_id)):
+        cursor.execute(f''' INSERT INTO laboratorio{labnum} (pos, pc_id) VALUES (%s, %s) ''', (int(pc_novos_pos[i]), pc_novos_id[i]))
+        mysql.connection.commit()
+    cursor.close()
+
+def removePcs(remover_pcs_ids, labnum):
+  cursor = mysql.connection.cursor()
+  for i in remover_pcs_ids:
+    cursor.execute(f''' DELETE FROM laboratorio{labnum} WHERE pc_id = %s ''', (i,))
+    mysql.connection.commit()
+  cursor.close()
+
 def addComentario(comentario, callnumber):
     cursor = mysql.connection.cursor()
     cursor.execute(f''' UPDATE chamados SET comentarios = '{comentario}' WHERE id = '{callnumber}' ''')

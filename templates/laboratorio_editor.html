@@ -28,6 +28,7 @@
                   <h1>LAYOUT DA SALA</h1>
                   <p>arraste e solte os computadores para customizar o layout</p>
                   <form action="/lab/{{labnum}}/edit/salvar" method="POST">
+                    <input type="text" id="remove_pcs" name="remove_pcs"><br>
                     <input type="text" id="new_pcs" name="new_pcs"><br>
                     <input type="text" id="new_pos" name="new_pos"><br>
                     <input type="text" id="layout" name="layout"><br>
@@ -37,7 +38,7 @@
               </div>
               <div class="action_buttons_container">
                 <button class="btn btn-warning action_buttons" id="add_computer_btn" data-bs-toggle="modal" data-bs-target="#modal_add_computer">Adicionar computador</button>
-                <button class="btn btn-warning action_buttons">Remover computador</button>
+                <button class="btn btn-warning action_buttons" id="remove_computer_btn">Remover computador</button>
                 <button class="btn btn-warning action_buttons">Renomear computador</button>
               </div>
             
@@ -178,7 +179,7 @@
         </div>
         <form id="new_pc_id_form">
           <label class="form-label fw-bold" for="pc_problem">Insira o ID do novo computador</label>
-          <input type="text" class="form-control espeçamento_modal" value="" id="new_pc_id" autocomplete="off" autofocus="true" style="width: 95%; margin-left: auto; margin-right: auto;"><br>
+          <input type="text" class="form-control espeçamento_modal" value="" id="new_pc_id" autocomplete="off" autofocus="true" required style="width: 95%; margin-left: auto; margin-right: auto;"><br>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
             <input type="submit" class="btn btn-primary" value="Continuar" data-bs-dismiss="modal" id="add_computer_id_btn">

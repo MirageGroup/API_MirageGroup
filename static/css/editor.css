@@ -71,6 +71,28 @@
   opacity: 0.5;
 }
 
+.card_computador_remover{
+  width: 7em;
+  height: 8em;
+  background-color: rgba(220, 14, 14, 0.77);
+  border: 2px solid black;
+  border-radius:8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+.card_computador_remover:hover{
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
 .action_buttons_container{
     display: flex;
     justify-content: center;
