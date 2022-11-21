@@ -12,7 +12,7 @@ MarkupSafe==2.1.1
 mysql-connector-python==8.0.28
 mysqlclient==2.1.1
 protobuf==4.21.7
-#pywin32==305
+pywin32==305
 Werkzeug==2.2.2
 WTForms==3.0.1
 zipp==3.8.1
