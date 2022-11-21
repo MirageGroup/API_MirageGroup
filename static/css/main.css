@@ -371,6 +371,10 @@ hr{
 
     /* TELA DO TÉCNICO */
 
+.searchbar {
+    display: flex;
+}
+
 .container_reports{
  width: 100%;
  display: flex;
