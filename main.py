@@ -85,6 +85,11 @@ def tecnico():
 def finishCall(callnumber):
   dbHandler.finishCall(callnumber)
   return redirect('/tecnico')
+
+@app.route('/tecnico/deleteCall/<int:callnumber>')
+def deleteCall(callnumber):
+  dbHandler.deleteCall(callnumber)
+  return redirect('/tecnico')
   
 @app.route('/tecnico/sair')
 def tecnico_sair():

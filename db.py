@@ -90,6 +90,15 @@ def finishCall(callnumber):
     cursor.close()
     #enviarEmail(chamado[0][5])
 
+def deleteCall(callnumber):
+    cursor = mysql.connection.cursor()
+    callnumber = str(callnumber)
+    cursor.execute(f''' SELECT * FROM chamados WHERE id = {callnumber} ''')
+    chamado = cursor.fetchall()
+    cursor.execute(f''' DELETE FROM chamados WHERE id = {callnumber} ''')
+    mysql.connection.commit()
+    cursor.close()
+
 def updatePcStatus(labnum, pc_id, pc_problem, problem_description):
     cursor = mysql.connection.cursor()
     cursor.execute(f''' UPDATE laboratorio{labnum} SET pc_problema = %s, pc_descricao = %s WHERE pc_id = %s''', (pc_problem, problem_description, pc_id))
