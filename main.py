@@ -279,7 +279,7 @@ def eachlabproblems():
   Problem402Other = Problems402[11]
 
   # PROBLEMAS 403
-  Problems402 = dbHandler.numberOfProblemsInLab(402)
+  Problems403 = dbHandler.numberOfProblemsInLab(403)
   Problem403Ligar = Problems403[0]
   Problem403NoInternet = Problems403[1]
   Problem403Lento = Problems403[2]
