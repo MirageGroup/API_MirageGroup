@@ -200,6 +200,239 @@ def estatisticsLabProblems():
   
   )
 
+@app.route('/estatisticas/eachlabproblems')
+def eachlabproblems():
+
+  # PROBLEMAS 301
+  Problems301 = dbHandler.numberOfProblemsInLab(301)
+  Problem301Ligar = Problems301[0]
+  Problem301NoInternet = Problems301[1]
+  Problem301Lento = Problems301[2]
+  Problem301NoImage = Problems301[3]
+  Problem301NoSound = Problems301[4]
+  Problem301BlueScreen = Problems301[5]
+  Problem301TurnOff = Problems301[6]
+  Problem301Initialization = Problems301[7]
+  Problem301FreezingScreen = Problems301[8]
+  Problem301Mouse = Problems301[9]
+  Problem301Board = Problems301[10]
+  Problem301Other = Problems301[11]
+
+  # PROBLEMAS 302
+  Problems302 = dbHandler.numberOfProblemsInLab(302)
+  Problem302Ligar = Problems302[0]
+  Problem302NoInternet = Problems302[1]
+  Problem302Lento = Problems302[2]
+  Problem302NoImage = Problems302[3]
+  Problem302NoSound = Problems302[4]
+  Problem302BlueScreen = Problems302[5]
+  Problem302TurnOff = Problems302[6]
+  Problem302Initialization = Problems302[7]
+  Problem302FreezingScreen = Problems302[8]
+  Problem302Mouse = Problems302[9]
+  Problem302Board = Problems302[10]
+  Problem302Other = Problems302[11]
+
+  # PROBLEMAS 303
+  Problems303 = dbHandler.numberOfProblemsInLab(303)
+  Problem303Ligar = Problems303[0]
+  Problem303NoInternet = Problems303[1]
+  Problem303Lento = Problems303[2]
+  Problem303NoImage = Problems303[3]
+  Problem303NoSound = Problems303[4]
+  Problem303BlueScreen = Problems303[5]
+  Problem303TurnOff = Problems303[6]
+  Problem303Initialization = Problems303[7]
+  Problem303FreezingScreen = Problems303[8]
+  Problem303Mouse = Problems303[9]
+  Problem303Board = Problems303[10]
+  Problem303Other = Problems303[11]
+
+  # PROBLEMAS 401
+  Problems401 = dbHandler.numberOfProblemsInLab(401)
+  Problem401Ligar = Problems401[0]
+  Problem401NoInternet = Problems401[1]
+  Problem401Lento = Problems401[2]
+  Problem401NoImage = Problems401[3]
+  Problem401NoSound = Problems401[4]
+  Problem401BlueScreen = Problems401[5]
+  Problem401TurnOff = Problems401[6]
+  Problem401Initialization = Problems401[7]
+  Problem401FreezingScreen = Problems401[8]
+  Problem401Mouse = Problems401[9]
+  Problem401Board = Problems401[10]
+  Problem401Other = Problems401[11]
+
+  # PROBLEMAS 402
+  Problems402 = dbHandler.numberOfProblemsInLab(402)
+  Problem402Ligar = Problems402[0]
+  Problem402NoInternet = Problems402[1]
+  Problem402Lento = Problems402[2]
+  Problem402NoImage = Problems402[3]
+  Problem402NoSound = Problems402[4]
+  Problem402BlueScreen = Problems402[5]
+  Problem402TurnOff = Problems402[6]
+  Problem402Initialization = Problems402[7]
+  Problem402FreezingScreen = Problems402[8]
+  Problem402Mouse = Problems402[9]
+  Problem402Board = Problems402[10]
+  Problem402Other = Problems402[11]
+
+  # PROBLEMAS 403
+  Problems402 = dbHandler.numberOfProblemsInLab(402)
+  Problem403Ligar = Problems403[0]
+  Problem403NoInternet = Problems403[1]
+  Problem403Lento = Problems403[2]
+  Problem403NoImage = Problems403[3]
+  Problem403NoSound = Problems403[4]
+  Problem403BlueScreen = Problems403[5]
+  Problem403TurnOff = Problems403[6]
+  Problem403Initialization = Problems403[7]
+  Problem403FreezingScreen = Problems403[8]
+  Problem403Mouse = Problems403[9]
+  Problem403Board = Problems403[10]
+  Problem403Other = Problems403[11]
+
+  # PROBLEMAS 404
+  Problems404 = dbHandler.numberOfProblemsInLab(404)
+  Problem404Ligar = Problems404[0]
+  Problem404NoInternet = Problems404[1]
+  Problem404Lento = Problems404[2]
+  Problem404NoImage = Problems404[3]
+  Problem404NoSound = Problems404[4]
+  Problem404BlueScreen = Problems404[5]
+  Problem404TurnOff = Problems404[6]
+  Problem404Initialization = Problems404[7]
+  Problem404FreezingScreen = Problems404[8]
+  Problem404Mouse = Problems404[9]
+  Problem404Board = Problems404[10]
+  Problem404Other = Problems404[11]
+
+  # PROBLEMAS 405
+  Problems405 = dbHandler.numberOfProblemsInLab(405)
+  Problem405Ligar = Problems405[0]
+  Problem405NoInternet = Problems405[1]
+  Problem405Lento = Problems405[2]
+  Problem405NoImage = Problems405[3]
+  Problem405NoSound = Problems405[4]
+  Problem405BlueScreen = Problems405[5]
+  Problem405TurnOff = Problems405[6]
+  Problem405Initialization = Problems405[7]
+  Problem405FreezingScreen = Problems405[8]
+  Problem405Mouse = Problems405[9]
+  Problem405Board = Problems405[10]
+  Problem405Other = Problems405[11]
+
+  # PROBLEMAS 406
+  Problems406 = dbHandler.numberOfProblemsInLab(406)
+  Problem406Ligar = Problems406[0]
+  Problem406NoInternet = Problems406[1]
+  Problem406Lento = Problems406[2]
+  Problem406NoImage = Problems406[3]
+  Problem406NoSound = Problems406[4]
+  Problem406BlueScreen = Problems406[5]
+  Problem406TurnOff = Problems406[6]
+  Problem406Initialization = Problems406[7]
+  Problem406FreezingScreen = Problems406[8]
+  Problem406Mouse = Problems406[9]
+  Problem406Board = Problems406[10]
+  Problem406Other = Problems406[11]
+
+  # PROBLEMAS 407
+  Problems407 = dbHandler.numberOfProblemsInLab(407)
+  Problem407Ligar = Problems407[0]
+  Problem407NoInternet = Problems407[1]
+  Problem407Lento = Problems407[2]
+  Problem407NoImage = Problems407[3]
+  Problem407NoSound = Problems407[4]
+  Problem407BlueScreen = Problems407[5]
+  Problem407TurnOff = Problems407[6]
+  Problem407Initialization = Problems407[7]
+  Problem407FreezingScreen = Problems407[8]
+  Problem407Mouse = Problems407[9]
+  Problem407Board = Problems407[10]
+  Problem407Other = Problems407[11]
+
+  # PROBLEMAS 408
+  Problems408 = dbHandler.numberOfProblemsInLab(408)
+  Problem408Ligar = Problems408[0]
+  Problem408NoInternet = Problems408[1]
+  Problem408Lento = Problems408[2]
+  Problem408NoImage = Problems408[3]
+  Problem408NoSound = Problems408[4]
+  Problem408BlueScreen = Problems408[5]
+  Problem408TurnOff = Problems408[6]
+  Problem408Initialization = Problems408[7]
+  Problem408FreezingScreen = Problems408[8]
+  Problem408Mouse = Problems408[9]
+  Problem408Board = Problems408[10]
+  Problem408Other = Problems408[11]
+  
+  # PROBLEMAS 409
+  Problems409 = dbHandler.numberOfProblemsInLab(409)
+  Problem409Ligar = Problems409[0]
+  Problem409NoInternet = Problems409[1]
+  Problem409Lento = Problems409[2]
+  Problem409NoImage = Problems409[3]
+  Problem409NoSound = Problems409[4]
+  Problem409BlueScreen = Problems409[5]
+  Problem409TurnOff = Problems409[6]
+  Problem409Initialization = Problems409[7]
+  Problem409FreezingScreen = Problems409[8]
+  Problem409Mouse = Problems409[9]
+  Problem409Board = Problems409[10]
+  Problem409Other = Problems409[11]
+
+
+  # PROBLEMAS 410
+  Problems410 = dbHandler.numberOfProblemsInLab(410)
+  Problem410Ligar = Problems410[0]
+  Problem410NoInternet = Problems410[1]
+  Problem410Lento = Problems410[2]
+  Problem410NoImage = Problems410[3]
+  Problem410NoSound = Problems410[4]
+  Problem410BlueScreen = Problems410[5]
+  Problem410TurnOff = Problems410[6]
+  Problem410Initialization = Problems410[7]
+  Problem410FreezingScreen = Problems410[8]
+  Problem410Mouse = Problems410[9]
+  Problem410Board = Problems410[10]
+  Problem410Other = Problems410[11]
+
+
+  # PROBLEMAS 411
+  Problems411 = dbHandler.numberOfProblemsInLab(411)
+  Problem411Ligar = Problems411[0]
+  Problem411NoInternet = Problems411[1]
+  Problem411Lento = Problems411[2]
+  Problem411NoImage = Problems411[3]
+  Problem411NoSound = Problems411[4]
+  Problem411BlueScreen = Problems411[5]
+  Problem411TurnOff = Problems411[6]
+  Problem411Initialization = Problems411[7]
+  Problem411FreezingScreen = Problems411[8]
+  Problem411Mouse = Problems411[9]
+  Problem411Board = Problems411[10]
+  Problem411Other = Problems411[11]
+
+
+  # PROBLEMAS 412
+  Problems412 = dbHandler.numberOfProblemsInLab(412)
+  Problem412Ligar = Problems412[0]
+  Problem412NoInternet = Problems412[1]
+  Problem412Lento = Problems412[2]
+  Problem412NoImage = Problems412[3]
+  Problem412NoSound = Problems412[4]
+  Problem412BlueScreen = Problems412[5]
+  Problem412TurnOff = Problems412[6]
+  Problem412Initialization = Problems412[7]
+  Problem412FreezingScreen = Problems412[8]
+  Problem412Mouse = Problems412[9]
+  Problem412Board = Problems412[10]
+  Problem412Other = Problems412[11]
+
+  return 'i'
+
 
 
 

@@ -82,7 +82,10 @@ def numberOfProblemsInLab(number):
      for i in problemList:
         cursor.execute(f''' SELECT id FROM chamados WHERE problema_tipo = '{i}' AND laboratorio_num = '{number}'  ''')
         numberOfProblemsInLab = cursor.fetchall()
+        
         varList.append(len(numberOfProblemsInLab))
+    
+    
         
 
      return varList
