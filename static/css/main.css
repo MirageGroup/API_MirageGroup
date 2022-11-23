@@ -553,12 +553,15 @@ justify-content: center;
 padding-left: 0;
 margin-bottom: 0;
 list-style: none;
+align-items: center;
 
 }
 .botão_estatisticas{
     background-color: transparent;
     border: 0px ;
     padding: 10px;
+    list-style: none;
+    text-decoration: none;
 }
 .aba-ativa-estatisticas{
    
