@@ -200,8 +200,14 @@ def estatisticsLabProblems():
   
   )
 
-@app.route('/estatisticas/eachlabproblems')
-def eachlabproblems():
+
+      # ESTATISTICAS DE CADA LABORATORIO
+
+
+@app.route('/estatisticas/eachlabproblems301')
+def eachlabproblems301():
+
+ 
 
   # PROBLEMAS 301
   Problems301 = dbHandler.numberOfProblemsInLab(301)
@@ -217,7 +223,25 @@ def eachlabproblems():
   Problem301Mouse = Problems301[9]
   Problem301Board = Problems301[10]
   Problem301Other = Problems301[11]
+  return render_template('estatisticas.html',
+    rota = 'estatisticas301',
+    # PROBLEMAS 301
+  Problem301Ligar =  Problem301Ligar,
+  Problem301NoInternet = Problem301NoInternet,
+  Problem301Lento =   Problem301Lento,
+  Problem301NoImage = Problem301NoImage,
+  Problem301NoSound = Problem301NoSound,
+  Problem301BlueScreen = Problem301BlueScreen,
+  Problem301TurnOff =  Problem301TurnOff,
+  Problem301Initialization =  Problem301Initialization,
+  Problem301FreezingScreen = Problem301FreezingScreen,
+  Problem301Mouse = Problem301Mouse,
+  Problem301Board =  Problem301Board,
+  Problem301Other = Problem301Other,
+  )
 
+@app.route('/estatisticas/eachlabproblems302')
+def eachlabproblems302():
   # PROBLEMAS 302
   Problems302 = dbHandler.numberOfProblemsInLab(302)
   Problem302Ligar = Problems302[0]
@@ -233,6 +257,26 @@ def eachlabproblems():
   Problem302Board = Problems302[10]
   Problem302Other = Problems302[11]
 
+  return render_template('estatisticas.html',
+  rota = 'estatisticas302',
+   # PROBLEMAS 302
+  Problem302Ligar =  Problem302Ligar,
+  Problem302NoInternet = Problem302NoInternet,
+  Problem302Lento =   Problem302Lento,
+  Problem302NoImage = Problem302NoImage,
+  Problem302NoSound = Problem302NoSound,
+  Problem302BlueScreen = Problem302BlueScreen,
+  Problem302TurnOff =  Problem302TurnOff,
+  Problem302Initialization =  Problem302Initialization,
+  Problem302FreezingScreen = Problem302FreezingScreen,
+  Problem302Mouse = Problem302Mouse,
+  Problem302Board =  Problem302Board,
+  Problem302Other = Problem302Other,)
+
+
+@app.route('/estatisticas/eachlabproblems303')
+def eachlabproblems303():
+  
   # PROBLEMAS 303
   Problems303 = dbHandler.numberOfProblemsInLab(303)
   Problem303Ligar = Problems303[0]
@@ -247,7 +291,26 @@ def eachlabproblems():
   Problem303Mouse = Problems303[9]
   Problem303Board = Problems303[10]
   Problem303Other = Problems303[11]
+  return render_template('estatisticas.html',  
+  rota = 'estatisticas303',
+  # PROBLEMAS 303
+  
+  Problem303Ligar =  Problem303Ligar,
+  Problem303NoInternet = Problem303NoInternet,
+  Problem303Lento =   Problem303Lento,
+  Problem303NoImage = Problem303NoImage,
+  Problem303NoSound = Problem303NoSound,
+  Problem303BlueScreen = Problem303BlueScreen,
+  Problem303TurnOff =  Problem303TurnOff,
+  Problem303Initialization =  Problem303Initialization,
+  Problem303FreezingScreen = Problem303FreezingScreen,
+  Problem303Mouse = Problem303Mouse,
+  Problem303Board =  Problem303Board,
+  Problem303Other = Problem303Other,
+  )
 
+@app.route('/estatisticas/eachlabproblems401')
+def eachlabproblems401():
   # PROBLEMAS 401
   Problems401 = dbHandler.numberOfProblemsInLab(401)
   Problem401Ligar = Problems401[0]
@@ -262,8 +325,26 @@ def eachlabproblems():
   Problem401Mouse = Problems401[9]
   Problem401Board = Problems401[10]
   Problem401Other = Problems401[11]
+  return render_template('estatisticas.html',
+  rota = 'estatisticas401',
+    # PROBLEMAS 401
+  
+  Problem401Ligar =  Problem401Ligar,
+  Problem401NoInternet = Problem401NoInternet,
+  Problem401Lento =   Problem401Lento,
+  Problem401NoImage = Problem401NoImage,
+  Problem401NoSound = Problem401NoSound,
+  Problem401BlueScreen = Problem401BlueScreen,
+  Problem401TurnOff =  Problem401TurnOff,
+  Problem401Initialization =  Problem401Initialization,
+  Problem401FreezingScreen = Problem401FreezingScreen,
+  Problem401Mouse = Problem401Mouse,
+  Problem401Board =  Problem401Board,
+  Problem401Other = Problem401Other,)
 
-  # PROBLEMAS 402
+@app.route('/estatisticas/eachlabproblems402')
+def eachlabproblems402():
+   # PROBLEMAS 402
   Problems402 = dbHandler.numberOfProblemsInLab(402)
   Problem402Ligar = Problems402[0]
   Problem402NoInternet = Problems402[1]
@@ -277,8 +358,26 @@ def eachlabproblems():
   Problem402Mouse = Problems402[9]
   Problem402Board = Problems402[10]
   Problem402Other = Problems402[11]
+  return render_template('estatisticas.html',
+  rota = 'estatisticas402',
+  # PROBLEMAS 402
+  
+  Problem402Ligar =  Problem402Ligar,
+  Problem402NoInternet = Problem402NoInternet,
+  Problem402Lento =   Problem402Lento,
+  Problem402NoImage = Problem402NoImage,
+  Problem402NoSound = Problem402NoSound,
+  Problem402BlueScreen = Problem402BlueScreen,
+  Problem402TurnOff =  Problem402TurnOff,
+  Problem402Initialization =  Problem402Initialization,
+  Problem402FreezingScreen = Problem402FreezingScreen,
+  Problem402Mouse = Problem402Mouse,
+  Problem402Board =  Problem402Board,
+  Problem402Other = Problem402Other,)
 
-  # PROBLEMAS 403
+@app.route('/estatisticas/eachlabproblems403')
+def eachlabproblems403():
+    # PROBLEMAS 403
   Problems403 = dbHandler.numberOfProblemsInLab(403)
   Problem403Ligar = Problems403[0]
   Problem403NoInternet = Problems403[1]
@@ -292,8 +391,27 @@ def eachlabproblems():
   Problem403Mouse = Problems403[9]
   Problem403Board = Problems403[10]
   Problem403Other = Problems403[11]
+  return render_template('estatisticas.html',
+  rota = 'estatisticas403',
+   # PROBLEMAS 403
+  
+  Problem403Ligar =  Problem403Ligar,
+  Problem403NoInternet = Problem403NoInternet,
+  Problem403Lento =   Problem403Lento,
+  Problem403NoImage = Problem403NoImage,
+  Problem403NoSound = Problem403NoSound,
+  Problem403BlueScreen = Problem403BlueScreen,
+  Problem403TurnOff =  Problem403TurnOff,
+  Problem403Initialization =  Problem403Initialization,
+  Problem403FreezingScreen = Problem403FreezingScreen,
+  Problem403Mouse = Problem403Mouse,
+  Problem403Board =  Problem403Board,
+  Problem403Other = Problem403Other,)
 
-  # PROBLEMAS 404
+
+@app.route('/estatisticas/eachlabproblems404')
+def eachlabproblems404():
+    # PROBLEMAS 404
   Problems404 = dbHandler.numberOfProblemsInLab(404)
   Problem404Ligar = Problems404[0]
   Problem404NoInternet = Problems404[1]
@@ -307,8 +425,26 @@ def eachlabproblems():
   Problem404Mouse = Problems404[9]
   Problem404Board = Problems404[10]
   Problem404Other = Problems404[11]
+  return render_template('estatisticas.html',
+  rota = 'estatisticas404',
+  # PROBLEMAS 404
+  
+  Problem404Ligar =  Problem404Ligar,
+  Problem404NoInternet = Problem404NoInternet,
+  Problem404Lento =   Problem404Lento,
+  Problem404NoImage = Problem404NoImage,
+  Problem404NoSound = Problem404NoSound,
+  Problem404BlueScreen = Problem404BlueScreen,
+  Problem404TurnOff =  Problem404TurnOff,
+  Problem404Initialization =  Problem404Initialization,
+  Problem404FreezingScreen = Problem404FreezingScreen,
+  Problem404Mouse = Problem404Mouse,
+  Problem404Board =  Problem404Board,
+  Problem404Other = Problem404Other,)
 
-  # PROBLEMAS 405
+@app.route('/estatisticas/eachlabproblems405')
+def eachlabproblems405():
+    # PROBLEMAS 405
   Problems405 = dbHandler.numberOfProblemsInLab(405)
   Problem405Ligar = Problems405[0]
   Problem405NoInternet = Problems405[1]
@@ -322,8 +458,27 @@ def eachlabproblems():
   Problem405Mouse = Problems405[9]
   Problem405Board = Problems405[10]
   Problem405Other = Problems405[11]
+  return render_template('estatisticas.html',
+  rota = 'estatisticas405',
+  # PROBLEMAS 405
+  
+  Problem405Ligar =  Problem405Ligar,
+  Problem405NoInternet = Problem405NoInternet,
+  Problem405Lento =   Problem405Lento,
+  Problem405NoImage = Problem405NoImage,
+  Problem405NoSound = Problem405NoSound,
+  Problem405BlueScreen = Problem405BlueScreen,
+  Problem405TurnOff =  Problem405TurnOff,
+  Problem405Initialization =  Problem405Initialization,
+  Problem405FreezingScreen = Problem405FreezingScreen,
+  Problem405Mouse = Problem405Mouse,
+  Problem405Board =  Problem405Board,
+  Problem405Other = Problem405Other,
+  )
 
-  # PROBLEMAS 406
+@app.route('/estatisticas/eachlabproblems406')
+def eachlabproblems406():
+     # PROBLEMAS 406
   Problems406 = dbHandler.numberOfProblemsInLab(406)
   Problem406Ligar = Problems406[0]
   Problem406NoInternet = Problems406[1]
@@ -337,8 +492,27 @@ def eachlabproblems():
   Problem406Mouse = Problems406[9]
   Problem406Board = Problems406[10]
   Problem406Other = Problems406[11]
+  return render_template('estatisticas.html',
+  rota = 'estatisticas406',
 
-  # PROBLEMAS 407
+   # PROBLEMAS 406
+  Problem406Ligar =  Problem406Ligar,
+  Problem406NoInternet = Problem406NoInternet,
+  Problem406Lento =   Problem406Lento,
+  Problem406NoImage = Problem406NoImage,
+  Problem406NoSound = Problem406NoSound,
+  Problem406BlueScreen = Problem406BlueScreen,
+  Problem406TurnOff =  Problem406TurnOff,
+  Problem406Initialization =  Problem406Initialization,
+  Problem406FreezingScreen = Problem406FreezingScreen,
+  Problem406Mouse = Problem406Mouse,
+  Problem406Board =  Problem406Board,
+  Problem406Other = Problem406Other,
+  )
+
+@app.route('/estatisticas/eachlabproblems407')
+def eachlabproblems407():
+    # PROBLEMAS 407
   Problems407 = dbHandler.numberOfProblemsInLab(407)
   Problem407Ligar = Problems407[0]
   Problem407NoInternet = Problems407[1]
@@ -353,6 +527,28 @@ def eachlabproblems():
   Problem407Board = Problems407[10]
   Problem407Other = Problems407[11]
 
+  return render_template('estatisticas.html',
+  rota = 'estatisticas407',
+ 
+  
+  # PROBLEMAS 407
+  Problem407Ligar =  Problem407Ligar,
+  Problem407NoInternet = Problem407NoInternet,
+  Problem407Lento =   Problem407Lento,
+  Problem407NoImage = Problem407NoImage,
+  Problem407NoSound = Problem407NoSound,
+  Problem407BlueScreen = Problem407BlueScreen,
+  Problem407TurnOff =  Problem407TurnOff,
+  Problem407Initialization =  Problem407Initialization,
+  Problem407FreezingScreen = Problem407FreezingScreen,
+  Problem407Mouse = Problem407Mouse,
+  Problem407Board =  Problem407Board,
+  Problem407Other = Problem407Other,)
+
+
+@app.route('/estatisticas/eachlabproblems408')
+def eachlabproblems408():
+     
   # PROBLEMAS 408
   Problems408 = dbHandler.numberOfProblemsInLab(408)
   Problem408Ligar = Problems408[0]
@@ -367,8 +563,27 @@ def eachlabproblems():
   Problem408Mouse = Problems408[9]
   Problem408Board = Problems408[10]
   Problem408Other = Problems408[11]
+
+  return render_template('estatisticas.html',
+  rota = 'estatisticas408',
+  # PROBLEMAS 408
   
-  # PROBLEMAS 409
+  Problem408Ligar =  Problem408Ligar,
+  Problem408NoInternet = Problem408NoInternet,
+  Problem408Lento =   Problem408Lento,
+  Problem408NoImage = Problem408NoImage,
+  Problem408NoSound = Problem408NoSound,
+  Problem408BlueScreen = Problem408BlueScreen,
+  Problem408TurnOff =  Problem408TurnOff,
+  Problem408Initialization =  Problem408Initialization,
+  Problem408FreezingScreen = Problem408FreezingScreen,
+  Problem408Mouse = Problem408Mouse,
+  Problem408Board =  Problem408Board,
+  Problem408Other = Problem408Other,)
+
+@app.route('/estatisticas/eachlabproblems409')
+def eachlabproblems409():
+    # PROBLEMAS 409
   Problems409 = dbHandler.numberOfProblemsInLab(409)
   Problem409Ligar = Problems409[0]
   Problem409NoInternet = Problems409[1]
@@ -383,8 +598,26 @@ def eachlabproblems():
   Problem409Board = Problems409[10]
   Problem409Other = Problems409[11]
 
+  return render_template('estatisticas.html',
+  rota = 'estatisticas409',
+  # PROBLEMAS 409
+  
+  Problem409Ligar =  Problem409Ligar,
+  Problem409NoInternet = Problem409NoInternet,
+  Problem409Lento =   Problem409Lento,
+  Problem409NoImage = Problem409NoImage,
+  Problem409NoSound = Problem409NoSound,
+  Problem409BlueScreen = Problem409BlueScreen,
+  Problem409TurnOff =  Problem409TurnOff,
+  Problem409Initialization =  Problem409Initialization,
+  Problem409FreezingScreen = Problem409FreezingScreen,
+  Problem409Mouse = Problem409Mouse,
+  Problem409Board =  Problem409Board,
+  Problem409Other = Problem409Other,)
 
-  # PROBLEMAS 410
+@app.route('/estatisticas/eachlabproblems410')
+def eachlabproblems410():
+    # PROBLEMAS 410
   Problems410 = dbHandler.numberOfProblemsInLab(410)
   Problem410Ligar = Problems410[0]
   Problem410NoInternet = Problems410[1]
@@ -399,8 +632,26 @@ def eachlabproblems():
   Problem410Board = Problems410[10]
   Problem410Other = Problems410[11]
 
+  return render_template('estatisticas.html',
+  rota = 'estatisticas410',
+  # PROBLEMAS 410
+  
+  Problem410Ligar =  Problem410Ligar,
+  Problem410NoInternet = Problem410NoInternet,
+  Problem410Lento =   Problem410Lento,
+  Problem410NoImage = Problem410NoImage,
+  Problem410NoSound = Problem410NoSound,
+  Problem410BlueScreen = Problem410BlueScreen,
+  Problem410TurnOff =  Problem410TurnOff,
+  Problem410Initialization =  Problem410Initialization,
+  Problem410FreezingScreen = Problem410FreezingScreen,
+  Problem410Mouse = Problem410Mouse,
+  Problem410Board =  Problem410Board,
+  Problem410Other = Problem410Other,)
 
-  # PROBLEMAS 411
+@app.route('/estatisticas/eachlabproblems411')
+def eachlabproblems411():
+     # PROBLEMAS 411
   Problems411 = dbHandler.numberOfProblemsInLab(411)
   Problem411Ligar = Problems411[0]
   Problem411NoInternet = Problems411[1]
@@ -415,8 +666,27 @@ def eachlabproblems():
   Problem411Board = Problems411[10]
   Problem411Other = Problems411[11]
 
+  return render_template('estatisticas.html',
+  rota = 'estatisticas411',
+  # PROBLEMAS 411
+  
+  Problem411Ligar =  Problem411Ligar,
+  Problem411NoInternet = Problem411NoInternet,
+  Problem411Lento =   Problem411Lento,
+  Problem411NoImage = Problem411NoImage,
+  Problem411NoSound = Problem411NoSound,
+  Problem411BlueScreen = Problem411BlueScreen,
+  Problem411TurnOff =  Problem411TurnOff,
+  Problem411Initialization =  Problem411Initialization,
+  Problem411FreezingScreen = Problem411FreezingScreen,
+  Problem411Mouse = Problem411Mouse,
+  Problem411Board =  Problem411Board,
+  Problem411Other = Problem411Other,
+)
 
-  # PROBLEMAS 412
+@app.route('/estatisticas/eachlabproblems412')
+def eachlabproblems412():
+     # PROBLEMAS 412
   Problems412 = dbHandler.numberOfProblemsInLab(412)
   Problem412Ligar = Problems412[0]
   Problem412NoInternet = Problems412[1]
@@ -431,11 +701,24 @@ def eachlabproblems():
   Problem412Board = Problems412[10]
   Problem412Other = Problems412[11]
 
-  return 'i'
 
-
-
-
+  return render_template('estatisticas.html',
+  rota = 'estatisticas412',
+  # PROBLEMAS 412
+  
+  Problem412Ligar =  Problem412Ligar,
+  Problem412NoInternet = Problem412NoInternet,
+  Problem412Lento =   Problem412Lento,
+  Problem412NoImage = Problem412NoImage,
+  Problem412NoSound = Problem412NoSound,
+  Problem412BlueScreen = Problem412BlueScreen,
+  Problem412TurnOff =  Problem412TurnOff,
+  Problem412Initialization =  Problem412Initialization,
+  Problem412FreezingScreen = Problem412FreezingScreen,
+  Problem412Mouse = Problem412Mouse,
+  Problem412Board =  Problem412Board,
+  Problem412Other = Problem412Other,)
+  
 
 
 if __name__ == '__main__':

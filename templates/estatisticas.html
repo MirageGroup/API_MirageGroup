@@ -39,26 +39,38 @@
                     <li><a href="/estatisticas" data-botao="chamados" class="botão_estatisticas text-dark aba-ativa-estatisticas">CHAMADOS ABERTOS E FECHADOS</a></li>
                     <li><a href="/estatisticas/compproblems" data-botao="problemas" class="botão_estatisticas text-dark">PROBLEMAS COMPUTADORES</a></li>
                     <li><a href="/estatisticas/labproblems" data-botao="lab" class="botão_estatisticas text-dark">CHAMADOS EM CADA LABORATORIO</a></li>
+                    <div class="dropdown">
+                      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        PROBLEMAS EM CADA LABORATORIO 
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems301">LAB 301</a></li>
+                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems302">LAB 302</a></li>
+                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems303">LAB 303</a></li>
+                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems401">LAB 401</a></li>
+                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems402">LAB 402</a></li>
+                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems403">LAB 403</a></li>
+                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems404">LAB 404</a></li>
+                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems405">LAB 405</a></li>
+                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems406">LAB 406</a></li>
+                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems407">LAB 407</a></li>
+                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems408">LAB 408</a></li>
+                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems409">LAB 409</a></li>
+                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems410">LAB 410</a></li>
+                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems411">LAB 411</a></li>
+                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems412">LAB 412</a></li>
+          
+                      </ul>
+                    </div>
                 </ul>
 
                 <div class="estatisticas_tables_circle " data-grafico="chamados">
                     <canvas id="myChartReports"></canvas>
                 </div>
                 
-                <div class="estatisticas_tables none" data-grafico="problemas" >
-                    
-                    <div >
-                        <canvas id="myChart"></canvas>
-                    </div>
                     
                 </div>
-                <div class="estatisticas_tables none" data-grafico="lab" >
-                    
-                    <div >
-                        <canvas id="myChartLab"></canvas>
-                    </div>
-                    
-                </div>'
+             
             </div>
     {% elif rota == "estatisticas2" %}
             <div class="area_de_estatisticas">
@@ -66,11 +78,31 @@
                     <li><a href="/estatisticas" data-botao="chamados" class="botão_estatisticas text-dark">CHAMADOS ABERTOS E FECHADOS</a></li>
                     <li><a href="/estatisticas/compproblems" data-botao="problemas" class="botão_estatisticas aba-ativa-estatisticas text-dark">PROBLEMAS COMPUTADORES</a></li>
                     <li><a href="/estatisticas/labproblems" data-botao="lab" class="botão_estatisticas text-dark">CHAMADOS EM CADA LABORATORIO</a></li>
+                    <div class="dropdown">
+                      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        PROBLEMAS EM CADA LABORATORIO 
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">LAB 301</a></li>
+                        <li><a class="dropdown-item" href="#">LAB 302</a></li>
+                        <li><a class="dropdown-item" href="#">LAB 303</a></li>
+                        <li><a class="dropdown-item" href="#">LAB 401</a></li>
+                        <li><a class="dropdown-item" href="#">LAB 402</a></li>
+                        <li><a class="dropdown-item" href="#">LAB 403</a></li>
+                        <li><a class="dropdown-item" href="#">LAB 404</a></li>
+                        <li><a class="dropdown-item" href="#">LAB 405</a></li>
+                        <li><a class="dropdown-item" href="#">LAB 406</a></li>
+                        <li><a class="dropdown-item" href="#">LAB 407</a></li>
+                        <li><a class="dropdown-item" href="#">LAB 408</a></li>
+                        <li><a class="dropdown-item" href="#">LAB 409</a></li>
+                        <li><a class="dropdown-item" href="#">LAB 410</a></li>
+                        <li><a class="dropdown-item" href="#">LAB 411</a></li>
+                        <li><a class="dropdown-item" href="#">LAB 412</a></li>
+          
+                      </ul>
+                    </div>
                 </ul>
 
-                <div class="estatisticas_tables_circle none " data-grafico="chamados">
-                    <canvas id="myChartReports"></canvas>
-                </div>
                 
                 <div class="estatisticas_tables " data-grafico="problemas" >
                     
@@ -79,13 +111,7 @@
                     </div>
                     
                 </div>
-                <div class="estatisticas_tables none" data-grafico="lab" >
-                    
-                    <div >
-                        <canvas id="myChartLab"></canvas>
-                    </div>
-                    
-                </div>
+              
             </div>
 
 
@@ -94,21 +120,32 @@
             
                 <ul class="menu_estatisticas_itens">
                     <li><a href="/estatisticas" data-botao="chamados" class="botão_estatisticas text-dark">CHAMADOS ABERTOS E FECHADOS</a></li>
-                    <li><a href="/estatisticas/compproblems" data-botao="problemas" class="botão_estatisticas text-dark">PROBLEMAS COMPUTADORE text-darkS</a></li>
+                    <li><a href="/estatisticas/compproblems" data-botao="problemas" class="botão_estatisticas text-dark">PROBLEMAS COMPUTADORE</a></li>
                     <li><a href="/estatisticas/labproblems" data-botao="lab" class="botão_estatisticas text-dark aba-ativa-estatisticas">CHAMADOS EM CADA LABORATORIO</a></li>
-                </ul>
-
-                <div class="estatisticas_tables_circle none " data-grafico="chamados">
-                    <canvas id="myChartReports"></canvas>
-                </div>
-                
-                <div class="estatisticas_tables none" data-grafico="problemas" >
-                    
-                    <div >
-                        <canvas id="myChart"></canvas>
+                    <div class="dropdown">
+                      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        PROBLEMAS EM CADA LABORATORIO 
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">LAB 301</a></li>
+                        <li><a class="dropdown-item" href="#">LAB 302</a></li>
+                        <li><a class="dropdown-item" href="#">LAB 303</a></li>
+                        <li><a class="dropdown-item" href="#">LAB 401</a></li>
+                        <li><a class="dropdown-item" href="#">LAB 402</a></li>
+                        <li><a class="dropdown-item" href="#">LAB 403</a></li>
+                        <li><a class="dropdown-item" href="#">LAB 404</a></li>
+                        <li><a class="dropdown-item" href="#">LAB 405</a></li>
+                        <li><a class="dropdown-item" href="#">LAB 406</a></li>
+                        <li><a class="dropdown-item" href="#">LAB 407</a></li>
+                        <li><a class="dropdown-item" href="#">LAB 408</a></li>
+                        <li><a class="dropdown-item" href="#">LAB 409</a></li>
+                        <li><a class="dropdown-item" href="#">LAB 410</a></li>
+                        <li><a class="dropdown-item" href="#">LAB 411</a></li>
+                        <li><a class="dropdown-item" href="#">LAB 412</a></li>
+          
+                      </ul>
                     </div>
-                    
-                </div>
+                </ul>
                 <div class="estatisticas_tables " data-grafico="lab" >
                     
                     <div >
@@ -117,6 +154,51 @@
                     
                 </div>
             </div>
+
+            {% else %}
+            <div class="area_de_estatisticas">
+            
+              <ul class="menu_estatisticas_itens">
+                  <li><a href="/estatisticas" data-botao="chamados" class="botão_estatisticas text-dark">CHAMADOS ABERTOS E FECHADOS</a></li>
+                  <li><a href="/estatisticas/compproblems" data-botao="problemas" class="botão_estatisticas text-dark">PROBLEMAS COMPUTADORE</a></li>
+                  <li><a href="/estatisticas/labproblems" data-botao="lab" class="botão_estatisticas text-dark aba-ativa-estatisticas">CHAMADOS EM CADA LABORATORIO</a></li>
+                  <div class="dropdown">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      PROBLEMAS EM CADA LABORATORIO 
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">LAB 301</a></li>
+                      <li><a class="dropdown-item" href="#">LAB 302</a></li>
+                      <li><a class="dropdown-item" href="#">LAB 303</a></li>
+                      <li><a class="dropdown-item" href="#">LAB 401</a></li>
+                      <li><a class="dropdown-item" href="#">LAB 402</a></li>
+                      <li><a class="dropdown-item" href="#">LAB 403</a></li>
+                      <li><a class="dropdown-item" href="#">LAB 404</a></li>
+                      <li><a class="dropdown-item" href="#">LAB 405</a></li>
+                      <li><a class="dropdown-item" href="#">LAB 406</a></li>
+                      <li><a class="dropdown-item" href="#">LAB 407</a></li>
+                      <li><a class="dropdown-item" href="#">LAB 408</a></li>
+                      <li><a class="dropdown-item" href="#">LAB 409</a></li>
+                      <li><a class="dropdown-item" href="#">LAB 410</a></li>
+                      <li><a class="dropdown-item" href="#">LAB 411</a></li>
+                      <li><a class="dropdown-item" href="#">LAB 412</a></li>
+        
+                    </ul>
+                  </div>
+              </ul>
+              {% if rota == 'estatisticas301'%}
+              <div class="estatisticas_tables " data-grafico="lab" >
+                    
+                <div >
+                    <canvas id="myChart301"></canvas>
+                </div>
+                
+            </div>
+              {%endif%}
+          </div>
+
+             
+
 
             {% endif %}
 
@@ -287,7 +369,6 @@ const labels = [
     var Problem410 = {{Problem410}};
     var Problem411 = {{Problem411}};
     var Problem412 = {{Problem412}};
-
     
         // CHAMADOS EM CADA LABORATORIO
 
@@ -333,12 +414,6 @@ const labels = [
         Problem412,
 
 
-
-
-
-
-
-
             ],
               
           }]
@@ -364,9 +439,357 @@ const labels = [
             );
 
    
+</script>
+
+{% elif rota == 'estatisticas301' %}
+<script>
+  console.log("301");
+  
+  var Problem301Ligar =             {{Problem301Ligar}} ,
+  var Problem301NoInternet =        {{Problem301NoInternet}},
+  var Problem301Lento =             {{Problem301Lento}},
+  var Problem301NoImage =           {{Problem301NoImage}},
+  var Problem301NoSound =           {{Problem301NoSound}},
+  var Problem301BlueScreen =        {{Problem301BlueScreen}},
+  var Problem301TurnOff =           {{Problem301TurnOff}},
+  var Problem301Initialization =    {{Problem301Initialization}},
+  var Problem301FreezingScreen =    {{Problem301FreezingScreen}},
+  var Problem301Mouse =             {{Problem301Mouse}},
+  var Problem301Board =             {{Problem301Board}},
+  var Problem301Other =             {{Problem301Other}},
+
+
+  const labels301 = [
+  'O computador não liga',
+  'O computador está sem internet',
+  'O computador está muito lento',
+  'O computador não está dando imagem',
+  'O computador está sem som',
+  'O computador está tendo a tela azul',
+  'O computador está desligando sozinho',
+  'O sistema operacional não está inicializando',
+  'A tela está congelando',
+  'O mouse não está funcionando',
+  'O teclado não está funcionando',
+  'Outro'
+  ];
+
+  const data301 = {
+    labels: labels301,
+    datasets: [{
+      label: 'Problemas reportados',
+      backgroundColor: 'rgb(255, 99, 132)',
+      borderColor: 'rgb(255, 99, 132)',
+      data: [
+        Problem301Ligar,
+        Problem301NoInternet,
+        Problem301Lento,
+        Problem301NoImage,
+        Problem301NoSound,
+        Problem301BlueScreen,
+        Problem301TurnOff,
+        Problem301Initialization,
+        Problem301FreezingScreen,
+        Problem301Mouse,
+        Problem301Board,
+        Problem301Other],
+        
+    }]
+  };
+
+  const config = {
+    type: 'doughnut',
+    data: data301,
+    options: {
+      scales:{
+        y:{
+          suggestedMin: 0,
+          suggestedMax: 10,
+        }
+
+      }
+    }
+};
+
+    const myChart = new Chart(
+        document.getElementById('myChart301'),
+        config
+      );
+
+
+
+
+  
+  </script>
+
+  {% elif rota == "estatisticas302"%}
+  <script>
+    
+  // PROBLEMAS 302
+   var Problem302Ligar =  {{Problem302Ligar}},
+  var Problem302NoInternet = {{Problem302NoInternet}},
+  var Problem302Lento =   {{Problem302Lento}},
+  var Problem302NoImage = {{Problem302NoImage}},
+  var Problem302NoSound = {{Problem302NoSound}},
+  var Problem302BlueScreen = {{Problem302BlueScreen}},
+  var Problem302TurnOff =  {{Problem302TurnOff}},
+  var Problem302Initialization =  {{Problem302Initialization}},
+  var Problem302FreezingScreen ={{Problem302FreezingScreen}},
+  var Problem302Mouse = {{Problem302Mouse}},
+  var Problem302Board =  {{Problem302Board}},
+  var Problem302Other = {{Problem302Other}},
+  
+  </script>
+
+{% elif rota == "estatisticas303"%}
+  
+   <script>
+    // PROBLEMAS 303
+   var Problem303Ligar =  {{Problem303Ligar}},
+  var Problem303NoInternet = {{Problem303NoInternet}},
+  var Problem303Lento =   {{Problem303Lento}},
+  var Problem303NoImage = {{Problem303NoImage}},
+  var Problem303NoSound = {{Problem303NoSound}},
+  var Problem303BlueScreen = {{Problem303BlueScreen}},
+  var Problem303TurnOff =  {{Problem303TurnOff}},
+  var Problem303Initialization =  {{Problem303Initialization}},
+  var Problem303FreezingScreen ={{Problem303FreezingScreen}},
+  var Problem303Mouse = {{Problem303Mouse}},
+  var Problem303Board =  {{Problem303Board}},
+  var Problem303Other = {{Problem303Other}},
+   </script>
+
+{% elif rota == "estatisticas401"%}
+   
+  <script>
+    // PROBLEMAS 401
+   var Problem401Ligar =  {{Problem401Ligar}},
+  var Problem401NoInternet = {{Problem401NoInternet}},
+  var Problem401Lento =   {{Problem401Lento}},
+  var Problem401NoImage = {{Problem401NoImage}},
+  var Problem401NoSound = {{Problem401NoSound}},
+  var Problem401BlueScreen = {{Problem401BlueScreen}},
+  var Problem401TurnOff =  {{Problem401TurnOff}},
+  var Problem401Initialization =  {{Problem401Initialization}},
+  var Problem401FreezingScreen ={{Problem401FreezingScreen}},
+  var Problem401Mouse = {{Problem401Mouse}},
+  var Problem401Board =  {{Problem401Board}},
+  var Problem401Other = {{Problem401Other}},
+
+  </script>
+
+{% elif rota == "estatisticas402"%}
+
+  <script>
+    
+   // PROBLEMAS 402
+   var Problem402Ligar =  {{Problem402Ligar}},
+  var Problem402NoInternet = {{Problem402NoInternet}},
+  var Problem402Lento =   {{Problem402Lento}},
+  var Problem402NoImage = {{Problem402NoImage}},
+  var Problem402NoSound = {{Problem402NoSound}},
+  var Problem402BlueScreen = {{Problem402BlueScreen}},
+  var Problem402TurnOff =  {{Problem402TurnOff}},
+  var Problem402Initialization =  {{Problem402Initialization}},
+  var Problem402FreezingScreen ={{Problem402FreezingScreen}},
+  var Problem402Mouse = {{Problem402Mouse}},
+  var Problem402Board =  {{Problem402Board}},
+  var Problem402Other = {{Problem402Other}},
+  </script>
+
+{% elif rota == "estatisticas403"%}
+   
+  
+  <script>
+    // PROBLEMAS 403
+   var Problem403Ligar =  {{Problem403Ligar}},
+  var Problem403NoInternet = {{Problem403NoInternet}},
+  var Problem403Lento =   {{Problem403Lento}},
+  var Problem403NoImage = {{Problem403NoImage}},
+  var Problem403NoSound = {{Problem403NoSound}},
+  var Problem403BlueScreen = {{Problem403BlueScreen}},
+  var Problem403TurnOff =  {{Problem403TurnOff}},
+  var Problem403Initialization =  {{Problem403Initialization}},
+  var Problem403FreezingScreen ={{Problem403FreezingScreen}},
+  var Problem403Mouse = {{Problem403Mouse}},
+  var Problem403Board =  {{Problem403Board}},
+  var Problem403Other = {{Problem403Other}},
+  
+  </script>
+
+{% elif rota == "estatisticas404"%}
+   
+   <script>
+     // PROBLEMAS 404
+   var Problem404Ligar =  {{Problem404Ligar}},
+  var Problem404NoInternet = {{Problem404NoInternet}},
+  var Problem404Lento =   {{Problem404Lento}},
+  var Problem404NoImage = {{Problem404NoImage}},
+  var Problem404NoSound = {{Problem404NoSound}},
+  var Problem404BlueScreen = {{Problem404BlueScreen}},
+  var Problem404TurnOff =  {{Problem404TurnOff}},
+  var Problem404Initialization =  {{Problem404Initialization}},
+  var Problem404FreezingScreen ={{Problem404FreezingScreen}},
+  var Problem404Mouse = {{Problem404Mouse}},
+  var Problem404Board =  {{Problem404Board}},
+  var Problem404Other = {{Problem404Other}},
+   </script>
+
+{% elif rota == "estatisticas405"%}
+  
+  <script>
+     // PROBLEMAS 405
+   var Problem405Ligar =  {{Problem405Ligar}},
+  var Problem405NoInternet = {{Problem405NoInternet}},
+  var Problem405Lento =   {{Problem405Lento}},
+  var Problem405NoImage = {{Problem405NoImage}},
+  var Problem405NoSound = {{Problem405NoSound}},
+  var Problem405BlueScreen = {{Problem405BlueScreen}},
+  var Problem405TurnOff =  {{Problem405TurnOff}},
+  var Problem405Initialization =  {{Problem405Initialization}},
+  var Problem405FreezingScreen ={{Problem405FreezingScreen}},
+  var Problem405Mouse = {{Problem405Mouse}},
+  var Problem405Board =  {{Problem405Board}},
+  var Problem405Other = {{Problem405Other}},
+  </script>
+
+{% elif rota == "estatisticas406"%}
+  
+  <script>
+    // PROBLEMAS 406
+   var Problem406Ligar =  {{Problem406Ligar}},
+  var Problem406NoInternet = {{Problem406NoInternet}},
+  var Problem406Lento =   {{Problem406Lento}},
+  var Problem406NoImage = {{Problem406NoImage}},
+  var Problem406NoSound = {{Problem406NoSound}},
+  var Problem406BlueScreen = {{Problem406BlueScreen}},
+  var Problem406TurnOff =  {{Problem406TurnOff}},
+  var Problem406Initialization =  {{Problem406Initialization}},
+  var Problem406FreezingScreen ={{Problem406FreezingScreen}},
+  var Problem406Mouse = {{Problem406Mouse}},
+  var Problem406Board =  {{Problem406Board}},
+  var Problem406Other = {{Problem406Other}},
+  </script>
+
+{% elif rota == "estatisticas407"%}
+   
+  <script>
+    // PROBLEMAS 407
+   var Problem407Ligar =  {{Problem407Ligar}},
+  var Problem407NoInternet = {{Problem407NoInternet}},
+  var Problem407Lento =   {{Problem407Lento}},
+  var Problem407NoImage = {{Problem407NoImage}},
+  var Problem407NoSound = {{Problem407NoSound}},
+  var Problem407BlueScreen = {{Problem407BlueScreen}},
+  var Problem407TurnOff =  {{Problem407TurnOff}},
+  var Problem407Initialization =  {{Problem407Initialization}},
+  var Problem407FreezingScreen ={{Problem407FreezingScreen}},
+  var Problem407Mouse = {{Problem407Mouse}},
+  var Problem407Board =  {{Problem407Board}},
+  var Problem407Other = {{Problem407Other}},
+  </script>
+
+{% elif rota == "estatisticas408"%}
+   
+  <script>
+    // PROBLEMAS 408
+   var Problem408Ligar =  {{Problem408Ligar}},
+  var Problem408NoInternet = {{Problem408NoInternet}},
+  var Problem408Lento =   {{Problem408Lento}},
+  var Problem408NoImage = {{Problem408NoImage}},
+  var Problem408NoSound = {{Problem408NoSound}},
+  var Problem408BlueScreen = {{Problem408BlueScreen}},
+  var Problem408TurnOff =  {{Problem408TurnOff}},
+  var Problem408Initialization =  {{Problem408Initialization}},
+  var Problem408FreezingScreen ={{Problem408FreezingScreen}},
+  var Problem408Mouse = {{Problem408Mouse}},
+  var Problem408Board =  {{Problem408Board}},
+  var Problem408Other = {{Problem408Other}},
+  </script>
+  {% elif rota == "estatisticas409"%}
+   
+    <script>
+      // PROBLEMAS 409
+    var Problem409Ligar =  {{Problem409Ligar}},
+    var Problem409NoInternet = {{Problem409NoInternet}},
+    var Problem409Lento =   {{Problem409Lento}},
+    var Problem409NoImage = {{Problem409NoImage}},
+    var Problem409NoSound = {{Problem409NoSound}},
+    var Problem409BlueScreen = {{Problem409BlueScreen}},
+    var Problem409TurnOff =  {{Problem409TurnOff}},
+    var Problem409Initialization =  {{Problem409Initialization}},
+    var Problem409FreezingScreen ={{Problem409FreezingScreen}},
+    var Problem409Mouse = {{Problem409Mouse}},
+    var Problem409Board =  {{Problem409Board}},
+    var Problem409Other = {{Problem409Other}},
+    </script>
+    {% elif rota == "estatisticas410"%}
+   
+    <script>
+      // PROBLEMAS 410
+    var Problem410Ligar =  {{Problem410Ligar}},
+    var Problem410NoInternet = {{Problem410NoInternet}},
+    var Problem410Lento =   {{Problem410Lento}},
+    var Problem410NoImage = {{Problem410NoImage}},
+    var Problem410NoSound = {{Problem410NoSound}},
+    var Problem410BlueScreen = {{Problem410BlueScreen}},
+    var Problem410TurnOff =  {{Problem410TurnOff}},
+    var Problem410Initialization =  {{Problem410Initialization}},
+    var Problem410FreezingScreen ={{Problem410FreezingScreen}},
+    var Problem410Mouse = {{Problem410Mouse}},
+    var Problem410Board =  {{Problem410Board}},
+    var Problem410Other = {{Problem410Other}},
+    
+    </script>
+
+{% elif rota == "estatisticas411"%}
+    
+   <script>
+    // PROBLEMAS 411
+   var Problem411Ligar =  {{Problem411Ligar}},
+  var Problem411NoInternet = {{Problem411NoInternet}},
+  var Problem411Lento =   {{Problem411Lento}},
+  var Problem411NoImage = {{Problem411NoImage}},
+  var Problem411NoSound = {{Problem411NoSound}},
+  var Problem411BlueScreen = {{Problem411BlueScreen}},
+  var Problem411TurnOff =  {{Problem411TurnOff}},
+  var Problem411Initialization =  {{Problem411Initialization}},
+  var Problem411FreezingScreen ={{Problem411FreezingScreen}},
+  var Problem411Mouse = {{Problem411Mouse}},
+  var Problem411Board =  {{Problem411Board}},
+  var Problem411Other = {{Problem411Other}},
+   </script>
+
+{% elif rota == "estatisticas412"%}
+   
+   <script>
+    // PROBLEMAS 412
+  var Problem412Ligar =  {{Problem412Ligar}},
+  var Problem412NoInternet = {{Problem412NoInternet}},
+  var Problem412Lento =   {{Problem412Lento}},
+  var Problem412NoImage = {{Problem412NoImage}},
+  var Problem412NoSound = {{Problem412NoSound}},
+  var Problem412BlueScreen = {{Problem412BlueScreen}},
+  var Problem412TurnOff =  {{Problem412TurnOff}},
+  var Problem412Initialization =  {{Problem412Initialization}},
+  var Problem412FreezingScreen ={{Problem412FreezingScreen}},
+  var Problem412Mouse = {{Problem412Mouse}},
+  var Problem412Board =  {{Problem412Board}},
+  var Problem412Other = {{Problem412Other}},
+   </script>
+  
+  
+
+  v
+  
+
+
+
+
 
 
 </script>
+
 
 {% endif %}
 
@@ -374,7 +797,7 @@ const labels = [
     
 
 
-</script>
+
 
 {% endblock %}
 </body>
