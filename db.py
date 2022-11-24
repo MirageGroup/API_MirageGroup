@@ -3,18 +3,7 @@ from main import mysql
 from main import Session
 # import win32com.client as win32
 
-def insertUser(cpf,email,senha):
-    cursor = mysql.connection.cursor()
-    cursor.execute('''INSERT INTO users (cpf,email,senha) VALUES (%s,%s,%s)''', (cpf,email,senha))
-    mysql.connection.commit()
-    cursor.close()
-
-def retrieveUsers():
-    cursor = mysql.connection.cursor()
-    cursor.execute('''SELECT cpf, email FROM users''')
-    users = cursor.fetchall()
-    cursor.close()
-    return users
+                            #A FUNÇÃO DE ENVIAR EMAIL ESTA COMENTADA POR CONTA DO ERRO DA BIBLIOTECA
 
 def retrieveLab(labnum): 
     cursor = mysql.connection.cursor()
