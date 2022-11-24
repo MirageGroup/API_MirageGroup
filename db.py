@@ -1,9 +1,7 @@
 from flask_mysqldb import MySQL
 from main import mysql
 from main import Session
-# import win32com.client as win32
 
-                            #A FUNÇÃO DE ENVIAR EMAIL ESTA COMENTADA POR CONTA DO ERRO DA BIBLIOTECA
 
     # ROTULAÇÃO DE LABORATÓRIOS
 def retrieveLab(labnum): 
@@ -103,7 +101,6 @@ def finishCall(callnumber):
     cursor.execute(f''' UPDATE laboratorio{chamado[0][1]} SET pc_problema = NULL, pc_descricao = %s WHERE pc_id = %s ''', (pc_description, pc_id))
     mysql.connection.commit()
     cursor.close()
-    # enviarEmail(chamado[0][5])
 
     # DELETAR CHAMADO
 def deleteCall(callnumber):
@@ -180,18 +177,3 @@ def addComentario(comentario, callnumber):
     mysql.connection.commit()
     cursor.close()
 
-
-    # EMAIL DE ACESSO
-# def enviarEmail(Email):
-#     outlook = win32.Dispatch("outlook.application")
-#     email = outlook.CreateItem(0)
-#     email.To = f"{Email}"
-#     email.Subject = "Chamado Finalizado"
-#     email.HTMLBody = f'''
-#     <p>Olá</p>
-#     <p>Seu chamado realizado no SOS FATEC foi finalizado!</p>
-
-#     <p>confira se o problema foi resolvido! Caso não tenha sido, volte e reporte novamente.</p>
-    
-#     '''
-#     email.Send()
