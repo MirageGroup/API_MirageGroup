@@ -67,11 +67,18 @@
                     <p class="card_descrição "><strong>CHAMADO ABERTO POR</strong>: {{ chamado[5] }} </p><br>
                     <p class="card_descrição "><strong>PROBLEMA</strong>: {{ chamado[6] }} </p><br>
                     <p class="card_descrição "><strong>DESCRIÇÃO</strong>: {{ chamado[7] }} </p><br>
+                    {% if not chamado[9] %}
+                    {% else %}
                     <p class="card_descrição "><strong>COMENTÁRIO</strong>: {{ chamado[9] }}</p>
+                    {% endif %}
                     <hr>
                     <form action="/tecnico/addcoment/{{chamado[0]}}" method="POST" onsubmit="submit();return false;"> 
                       <input type="text" class="form-control" name="coment" autocomplete="off" required/>
-                      <button type="submit" class="btn btn-light mt-2">Inserir Comentário</button>
+                      {% if chamado[9] == None %}
+                      <button type="submit" class="btn btn-light mt-2">Adicionar Comentário</button>
+                      {% else %}
+                      <button type="submit" class="btn btn-light mt-2">Alterar Comentário</button>
+                      {% endif %}
                     </form>
                       <hr>
                     <a href="/tecnico/finishcall/{{chamado[0]}}"><button type="button" class="btn_closeCall">Finalizar chamado</button></a>
@@ -102,8 +109,23 @@
                     <p class="card_descrição "><strong>CHAMADO ABERTO POR</strong>: {{ chamado[5] }} </p><br>
                     <p class="card_descrição "><strong>PROBLEMA</strong>: {{ chamado[6] }} </p><br>
                     <p class="card_descrição "><strong>DESCRIÇÃO</strong>: {{ chamado[7] }} </p><br>
+                    {% if chamado[9] == None %}
+                    {% else %}
                     <p class="card_descrição "><strong>COMENTÁRIO</strong>: {{ chamado[9] }}</p>
-                    <a href="/tecnico/deleteCall/{{chamado[0]}}"><button type="button" class="btn_closeCall">Deletar chamado</button></a>                                          
+                    {% endif %}
+                    <hr>
+                    <form action="/tecnico/addcoment/{{chamado[0]}}" method="POST" onsubmit="submit();return false;"> 
+                      <input type="text" class="form-control" name="coment" autocomplete="off" required/>
+                      {% if chamado[9] == None %}
+                      <button type="submit" class="btn btn-light mt-2">Adicionar Comentário</button>
+                      {% else %}
+                      <button type="submit" class="btn btn-light mt-2">Alterar Comentário</button>
+                      {% endif %}
+                    </form>
+                      <hr>
+                    <a href="/tecnico/deleteCall/{{chamado[0]}}"><button type="button" class="btn_closeCall">Deletar chamado</button></a>
+                    
+                      
                   </div>
               </div>
           </card>

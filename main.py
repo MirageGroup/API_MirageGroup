@@ -45,6 +45,8 @@ def lab(labnum):
 
 @app.route('/lab/<int:labnum>/edit')
 def lab_edit(labnum):
+  if not session.get('key'):
+    return redirect(f'/lab/{labnum}')
   computadores = session['laboratorio']
   componentes = session['componentes']
   return render_template('laboratorio_editor.html', labnum=labnum, computadores=computadores, componentes=componentes)
@@ -78,7 +80,7 @@ def alterar_componente(labnum, config):
 @app.route('/tecnico', methods = ['POST', 'GET'])
 def tecnico():
   if not session.get('key'):
-    return redirect('/modal')
+    return redirect('/')
   chamadosAbertos = dbHandler.retrieveCalls('aberto')
   chamadosFechados = dbHandler.retrieveCalls('fechado')
   return render_template('tecnico.html', chamadosAbertos=chamadosAbertos, chamadosFechados=chamadosFechados)
@@ -106,6 +108,8 @@ def addcoment(callnumber):
 
 @app.route('/estatisticas')
 def estatistics():
+  if not session.get('key'):
+    return redirect('/')
   # TOTAIS DE CHAMADOS
   totalChamados = dbHandler.retrieveNumbersofCalls()
   print(totalChamados)
