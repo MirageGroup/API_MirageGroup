@@ -1,7 +1,7 @@
 from flask_mysqldb import MySQL
 from main import mysql
 from main import Session
-import win32com.client as win32
+# import win32com.client as win32
 
 def insertUser(cpf,email,senha):
     cursor = mysql.connection.cursor()
@@ -117,7 +117,7 @@ def finishCall(callnumber):
     cursor.execute(f''' UPDATE laboratorio{chamado[0][1]} SET pc_problema = NULL, pc_descricao = %s WHERE pc_id = %s ''', (pc_description, pc_id))
     mysql.connection.commit()
     cursor.close()
-    enviarEmail(chamado[0][5])
+    # enviarEmail(chamado[0][5])
 
 def deleteCall(callnumber):
     cursor = mysql.connection.cursor()
@@ -186,16 +186,16 @@ def addComentario(comentario, callnumber):
     mysql.connection.commit()
     cursor.close()
 
-def enviarEmail(Email):
-    outlook = win32.Dispatch("outlook.application")
-    email = outlook.CreateItem(0)
-    email.To = f"{Email}"
-    email.Subject = "Chamado Finalizado"
-    email.HTMLBody = f'''
-    <p>Olá</p>
-    <p>Seu chamado realizado no SOS FATEC foi finalizado!</p>
+# def enviarEmail(Email):
+#     outlook = win32.Dispatch("outlook.application")
+#     email = outlook.CreateItem(0)
+#     email.To = f"{Email}"
+#     email.Subject = "Chamado Finalizado"
+#     email.HTMLBody = f'''
+#     <p>Olá</p>
+#     <p>Seu chamado realizado no SOS FATEC foi finalizado!</p>
 
-    <p>confira se o problema foi resolvido! Caso não tenha sido, volte e reporte novamente.</p>
+#     <p>confira se o problema foi resolvido! Caso não tenha sido, volte e reporte novamente.</p>
     
-    '''
-    email.Send()
+#     '''
+#     email.Send()

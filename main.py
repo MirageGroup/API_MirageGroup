@@ -139,8 +139,6 @@ def estatisticsCompProblems():
   ProblemBoard = dbHandler.numberOfProblems('O teclado não está funcionando')
   ProblemOther = dbHandler.numberOfProblems('Outro')
   
-
-
   return render_template('estatisticas.html',
   rota = 'estatisticas2',
   ProblemLigar = ProblemLigar,
@@ -156,7 +154,6 @@ def estatisticsCompProblems():
   ProblemBoard = ProblemBoard,
   ProblemOther =  ProblemOther,
     
-
   )
 
 @app.route('/estatisticas/labproblems')
@@ -194,12 +191,8 @@ def estatisticsLabProblems():
     Problem409 = Problem409,
     Problem410 = Problem410,
     Problem411 = Problem411,
-    Problem412 = Problem412,
-  
-  
-  
+    Problem412 = Problem412, 
   )
-
 
       # ESTATISTICAS DE CADA LABORATORIO
 
@@ -530,7 +523,6 @@ def eachlabproblems407():
   return render_template('estatisticas.html',
   rota = 'estatisticas407',
  
-  
   # PROBLEMAS 407
   Problem407Ligar =  Problem407Ligar,
   Problem407NoInternet = Problem407NoInternet,
@@ -701,7 +693,6 @@ def eachlabproblems412():
   Problem412Board = Problems412[10]
   Problem412Other = Problems412[11]
 
-
   return render_template('estatisticas.html',
   rota = 'estatisticas412',
   # PROBLEMAS 412
@@ -719,7 +710,6 @@ def eachlabproblems412():
   Problem412Board =  Problem412Board,
   Problem412Other = Problem412Other,)
   
-
 
 if __name__ == '__main__':
   app.run(debug=True)
