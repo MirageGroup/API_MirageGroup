@@ -401,7 +401,6 @@ def eachlabproblems403():
   Problem403Board =  Problem403Board,
   Problem403Other = Problem403Other,)
 
-
 @app.route('/estatisticas/eachlabproblems404')
 def eachlabproblems404():
     # PROBLEMAS 404
