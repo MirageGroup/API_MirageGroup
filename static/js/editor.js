@@ -254,3 +254,25 @@ function removeComputerCancel() {
   RemoveComputerBTN.removeEventListener('click', removeComputerCancel)
   RemoveComputerBTN.addEventListener('click', removeComputerSelect)
 }
+
+// -*-*-*-*-*-*-*-*-*-*-*-*-*-*- ALTERAR ESPECIFICAÇÕES -*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+document.getElementById('cpu2').value = ""
+document.getElementById('gpu2').value = ""
+document.getElementById('ram2').value = ""
+document.getElementById("os2").value = ""
+
+document.getElementById('cpu1').addEventListener('input', () => {
+  document.getElementById('cpu2').value = document.getElementById('cpu1').value
+})
+
+document.getElementById('gpu1').addEventListener('input', () => {
+  document.getElementById('gpu2').value = document.getElementById('gpu1').value
+})
+
+document.getElementById('ram1').addEventListener('input', () => {
+  document.getElementById('ram2').value = document.getElementById('ram1').value
+})
+
+document.getElementById('os1').addEventListener('input', () => {
+  document.getElementById('os2').value = document.getElementById('os1').value
+})

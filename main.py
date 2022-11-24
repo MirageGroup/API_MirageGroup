@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, flash, session
 from flask_mysqldb import MySQL
 from flask_session import Session
 import db as dbHandler
-from models.forms import callForm, accessForm , addComputer
+from models.forms import callForm, accessForm
 
 app = Flask(__name__)
 app.config.from_object('config')
@@ -58,6 +58,18 @@ def salvar(labnum):
     pc_novos_id = request.form['new_pcs']
     pc_novos_pos = request.form['new_pos']
     remover_pcs_ids = request.form['remove_pcs']
+    cpu_novo = request.form['cpu']
+    gpu_novo = request.form['gpu']
+    ram_novo = request.form['ram']
+    os_novo = request.form['os']
+    if cpu_novo:
+      dbHandler.updateComponent(cpu_novo, labnum, 'CPU')
+    if gpu_novo:
+      dbHandler.updateComponent(gpu_novo, labnum, 'GPU')
+    if ram_novo:
+      dbHandler.updateComponent(ram_novo, labnum, 'MemoriaRAM')
+    if os_novo:
+      dbHandler.updateComponent(os_novo, labnum, 'OS')
     if remover_pcs_ids:
       remover_pcs_ids = remover_pcs_ids.split(',')
       dbHandler.removePcs(remover_pcs_ids, labnum)

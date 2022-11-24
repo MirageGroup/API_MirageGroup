@@ -180,6 +180,7 @@ def addComentario(comentario, callnumber):
     mysql.connection.commit()
     cursor.close()
 
+
     # EMAIL DE ACESSO
 # def enviarEmail(Email):
 #     outlook = win32.Dispatch("outlook.application")
