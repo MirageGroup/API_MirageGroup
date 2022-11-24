@@ -5,6 +5,7 @@ from main import Session
 
                             #A FUNÇÃO DE ENVIAR EMAIL ESTA COMENTADA POR CONTA DO ERRO DA BIBLIOTECA
 
+    # ROTULAÇÃO DE LABORATÓRIOS
 def retrieveLab(labnum): 
     cursor = mysql.connection.cursor()
     cursor.execute(f'''SELECT * FROM laboratorio{labnum} ORDER BY pos''')
@@ -12,6 +13,7 @@ def retrieveLab(labnum):
     cursor.close()
     return computadores
 
+    # CONDIÇÃO DOS CHAMADOS
 def retrieveCalls(estado):
     cursor = mysql.connection.cursor()
     cursor.execute(f''' SELECT * FROM chamados where estado = '{estado}' ORDER BY data_chamado DESC, hora_chamado DESC ''')
@@ -29,7 +31,6 @@ def retrieveNumbersofCalls():
 
     # NUMERO DE CHAMADOS ABERTOS E FECHADOS
 def retrieveNumbersOpenOrClose(state):
-    
     cursor = mysql.connection.cursor()
     cursor.execute(f''' SELECT id FROM chamados WHERE estado = '{state}' ''')
     numberOfCalls = cursor.fetchall()
@@ -44,7 +45,7 @@ def retrieveNumberInLabs(number):
     numberOfCalls = len(numberOfCalls)
     return numberOfCalls
     
-#    NUMERO DE PROBLEMAS ESPECIFICOS
+    # NUMERO DE PROBLEMAS ESPECIFICOS
 def numberOfProblems(problem):
         cursor = mysql.connection.cursor()
         cursor.execute(f''' SELECT id FROM chamados WHERE problema_tipo = '{problem}' ''')
@@ -52,6 +53,7 @@ def numberOfProblems(problem):
         numberOfProblems = len(numberOfProblems)
         return numberOfProblems
 
+    # LISTA DE PROBLEMAS
 def numberOfProblemsInLab(number):
      cursor = mysql.connection.cursor()
      problemList = ['O computador não liga',
@@ -70,17 +72,11 @@ def numberOfProblemsInLab(number):
      varList = []
      for i in problemList:
         cursor.execute(f''' SELECT id FROM chamados WHERE problema_tipo = '{i}' AND laboratorio_num = '{number}'  ''')
-        numberOfProblemsInLab = cursor.fetchall()
-        
+        numberOfProblemsInLab = cursor.fetchall() 
         varList.append(len(numberOfProblemsInLab))
-    
-    
-        
-
      return varList
 
-
-
+    # MODAL LOGIN
 def createCall(form, labnum):
     cursor = mysql.connection.cursor()
     pc_id = form.input_numero_pc.data 
@@ -94,6 +90,7 @@ def createCall(form, labnum):
     mysql.connection.commit()
     cursor.close()
 
+    # FINALIZAÇÃO DO CHAMADO
 def finishCall(callnumber):
     cursor = mysql.connection.cursor()
     callnumber = str(callnumber)
@@ -108,6 +105,7 @@ def finishCall(callnumber):
     cursor.close()
     # enviarEmail(chamado[0][5])
 
+    # DELETAR CHAMADO
 def deleteCall(callnumber):
     cursor = mysql.connection.cursor()
     callnumber = str(callnumber)
@@ -117,18 +115,21 @@ def deleteCall(callnumber):
     mysql.connection.commit()
     cursor.close()
 
+    # ALTERAÇÃO REPORTS DOS PCs
 def updatePcStatus(labnum, pc_id, pc_problem, problem_description):
     cursor = mysql.connection.cursor()
     cursor.execute(f''' UPDATE laboratorio{labnum} SET pc_problema = %s, pc_descricao = %s WHERE pc_id = %s''', (pc_problem, problem_description, pc_id))
     mysql.connection.commit()
     cursor.close()
 
+    # ACESSO A ÁREA TÉCNICA
 def retrieveAccessCode():
     cursor = mysql.connection.cursor()
     cursor.execute(''' SELECT acesso FROM acesso_tecnico ''')
     acesso = cursor.fetchall()
     return acesso
 
+    # COMPONENTES DOS COMPUTADORES
 def retrieveComponents(labNum):
      cursor = mysql.connection.cursor()
      cursor.execute(f''' SELECT * FROM componentes WHERE laboratorio = {labNum} ''')
@@ -136,13 +137,14 @@ def retrieveComponents(labNum):
      cursor.close()
      return componentes
 
+    # ALTERAÇÃO DA CONFIGURAÇÃO DOS LABs
 def updateComponent(componente, labnum, config):
     cursor = mysql.connection.cursor()
     cursor.execute(f''' UPDATE componentes SET {config} = %s WHERE laboratorio = %s ''', (componente, labnum))
     mysql.connection.commit()
     cursor.close()
 
-
+    # DRAG AND DROP
 def saveLayoutPositions(layout_novo, labnum):
     cursor = mysql.connection.cursor()
     lista_posicoes = []
@@ -155,6 +157,7 @@ def saveLayoutPositions(layout_novo, labnum):
         cont += 1
     cursor.close()
     
+    # ADIÇÃO DE NOVOS COMPUTADORES
 def addNewPcs(pc_novos_id, pc_novos_pos, labnum):
     cursor = mysql.connection.cursor()
     for i in range(len(pc_novos_id)):
@@ -162,6 +165,7 @@ def addNewPcs(pc_novos_id, pc_novos_pos, labnum):
         mysql.connection.commit()
     cursor.close()
 
+    # REMOÇÃO DE COMPUTADORES
 def removePcs(remover_pcs_ids, labnum):
   cursor = mysql.connection.cursor()
   for i in remover_pcs_ids:
@@ -169,12 +173,14 @@ def removePcs(remover_pcs_ids, labnum):
     mysql.connection.commit()
   cursor.close()
 
+    # COMENTARIO DO TECNICO SOBRE O REPORT
 def addComentario(comentario, callnumber):
     cursor = mysql.connection.cursor()
     cursor.execute(f''' UPDATE chamados SET comentarios = '{comentario}' WHERE id = '{callnumber}' ''')
     mysql.connection.commit()
     cursor.close()
 
+    # EMAIL DE ACESSO
 # def enviarEmail(Email):
 #     outlook = win32.Dispatch("outlook.application")
 #     email = outlook.CreateItem(0)
