@@ -215,6 +215,8 @@ def estatisticsLabProblems():
 
 @app.route('/estatisticas/eachlabproblems301')
 def eachlabproblems301():
+  if not session.get('key'):
+    return redirect('/')
 
  
 
@@ -251,6 +253,8 @@ def eachlabproblems301():
 
 @app.route('/estatisticas/eachlabproblems302')
 def eachlabproblems302():
+  if not session.get('key'):
+    return redirect('/')
   # PROBLEMAS 302
   Problems302 = dbHandler.numberOfProblemsInLab(302)
   Problem302Ligar = Problems302[0]
@@ -285,6 +289,8 @@ def eachlabproblems302():
 
 @app.route('/estatisticas/eachlabproblems303')
 def eachlabproblems303():
+  if not session.get('key'):
+    return redirect('/')
   
   # PROBLEMAS 303
   Problems303 = dbHandler.numberOfProblemsInLab(303)
@@ -320,6 +326,8 @@ def eachlabproblems303():
 
 @app.route('/estatisticas/eachlabproblems401')
 def eachlabproblems401():
+  if not session.get('key'):
+    return redirect('/')
   # PROBLEMAS 401
   Problems401 = dbHandler.numberOfProblemsInLab(401)
   Problem401Ligar = Problems401[0]
@@ -353,6 +361,8 @@ def eachlabproblems401():
 
 @app.route('/estatisticas/eachlabproblems402')
 def eachlabproblems402():
+  if not session.get('key'):
+    return redirect('/')
    # PROBLEMAS 402
   Problems402 = dbHandler.numberOfProblemsInLab(402)
   Problem402Ligar = Problems402[0]
@@ -386,6 +396,8 @@ def eachlabproblems402():
 
 @app.route('/estatisticas/eachlabproblems403')
 def eachlabproblems403():
+  if not session.get('key'):
+    return redirect('/')
     # PROBLEMAS 403
   Problems403 = dbHandler.numberOfProblemsInLab(403)
   Problem403Ligar = Problems403[0]
@@ -419,6 +431,8 @@ def eachlabproblems403():
 
 @app.route('/estatisticas/eachlabproblems404')
 def eachlabproblems404():
+  if not session.get('key'):
+    return redirect('/')
     # PROBLEMAS 404
   Problems404 = dbHandler.numberOfProblemsInLab(404)
   Problem404Ligar = Problems404[0]
@@ -452,6 +466,8 @@ def eachlabproblems404():
 
 @app.route('/estatisticas/eachlabproblems405')
 def eachlabproblems405():
+  if not session.get('key'):
+    return redirect('/')
     # PROBLEMAS 405
   Problems405 = dbHandler.numberOfProblemsInLab(405)
   Problem405Ligar = Problems405[0]
@@ -486,6 +502,8 @@ def eachlabproblems405():
 
 @app.route('/estatisticas/eachlabproblems406')
 def eachlabproblems406():
+  if not session.get('key'):
+    return redirect('/')
      # PROBLEMAS 406
   Problems406 = dbHandler.numberOfProblemsInLab(406)
   Problem406Ligar = Problems406[0]
@@ -520,6 +538,8 @@ def eachlabproblems406():
 
 @app.route('/estatisticas/eachlabproblems407')
 def eachlabproblems407():
+  if not session.get('key'):
+    return redirect('/')
     # PROBLEMAS 407
   Problems407 = dbHandler.numberOfProblemsInLab(407)
   Problem407Ligar = Problems407[0]
@@ -555,6 +575,8 @@ def eachlabproblems407():
 
 @app.route('/estatisticas/eachlabproblems408')
 def eachlabproblems408():
+  if not session.get('key'):
+    return redirect('/')
      
   # PROBLEMAS 408
   Problems408 = dbHandler.numberOfProblemsInLab(408)
@@ -590,6 +612,8 @@ def eachlabproblems408():
 
 @app.route('/estatisticas/eachlabproblems409')
 def eachlabproblems409():
+  if not session.get('key'):
+    return redirect('/')
     # PROBLEMAS 409
   Problems409 = dbHandler.numberOfProblemsInLab(409)
   Problem409Ligar = Problems409[0]
@@ -624,6 +648,8 @@ def eachlabproblems409():
 
 @app.route('/estatisticas/eachlabproblems410')
 def eachlabproblems410():
+  if not session.get('key'):
+    return redirect('/')
     # PROBLEMAS 410
   Problems410 = dbHandler.numberOfProblemsInLab(410)
   Problem410Ligar = Problems410[0]
@@ -658,6 +684,8 @@ def eachlabproblems410():
 
 @app.route('/estatisticas/eachlabproblems411')
 def eachlabproblems411():
+  if not session.get('key'):
+    return redirect('/')
      # PROBLEMAS 411
   Problems411 = dbHandler.numberOfProblemsInLab(411)
   Problem411Ligar = Problems411[0]
@@ -693,6 +721,8 @@ def eachlabproblems411():
 
 @app.route('/estatisticas/eachlabproblems412')
 def eachlabproblems412():
+  if not session.get('key'):
+    return redirect('/')
      # PROBLEMAS 412
   Problems412 = dbHandler.numberOfProblemsInLab(412)
   Problem412Ligar = Problems412[0]
