@@ -235,7 +235,8 @@ def eachlabproblems301():
   Problem301Board = Problems301[10]
   Problem301Other = Problems301[11]
   return render_template('estatisticas.html',
-    rota = 'estatisticas301',
+  rota = 'estatisticas301',
+  varTitle = "estatisticas 301",
     # PROBLEMAS 301
   Problem301Ligar =  Problem301Ligar,
   Problem301NoInternet = Problem301NoInternet,
@@ -272,6 +273,7 @@ def eachlabproblems302():
 
   return render_template('estatisticas.html',
   rota = 'estatisticas302',
+  varTitle = "estatisticas 302",
    # PROBLEMAS 302
   Problem302Ligar =  Problem302Ligar,
   Problem302NoInternet = Problem302NoInternet,
@@ -309,7 +311,7 @@ def eachlabproblems303():
   return render_template('estatisticas.html',  
   rota = 'estatisticas303',
   # PROBLEMAS 303
-  
+  varTitle = "estatisticas 303",
   Problem303Ligar =  Problem303Ligar,
   Problem303NoInternet = Problem303NoInternet,
   Problem303Lento =   Problem303Lento,
@@ -345,7 +347,7 @@ def eachlabproblems401():
   return render_template('estatisticas.html',
   rota = 'estatisticas401',
     # PROBLEMAS 401
-  
+  varTitle = "estatisticas 401",
   Problem401Ligar =  Problem401Ligar,
   Problem401NoInternet = Problem401NoInternet,
   Problem401Lento =   Problem401Lento,
@@ -380,7 +382,7 @@ def eachlabproblems402():
   return render_template('estatisticas.html',
   rota = 'estatisticas402',
   # PROBLEMAS 402
-  
+  varTitle = "estatisticas 402",
   Problem402Ligar =  Problem402Ligar,
   Problem402NoInternet = Problem402NoInternet,
   Problem402Lento =   Problem402Lento,
@@ -414,6 +416,7 @@ def eachlabproblems403():
   Problem403Other = Problems403[11]
   return render_template('estatisticas.html',
   rota = 'estatisticas403',
+  varTitle = "estatisticas 403",
    # PROBLEMAS 403
   
   Problem403Ligar =  Problem403Ligar,
@@ -449,6 +452,7 @@ def eachlabproblems404():
   Problem404Other = Problems404[11]
   return render_template('estatisticas.html',
   rota = 'estatisticas404',
+  varTitle = "estatisticas 404",
   # PROBLEMAS 404
   
   Problem404Ligar =  Problem404Ligar,
@@ -484,6 +488,7 @@ def eachlabproblems405():
   Problem405Other = Problems405[11]
   return render_template('estatisticas.html',
   rota = 'estatisticas405',
+  varTitle = "estatisticas 405",
   # PROBLEMAS 405
   
   Problem405Ligar =  Problem405Ligar,
@@ -520,8 +525,9 @@ def eachlabproblems406():
   Problem406Other = Problems406[11]
   return render_template('estatisticas.html',
   rota = 'estatisticas406',
+  varTitle = "estatisticas 406",
 
-   # PROBLEMAS 406
+  # PROBLEMAS 406
   Problem406Ligar =  Problem406Ligar,
   Problem406NoInternet = Problem406NoInternet,
   Problem406Lento =   Problem406Lento,
@@ -557,6 +563,7 @@ def eachlabproblems407():
 
   return render_template('estatisticas.html',
   rota = 'estatisticas407',
+  varTitle = "estatisticas 407",
  
   # PROBLEMAS 407
   Problem407Ligar =  Problem407Ligar,
@@ -595,6 +602,7 @@ def eachlabproblems408():
 
   return render_template('estatisticas.html',
   rota = 'estatisticas408',
+  varTitle = "estatisticas 408",
   # PROBLEMAS 408
   
   Problem408Ligar =  Problem408Ligar,
@@ -631,6 +639,7 @@ def eachlabproblems409():
 
   return render_template('estatisticas.html',
   rota = 'estatisticas409',
+  varTitle = "estatisticas 409",
   # PROBLEMAS 409
   
   Problem409Ligar =  Problem409Ligar,
@@ -667,6 +676,7 @@ def eachlabproblems410():
 
   return render_template('estatisticas.html',
   rota = 'estatisticas410',
+  varTitle = "estatisticas 410",
   # PROBLEMAS 410
   
   Problem410Ligar =  Problem410Ligar,
@@ -703,6 +713,7 @@ def eachlabproblems411():
 
   return render_template('estatisticas.html',
   rota = 'estatisticas411',
+  varTitle = "estatisticas 411",
   # PROBLEMAS 411
   
   Problem411Ligar =  Problem411Ligar,
@@ -740,6 +751,7 @@ def eachlabproblems412():
 
   return render_template('estatisticas.html',
   rota = 'estatisticas412',
+  varTitle = "estatisticas 412",
   # PROBLEMAS 412
   
   Problem412Ligar =  Problem412Ligar,

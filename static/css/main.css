@@ -537,7 +537,7 @@ hr{
 }
 
 .estatisticas_tables_labs{
-    width: 45%;
+    width: 40%;
    margin-bottom: 2em;
 
 }
@@ -562,6 +562,7 @@ align-items: center;
     padding: 10px;
     list-style: none;
     text-decoration: none;
+    border-radius: 0px;
 }
 .aba-ativa-estatisticas{
    
