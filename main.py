@@ -89,13 +89,47 @@ def alterar_componente(labnum, config):
     dbHandler.updateComponent(componente, labnum, config)
     return redirect(f'/lab/{labnum}')
 
-@app.route('/tecnico', methods = ['POST', 'GET'])
+@app.route('/tecnico/', methods = ['POST', 'GET'])
 def tecnico():
   if not session.get('key'):
     return redirect('/')
-  chamadosAbertos = dbHandler.retrieveCalls('aberto')
-  chamadosFechados = dbHandler.retrieveCalls('fechado')
-  return render_template('tecnico.html', chamadosAbertos=chamadosAbertos, chamadosFechados=chamadosFechados)
+  chamados = filtrar(request.args.get('tipo'), request.args.get('laboratorio'))
+  return render_template('tecnico.html', chamadosAbertos=chamados[0], chamadosFechados=chamados[1])
+
+def filtrar(tipo, laboratorio):
+  if tipo:
+    session['tipo'] = tipo
+    print(session.get('tipo'))
+  if laboratorio:
+    session['laboratorio'] = laboratorio
+    print(session.get('laboratorio'))
+
+  cursor = mysql.connection.cursor()
+  # Pegando os dois filtros
+  if session.get('tipo') and session.get('laboratorio'):
+    cursor.execute(f'''SELECT * FROM chamados WHERE problema_tipo = "{session.get('tipo')}", laboratorio_num = "{session.get('laboratorio')}", estado = "aberto" ''')
+    chamadosAbertos = cursor.fetchall()
+    cursor.execute(f'''SELECT * FROM chamados WHERE problema_tipo = "{session.get('tipo')}", laboratorio_num = "{session.get('laboratorio')}", estado = "fechado" ''')
+    chamadosFechados = cursor.fetchall()
+  # Pegando o filtro de tipo e não pegando o de laboratório
+  elif session.get('tipo') and not session.get('laboratorio'):
+    cursor.execute(f'''SELECT * FROM chamados WHERE problema_tipo = "{session.get('tipo')}", estado = "aberto" ''')
+    chamadosAbertos = cursor.fetchall()
+    cursor.execute(f'''SELECT * FROM chamados WHERE problema_tipo = "{session.get('tipo')}", estado = "fechado" ''')
+    chamadosFechados = cursor.fetchall()
+  # Pegando o filtro de laboratório e não pegando o de tipo
+  elif not session.get('tipo') and session.get('laboratorio'):
+    cursor.execute(f'''SELECT * FROM chamados WHERE laboratorio_num = "{session.get('laboratorio')}", estado = "aberto" ''')
+    chamadosAbertos = cursor.fetchall()
+    cursor.execute(f'''SELECT * FROM chamados WHERE laboratorio_num = "{session.get('laboratorio')}", estado = "fechado" ''')
+    chamadosFechados = cursor.fetchall()
+  else:
+    cursor.execute(f''' SELECT * FROM chamados WHERE estado = "aberto' ''')
+    chamadosAbertos = cursor.fetchall()
+    cursor.execute(f''' SELECT * FROM chamados WHERE estado = "fechado" ''')
+    chamadosFechados = cursor.fetchall()
+  chamados = [chamadosAbertos, chamadosFechados]
+  return chamados
 
 @app.route('/tecnico/finishcall/<int:callnumber>')
 def finishCall(callnumber):
@@ -124,7 +158,6 @@ def estatistics():
     return redirect('/')
   # TOTAIS DE CHAMADOS
   totalChamados = dbHandler.retrieveNumbersofCalls()
-  print(totalChamados)
 
   # TOTAIS DE CHAMADOS ABERTOS OU FECHADOS
   chamadosAbertos = dbHandler.retrieveNumbersOpenOrClose("aberto")

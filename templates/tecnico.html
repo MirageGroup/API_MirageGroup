@@ -30,14 +30,46 @@
               <li><button data-botao="todos" class="menu_reports-button aba-ativa" ><h2>TODOS</h2></button></li>
               <li><button data-botao="aberto" class="menu_reports-button" ><h2>CHAMADOS ABERTOS</h2></button></li>
               <li><button data-botao="fechado" class="menu_reports-button"><h2>CHAMADOS FINALIZADOS</h2></button></li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-              <div class="searchbar">
-              <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
-              <button class="btn btn-dark" type="submit">Buscar</button>
-              </div>
-            </form>  
+            </ul> 
           </div>         
+        </div>
+        <br>
+        <div class="container_menu_reports">
+          <div class="menu_reports">
+            <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="margin-right: 1%;">Tipo de Problema</button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/tecnico?tipo=O computador não liga">O computador não liga</a></li>
+              <li><a class="dropdown-item" href="/tecnico?tipo=O computador está sem internet">O computador está sem internet</a></li>
+              <li><a class="dropdown-item" href="/tecnico?tipo=O computador está muito lento">O computador está muito lento</a></li>
+              <li><a class="dropdown-item" href="/tecnico?tipo=O computador não está dando imagem">O computador não está dando imagem</a></li>
+              <li><a class="dropdown-item" href="/tecnico?tipo=O computador está sem som">O computador está sem som</a></li>
+              <li><a class="dropdown-item" href="/tecnico?tipo=O computador está tendo a tela azul">O computador está tendo a tela azul</a></li>
+              <li><a class="dropdown-item" href="/tecnico?tipo=O computador está desligando sozinho">O computador está desligando sozinho</a></li>
+              <li><a class="dropdown-item" href="/tecnico?tipo=O sistema operacional não está inicializando">O sistema operacional não está inicializando</a></li>
+              <li><a class="dropdown-item" href="/tecnico?tipo=A tela está congelando">A tela está congelando</a></li>
+              <li><a class="dropdown-item" href="/tecnico?tipo=O mouse não está funcionando">O mouse não está funcionando</a></li>
+              <li><a class="dropdown-item" href="/tecnico?tipo=O teclado não está funcionando">O teclado não está funcionando</a></li>
+              <li><a class="dropdown-item" href="/tecnico?tipo=Outro">Outro</a></li>
+            </ul>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Laboratório</button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/tecnico?laboratorio=301">301</a></li>
+              <li><a class="dropdown-item" href="/tecnico?laboratorio=302">302</a></li>
+              <li><a class="dropdown-item" href="/tecnico?laboratorio=303">303</a></li>
+              <li><a class="dropdown-item" href="/tecnico?laboratorio=401">401</a></li>
+              <li><a class="dropdown-item" href="/tecnico?laboratorio=402">402</a></li>
+              <li><a class="dropdown-item" href="/tecnico?laboratorio=403">403</a></li>
+              <li><a class="dropdown-item" href="/tecnico?laboratorio=404">404</a></li>
+              <li><a class="dropdown-item" href="/tecnico?laboratorio=405">405</a></li>
+              <li><a class="dropdown-item" href="/tecnico?laboratorio=406">406</a></li>
+              <li><a class="dropdown-item" href="/tecnico?laboratorio=407">407</a></li>
+              <li><a class="dropdown-item" href="/tecnico?laboratorio=408">408</a></li>
+              <li><a class="dropdown-item" href="/tecnico?laboratorio=409">409</a></li>
+              <li><a class="dropdown-item" href="/tecnico?laboratorio=410">410</a></li>
+              <li><a class="dropdown-item" href="/tecnico?laboratorio=411">411</a></li>
+              <li><a class="dropdown-item" href="/tecnico?laboratorio=412">412</a></li>
+            </ul>
+          </div>     
         </div>
         <section class="container_reports">
             {% if chamadosAbertos|length == 0 %}
