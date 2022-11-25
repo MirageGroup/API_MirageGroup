@@ -107,24 +107,24 @@ def filtrar(tipo, laboratorio):
   cursor = mysql.connection.cursor()
   # Pegando os dois filtros
   if session.get('tipo') and session.get('laboratorio'):
-    cursor.execute(f'''SELECT * FROM chamados WHERE problema_tipo = "{session.get('tipo')}", laboratorio_num = "{session.get('laboratorio')}", estado = "aberto" ''')
+    cursor.execute(f''' SELECT * FROM chamados WHERE problema_tipo = "{session.get('tipo')}" AND laboratorio_num = "{session.get('laboratorio')}" AND estado = "aberto" ''')
     chamadosAbertos = cursor.fetchall()
-    cursor.execute(f'''SELECT * FROM chamados WHERE problema_tipo = "{session.get('tipo')}", laboratorio_num = "{session.get('laboratorio')}", estado = "fechado" ''')
+    cursor.execute(f''' SELECT * FROM chamados WHERE problema_tipo = "{session.get('tipo')}" AND laboratorio_num = "{session.get('laboratorio')}" AND estado = "fechado" ''')
     chamadosFechados = cursor.fetchall()
   # Pegando o filtro de tipo e não pegando o de laboratório
   elif session.get('tipo') and not session.get('laboratorio'):
-    cursor.execute(f'''SELECT * FROM chamados WHERE problema_tipo = "{session.get('tipo')}", estado = "aberto" ''')
+    cursor.execute(f''' SELECT * FROM chamados WHERE problema_tipo = "{session.get('tipo')}" AND estado = "aberto" ''')
     chamadosAbertos = cursor.fetchall()
-    cursor.execute(f'''SELECT * FROM chamados WHERE problema_tipo = "{session.get('tipo')}", estado = "fechado" ''')
+    cursor.execute(f''' SELECT * FROM chamados WHERE problema_tipo = "{session.get('tipo')}" AND estado = "fechado" ''')
     chamadosFechados = cursor.fetchall()
   # Pegando o filtro de laboratório e não pegando o de tipo
   elif not session.get('tipo') and session.get('laboratorio'):
-    cursor.execute(f'''SELECT * FROM chamados WHERE laboratorio_num = "{session.get('laboratorio')}", estado = "aberto" ''')
+    cursor.execute(f''' SELECT * FROM chamados WHERE laboratorio_num = "{session.get('laboratorio')}" AND estado = "aberto" ''')
     chamadosAbertos = cursor.fetchall()
-    cursor.execute(f'''SELECT * FROM chamados WHERE laboratorio_num = "{session.get('laboratorio')}", estado = "fechado" ''')
+    cursor.execute(f''' SELECT * FROM chamados WHERE laboratorio_num = "{session.get('laboratorio')}" AND estado = "fechado" ''')
     chamadosFechados = cursor.fetchall()
   else:
-    cursor.execute(f''' SELECT * FROM chamados WHERE estado = "aberto' ''')
+    cursor.execute(f''' SELECT * FROM chamados WHERE estado = "aberto" ''')
     chamadosAbertos = cursor.fetchall()
     cursor.execute(f''' SELECT * FROM chamados WHERE estado = "fechado" ''')
     chamadosFechados = cursor.fetchall()

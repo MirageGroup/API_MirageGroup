@@ -36,7 +36,11 @@
         <br>
         <div class="container_menu_reports">
           <div class="menu_reports">
-            <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="margin-right: 1%;">Tipo de Problema</button>
+            {% if session.get('tipo') %}
+            <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="margin-right: 1%;">{{ session['tipo'] }}</button>
+            {% else %}
+            <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="margin-right: 1%;">Tipo De Problema</button>
+            {% endif %}
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="/tecnico?tipo=O computador não liga">O computador não liga</a></li>
               <li><a class="dropdown-item" href="/tecnico?tipo=O computador está sem internet">O computador está sem internet</a></li>
@@ -51,7 +55,11 @@
               <li><a class="dropdown-item" href="/tecnico?tipo=O teclado não está funcionando">O teclado não está funcionando</a></li>
               <li><a class="dropdown-item" href="/tecnico?tipo=Outro">Outro</a></li>
             </ul>
+            {% if session.get('laboratorio') %}
+            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">{{ session['laboratorio'] }}</button>
+            {% else %}
             <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Laboratório</button>
+            {% endif %}
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="/tecnico?laboratorio=301">301</a></li>
               <li><a class="dropdown-item" href="/tecnico?laboratorio=302">302</a></li>
