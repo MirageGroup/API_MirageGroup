@@ -1,317 +1,265 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="{{ url_for('static',     filename='css/reset.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static',     filename='css/style.css') }}">
-
-    <title>Estatisticas</title>
-</head>
 {% extends "header.html" %}
-{% block content %}
+{% block main %}
+<main>
 
-<body>
-    <main>
-
-            <div class="titulos_edit">
-                <div class="titulos_editor">
-                    <h1>ESTATISTICAS DOS CHAMADOS</h1>
-                    <p>Aqui você pode consultar os principais dados dos laboratórios</p>
-                   
-
-                </div>
-                
-               
-            </div>
-            
+  <div class="main_apresentação">
+    <h1 class="apresentação_titulo">ESTATÍSTICAS DOS CHAMADOS</h1>
+    <p class="apresentação_texto">Aqui você pode consultar os principais dados dos laboratórios</p>
+</div>
         
-        <section class="layout_editores">
-     {% if rota == "estatisticas1" %}
-          <div class="area_de_estatisticas">
-            
-                <ul class="menu_estatisticas_itens">
-                    <li><a href="/estatisticas" data-botao="chamados" class="botão_estatisticas text-dark aba-ativa-estatisticas">CHAMADOS ABERTOS E FECHADOS</a></li>
-                    <li><a href="/estatisticas/compproblems" data-botao="problemas" class="botão_estatisticas text-dark">PROBLEMAS COMPUTADORES</a></li>
-                    <li><a href="/estatisticas/labproblems" data-botao="lab" class="botão_estatisticas text-dark">CHAMADOS EM CADA LABORATORIO</a></li>
-                    <div class="dropdown">
-                      <a class="btn btn-secondary dropdown-toggle botão_estatisticas text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        PROBLEMAS EM CADA LABORATORIO 
-                      </a>
-                      <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems301">LAB 301</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems302">LAB 302</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems303">LAB 303</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems401">LAB 401</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems402">LAB 402</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems403">LAB 403</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems404">LAB 404</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems405">LAB 405</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems406">LAB 406</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems407">LAB 407</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems408">LAB 408</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems409">LAB 409</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems410">LAB 410</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems411">LAB 411</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems412">LAB 412</a></li>
-          
-                      </ul>
-                    </div>
-                </ul>
-
-                <div class="estatisticas_tables_circle " data-grafico="chamados">
-                    <canvas id="myChartReports"></canvas>
-                </div>
-                
-                    
-                </div>
-             
-            </div>
-    {% elif rota == "estatisticas2" %}
-            <div class="area_de_estatisticas">
-                <ul class="menu_estatisticas_itens">
-                    <li><a href="/estatisticas" data-botao="chamados" class="botão_estatisticas text-dark">CHAMADOS ABERTOS E FECHADOS</a></li>
-                    <li><a href="/estatisticas/compproblems" data-botao="problemas" class="botão_estatisticas aba-ativa-estatisticas text-dark">PROBLEMAS COMPUTADORES</a></li>
-                    <li><a href="/estatisticas/labproblems" data-botao="lab" class="botão_estatisticas text-dark">CHAMADOS EM CADA LABORATORIO</a></li>
-                    <div class="dropdown">
-                      <a class="btn btn-secondary dropdown-toggle botão_estatisticas text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        PROBLEMAS EM CADA LABORATORIO 
-                      </a>
-                      <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems301">LAB 301</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems302">LAB 302</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems303">LAB 303</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems401">LAB 401</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems402">LAB 402</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems403">LAB 403</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems404">LAB 404</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems405">LAB 405</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems406">LAB 406</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems407">LAB 407</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems408">LAB 408</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems409">LAB 409</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems410">LAB 410</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems411">LAB 411</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems412">LAB 412</a></li>
-          
-                      </ul>
-                    </div>
-                </ul>
-
-                
-                <div class="estatisticas_tables " data-grafico="problemas" >
-                    
-                    <div >
-                        <canvas id="myChart"></canvas>
-                    </div>
-                    
-                </div>
-              
-            </div>
-
-
-    {% elif rota == "estatisticas3" %}
-            <div class="area_de_estatisticas">
-            
-                <ul class="menu_estatisticas_itens">
-                    <li><a href="/estatisticas" data-botao="chamados" class="botão_estatisticas text-dark">CHAMADOS ABERTOS E FECHADOS</a></li>
-                    <li><a href="/estatisticas/compproblems" data-botao="problemas" class="botão_estatisticas text-dark">PROBLEMAS COMPUTADORE</a></li>
-                    <li><a href="/estatisticas/labproblems" data-botao="lab" class="botão_estatisticas text-dark aba-ativa-estatisticas">CHAMADOS EM CADA LABORATORIO</a></li>
-                    <div class="dropdown">
-                      <a class="btn btn-secondary dropdown-toggle botão_estatisticas text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        PROBLEMAS EM CADA LABORATORIO 
-                      </a>
-                      <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems301">LAB 301</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems302">LAB 302</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems303">LAB 303</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems401">LAB 401</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems402">LAB 402</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems403">LAB 403</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems404">LAB 404</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems405">LAB 405</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems406">LAB 406</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems407">LAB 407</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems408">LAB 408</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems409">LAB 409</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems410">LAB 410</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems411">LAB 411</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems412">LAB 412</a></li>
-          
-                      </ul>
-                    </div>
-                </ul>
-                <div class="estatisticas_tables " data-grafico="lab" >
-                    
-                    <div >
-                        <canvas id="myChartLab"></canvas>
-                    </div>
-                    
-                </div>
-            </div>
-
-            {% else %}
-            <div class="area_de_estatisticas">
-            
-              <ul class="menu_estatisticas_itens">
-                  <li><a href="/estatisticas" data-botao="chamados" class="botão_estatisticas text-dark">CHAMADOS ABERTOS E FECHADOS</a></li>
-                  <li><a href="/estatisticas/compproblems" data-botao="problemas" class="botão_estatisticas text-dark">PROBLEMAS COMPUTADORE</a></li>
-                  <li><a href="/estatisticas/labproblems" data-botao="lab" class="botão_estatisticas text-dark ">CHAMADOS EM CADA LABORATORIO</a></li>
-                  <div class="dropdown">
-                    <a class="btn btn-secondary dropdown-toggle botão_estatisticas text-dark aba-ativa-estatisticas" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      PROBLEMAS EM CADA LABORATORIO 
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="/estatisticas/eachlabproblems301">LAB 301</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems302">LAB 302</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems303">LAB 303</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems401">LAB 401</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems402">LAB 402</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems403">LAB 403</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems404">LAB 404</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems405">LAB 405</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems406">LAB 406</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems407">LAB 407</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems408">LAB 408</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems409">LAB 409</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems410">LAB 410</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems411">LAB 411</a></li>
-                        <li><a class="dropdown-item" href="/estatisticas/eachlabproblems412">LAB 412</a></li>
-        
-                    </ul>
-                  </div>
+    
+    <section class="layout_editores">
+    {% if rota == "estatisticas1" %}
+    <div class="area_de_estatisticas">
+        <ul class="menu_estatisticas_itens">
+            <li><a href="/estatisticas" data-botao="chamados" class="botão_estatisticas text-dark aba-ativa-estatisticas">CHAMADOS ABERTOS E FECHADOS</a></li>
+            <li><a href="/estatisticas/compproblems" data-botao="problemas" class="botão_estatisticas text-dark">PROBLEMAS COMPUTADORES</a></li>
+            <li><a href="/estatisticas/labproblems" data-botao="lab" class="botão_estatisticas text-dark">CHAMADOS EM CADA LABORATORIO</a></li>
+            <div class="dropdown">
+              <a class="btn btn-secondary dropdown-toggle botão_estatisticas text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                PROBLEMAS EM CADA LABORATORIO 
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/estatisticas/eachlabproblems301">LAB 301</a></li>
+                <li><a class="dropdown-item" href="/estatisticas/eachlabproblems302">LAB 302</a></li>
+                <li><a class="dropdown-item" href="/estatisticas/eachlabproblems303">LAB 303</a></li>
+                <li><a class="dropdown-item" href="/estatisticas/eachlabproblems401">LAB 401</a></li>
+                <li><a class="dropdown-item" href="/estatisticas/eachlabproblems402">LAB 402</a></li>
+                <li><a class="dropdown-item" href="/estatisticas/eachlabproblems403">LAB 403</a></li>
+                <li><a class="dropdown-item" href="/estatisticas/eachlabproblems404">LAB 404</a></li>
+                <li><a class="dropdown-item" href="/estatisticas/eachlabproblems405">LAB 405</a></li>
+                <li><a class="dropdown-item" href="/estatisticas/eachlabproblems406">LAB 406</a></li>
+                <li><a class="dropdown-item" href="/estatisticas/eachlabproblems407">LAB 407</a></li>
+                <li><a class="dropdown-item" href="/estatisticas/eachlabproblems408">LAB 408</a></li>
+                <li><a class="dropdown-item" href="/estatisticas/eachlabproblems409">LAB 409</a></li>
+                <li><a class="dropdown-item" href="/estatisticas/eachlabproblems410">LAB 410</a></li>
+                <li><a class="dropdown-item" href="/estatisticas/eachlabproblems411">LAB 411</a></li>
+                <li><a class="dropdown-item" href="/estatisticas/eachlabproblems412">LAB 412</a></li>
               </ul>
-              <div class="titulos_editor" style="text-transform:uppercase">
-                <h1>{{varTitle}}</h1>
-                <hr>
-               
             </div>
-              {% if rota == 'estatisticas301'%}
-              <div class="estatisticas_tables_labs " data-grafico="lab" >
-                <div >
-                    <canvas id="myChart301"></canvas>
-                </div>    
-              </div>
-              {% elif rota == 'estatisticas302' %}
-              <div class="estatisticas_tables_labs " data-grafico="lab" >
-                <div >
-                    <canvas id="myChart302"></canvas>
-                </div>    
-              </div>
-              {% elif rota == 'estatisticas303' %}
-              <div class="estatisticas_tables_labs " data-grafico="lab" >
-                <div >
-                    <canvas id="myChart303"></canvas>
-                </div>    
-              </div>
-              {% elif rota == 'estatisticas401' %}
-              <div class="estatisticas_tables_labs " data-grafico="lab" >
-                <div >
-                    <canvas id="myChart401"></canvas>
-                </div>    
-              </div>
-              {% elif rota == 'estatisticas402' %}
-              <div class="estatisticas_tables_labs " data-grafico="lab" >
-                <div >
-                    <canvas id="myChart402"></canvas>
-                </div>    
-              </div>
-              {% elif rota == 'estatisticas403' %}
-              <div class="estatisticas_tables_labs " data-grafico="lab" >
-                <div >
-                    <canvas id="myChart403"></canvas>
-                </div>    
-              </div>
-              {% elif rota == 'estatisticas404' %}
-              <div class="estatisticas_tables_labs " data-grafico="lab" >
-                <div >
-                    <canvas id="myChart404"></canvas>
-                </div>    
-              </div>
-              {% elif rota == 'estatisticas405' %}
-              <div class="estatisticas_tables_labs " data-grafico="lab" >
-                <div >
-                    <canvas id="myChart405"></canvas>
-                </div>    
-              </div>
-              {% elif rota == 'estatisticas406' %}
-              <div class="estatisticas_tables_labs " data-grafico="lab" >
-                <div >
-                    <canvas id="myChart406"></canvas>
-                </div>    
-              </div>
-              {% elif rota == 'estatisticas407' %}
-              <div class="estatisticas_tables_labs " data-grafico="lab" >
-                <div >
-                    <canvas id="myChart407"></canvas>
-                </div>    
-              </div>
-              {% elif rota == 'estatisticas408' %}
-              <div class="estatisticas_tables_labs " data-grafico="lab" >
-                <div >
-                    <canvas id="myChart408"></canvas>
-                </div>    
-              </div>
-              {% elif rota == 'estatisticas409' %}
-              <div class="estatisticas_tables_labs " data-grafico="lab" >
-                <div >
-                    <canvas id="myChart409"></canvas>
-                </div>    
-              </div>
-              {% elif rota == 'estatisticas410' %}
-              <div class="estatisticas_tables_labs " data-grafico="lab" >
-                <div >
-                    <canvas id="myChart410"></canvas>
-                </div>    
-              </div>
-              {% elif rota == 'estatisticas411' %}
-              <div class="estatisticas_tables_labs " data-grafico="lab" >
-                <div >
-                    <canvas id="myChart411"></canvas>
-                </div>    
-              </div>
-              {% elif rota == 'estatisticas412' %}
-              <div class="estatisticas_tables_labs " data-grafico="lab" >
-                <div >
-                    <canvas id="myChart412"></canvas>
-                </div>    
-              </div>
-              {%endif%}
-          </div>
-
-             
-
-
-            {% endif %}
-
-           
-               
-              
-               
-        
-  
+        </ul>
+        <div class="estatisticas_tables_circle " data-grafico="chamados">
+            <canvas id="myChartReports"></canvas>
+        </div>
+      
           
-        </section>
-    </main>
+      </div>
+        </div>
+{% elif rota == "estatisticas2" %}
+        <div class="area_de_estatisticas">
+            <ul class="menu_estatisticas_itens">
+                <li><a href="/estatisticas" data-botao="chamados" class="botão_estatisticas text-dark">CHAMADOS ABERTOS E FECHADOS</a></li>
+                <li><a href="/estatisticas/compproblems" data-botao="problemas" class="botão_estatisticas aba-ativa-estatisticas text-dark">PROBLEMAS COMPUTADORES</a></li>
+                <li><a href="/estatisticas/labproblems" data-botao="lab" class="botão_estatisticas text-dark">CHAMADOS EM CADA LABORATORIO</a></li>
+                <div class="dropdown">
+                  <a class="btn btn-secondary dropdown-toggle botão_estatisticas text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    PROBLEMAS EM CADA LABORATORIO 
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems301">LAB 301</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems302">LAB 302</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems303">LAB 303</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems401">LAB 401</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems402">LAB 402</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems403">LAB 403</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems404">LAB 404</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems405">LAB 405</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems406">LAB 406</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems407">LAB 407</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems408">LAB 408</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems409">LAB 409</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems410">LAB 410</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems411">LAB 411</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems412">LAB 412</a></li>
+      
+                  </ul>
+                </div>
+            </ul>
 
-    <footer class="footer_home">
-        <img class="img-footer" src="../static/img/cps_brasao_sp_320x84.png" alt="fatec-logo">
-         <div class="github" >
-           <h1>Todos os direitos Reservados</h1>
-         </div>
-         <div class="link_github">
-          <p>Link para nossso repositório:</p>
-           <a href="https://github.com/MirageGroup/API_MirageGroup" target="_blank">
-             <img class="media-object" src="../static/img/GitHub-Mark-removebg-preview.png" alt="logo-git">
-           </a>
-          </div> 
-      </footer>
+            
+            <div class="estatisticas_tables " data-grafico="problemas" >
+                
+                <div >
+                    <canvas id="myChart"></canvas>
+                </div>
+                
+            </div>
+          
+        </div>
 
+
+{% elif rota == "estatisticas3" %}
+        <div class="area_de_estatisticas">
+        
+            <ul class="menu_estatisticas_itens">
+                <li><a href="/estatisticas" data-botao="chamados" class="botão_estatisticas text-dark">CHAMADOS ABERTOS E FECHADOS</a></li>
+                <li><a href="/estatisticas/compproblems" data-botao="problemas" class="botão_estatisticas text-dark">PROBLEMAS COMPUTADORE</a></li>
+                <li><a href="/estatisticas/labproblems" data-botao="lab" class="botão_estatisticas text-dark aba-ativa-estatisticas">CHAMADOS EM CADA LABORATORIO</a></li>
+                <div class="dropdown">
+                  <a class="btn btn-secondary dropdown-toggle botão_estatisticas text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    PROBLEMAS EM CADA LABORATORIO 
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems301">LAB 301</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems302">LAB 302</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems303">LAB 303</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems401">LAB 401</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems402">LAB 402</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems403">LAB 403</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems404">LAB 404</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems405">LAB 405</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems406">LAB 406</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems407">LAB 407</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems408">LAB 408</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems409">LAB 409</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems410">LAB 410</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems411">LAB 411</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems412">LAB 412</a></li>
+      
+                  </ul>
+                </div>
+            </ul>
+            <div class="estatisticas_tables " data-grafico="lab" >
+                
+                <div >
+                    <canvas id="myChartLab"></canvas>
+                </div>
+                
+            </div>
+        </div>
+
+        {% else %}
+        <div class="area_de_estatisticas">
+        
+          <ul class="menu_estatisticas_itens">
+              <li><a href="/estatisticas" data-botao="chamados" class="botão_estatisticas text-dark">CHAMADOS ABERTOS E FECHADOS</a></li>
+              <li><a href="/estatisticas/compproblems" data-botao="problemas" class="botão_estatisticas text-dark">PROBLEMAS COMPUTADORE</a></li>
+              <li><a href="/estatisticas/labproblems" data-botao="lab" class="botão_estatisticas text-dark ">CHAMADOS EM CADA LABORATORIO</a></li>
+              <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle botão_estatisticas text-dark aba-ativa-estatisticas" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  PROBLEMAS EM CADA LABORATORIO 
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/estatisticas/eachlabproblems301">LAB 301</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems302">LAB 302</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems303">LAB 303</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems401">LAB 401</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems402">LAB 402</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems403">LAB 403</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems404">LAB 404</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems405">LAB 405</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems406">LAB 406</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems407">LAB 407</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems408">LAB 408</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems409">LAB 409</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems410">LAB 410</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems411">LAB 411</a></li>
+                    <li><a class="dropdown-item" href="/estatisticas/eachlabproblems412">LAB 412</a></li>
+    
+                </ul>
+              </div>
+          </ul>
+          <div class="titulos_editor" style="text-transform:uppercase">
+            <h1>{{varTitle}}</h1>
+            <hr>
+        </div>
+          {% if rota == 'estatisticas301'%}
+          <div class="estatisticas_tables_labs " data-grafico="lab" >
+            <div >
+                <canvas id="myChart301"></canvas>
+            </div>    
+          </div>
+          {% elif rota == 'estatisticas302' %}
+          <div class="estatisticas_tables_labs " data-grafico="lab" >
+            <div >
+                <canvas id="myChart302"></canvas>
+            </div>    
+          </div>
+          {% elif rota == 'estatisticas303' %}
+          <div class="estatisticas_tables_labs " data-grafico="lab" >
+            <div >
+                <canvas id="myChart303"></canvas>
+            </div>    
+          </div>
+          {% elif rota == 'estatisticas401' %}
+          <div class="estatisticas_tables_labs " data-grafico="lab" >
+            <div >
+                <canvas id="myChart401"></canvas>
+            </div>    
+          </div>
+          {% elif rota == 'estatisticas402' %}
+          <div class="estatisticas_tables_labs " data-grafico="lab" >
+            <div >
+                <canvas id="myChart402"></canvas>
+            </div>    
+          </div>
+          {% elif rota == 'estatisticas403' %}
+          <div class="estatisticas_tables_labs " data-grafico="lab" >
+            <div >
+                <canvas id="myChart403"></canvas>
+            </div>    
+          </div>
+          {% elif rota == 'estatisticas404' %}
+          <div class="estatisticas_tables_labs " data-grafico="lab" >
+            <div >
+                <canvas id="myChart404"></canvas>
+            </div>    
+          </div>
+          {% elif rota == 'estatisticas405' %}
+          <div class="estatisticas_tables_labs " data-grafico="lab" >
+            <div >
+                <canvas id="myChart405"></canvas>
+            </div>    
+          </div>
+          {% elif rota == 'estatisticas406' %}
+          <div class="estatisticas_tables_labs " data-grafico="lab" >
+            <div >
+                <canvas id="myChart406"></canvas>
+            </div>    
+          </div>
+          {% elif rota == 'estatisticas407' %}
+          <div class="estatisticas_tables_labs " data-grafico="lab" >
+            <div >
+                <canvas id="myChart407"></canvas>
+            </div>    
+          </div>
+          {% elif rota == 'estatisticas408' %}
+          <div class="estatisticas_tables_labs " data-grafico="lab" >
+            <div >
+                <canvas id="myChart408"></canvas>
+            </div>    
+          </div>
+          {% elif rota == 'estatisticas409' %}
+          <div class="estatisticas_tables_labs " data-grafico="lab" >
+            <div >
+                <canvas id="myChart409"></canvas>
+            </div>    
+          </div>
+          {% elif rota == 'estatisticas410' %}
+          <div class="estatisticas_tables_labs " data-grafico="lab" >
+            <div >
+                <canvas id="myChart410"></canvas>
+            </div>    
+          </div>
+          {% elif rota == 'estatisticas411' %}
+          <div class="estatisticas_tables_labs " data-grafico="lab" >
+            <div >
+                <canvas id="myChart411"></canvas>
+            </div>    
+          </div>
+          {% elif rota == 'estatisticas412' %}
+          <div class="estatisticas_tables_labs " data-grafico="lab" >
+            <div >
+                <canvas id="myChart412"></canvas>
+            </div>    
+          </div>
+          {%endif%}
+      </div>
+
+        {% endif %}
+
+    </section>
+</main>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -477,7 +425,7 @@ const labels = [
         const dataLab = {
           labels: labelsLab,
           datasets: [{
-            label: 'numero de reports em laboratorios',
+            label: 'Número de chamados em cada laboratório',
             backgroundColor: 'rgb(255, 99, 132)',
             borderColor: 'rgb(255, 99, 132)',
             data: [
@@ -1868,13 +1816,4 @@ const labels = [
 
 
 {% endif %}
-
-
-    
-
-
-
-
 {% endblock %}
-</body>
-</html>

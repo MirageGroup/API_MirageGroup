@@ -1,196 +1,162 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/reset.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/header.css') }}">
-    <title>Técnico</title>
-</head>
-<body>
-    {% extends "header.html" %}
-    {% block content %}
-    <main>
-        <div class="main_apresentação">
-            <h1 class="apresentação_titulo">Bem vindo ao controle de chamados</h1>
-            <p class="apresentação_texto">Aqui você pode verificar os chamados abertos pelos usuários, assim como ferramentas para organizá-los</p>
-        </div>
-        <hr style="width:100%">
-        <div class="container_menu_reports">
-          <h2 class="title_menu_reports">MENU DE CHAMADOS</h2>
-          <p class="text_menu_reports">Clique nos botões abaixo para exibir o tipo correspondente de chamados</p>
-          <div class="menu_reports">
-            <ul class="menu_reports-itens">
-              <li><button data-botao="todos" class="menu_reports-button aba-ativa" ><h2>TODOS</h2></button></li>
-              <li><button data-botao="aberto" class="menu_reports-button" ><h2>CHAMADOS ABERTOS</h2></button></li>
-              <li><button data-botao="fechado" class="menu_reports-button"><h2>CHAMADOS FINALIZADOS</h2></button></li>
-            </ul> 
-          </div>         
-        </div>
-        <br>
-        <div class="container_menu_reports">
-          <div class="menu_reports">
-            {% if session.get('tipo') %}
-            <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="margin-right: 1%;">{{ session['tipo'] }}</button>
-            {% else %}
-            <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="margin-right: 1%;">Tipo De Problema</button>
-            {% endif %}
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/tecnico?tipo=O computador não liga">O computador não liga</a></li>
-              <li><a class="dropdown-item" href="/tecnico?tipo=O computador está sem internet">O computador está sem internet</a></li>
-              <li><a class="dropdown-item" href="/tecnico?tipo=O computador está muito lento">O computador está muito lento</a></li>
-              <li><a class="dropdown-item" href="/tecnico?tipo=O computador não está dando imagem">O computador não está dando imagem</a></li>
-              <li><a class="dropdown-item" href="/tecnico?tipo=O computador está sem som">O computador está sem som</a></li>
-              <li><a class="dropdown-item" href="/tecnico?tipo=O computador está tendo a tela azul">O computador está tendo a tela azul</a></li>
-              <li><a class="dropdown-item" href="/tecnico?tipo=O computador está desligando sozinho">O computador está desligando sozinho</a></li>
-              <li><a class="dropdown-item" href="/tecnico?tipo=O sistema operacional não está inicializando">O sistema operacional não está inicializando</a></li>
-              <li><a class="dropdown-item" href="/tecnico?tipo=A tela está congelando">A tela está congelando</a></li>
-              <li><a class="dropdown-item" href="/tecnico?tipo=O mouse não está funcionando">O mouse não está funcionando</a></li>
-              <li><a class="dropdown-item" href="/tecnico?tipo=O teclado não está funcionando">O teclado não está funcionando</a></li>
-              <li><a class="dropdown-item" href="/tecnico?tipo=Outro">Outro</a></li>
-            </ul>
-            {% if session.get('laboratorio') %}
-            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="margin-right: 1%;">{{ session['laboratorio'] }}</button>
-            {% else %}
-            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="margin-right: 1%;">Laboratório</button>
-            {% endif %}
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/tecnico?laboratorio=301">301</a></li>
-              <li><a class="dropdown-item" href="/tecnico?laboratorio=302">302</a></li>
-              <li><a class="dropdown-item" href="/tecnico?laboratorio=303">303</a></li>
-              <li><a class="dropdown-item" href="/tecnico?laboratorio=401">401</a></li>
-              <li><a class="dropdown-item" href="/tecnico?laboratorio=402">402</a></li>
-              <li><a class="dropdown-item" href="/tecnico?laboratorio=403">403</a></li>
-              <li><a class="dropdown-item" href="/tecnico?laboratorio=404">404</a></li>
-              <li><a class="dropdown-item" href="/tecnico?laboratorio=405">405</a></li>
-              <li><a class="dropdown-item" href="/tecnico?laboratorio=406">406</a></li>
-              <li><a class="dropdown-item" href="/tecnico?laboratorio=407">407</a></li>
-              <li><a class="dropdown-item" href="/tecnico?laboratorio=408">408</a></li>
-              <li><a class="dropdown-item" href="/tecnico?laboratorio=409">409</a></li>
-              <li><a class="dropdown-item" href="/tecnico?laboratorio=410">410</a></li>
-              <li><a class="dropdown-item" href="/tecnico?laboratorio=411">411</a></li>
-              <li><a class="dropdown-item" href="/tecnico?laboratorio=412">412</a></li>
-            </ul>
-            <a href="/limpar"><button type="button" class="btn btn-dark" aria-expanded="false">Limpar filtros</button></a>
-          </div>     
-        </div>
-        <section class="container_reports">
-            {% if chamadosAbertos|length == 0 %}
-            <h1 class="apresentação_semChamado" data-conteudo="aberto">Nenhum chamado aberto encontrado</h1>
-            <img class="error_img" data-conteudo="aberto" src="../static/img/error.svg">
-            <h3 class="apresentação_texto" data-conteudo="aberto">Recarregue a página ou espere alguém fazer um chamado</h3>
+{% extends "header.html" %}
+{% block main %}
+<main>
+    <div class="main_apresentação">
+        <h1 class="apresentação_titulo">Bem vindo ao controle de chamados</h1>
+        <p class="apresentação_texto">Aqui você pode verificar os chamados abertos pelos usuários, assim como ferramentas para organizá-los</p>
+    </div>
+    <hr style="width:100%">
+    <div class="container_menu_reports">
+      <h2 class="title_menu_reports">MENU DE CHAMADOS</h2>
+      <p class="text_menu_reports">Clique nos botões abaixo para exibir o tipo correspondente de chamados</p>
+      <div class="menu_reports">
+        <ul class="menu_reports-itens">
+          <li><button data-botao="todos" class="menu_reports-button aba-ativa" ><h2>TODOS</h2></button></li>
+          <li><button data-botao="aberto" class="menu_reports-button" ><h2>CHAMADOS ABERTOS</h2></button></li>
+          <li><button data-botao="fechado" class="menu_reports-button"><h2>CHAMADOS FINALIZADOS</h2></button></li>
+        </ul> 
+      </div>         
+    </div>
+    <br>
+    <div class="container_menu_reports">
+      <div class="menu_reports">
+        {% if session.get('tipo') %}
+        <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="margin-right: 1%;">{{ session['tipo'] }}</button>
+        {% else %}
+        <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="margin-right: 1%;">Tipo De Problema</button>
+        {% endif %}
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="/tecnico?tipo=O computador não liga">O computador não liga</a></li>
+          <li><a class="dropdown-item" href="/tecnico?tipo=O computador está sem internet">O computador está sem internet</a></li>
+          <li><a class="dropdown-item" href="/tecnico?tipo=O computador está muito lento">O computador está muito lento</a></li>
+          <li><a class="dropdown-item" href="/tecnico?tipo=O computador não está dando imagem">O computador não está dando imagem</a></li>
+          <li><a class="dropdown-item" href="/tecnico?tipo=O computador está sem som">O computador está sem som</a></li>
+          <li><a class="dropdown-item" href="/tecnico?tipo=O computador está tendo a tela azul">O computador está tendo a tela azul</a></li>
+          <li><a class="dropdown-item" href="/tecnico?tipo=O computador está desligando sozinho">O computador está desligando sozinho</a></li>
+          <li><a class="dropdown-item" href="/tecnico?tipo=O sistema operacional não está inicializando">O sistema operacional não está inicializando</a></li>
+          <li><a class="dropdown-item" href="/tecnico?tipo=A tela está congelando">A tela está congelando</a></li>
+          <li><a class="dropdown-item" href="/tecnico?tipo=O mouse não está funcionando">O mouse não está funcionando</a></li>
+          <li><a class="dropdown-item" href="/tecnico?tipo=O teclado não está funcionando">O teclado não está funcionando</a></li>
+          <li><a class="dropdown-item" href="/tecnico?tipo=Outro">Outro</a></li>
+        </ul>
+        {% if session.get('laboratorio_num') %}
+        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="margin-right: 1%;">{{ session['laboratorio_num'] }}</button>
+        {% else %}
+        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="margin-right: 1%;">Laboratório</button>
+        {% endif %}
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="/tecnico?laboratorio_num=301">301</a></li>
+          <li><a class="dropdown-item" href="/tecnico?laboratorio_num=302">302</a></li>
+          <li><a class="dropdown-item" href="/tecnico?laboratorio_num=303">303</a></li>
+          <li><a class="dropdown-item" href="/tecnico?laboratorio_num=401">401</a></li>
+          <li><a class="dropdown-item" href="/tecnico?laboratorio_num=402">402</a></li>
+          <li><a class="dropdown-item" href="/tecnico?laboratorio_num=403">403</a></li>
+          <li><a class="dropdown-item" href="/tecnico?laboratorio_num=404">404</a></li>
+          <li><a class="dropdown-item" href="/tecnico?laboratorio_num=405">405</a></li>
+          <li><a class="dropdown-item" href="/tecnico?laboratorio_num=406">406</a></li>
+          <li><a class="dropdown-item" href="/tecnico?laboratorio_num=407">407</a></li>
+          <li><a class="dropdown-item" href="/tecnico?laboratorio_num=408">408</a></li>
+          <li><a class="dropdown-item" href="/tecnico?laboratorio_num=409">409</a></li>
+          <li><a class="dropdown-item" href="/tecnico?laboratorio_num=410">410</a></li>
+          <li><a class="dropdown-item" href="/tecnico?laboratorio_num=411">411</a></li>
+          <li><a class="dropdown-item" href="/tecnico?laboratorio_num=412">412</a></li>
+        </ul>
+        <a href="/limpar"><button type="button" class="btn btn-dark" aria-expanded="false">Limpar filtros</button></a>
+      </div>     
+    </div>
+    <section class="container_reports">
+        {% if chamadosAbertos|length == 0 %}
+        <h1 class="apresentação_semChamado" data-conteudo="aberto">Nenhum chamado aberto encontrado</h1>
+        <img class="error_img" data-conteudo="aberto" src="../static/img/error.svg">
+        <h3 class="apresentação_texto" data-conteudo="aberto">Recarregue a página ou espere alguém fazer um chamado</h3>
 
-            {% else %}
-            <h1 class="apresentação_semChamado" data-conteudo="aberto">Chamados Abertos</h1>
+        {% else %}
+        <h1 class="apresentação_semChamado" data-conteudo="aberto">Chamados Abertos</h1>
 
-            {%endif%}
+        {%endif%}
 
-          {% for chamado in chamadosAbertos %}
-            <card class="reports_cardaberto" data-conteudo="aberto"> 
-              <div class='card_superior_titulo_aberto' >
-                      <h1 class="card_titulo" id="titulo_barra">Laboratório {{ chamado[1] }} </h1>
-                      <h1 class="card_titulo">Computador {{ chamado[2] }}  </h1>
-                      <p class=" botão_seta seta_baixo " id="" type="button" data-bs-toggle="collapse" data-bs-target="#chamado{{chamado[0]}}" aria-expanded="false" aria-controls="collapseExample">
-                      </p>
-              </div>
-              <div class='card_superior_subtitulo'>
-                  <h2 class="card_subtitulo">DATA: {{ chamado[3] }}</h2>
-                  <h2 class="card_subtitulo">Horario: {{ chamado[4] }} </h2>
-              </div>
-              <div class="reports_inferior">
-                  <div class="collapse collapse_report" id="chamado{{chamado[0]}}">
-                    <p class="card_descrição "><strong>CHAMADO ABERTO POR</strong>: {{ chamado[5] }} </p><br>
-                    <p class="card_descrição "><strong>PROBLEMA</strong>: {{ chamado[6] }} </p><br>
-                    <p class="card_descrição "><strong>DESCRIÇÃO</strong>: {{ chamado[7] }} </p><br>
-                    {% if not chamado[9] %}
-                    {% else %}
-                    <p class="card_descrição "><strong>COMENTÁRIO</strong>: {{ chamado[9] }}</p>
-                    {% endif %}
-                    <hr>
-                    <form action="/tecnico/addcoment/{{chamado[0]}}" method="POST" onsubmit="submit();return false;"> 
-                      <input type="text" class="form-control" name="coment" autocomplete="off" required/>
-                      {% if chamado[9] == None %}
-                      <button type="submit" class="btn btn-light mt-2">Adicionar Comentário</button>
-                      {% else %}
-                      <button type="submit" class="btn btn-light mt-2">Alterar Comentário</button>
-                      {% endif %}
-                    </form>
-                      <hr>
-                        <a href="/tecnico/finishcall/{{chamado[0]}}"><button type="button" class="btn_closeCall">Finalizar chamado</button></a>
-                  
-                      </div>
-              </div>
-            </card>
-     
-          {% endfor %}
-
-          <!-- <hr data-conteudo="aberto"> -->
-          <h1 class="apresentação_semChamado" data-conteudo="fechado">Chamados Finalizados</h1>
-          
-          {% for chamado in chamadosFechados %}
-            <card class="reports_cardfechado" data-conteudo="fechado"> 
-              <div class='card_superior_titulo_fechado'>
-                      <h1 class="card_titulo" id="titulo_barra">Laboratório {{ chamado[1] }} </h1>
-                      <h1 class="card_titulo">Computador {{ chamado[2] }}  </h1>
-                      <p class=" botão_seta seta_baixo " id="" type="button" data-bs-toggle="collapse" data-bs-target="#chamado{{chamado[0]}}" aria-expanded="false" aria-controls="collapseExample">
-                      </p>
-              </div>
-              <div class='card_superior_subtitulo'>
-                  <h2 class="card_subtitulo">DATA: {{ chamado[3] }}</h2>
-                  <h2 class="card_subtitulo">Horario: {{ chamado[4] }} </h2>
-              </div>
-              <div class="reports_inferior">
-                  <div class="collapse collapse_report" id="chamado{{chamado[0]}}">
-                    <p class="card_descrição "><strong>CHAMADO ABERTO POR</strong>: {{ chamado[5] }} </p><br>
-                    <p class="card_descrição "><strong>PROBLEMA</strong>: {{ chamado[6] }} </p><br>
-                    <p class="card_descrição "><strong>DESCRIÇÃO</strong>: {{ chamado[7] }} </p><br>
-                    {% if chamado[9] == None %}
-                    {% else %}
-                    <p class="card_descrição "><strong>COMENTÁRIO</strong>: {{ chamado[9] }}</p>
-                    {% endif %}
-                    <hr>
-                    <form action="/tecnico/addcoment/{{chamado[0]}}" method="POST" onsubmit="submit();return false;">                 
-                      <input type="text" class="form-control" name="coment" autocomplete="off" required/>
-                      {% if chamado[9] == None %}
-                      <button type="submit" class="btn btn-light mt-2">Adicionar Comentário</button>
-                      {% else %}
-                      <button type="submit" class="btn btn-light mt-2">Alterar Comentário</button>
-                      {% endif %}
-                    </form>
-                      <hr>
-                      <a href="/tecnico/deleteCall/{{chamado[0]}}"><button type="button" class="btn_closeCall">Deletar chamado</button></a>
-
+      {% for chamado in chamadosAbertos %}
+        <card class="reports_cardaberto" data-conteudo="aberto"> 
+          <div class='card_superior_titulo_aberto' >
+                  <h1 class="card_titulo" id="titulo_barra">Laboratório {{ chamado[1] }} </h1>
+                  <h1 class="card_titulo">Computador {{ chamado[2] }}  </h1>
+                  <p class=" botão_seta seta_baixo " id="" type="button" data-bs-toggle="collapse" data-bs-target="#chamado{{chamado[0]}}" aria-expanded="false" aria-controls="collapseExample"></p>
+          </div>
+          <div class='card_superior_subtitulo'>
+              <h2 class="card_subtitulo">DATA: {{ chamado[3] }}</h2>
+              <h2 class="card_subtitulo">Horario: {{ chamado[4] }} </h2>
+          </div>
+          <div class="reports_inferior">
+              <div class="collapse collapse_report" id="chamado{{chamado[0]}}">
+                <p class="card_descrição "><strong>CHAMADO ABERTO POR</strong>: {{ chamado[5] }} </p><br>
+                <p class="card_descrição "><strong>PROBLEMA</strong>: {{ chamado[6] }} </p><br>
+                <p class="card_descrição "><strong>DESCRIÇÃO</strong>: {{ chamado[7] }} </p><br>
+                {% if not chamado[9] %}
+                {% else %}
+                <p class="card_descrição "><strong>COMENTÁRIO</strong>: {{ chamado[9] }}</p>
+                {% endif %}
+                <hr>
+                <form action="/tecnico/addcoment/{{chamado[0]}}" method="POST" onsubmit="submit();return false;"> 
+                  <input type="text" class="form-control" name="coment" autocomplete="off" required/>
+                  {% if chamado[9] == None %}
+                  <button type="submit" class="btn btn-light mt-2">Adicionar Comentário</button>
+                  {% else %}
+                  <button type="submit" class="btn btn-light mt-2">Alterar Comentário</button>
+                  {% endif %}
+                </form>
+                  <hr>
+                    <a href="/tecnico/finishcall/{{chamado[0]}}"><button type="button" class="btn_closeCall">Finalizar chamado</button></a>
+              
                   </div>
+          </div>
+        </card>
+  
+      {% endfor %}
+
+        <hr>
+
+      <!-- <hr data-conteudo="aberto"> -->
+      <h1 class="apresentação_semChamado" data-conteudo="fechado">Chamados Finalizados</h1>
+      
+      {% for chamado in chamadosFechados %}
+        <card class="reports_cardfechado" data-conteudo="fechado"> 
+          <div class='card_superior_titulo_fechado'>
+                  <h1 class="card_titulo" id="titulo_barra">Laboratório {{ chamado[1] }} </h1>
+                  <h1 class="card_titulo">Computador {{ chamado[2] }}  </h1>
+                  <p class=" botão_seta seta_baixo " id="" type="button" data-bs-toggle="collapse" data-bs-target="#chamado{{chamado[0]}}" aria-expanded="false" aria-controls="collapseExample"></p>
+          </div>
+          <div class='card_superior_subtitulo'>
+              <h2 class="card_subtitulo">DATA: {{ chamado[3] }}</h2>
+              <h2 class="card_subtitulo">Horario: {{ chamado[4] }} </h2>
+          </div>
+          <div class="reports_inferior">
+              <div class="collapse collapse_report" id="chamado{{chamado[0]}}">
+                <p class="card_descrição "><strong>CHAMADO ABERTO POR</strong>: {{ chamado[5] }} </p><br>
+                <p class="card_descrição "><strong>PROBLEMA</strong>: {{ chamado[6] }} </p><br>
+                <p class="card_descrição "><strong>DESCRIÇÃO</strong>: {{ chamado[7] }} </p><br>
+                {% if chamado[9] == None %}
+                {% else %}
+                <p class="card_descrição "><strong>COMENTÁRIO</strong>: {{ chamado[9] }}</p>
+                {% endif %}
+                <hr>
+                <form action="/tecnico/addcoment/{{chamado[0]}}" method="POST" onsubmit="submit();return false;">                 
+                  <input type="text" class="form-control" name="coment" autocomplete="off" required/>
+                  {% if chamado[9] == None %}
+                  <button type="submit" class="btn btn-light mt-2">Adicionar Comentário</button>
+                  {% else %}
+                  <button type="submit" class="btn btn-light mt-2">Alterar Comentário</button>
+                  {% endif %}
+                </form>
+                  <hr>
+                  <a href="/tecnico/deleteCall/{{chamado[0]}}"><button type="button" class="btn_closeCall">Deletar chamado</button></a>
+
               </div>
-          </card>
-                   
-          {% endfor %}
-     
-        </section>
-        
-    </main>
-    <footer class="footer_home">
-        <img class="img-footer" src="../static/img/cps_brasao_sp_320x84.png" alt="fatec-logo">
-         <div class="github" >
-           <h1>Todos os direitos Reservados</h1>
-         </div>
-         <div class="link_github">
-          <p>Link para nossso repositório:</p>
-           <a href="https://github.com/MirageGroup/API_MirageGroup" target="_blank">
-             <img class="media-object" src="../static/img/GitHub-Mark-removebg-preview.png" alt="logo-git">
-           </a>
-          </div> 
-      </footer>
-   
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-    <script src="{{ url_for('static',filename='js/técnico.js') }}" ></script>
-    {% endblock %}
-        
-</body>
-</html>
+          </div>
+      </card>
+      {% endfor %}
+    </section>
+
+</main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+<script src="{{ url_for('static',filename='js/técnico.js') }}" ></script>
+{% endblock %}

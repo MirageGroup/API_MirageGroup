@@ -13,7 +13,7 @@ Session(app)
 @app.route('/')
 def home():
   acessForm_ = accessForm()
-  return render_template('index.html',acessForm_=acessForm_)
+  return render_template('index.html',acessForm_=acessForm_, titulo='SOS FATEC - Home')
 
 @app.route('/verificacao' , methods = ["POST", "GET"])
 def TecVerificacao():
@@ -41,7 +41,7 @@ def lab(labnum):
     componentes = dbHandler.retrieveComponents(labnum)
     session['laboratorio'] = computadores
     session['componentes'] = componentes
-    return render_template('laboratorio.html', labnum=labnum, computadores=computadores,componentes = componentes , form=form, acessForm_=acessForm_)
+    return render_template('laboratorio.html', labnum=labnum, computadores=computadores,componentes = componentes , form=form, acessForm_=acessForm_, titulo=f'SOS FATEC - Lab {labnum}')
 
 @app.route('/lab/<int:labnum>/edit')
 def lab_edit(labnum):
@@ -49,7 +49,7 @@ def lab_edit(labnum):
     return redirect(f'/lab/{labnum}')
   computadores = session['laboratorio']
   componentes = session['componentes']
-  return render_template('laboratorio_editor.html', labnum=labnum, computadores=computadores, componentes=componentes)
+  return render_template('laboratorio_editor.html', labnum=labnum, computadores=computadores, componentes=componentes, titulo=f'SOS FATEC - Editar {labnum}')
 
 @app.route('/lab/<int:labnum>/edit/salvar', methods=['POST', 'GET'])
 def salvar(labnum):
@@ -93,35 +93,33 @@ def alterar_componente(labnum, config):
 def tecnico():
   if not session.get('key'):
     return redirect('/')
-  chamados = filtrar(request.args.get('tipo'), request.args.get('laboratorio'))
-  return render_template('tecnico.html', chamadosAbertos=chamados[0], chamadosFechados=chamados[1])
+  chamados = filtrar(request.args.get('tipo'), request.args.get('laboratorio_num'))
+  return render_template('tecnico.html', chamadosAbertos=chamados[0], chamadosFechados=chamados[1], titulo='SOS FATEC - Chamados')
 
 def filtrar(tipo, laboratorio):
   if tipo:
     session['tipo'] = tipo
-    print(session.get('tipo'))
   if laboratorio:
-    session['laboratorio'] = laboratorio
-    print(session.get('laboratorio'))
+    session['laboratorio_num'] = laboratorio
 
   cursor = mysql.connection.cursor()
   # Pegando os dois filtros
-  if session.get('tipo') and session.get('laboratorio'):
-    cursor.execute(f''' SELECT * FROM chamados WHERE problema_tipo = "{session.get('tipo')}" AND laboratorio_num = "{session.get('laboratorio')}" AND estado = "aberto" ''')
+  if session.get('tipo') and session.get('laboratorio_num'):
+    cursor.execute(f''' SELECT * FROM chamados WHERE problema_tipo = "{session.get('tipo')}" AND laboratorio_num = "{session.get('laboratorio_num')}" AND estado = "aberto" ''')
     chamadosAbertos = cursor.fetchall()
-    cursor.execute(f''' SELECT * FROM chamados WHERE problema_tipo = "{session.get('tipo')}" AND laboratorio_num = "{session.get('laboratorio')}" AND estado = "fechado" ''')
+    cursor.execute(f''' SELECT * FROM chamados WHERE problema_tipo = "{session.get('tipo')}" AND laboratorio_num = "{session.get('laboratorio_num')}" AND estado = "fechado" ''')
     chamadosFechados = cursor.fetchall()
   # Pegando o filtro de tipo e não pegando o de laboratório
-  elif session.get('tipo') and not session.get('laboratorio'):
+  elif session.get('tipo') and not session.get('laboratorio_num'):
     cursor.execute(f''' SELECT * FROM chamados WHERE problema_tipo = "{session.get('tipo')}" AND estado = "aberto" ''')
     chamadosAbertos = cursor.fetchall()
     cursor.execute(f''' SELECT * FROM chamados WHERE problema_tipo = "{session.get('tipo')}" AND estado = "fechado" ''')
     chamadosFechados = cursor.fetchall()
   # Pegando o filtro de laboratório e não pegando o de tipo
-  elif not session.get('tipo') and session.get('laboratorio'):
-    cursor.execute(f''' SELECT * FROM chamados WHERE laboratorio_num = "{session.get('laboratorio')}" AND estado = "aberto" ''')
+  elif not session.get('tipo') and session.get('laboratorio_num'):
+    cursor.execute(f''' SELECT * FROM chamados WHERE laboratorio_num = "{session.get('laboratorio_num')}" AND estado = "aberto" ''')
     chamadosAbertos = cursor.fetchall()
-    cursor.execute(f''' SELECT * FROM chamados WHERE laboratorio_num = "{session.get('laboratorio')}" AND estado = "fechado" ''')
+    cursor.execute(f''' SELECT * FROM chamados WHERE laboratorio_num = "{session.get('laboratorio_num')}" AND estado = "fechado" ''')
     chamadosFechados = cursor.fetchall()
   else:
     cursor.execute(f''' SELECT * FROM chamados WHERE estado = "aberto" ''')
@@ -134,7 +132,7 @@ def filtrar(tipo, laboratorio):
 @app.route('/limpar')
 def limpar():
   session['tipo'] = None
-  session['laboratorio'] = None
+  session['laboratorio_num'] = None
   return redirect('/tecnico/')
 
 @app.route('/tecnico/finishcall/<int:callnumber>')
@@ -174,8 +172,8 @@ def estatistics():
   totalChamados = totalChamados,
   chamadosAbertos = chamadosAbertos,
   chamadosFechados = chamadosFechados,
-  rota = "estatisticas1"
-    
+  rota = "estatisticas1",
+  titulo = 'SOS FATEC - Estatísticas'
     )
 
 @app.route('/estatisticas/compproblems')
@@ -208,7 +206,7 @@ def estatisticsCompProblems():
   ProblemMouse = ProblemMouse,
   ProblemBoard = ProblemBoard,
   ProblemOther =  ProblemOther,
-    
+  titulo = 'SOS FATEC - Estatísticas'
   )
 
 @app.route('/estatisticas/labproblems')
@@ -246,7 +244,8 @@ def estatisticsLabProblems():
     Problem409 = Problem409,
     Problem410 = Problem410,
     Problem411 = Problem411,
-    Problem412 = Problem412, 
+    Problem412 = Problem412,
+    titulo = 'SOS FATEC - Estatísticas' 
   )
 
       # ESTATISTICAS DE CADA LABORATORIO
@@ -289,6 +288,7 @@ def eachlabproblems301():
   Problem301Mouse = Problem301Mouse,
   Problem301Board =  Problem301Board,
   Problem301Other = Problem301Other,
+  titulo = 'SOS FATEC - Estatísticas'
   )
 
 @app.route('/estatisticas/eachlabproblems302')
@@ -325,7 +325,8 @@ def eachlabproblems302():
   Problem302FreezingScreen = Problem302FreezingScreen,
   Problem302Mouse = Problem302Mouse,
   Problem302Board =  Problem302Board,
-  Problem302Other = Problem302Other,)
+  Problem302Other = Problem302Other,
+  titulo = 'SOS FATEC - Estatísticas')
 
 
 @app.route('/estatisticas/eachlabproblems303')
@@ -363,6 +364,7 @@ def eachlabproblems303():
   Problem303Mouse = Problem303Mouse,
   Problem303Board =  Problem303Board,
   Problem303Other = Problem303Other,
+  titulo = 'SOS FATEC - Estatísticas'
   )
 
 @app.route('/estatisticas/eachlabproblems401')
@@ -398,7 +400,8 @@ def eachlabproblems401():
   Problem401FreezingScreen = Problem401FreezingScreen,
   Problem401Mouse = Problem401Mouse,
   Problem401Board =  Problem401Board,
-  Problem401Other = Problem401Other,)
+  Problem401Other = Problem401Other,
+  titulo = 'SOS FATEC - Estatísticas')
 
 @app.route('/estatisticas/eachlabproblems402')
 def eachlabproblems402():
@@ -433,7 +436,8 @@ def eachlabproblems402():
   Problem402FreezingScreen = Problem402FreezingScreen,
   Problem402Mouse = Problem402Mouse,
   Problem402Board =  Problem402Board,
-  Problem402Other = Problem402Other,)
+  Problem402Other = Problem402Other,
+  titulo = 'SOS FATEC - Estatísticas')
 
 @app.route('/estatisticas/eachlabproblems403')
 def eachlabproblems403():
@@ -469,7 +473,8 @@ def eachlabproblems403():
   Problem403FreezingScreen = Problem403FreezingScreen,
   Problem403Mouse = Problem403Mouse,
   Problem403Board =  Problem403Board,
-  Problem403Other = Problem403Other,)
+  Problem403Other = Problem403Other,
+  titulo = 'SOS FATEC - Estatísticas')
 
 @app.route('/estatisticas/eachlabproblems404')
 def eachlabproblems404():
@@ -505,7 +510,8 @@ def eachlabproblems404():
   Problem404FreezingScreen = Problem404FreezingScreen,
   Problem404Mouse = Problem404Mouse,
   Problem404Board =  Problem404Board,
-  Problem404Other = Problem404Other,)
+  Problem404Other = Problem404Other,
+  titulo = 'SOS FATEC - Estatísticas')
 
 @app.route('/estatisticas/eachlabproblems405')
 def eachlabproblems405():
@@ -542,6 +548,7 @@ def eachlabproblems405():
   Problem405Mouse = Problem405Mouse,
   Problem405Board =  Problem405Board,
   Problem405Other = Problem405Other,
+  titulo = 'SOS FATEC - Estatísticas'
   )
 
 @app.route('/estatisticas/eachlabproblems406')
@@ -579,6 +586,7 @@ def eachlabproblems406():
   Problem406Mouse = Problem406Mouse,
   Problem406Board =  Problem406Board,
   Problem406Other = Problem406Other,
+  titulo = 'SOS FATEC - Estatísticas'
   )
 
 @app.route('/estatisticas/eachlabproblems407')
@@ -616,7 +624,8 @@ def eachlabproblems407():
   Problem407FreezingScreen = Problem407FreezingScreen,
   Problem407Mouse = Problem407Mouse,
   Problem407Board =  Problem407Board,
-  Problem407Other = Problem407Other,)
+  Problem407Other = Problem407Other,
+  titulo = 'SOS FATEC - Estatísticas')
 
 
 @app.route('/estatisticas/eachlabproblems408')
@@ -655,7 +664,8 @@ def eachlabproblems408():
   Problem408FreezingScreen = Problem408FreezingScreen,
   Problem408Mouse = Problem408Mouse,
   Problem408Board =  Problem408Board,
-  Problem408Other = Problem408Other,)
+  Problem408Other = Problem408Other,
+  titulo = 'SOS FATEC - Estatísticas')
 
 @app.route('/estatisticas/eachlabproblems409')
 def eachlabproblems409():
@@ -692,7 +702,8 @@ def eachlabproblems409():
   Problem409FreezingScreen = Problem409FreezingScreen,
   Problem409Mouse = Problem409Mouse,
   Problem409Board =  Problem409Board,
-  Problem409Other = Problem409Other,)
+  Problem409Other = Problem409Other,
+  titulo = 'SOS FATEC - Estatísticas')
 
 @app.route('/estatisticas/eachlabproblems410')
 def eachlabproblems410():
@@ -729,7 +740,8 @@ def eachlabproblems410():
   Problem410FreezingScreen = Problem410FreezingScreen,
   Problem410Mouse = Problem410Mouse,
   Problem410Board =  Problem410Board,
-  Problem410Other = Problem410Other,)
+  Problem410Other = Problem410Other,
+  titulo = 'SOS FATEC - Estatísticas')
 
 @app.route('/estatisticas/eachlabproblems411')
 def eachlabproblems411():
@@ -767,6 +779,7 @@ def eachlabproblems411():
   Problem411Mouse = Problem411Mouse,
   Problem411Board =  Problem411Board,
   Problem411Other = Problem411Other,
+  titulo = 'SOS FATEC - Estatísticas'
 )
 
 @app.route('/estatisticas/eachlabproblems412')
@@ -804,7 +817,8 @@ def eachlabproblems412():
   Problem412FreezingScreen = Problem412FreezingScreen,
   Problem412Mouse = Problem412Mouse,
   Problem412Board =  Problem412Board,
-  Problem412Other = Problem412Other,)
+  Problem412Other = Problem412Other,
+  titulo = 'SOS FATEC - Estatísticas')
   
 
 if __name__ == '__main__':

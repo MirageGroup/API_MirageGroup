@@ -1,155 +1,131 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="{{ url_for('static',     filename='css/reset.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static',     filename='css/style.css') }}">
+{% extends "header.html" %}+841
+{% block main %}
     
-    <title>Laboratório {{labnum}} Editar</title>
-  </head>
-  <body>
-    
-    {% extends "header.html" %}+841
-    {% block content %}
-    
-    <main>
-      <div class="lab_superior">
-                <h1>Editor de laboratório</h1>
-                
-              </div>
-              <div class="titulos_edit">
-                <div class="titulos_editor">
-                  <h1>LAYOUT DA SALA</h1>
-                  <p>Arraste e solte os computadores para customizar o layout</p>
-                  <p>Use os botões para adicionar ou remover computadores</p>
-                  <p>Abaixo você pode atualizar as especificações dos computadores</p>
-                  <p>Quando terminar, clique no botão Salvar</p>
-                  <br>
-                  <form action="/lab/{{labnum}}/edit/salvar" method="POST">
-                    <input type="text" class="hidden_input" id="remove_pcs" name="remove_pcs">
-                    <input type="text" class="hidden_input" id="new_pcs" name="new_pcs">
-                    <input type="text" class="hidden_input" id="new_pos" name="new_pos">
-                    <input type="text" class="hidden_input" id="layout" name="layout">
-                    <input type="text" class="hidden_input" id="cpu2" name="cpu">
-                    <input type="text" class="hidden_input" id="gpu2" name="gpu">
-                    <input type="text" class="hidden_input" id="ram2" name="ram">
-                    <input type="text" class="hidden_input" id="os2" name="os">
-                    <button type="input" class="btn btn-danger mt-4" id="save_edit_button">SALVAR</button>
-                  </form>
-                </div>
-              </div>
-              <div class="action_buttons_container">
-                <button class="btn btn-warning action_buttons" id="add_computer_btn" data-bs-toggle="modal" data-bs-target="#modal_add_computer">Adicionar computador</button>
-                <button class="btn btn-warning action_buttons" id="remove_computer_btn">Remover computador</button>
-              </div>
+<main>
+  <div class="lab_superior">
+            <h1>Editor de laboratório</h1>
             
-        <br><br>
+          </div>
+          <div class="titulos_edit">
+            <div class="titulos_editor">
+              <h1>LABORATÓRIO {{ labnum }}</h1>
+              <p>Arraste e solte os computadores para customizar o layout</p>
+              <p>Use os botões para adicionar ou remover computadores</p>
+              <p>Abaixo você pode atualizar as especificações dos computadores</p>
+              <p>Quando terminar, clique no botão Salvar</p>
+              <br>
+              <form action="/lab/{{labnum}}/edit/salvar" method="POST">
+                <input type="text" class="hidden_input" id="remove_pcs" name="remove_pcs">
+                <input type="text" class="hidden_input" id="new_pcs" name="new_pcs">
+                <input type="text" class="hidden_input" id="new_pos" name="new_pos">
+                <input type="text" class="hidden_input" id="layout" name="layout">
+                <input type="text" class="hidden_input" id="cpu2" name="cpu">
+                <input type="text" class="hidden_input" id="gpu2" name="gpu">
+                <input type="text" class="hidden_input" id="ram2" name="ram">
+                <input type="text" class="hidden_input" id="os2" name="os">
+                <button type="input" class="btn btn-danger mt-4" id="save_edit_button">SALVAR</button>
+              </form>
+            </div>
+          </div>
+          <div class="action_buttons_container">
+            <button class="btn btn-warning action_buttons" id="add_computer_btn" data-bs-toggle="modal" data-bs-target="#modal_add_computer">Adicionar computador</button>
+            <button class="btn btn-warning action_buttons" id="remove_computer_btn">Remover computador</button>
+          </div>
         
-        <!-- computadores -->
+    <br><br>
+    
+    <!-- computadores -->
 
-              {% if not computadores %}
-                <section class="layout_editores">
-                  <div class="area_de_computadores">
-                    {% for i in range(1, 89) %}
-                      <div class="dropzone"></div>
-                    {% endfor %}
-                  </div>
-                </section>
-              {% else %}
-        <section class="layout_editores">
-          <div class="area_de_computadores">
-            {% set vars = namespace(valor=0) %}
-          {% for i in range(1, 89) %}
-          {% if vars.valor == computadores|length %}
-            {% set vars.valor = 0 %}
-          {% endif %}
-            {% if computadores[vars.valor][0] == i %}
-              {% if computadores[vars.valor][2] == None %}
-                <div class="dropzone" data-pos="{{i}}">
-                  <card class="card_computador card" data-exists="yes" data-pc-id="{{computadores[vars.valor][1]}}" data-bs-toggle="modal" data-bs-target="#modal-teste"  data-bs-whatever="{{computadores[vars.valor][2]}}" draggable="true" id="{{computadores[vars.valor][2]}}">
-                    <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="{{computadores[vars.valor][3]}}" data-bs-trigger="hover">  
-                      <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
-                      <div class="container_texto status_verde">
-                        <p class="texto_computador ">{{computadores[vars.valor][1]}}</p>
-                      </div>
-                    </div> 
-                  </card>
+          {% if not computadores %}
+            <section class="layout_editores">
+              <div class="area_de_computadores">
+                {% for i in range(1, 89) %}
+                  <div class="dropzone"></div>
+                {% endfor %}
               </div>
-              {% set vars.valor = vars.valor + 1 %}
-              {% else %}
-                <div class="dropzone" data-pos="{{i}}">
-                  <card class="card_computador card" data-exists="yes" data-pc-id="{{computadores[vars.valor][1]}}" data-bs-toggle="modal" data-bs-target="#modal-red"  data-bs-problema='{"pc_problema":"{{computadores[vars.valor][2]}}", "pc_descricao":"{{computadores[vars.valor][3]}}"}' draggable="true" id="problem">
-                    <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="{{computadores[vars.valor][3]}}" data-bs-trigger="hover">  
-                      <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
-                      <div class="container_texto status_vermelho">
-                        <p class="texto_computador ">{{computadores[vars.valor][1]}}</p>
-                      </div>
-                    </div> 
-                  </card>
-                </div>
-                {% set vars.valor = vars.valor + 1 %}
-              {% endif %}
-            {% else %}
-              <div class="dropzone" data-pos="{{i}}"></div>
-            {% endif %}
-          {% endfor %}
-          </div> 
-        </section>
+            </section>
+          {% else %}
+    <section class="layout_editores">
+      <div class="area_de_computadores">
+        {% set vars = namespace(valor=0) %}
+      {% for i in range(1, 89) %}
+      {% if vars.valor == computadores|length %}
+        {% set vars.valor = 0 %}
       {% endif %}
+        {% if computadores[vars.valor][0] == i %}
+          {% if computadores[vars.valor][2] == None %}
+            <div class="dropzone" data-pos="{{i}}">
+              <card class="card_computador card" data-exists="yes" data-pc-id="{{computadores[vars.valor][1]}}" data-bs-toggle="modal" data-bs-target="#modal-teste"  data-bs-whatever="{{computadores[vars.valor][2]}}" draggable="true" id="{{computadores[vars.valor][2]}}">
+                <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="{{computadores[vars.valor][3]}}" data-bs-trigger="hover">  
+                  <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
+                  <div class="container_texto status_verde">
+                    <p class="texto_computador ">{{computadores[vars.valor][1]}}</p>
+                  </div>
+                </div> 
+              </card>
+          </div>
+          {% set vars.valor = vars.valor + 1 %}
+          {% else %}
+            <div class="dropzone" data-pos="{{i}}">
+              <card class="card_computador card" data-exists="yes" data-pc-id="{{computadores[vars.valor][1]}}" data-bs-toggle="modal" data-bs-target="#modal-red"  data-bs-problema='{"pc_problema":"{{computadores[vars.valor][2]}}", "pc_descricao":"{{computadores[vars.valor][3]}}"}' draggable="true" id="problem">
+                <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="{{computadores[vars.valor][3]}}" data-bs-trigger="hover">  
+                  <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
+                  <div class="container_texto status_vermelho">
+                    <p class="texto_computador ">{{computadores[vars.valor][1]}}</p>
+                  </div>
+                </div> 
+              </card>
+            </div>
+            {% set vars.valor = vars.valor + 1 %}
+          {% endif %}
+        {% else %}
+          <div class="dropzone" data-pos="{{i}}"></div>
+        {% endif %}
+      {% endfor %}
+      </div> 
+    </section>
+  {% endif %}
 
-      <section class="container_especificações">
-        <div class="container_especificações_titulo">
-          ESPECIFICAÇÕES
-        </div> 
-        <hr style="width:100%">
-        <section class="especificações">
-          <div class="especificação_item">
-            <h3>Processador</h3>
+  <section class="container_especificações">
+    <div class="container_especificações_titulo">
+      ESPECIFICAÇÕES
+    </div> 
+    <hr style="width:100%">
+    <section class="especificações">
+      <div class="especificação_item">
+        <h3>Processador</h3>
+    
+        <img class="especificações_item_imagem" src="{{ url_for('static',     filename='img/processor.svg') }}">
+        <p class="especificações_texto">{{componentes[0][1]}}</p>
+          <input id="cpu1" type="text" class="form-control" name="componente" autocomplete="off" style="width: 80%;"/>
+        <!-- <p class="especificações_texto_hover"> A CPU ou o processador é o “cérebro” de todo computador e celular do planeta: trata-se do componente responsável por executar todas as operações necessárias para o funcionamento do dispositivo.</p> -->
+      </div>
+      <div class="especificação_item">
+        <h3>Placa de Vídeo</h3>
         
-            <img class="especificações_item_imagem" src="{{ url_for('static',     filename='img/processor.svg') }}">
-            <p class="especificações_texto">{{componentes[0][1]}}</p>
-              <input id="cpu1" type="text" class="form-control" name="componente" autocomplete="off" style="width: 80%;"/>
-            <!-- <p class="especificações_texto_hover"> A CPU ou o processador é o “cérebro” de todo computador e celular do planeta: trata-se do componente responsável por executar todas as operações necessárias para o funcionamento do dispositivo.</p> -->
-          </div>
-          <div class="especificação_item">
-            <h3>Placa de Vídeo</h3>
-            
-            <img class="especificações_item_imagem" src="{{ url_for('static',     filename='img/gpu.svg') }}">
-            <p class="especificações_texto">{{componentes[0][2]}}</p>
-              <input id="gpu1" type="text" class="form-control" name="componente" autocomplete="off" style="width: 80%;"/>
-            <!-- <p class="especificações_texto_hover">GPU é um processadorque trabalha de maneira dedicada a atividades de vídeo dentro do computador. A sigla remete ao nome Unidade de Processamento Gráfico e sua função é processar as informações gráficas de uma máquina. Ela também diminui a sobrecarga da CPU e melhora a troca de dados entre as duas peças. </p> -->
-          </div>
-          <div class="especificação_item">
-            <h3>Memória RAM</h3>
-          
-            <img class="especificações_item_imagem" src="{{ url_for('static',     filename='img/memoria.svg') }}">
-            <p class="especificações_texto">{{componentes[0][3]}}</p>
-              <input id="ram1" type="text" class="form-control" name="componente" autocomplete="off" style="width: 80%;" />
-            <!-- <p class="especificações_texto_hover"> A memória RAM, também chamado de memória volátil de leitura e escrita, é uma memória temporária computacional de acesso rápido; ou seja, é um local de armazenamento temporário de informações digitais usada pelo processador para armazenar informações temporariamente e que possui um acesso feito de forma aleatória</p> -->
-          </div>
-          <div class="especificação_item">
-            <h3>Sistema Operacional</h3>
-            
-            <img class="especificações_item_imagem" src="{{ url_for('static',     filename='img/sistema.svg') }}">
-            <p class="especificações_texto">{{componentes[0][4]}}</p>
-              <input id="os1" type="text" class="form-control" name="componente" autocomplete="off" style="width: 80%;" />
-            <!-- <p class="especificações_texto_hover "> O sistema operacional é um software, ou conjunto de softwares, cuja função é administrar e gerenciar os recursos de um sistema, desde componentes de hardware e sistemas de arquivos a programas de terceiros, estabelecendo a interface entre o computador e o usuário.</p> -->
-          </div>
+        <img class="especificações_item_imagem" src="{{ url_for('static',     filename='img/gpu.svg') }}">
+        <p class="especificações_texto">{{componentes[0][2]}}</p>
+          <input id="gpu1" type="text" class="form-control" name="componente" autocomplete="off" style="width: 80%;"/>
+        <!-- <p class="especificações_texto_hover">GPU é um processadorque trabalha de maneira dedicada a atividades de vídeo dentro do computador. A sigla remete ao nome Unidade de Processamento Gráfico e sua função é processar as informações gráficas de uma máquina. Ela também diminui a sobrecarga da CPU e melhora a troca de dados entre as duas peças. </p> -->
+      </div>
+      <div class="especificação_item">
+        <h3>Memória RAM</h3>
+      
+        <img class="especificações_item_imagem" src="{{ url_for('static',     filename='img/memoria.svg') }}">
+        <p class="especificações_texto">{{componentes[0][3]}}</p>
+          <input id="ram1" type="text" class="form-control" name="componente" autocomplete="off" style="width: 80%;" />
+        <!-- <p class="especificações_texto_hover"> A memória RAM, também chamado de memória volátil de leitura e escrita, é uma memória temporária computacional de acesso rápido; ou seja, é um local de armazenamento temporário de informações digitais usada pelo processador para armazenar informações temporariamente e que possui um acesso feito de forma aleatória</p> -->
+      </div>
+      <div class="especificação_item">
+        <h3>Sistema Operacional</h3>
+        
+        <img class="especificações_item_imagem" src="{{ url_for('static',     filename='img/sistema.svg') }}">
+        <p class="especificações_texto">{{componentes[0][4]}}</p>
+          <input id="os1" type="text" class="form-control" name="componente" autocomplete="off" style="width: 80%;" />
+        <!-- <p class="especificações_texto_hover "> O sistema operacional é um software, ou conjunto de softwares, cuja função é administrar e gerenciar os recursos de um sistema, desde componentes de hardware e sistemas de arquivos a programas de terceiros, estabelecendo a interface entre o computador e o usuário.</p> -->
+      </div>
 
-        </section>
-
-<footer class="footer_home">
-    <h1>Todos os direitos Reservados</h1>
-    <div class="github">
-        <a class="link_github">https://github.com/MirageGroup</a>
-    </div>
-</footer>
+    </section>
 
 <!-- MODAIS -->
 
@@ -183,6 +159,3 @@
 });
 </script>
 {% endblock %}
-
-</body>
-</html>

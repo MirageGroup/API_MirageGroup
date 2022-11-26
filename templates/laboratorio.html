@@ -1,126 +1,109 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="{{ url_for('static',     filename='css/reset.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static',     filename='css/style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static',     filename='css/main.css') }}">
-    <title>Laboratório {{ labnum }}</title>
-</head>
-<body>
-          
-    {% extends "header.html" %}
-    {% block content %}
+{% extends "header.html" %}
+{% block main %}
 
-    <main>
-        <div class="lab_superior">
-            <h1>Laboratório {{labnum}}</h1>
+<main>
+    <div class="lab_superior">
+        <h1>Laboratório {{labnum}}</h1>
 
-        <!-- Editar Lab -->
+    <!-- Editar Lab -->
 
-        {% if session.get('key') %}
-          <a class="btn btn-danger mt-4" id="save_edit_button" href="{{labnum}}/edit">Editar Laboratório</a>
-        {% endif %}
-        </div>
-        <hr>
+    {% if session.get('key') %}
+      <a class="btn btn-danger mt-4" id="save_edit_button" href="{{labnum}}/edit">Editar Laboratório</a>
+    {% endif %}
+    </div>
+    <hr>
 
-        <!-- COMPUTADORES -->
+    <!-- COMPUTADORES -->
 
-        {% if not computadores %}
-        <div class="container_lab_vazio">
-          <h1>não há computadores aqui</h1>
-          <p>No momento, esta sala está sem dispositivos disponiveis</p>
-          <img src="../static/img/error.svg">
-        </div>
-        {% else %}
-        
-    <section class="layout_editores">
-        <div class="area_de_computadores">
-          {% set vars = namespace(valor=0) %}
-          {% for i in range(1, 89) %}
-          {% if vars.valor == computadores|length %}
-            {% set vars.valor = 0 %}
+    {% if not computadores %}
+    <div class="container_lab_vazio">
+      <h1>não há computadores aqui</h1>
+      <p>No momento, esta sala está sem dispositivos disponiveis</p>
+      <img src="../static/img/error.svg">
+    </div>
+    {% else %}
+    
+<section class="layout_editores">
+    <div class="area_de_computadores">
+      {% set vars = namespace(valor=0) %}
+      {% for i in range(1, 89) %}
+      {% if vars.valor == computadores|length %}
+        {% set vars.valor = 0 %}
+      {% endif %}
+        {% if computadores[vars.valor][0] == i %}
+          {% if computadores[vars.valor][2] == None %}
+            <div class="dropzone">
+              <card class="card_computador card" data-bs-toggle="modal" draggable="true" data-bs-target="#modal-teste"  data-bs-whatever="{{computadores[vars.valor][1]}}" id="{{computadores[vars.valor][1]}}">
+                <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="O computador está funcionando corretamente" data-bs-trigger="hover">  
+                  <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
+                  <div class="container_texto status_verde">
+                    <p class="texto_computador ">{{computadores[vars.valor][1]}}</p>
+                  </div>
+                </div> 
+              </card>
+          </div>
+          {% set vars.valor = vars.valor + 1 %}
+          {% else %}
+            <div class="dropzone">
+              <card class="card_computador card" data-bs-toggle="modal" draggable="true" data-bs-target="#modal-red"  data-bs-problema='{"pc_problema":"{{computadores[vars.valor][2]}}", "pc_descricao":"{{computadores[vars.valor][3]}}"}' id="problem">
+                <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="{{computadores[vars.valor][3]}}" data-bs-trigger="hover">  
+                  <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
+                  <div class="container_texto status_vermelho">
+                    <p class="texto_computador ">{{computadores[vars.valor][1]}}</p>
+                  </div>
+                </div> 
+              </card>
+            </div>
+            {% set vars.valor = vars.valor + 1 %}
           {% endif %}
-            {% if computadores[vars.valor][0] == i %}
-              {% if computadores[vars.valor][2] == None %}
-                <div class="dropzone">
-                  <card class="card_computador card" data-bs-toggle="modal" draggable="true" data-bs-target="#modal-teste"  data-bs-whatever="{{computadores[vars.valor][1]}}" id="{{computadores[vars.valor][1]}}">
-                    <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="O computador está funcionando corretamente" data-bs-trigger="hover">  
-                      <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
-                      <div class="container_texto status_verde">
-                        <p class="texto_computador ">{{computadores[vars.valor][1]}}</p>
-                      </div>
-                    </div> 
-                  </card>
-              </div>
-              {% set vars.valor = vars.valor + 1 %}
-              {% else %}
-                <div class="dropzone">
-                  <card class="card_computador card" data-bs-toggle="modal" draggable="true" data-bs-target="#modal-red"  data-bs-problema='{"pc_problema":"{{computadores[vars.valor][2]}}", "pc_descricao":"{{computadores[vars.valor][3]}}"}' id="problem">
-                    <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="{{computadores[vars.valor][3]}}" data-bs-trigger="hover">  
-                      <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
-                      <div class="container_texto status_vermelho">
-                        <p class="texto_computador ">{{computadores[vars.valor][1]}}</p>
-                      </div>
-                    </div> 
-                  </card>
-                </div>
-                {% set vars.valor = vars.valor + 1 %}
-              {% endif %}
-            {% else %}
-              <div class="dropzone"></div>
-            {% endif %}
-          {% endfor %}
+        {% else %}
+          <div class="dropzone"></div>
         {% endif %}
-        </div> 
-    </section>
+      {% endfor %}
+    {% endif %}
+    </div> 
+</section>
 
-        </section>
-        {% if not computadores %}
-        {% else%}
-        <section class="container_especificações">
-            <div class="container_especificações_titulo">
-              ESPECIFICAÇÕES
-            </div> 
-            <hr style="width:100%">
-            <section class="especificações">
-              <div class="especificação_item">
-                <h3>Processador</h3>
-            
-                <img class="especificações_item_imagem" src="../static/img/processor.svg">
-                <p class="especificações_texto">{{componentes[0][1]}}</p>
-                <!-- <p class="especificações_texto_hover"> A CPU ou o processador é o “cérebro” de todo computador e celular do planeta: trata-se do componente responsável por executar todas as operações necessárias para o funcionamento do dispositivo.</p> -->
-              </div>
-              <div class="especificação_item">
-                <h3>Placa de Vídeo</h3>         
-                <img class="especificações_item_imagem" src="../static/img/gpu.svg">
-                <p class="especificações_texto">{{componentes[0][2]}}</p>
-                <!-- <p class="especificações_texto_hover">GPU é um processadorque trabalha de maneira dedicada a atividades de vídeo dentro do computador. A sigla remete ao nome Unidade de Processamento Gráfico e sua função é processar as informações gráficas de uma máquina. Ela também diminui a sobrecarga da CPU e melhora a troca de dados entre as duas peças. </p> -->
-              </div>
-              <div class="especificação_item">
-                <h3>Memória RAM</h3>              
-                <img class="especificações_item_imagem" src="../static/img/memoria.svg">
-                <p class="especificações_texto">{{componentes[0][3]}}</p>
-                <!-- <p class="especificações_texto_hover"> A memória RAM, também chamado de memória volátil de leitura e escrita, é uma memória temporária computacional de acesso rápido; ou seja, é um local de armazenamento temporário de informações digitais usada pelo processador para armazenar informações temporariamente e que possui um acesso feito de forma aleatória</p> -->
-              </div>
-              <div class="especificação_item">
-                <h3>Sistema Operacional</h3>               
-                <img class="especificações_item_imagem" src="../static/img/sistema.svg">
-                <p class="especificações_texto">{{componentes[0][4]}}</p>
-                <!-- <p class="especificações_texto_hover "> O sistema operacional é um software, ou conjunto de softwares, cuja função é administrar e gerenciar os recursos de um sistema, desde componentes de hardware e sistemas de arquivos a programas de terceiros, estabelecendo a interface entre o computador e o usuário.</p> -->
-              </div>
-            </section>        
-        </section>
-        {%endif%}       
-        <div class="div_transição transição_degrade">
-        </div>
-    </main>
+    </section>
+    {% if not computadores %}
+    {% else%}
+    <section class="container_especificações">
+        <div class="container_especificações_titulo">
+          ESPECIFICAÇÕES
+        </div> 
+        <hr style="width:100%">
+        <section class="especificações">
+          <div class="especificação_item">
+            <h3>Processador</h3>
+        
+            <img class="especificações_item_imagem" src="../static/img/processor.svg">
+            <p class="especificações_texto">{{componentes[0][1]}}</p>
+            <!-- <p class="especificações_texto_hover"> A CPU ou o processador é o “cérebro” de todo computador e celular do planeta: trata-se do componente responsável por executar todas as operações necessárias para o funcionamento do dispositivo.</p> -->
+          </div>
+          <div class="especificação_item">
+            <h3>Placa de Vídeo</h3>         
+            <img class="especificações_item_imagem" src="../static/img/gpu.svg">
+            <p class="especificações_texto">{{componentes[0][2]}}</p>
+            <!-- <p class="especificações_texto_hover">GPU é um processadorque trabalha de maneira dedicada a atividades de vídeo dentro do computador. A sigla remete ao nome Unidade de Processamento Gráfico e sua função é processar as informações gráficas de uma máquina. Ela também diminui a sobrecarga da CPU e melhora a troca de dados entre as duas peças. </p> -->
+          </div>
+          <div class="especificação_item">
+            <h3>Memória RAM</h3>              
+            <img class="especificações_item_imagem" src="../static/img/memoria.svg">
+            <p class="especificações_texto">{{componentes[0][3]}}</p>
+            <!-- <p class="especificações_texto_hover"> A memória RAM, também chamado de memória volátil de leitura e escrita, é uma memória temporária computacional de acesso rápido; ou seja, é um local de armazenamento temporário de informações digitais usada pelo processador para armazenar informações temporariamente e que possui um acesso feito de forma aleatória</p> -->
+          </div>
+          <div class="especificação_item">
+            <h3>Sistema Operacional</h3>               
+            <img class="especificações_item_imagem" src="../static/img/sistema.svg">
+            <p class="especificações_texto">{{componentes[0][4]}}</p>
+            <!-- <p class="especificações_texto_hover "> O sistema operacional é um software, ou conjunto de softwares, cuja função é administrar e gerenciar os recursos de um sistema, desde componentes de hardware e sistemas de arquivos a programas de terceiros, estabelecendo a interface entre o computador e o usuário.</p> -->
+          </div>
+        </section>        
+    </section>
+    {%endif%}       
+    <div class="div_transição transição_degrade">
+    </div>
+</main>
 
     <!-- MODAL REPORT-->
 <div class="modal fade" id="modal-teste" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -159,52 +142,38 @@
     </div>
 </div>
 
-    <!-- MODAL VERMELHO-->
+<!-- MODAL VERMELHO-->
 
-    <div class="modal fade" id="modal-red" tabindex="-1" aria-labelledby="exampleModalLabelred" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered text-center">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title fw-bold" id="exampleModalLabel ">Computador com defeito</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body " >
-              <div class="modal_red_title">
-                <h1 class="fw-bold text-center fs-3">Este computador já foi reportado</h1>
-                <p class="fs-6 text-center m-3">Nossa equipe de técnicos já está trabalhando com a manutenção do equipamento</p>
-                <img class="text-center" src="{{url_for('static', filename='img/icone_tecnico.png')}}">
-              </div>
-              <div  class='modal_red_description'>
-                <br>
-                <p class="fs-5 m-3 fw_semibold"><strong>Problemas relatados neste computador:</strong></p>
-                <input type="text" class="form-control espeçamento_modal" id="problema" readonly="true">
-                <br>
-                <textarea id="descricao" class="form-control espeçamento_modal" readonly="true"></textarea>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+<div class="modal fade" id="modal-red" tabindex="-1" aria-labelledby="exampleModalLabelred" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered text-center">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="exampleModalLabel ">Computador com defeito</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body " >
+          <div class="modal_red_title">
+            <h1 class="fw-bold text-center fs-3">Este computador já foi reportado</h1>
+            <p class="fs-6 text-center m-3">Nossa equipe de técnicos já está trabalhando com a manutenção do equipamento</p>
+            <img class="text-center" src="{{url_for('static', filename='img/icone_tecnico.png')}}">
           </div>
+          <div  class='modal_red_description'>
+            <br>
+            <p class="fs-5 m-3 fw_semibold"><strong>Problemas relatados neste computador:</strong></p>
+            <input type="text" class="form-control espeçamento_modal" id="problema" readonly="true">
+            <br>
+            <textarea id="descricao" class="form-control espeçamento_modal" readonly="true"></textarea>
           </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+      </div>
       </div>
   </div>
+</div>
 
-        <!-- MODAL LOGIN -->
-
-        {% include 'modal.html' %}
-
-  <footer class="footer_home">
-    <img class="img-footer" src="../static/img/cps_brasao_sp_320x84.png" alt="fatec-logo">
-     <div class="github" >
-       <h1>Todos os direitos Reservados</h1>
-     </div>
-     <div class="link_github">
-      <p>Link para nossso repositório:</p>
-       <a href="https://github.com/MirageGroup/API_MirageGroup" target="_blank">
-         <img class="media-object" src="../static/img/GitHub-Mark-removebg-preview.png" alt="logo-git">
-       </a>
-      </div> 
-  </footer> 
+<!-- MODAL LOGIN -->
+{% include 'modal.html' %}
 
 <script src="{{ url_for('static',     filename='js/modal.js') }}"></script>
 
@@ -218,6 +187,3 @@
 </script>
 
 {% endblock %}
-
-</body>
-</html>
