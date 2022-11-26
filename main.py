@@ -131,6 +131,12 @@ def filtrar(tipo, laboratorio):
   chamados = [chamadosAbertos, chamadosFechados]
   return chamados
 
+@app.route('/limpar')
+def limpar():
+  session['tipo'] = None
+  session['laboratorio'] = None
+  return redirect('/tecnico/')
+
 @app.route('/tecnico/finishcall/<int:callnumber>')
 def finishCall(callnumber):
   dbHandler.finishCall(callnumber)
