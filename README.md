@@ -32,7 +32,7 @@ Cada entrega foi realizada a partir da criação de uma **tag**. Observe a rela�
 | 01 | [sprint-01](https://github.com/MirageGroup/API_MirageGroup/tree/entrega/sprint-1) | 18/09/2022 | Entregue | [ver relatório](https://github.com/MirageGroup/API_MirageGroup/blob/entrega/sprint-1/README.md) |
 | 02 | [sprint-02](https://github.com/MirageGroup/API_MirageGroup/tree/entrega/sprint-2) | 09/10/2022 | Entregue | [ver relatório](https://github.com/MirageGroup/API_MirageGroup/tree/entrega/sprint-2#readme) |
 | 03 | [sprint-03](https://github.com/MirageGroup/API_MirageGroup/blob/entrega/sprint-3/README.md) | 06/11/2022 | Entregue | [ver relatório](https://github.com/MirageGroup/API_MirageGroup/blob/entrega/sprint-3/README.md) |
-| 04 | [sprint-04](https://github.com/MirageGroup/API_MirageGroup/blob/entrega/sprint-4/README.md) | 27/11/2022 | Em desenvolvimento | [ver relatório](https://github.com/MirageGroup/API_MirageGroup/blob/entrega/sprint-4/README.md) |
+| 04 | [sprint-04](https://github.com/MirageGroup/API_MirageGroup/blob/entrega/sprint-4/README.md) | 27/11/2022 | Entregue | [ver relatório](https://github.com/MirageGroup/API_MirageGroup/blob/entrega/sprint-4/README.md) |
 
 → [Voltar ao topo](#topo)
 </div>
@@ -43,15 +43,15 @@ Clone o repositório para o seu computador, abra o repositório com o VS Code, a
 python -m venv venv && venv\Scripts\activate && pip install -r requirements.txt && python main.py
 ```
 
-  <h1 align="center" dir="auto"><a id="user-content--sprint-1-08032021-a-28032021-" class="anchor" aria-hidden="true" href="#-sprint-1-08032021-a-28032021-"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> Sprint 4: 07/11/2022 a 27/11/2022 <br> <a href="" target="_blank" align="center"><img src="https://img.shields.io/badge/Sprint%20Status-Em%20desenvolvimento-yellow"></a> </h1> <br>
+  <h1 align="center" dir="auto"><a id="user-content--sprint-1-08032021-a-28032021-" class="anchor" aria-hidden="true" href="#-sprint-1-08032021-a-28032021-"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a> Sprint 4: 07/11/2022 a 27/11/2022 <br> <a href="" target="_blank" align="center"><img src="https://img.shields.io/badge/API%20Status-Entregue-brightgreen"></a> </h1> <br>
 
-<img src="docs/mvp-sprint3.gif" alt="projeto-rodando"><br>
+<img src=""><br>
 
 <br>
 
 <h2 align="center">O Projeto</h2>
 
-![API Sprint 2](https://user-images.githubusercontent.com/111614142/200129552-8c3ec46b-69e5-434e-9953-0498791d4020.png)
+![API Sprint 3 (1)](https://user-images.githubusercontent.com/111614142/204145483-193e4566-5e09-4b4b-b632-3f78abca74f2.png)
 
 <br>
 
@@ -66,7 +66,8 @@ python -m venv venv && venv\Scripts\activate && pip install -r requirements.txt 
 
 <br>
 
-![API Sprint 2 (2)](https://user-images.githubusercontent.com/111614142/200130886-6ced391b-7ec9-4926-9b13-24ff8cdd822d.png)
+![API Sprint 3](https://user-images.githubusercontent.com/111614142/204145055-88b72eb3-4475-4b43-a38b-5854103c6340.png)
+
 
 <p dir="auto">→ <a href="#topo">Voltar ao topo</a></p>
 <span id="user-content-levantamento">
@@ -96,7 +97,9 @@ python -m venv venv && venv\Scripts\activate && pip install -r requirements.txt 
 </li>
 </ul>
 
-<h3>Equipe<h3>
+<h2>Equipe<h2>
+  
+![API Sprint 3 (2)](https://user-images.githubusercontent.com/111614142/204145671-e6198771-efa2-400a-8b8d-9d443c0abd9b.png)
 
 |    Função    | Nome                     |                     GitHub                     |                    Linkedin                    |
 | :----------: | :----------------------- | :--------------------------------------------: | :--------------------------------------------: |
