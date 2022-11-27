@@ -66,7 +66,7 @@ python -m venv venv && venv\Scripts\activate && pip install -r requirements.txt 
 
 <br>
 
-![API Sprint 3](https://user-images.githubusercontent.com/111614142/204145055-88b72eb3-4475-4b43-a38b-5854103c6340.png)
+![objetivos](https://user-images.githubusercontent.com/56747051/204163427-00c80b24-2ab3-443d-8448-2361b54e6426.jpg)
 
 
 <p dir="auto">→ <a href="#topo">Voltar ao topo</a></p>
